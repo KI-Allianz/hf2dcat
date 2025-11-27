@@ -1,0 +1,200 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      X-Amzn-Trace-Id:
+      - 7f6030e7-a795-4627-8ad9-ccb69553cc31
+      user-agent:
+      - unknown/None; hf_hub/0.33.5; python/3.12.3
+    method: GET
+    uri: https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2?blobs=True
+  response:
+    body:
+      string: '{"_id":"621ffdc136468d709f180294","id":"sentence-transformers/all-MiniLM-L6-v2","private":false,"pipeline_tag":"sentence-similarity","library_name":"sentence-transformers","tags":["sentence-transformers","pytorch","tf","rust","onnx","safetensors","openvino","bert","feature-extraction","sentence-similarity","transformers","en","dataset:s2orc","dataset:flax-sentence-embeddings/stackexchange_xml","dataset:ms_marco","dataset:gooaq","dataset:yahoo_answers_topics","dataset:code_search_net","dataset:search_qa","dataset:eli5","dataset:snli","dataset:multi_nli","dataset:wikihow","dataset:natural_questions","dataset:trivia_qa","dataset:embedding-data/sentence-compression","dataset:embedding-data/flickr30k-captions","dataset:embedding-data/altlex","dataset:embedding-data/simple-wiki","dataset:embedding-data/QQP","dataset:embedding-data/SPECTER","dataset:embedding-data/PAQ_pairs","dataset:embedding-data/WikiAnswers","arxiv:1904.06472","arxiv:2102.07033","arxiv:2104.08727","arxiv:1704.05179","arxiv:1810.09305","license:apache-2.0","autotrain_compatible","text-embeddings-inference","endpoints_compatible","region:us"],"downloads":141475902,"likes":4103,"modelId":"sentence-transformers/all-MiniLM-L6-v2","author":"sentence-transformers","sha":"c9745ed1d9f207416be6d2e6f8de32d1f16199bf","lastModified":"2025-03-06T13:37:44.000Z","gated":false,"disabled":false,"mask_token":"[MASK]","widgetData":[{"source_sentence":"That
+        is a happy person","sentences":["That is a happy dog","That is a very happy
+        person","Today is a sunny day"]}],"model-index":null,"config":{"architectures":["BertModel"],"model_type":"bert","tokenizer_config":{"unk_token":"[UNK]","sep_token":"[SEP]","pad_token":"[PAD]","cls_token":"[CLS]","mask_token":"[MASK]"}},"cardData":{"language":"en","license":"apache-2.0","library_name":"sentence-transformers","tags":["sentence-transformers","feature-extraction","sentence-similarity","transformers"],"datasets":["s2orc","flax-sentence-embeddings/stackexchange_xml","ms_marco","gooaq","yahoo_answers_topics","code_search_net","search_qa","eli5","snli","multi_nli","wikihow","natural_questions","trivia_qa","embedding-data/sentence-compression","embedding-data/flickr30k-captions","embedding-data/altlex","embedding-data/simple-wiki","embedding-data/QQP","embedding-data/SPECTER","embedding-data/PAQ_pairs","embedding-data/WikiAnswers"],"pipeline_tag":"sentence-similarity"},"transformersInfo":{"auto_model":"AutoModel","pipeline_tag":"feature-extraction","processor":"AutoTokenizer"},"siblings":[{"rfilename":".gitattributes","blobId":"2bf99854609538f90af03c921c41a0cbde670b2f","size":1229},{"rfilename":"1_Pooling/config.json","blobId":"d1514c3162bbe87b343f565fadc62e6c06f04f03","size":190},{"rfilename":"README.md","blobId":"58d4a9a45664eb9e12de9549c548c09b6134c17f","size":10454},{"rfilename":"config.json","blobId":"72b987fd805cfa2b58c4c8c952b274a11bfd5a00","size":612},{"rfilename":"config_sentence_transformers.json","blobId":"fd1b291129c607e5d49799f87cb219b27f98acdf","size":116},{"rfilename":"data_config.json","blobId":"2e85f0eac205cf444bdf97ede4935603ca6a0416","size":39265},{"rfilename":"model.safetensors","blobId":"d49eff1e4a6f0e3ba5069f21c6d20aad156dd2c9","size":90868376,"lfs":{"sha256":"53aa51172d142c89d9012cce15ae4d6cc0ca6895895114379cacb4fab128d9db","size":90868376,"pointerSize":133}},{"rfilename":"modules.json","blobId":"952a9b81c0bfd99800fabf352f69c7ccd46c5e43","size":349},{"rfilename":"onnx/model.onnx","blobId":"7d35d33d315a1ce897ce7cca38d42234e1d55add","size":90405214,"lfs":{"sha256":"6fd5d72fe4589f189f8ebc006442dbb529bb7ce38f8082112682524616046452","size":90405214,"pointerSize":133}},{"rfilename":"onnx/model_O1.onnx","blobId":"bb5d763143bc774b6fe626f8b5dd0f2d685f3630","size":90360328,"lfs":{"sha256":"1391c6fc20b5530250bc15cbe1f47578ffeca55ab0551d335cc668b6299a88ec","size":90360328,"pointerSize":133}},{"rfilename":"onnx/model_O2.onnx","blobId":"c803cb30515cd7d6bc8dbeb0d009f879301450ec","size":90326566,"lfs":{"sha256":"1de3905029190b398c7d300b530e320cf4b5e7d3dfb9af1429ebd73fd9a16faf","size":90326566,"pointerSize":133}},{"rfilename":"onnx/model_O3.onnx","blobId":"d4830defad5eb263b76329aa305b449071004e9c","size":90326497,"lfs":{"sha256":"a44f671e364dddbac31f203f07b91be6b0a35e51936e5ebfab65b6d9538b83ff","size":90326497,"pointerSize":133}},{"rfilename":"onnx/model_O4.onnx","blobId":"676970039029655289c386687790ed7bfc7fb919","size":45212349,"lfs":{"sha256":"1667d7f3ba669048b13a96ee3a44456d5e42c8f44588ae8b603430e16160c485","size":45212349,"pointerSize":133}},{"rfilename":"onnx/model_qint8_arm64.onnx","blobId":"31cb234cd3ea9b17b5806bad552fa59d7d05929b","size":23026053,"lfs":{"sha256":"4278337fd0ff3c68bfb6291042cad8ab363e1d9fbc43dcb499fe91c871902474","size":23026053,"pointerSize":133}},{"rfilename":"onnx/model_qint8_avx512.onnx","blobId":"31cb234cd3ea9b17b5806bad552fa59d7d05929b","size":23026053,"lfs":{"sha256":"4278337fd0ff3c68bfb6291042cad8ab363e1d9fbc43dcb499fe91c871902474","size":23026053,"pointerSize":133}},{"rfilename":"onnx/model_qint8_avx512_vnni.onnx","blobId":"31cb234cd3ea9b17b5806bad552fa59d7d05929b","size":23026053,"lfs":{"sha256":"4278337fd0ff3c68bfb6291042cad8ab363e1d9fbc43dcb499fe91c871902474","size":23026053,"pointerSize":133}},{"rfilename":"onnx/model_quint8_avx2.onnx","blobId":"7e0ad450c70c457e3d1fb2164d5efd251939d8cb","size":23046789,"lfs":{"sha256":"b941bf19f1f1283680f449fa6a7336bb5600bdcd5f84d10ddc5cd72218a0fd21","size":23046789,"pointerSize":133}},{"rfilename":"openvino/openvino_model.bin","blobId":"b706c3c25989b3595ebf22cfbb565e0e619dcb6b","size":90265744,"lfs":{"sha256":"8b86cab4722e2aefab310cf96d4d5a9eb3b187f7d9670a082afc55c7fa0d392a","size":90265744,"pointerSize":133}},{"rfilename":"openvino/openvino_model.xml","blobId":"5d24a16700f0198908929370f59330fb8d486b1b","size":211315},{"rfilename":"openvino/openvino_model_qint8_quantized.bin","blobId":"7a3e2ea667afee1712b24ac4096126e029de7fdc","size":22933664,"lfs":{"sha256":"c92ea4af3c6bc7b4a0f3b3d61b147c850f4dbdd7c9e7beee0c0c70dc12da289b","size":22933664,"pointerSize":133}},{"rfilename":"openvino/openvino_model_qint8_quantized.xml","blobId":"7152d195a075cf3f3dc3c3d6308d845f88e0117f","size":368006},{"rfilename":"pytorch_model.bin","blobId":"3417920b056b9a3d4257fba7a8bae5c5ae2910d6","size":90888945,"lfs":{"sha256":"c3a85f238711653950f6a79ece63eb0ea93d76f6a6284be04019c53733baf256","size":90888945,"pointerSize":133}},{"rfilename":"rust_model.ot","blobId":"7c3e117e015025bc605669cc11546708105b6f97","size":90887379,"lfs":{"sha256":"2d98d96d278348988f2744e6445b8bc16d921c3f6e17c667362f3cb353007aea","size":90887379,"pointerSize":133}},{"rfilename":"sentence_bert_config.json","blobId":"59d594003bf59880a884c574bf88ef7555bb0202","size":53},{"rfilename":"special_tokens_map.json","blobId":"e7b0375001f109a6b8873d756ad4f7bbb15fbaa5","size":112},{"rfilename":"tf_model.h5","blobId":"9cc46352c6e0729b6d9a3ce65e4603a16a63a9f9","size":91005696,"lfs":{"sha256":"24c06a7429b843d46e40c6b167122053921bf94dce2e5550ea5c07fabc597646","size":91005696,"pointerSize":133}},{"rfilename":"tokenizer.json","blobId":"cb202bfe2e3c98645018a6d12f182a434c9d3e02","size":466247},{"rfilename":"tokenizer_config.json","blobId":"c79f2b6a0cea6f4b564fed1938984bace9d30ff0","size":350},{"rfilename":"train_script.py","blobId":"82b47b6277499b8f17d139d0c651a6f961c06124","size":13156},{"rfilename":"vocab.txt","blobId":"fb140275c155a9c7c5a3b3e0e77a9e839594a938","size":231508}],"spaces":["mteb/leaderboard","onkar-waghmode/neural-humanizer","merterbak/RAG-Llama","Madhulika1/TB-Awareness-RAG-App","Om-Shandilya/resume-matcher-app","brhou/career_conversation","nishant56/IIITBH_CHATBOT","onkar-waghmode/Text-Paraphraser-Expander","bkchen/314831018_HW3","MesQatarAI/MesAI","supteam1/RBI","Arbazkhan-cs/youtube_ai_assistence","infinite-learning-station/hf-space-rag","Sharada25/dhammaai","lukedev45/career_conversation","cynstl/ml-sanity-studio","asmii29/CiteMind","nayanasisil2700/my-book-recommender","rajibbhtto/Answer_master","cvachet/pdf-chatbot","marcosv/InstructIR","JournalistsonHF/ai-scraper","mteb/arena","Illia56/Ask-AI-Youtube","nickmuchi/semantic-search-with-retrieve-and-rerank","Gradio-Blocks/Ask_Questions_To_YouTube_Videos","Agents-MCP-Hackathon/ScouterAI","nickmuchi/article-text-summarizer","auto-academic/auto-draft","SeaLLMs/SeaLLM-Chat","mteb/leaderboard_legacy","q-future/Co-Instruct","Mr-TD/RAG-PDF-QnA-ChatBot","radames/sentence-embeddings-visualization","radames/Candle-BERT-Semantic-Similarity-Wasm","ml6team/post-processing-summarization","gabruarya/legal-advisor","DiffusionGPT/DiffusionGPT-XL","openfree/Cycle-Navigator","Gradio-Blocks/pubmed-abstract-retriever","seanpedrickcase/Light-PDF-Web-QA-Chatbot","Agents-MCP-Hackathon/Intelligent_Content_Organizer","jscheah/open-webui","ZySec-AI/ZySec","Agents-MCP-Hackathon/KarmaCheck","cffl/Exploring_Intelligent_Writing_Assistance","arshadmangi112/chatpdf.document","Rabbit-Innotech/GBVR_Chatbot","pritamdeka/health-article-keyphrase-generator","taskswithcode/semantic_similarity","zhuolisam/resume-ranker","kenken999/fastapi_django_main_live","Yas1n/CADomatic","ModularityAI/LLama3Rag","pedropauletti/social-ear","tdecae/chatbot","m-ric/Quotes","lihuigu/SciPIP","aseifert/ExplaiNER","somosnlp-hackathon-2022/AbstractGen_ES","DiffusionGPT/DiffusionGPT","Aabbhishekk/ChatPdf","ReithBjarkan/SEO_Keyword_Similarity_Tool","Shreyas094/GPT-Researcher","usmanyousaf/AI_Interview_Coach","Vartex39/vizsum-pro","responsible-prompting/demo-multiturn","pritamdeka/pubmed-abstract-retriever","jspr/autodrummer","CyranoB/search_agent","taupirho/gradio_multi_file_rag","khalifssa/medicine-chartbot","dnzblgn/RAG_PDF_langchain","Ardaarslan02/finance-chatbot","VIDraft/Local-RAG-llama-3-8b","santanavagner/responsible-prompting-demo","CyberTud/legalchat","RaviRaj988/Asking-question-to-video","vjain/Trading-Chatbot","OuroborosM/STLA-BABY","KrishnaKumar23/documentQABot","Gololias/MetroCuadrado","ABBNikit/Nikit_PDF_Chatbot","captain-awesome/Docuverse-zephyr-beta","JDWebProgrammer/chatbot","sickcell/AskCTI","Shashikiran42/Banking_Regulations_Compliance_ChatBOT","Thanos51/ai-recruitment-system","rivapereira123/career-buddy","MarjG/anime-recommendation-engine","Agents-MCP-Hackathon/Merlin-AI-Coach","stevenbucaille/ScouterAI","Gabriel/Swe_summarizer","ekatra/mobius-v2","Achyuth4/OpenGPT-v1","sonali-tamhankar/WA-Hospital-Regulations-Chatbot","akazakov/rag-gradio-sample-project","ThisIs-Developer/Llama-2-GGML-Medical-Chatbot","rohanshaw/Llama2CSV","hoyinli/demo-app"],"createdAt":"2022-03-02T23:29:05.000Z","safetensors":{"parameters":{"I64":512,"F32":22713216},"total":22713728},"usedStorage":1844563487}'
+    headers:
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '10588'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 14:59:44 GMT
+      ETag:
+      - W/"295c-KrdFVPayFR328ljNrXyRLArpA0w"
+      RateLimit:
+      - '"api";r=499;t=148'
+      RateLimit-Policy:
+      - '"fixed window";"api";q=500;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 b6b8b152d22969c98f9f56610821c954.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - PwPvRlno5vWK8AZ8CiNxzUfzbnoABM5xeAlXQkTiUPtu1tY3nr97lg==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Powered-By:
+      - huggingface-moon
+      X-Request-Id:
+      - Root=1-6915f260-286dc59f7e854dda37c24ff1;7f6030e7-a795-4627-8ad9-ccb69553cc31
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Connection:
+      - keep-alive
+      X-Amzn-Trace-Id:
+      - 23974b5e-958c-4ace-a4a3-0fcd3bfbc510
+      user-agent:
+      - unknown/None; hf_hub/0.33.5; python/3.12.3
+    method: HEAD
+    uri: https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2/resolve/main/README.md
+  response:
+    body:
+      string: ''
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - inline; filename*=UTF-8''README.md; filename="README.md";
+      Content-Length:
+      - '276'
+      Content-Security-Policy:
+      - default-src 'none'; sandbox
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 14:59:45 GMT
+      Location:
+      - /api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md?%2Fsentence-transformers%2Fall-MiniLM-L6-v2%2Fresolve%2Fmain%2FREADME.md=&etag=%2258d4a9a45664eb9e12de9549c548c09b6134c17f%22
+      RateLimit:
+      - '"resolvers";r=2999;t=147'
+      RateLimit-Policy:
+      - '"fixed window";"resolvers";q=3000;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin, Accept
+      Via:
+      - 1.1 2696c49ebf3abec704c6af790acf6778.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - kP1wVIMrVV8H8MXNTg96W1hTZOeX02241Z4_timwjdluk07DJKUCnA==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Hub-Cache:
+      - HIT
+      X-Linked-ETag:
+      - '"58d4a9a45664eb9e12de9549c548c09b6134c17f"'
+      X-Powered-By:
+      - huggingface-moon
+      X-Repo-Commit:
+      - c9745ed1d9f207416be6d2e6f8de32d1f16199bf
+      X-Request-Id:
+      - Root=1-6915f261-56a5b40a6fcdfb663ab3ef57;23974b5e-958c-4ace-a4a3-0fcd3bfbc510
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 307
+      message: Temporary Redirect
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Connection:
+      - keep-alive
+      X-Amzn-Trace-Id:
+      - 5c31772a-ff6a-468b-a0c6-18b176a1ff39
+      user-agent:
+      - unknown/None; hf_hub/0.33.5; python/3.12.3
+    method: HEAD
+    uri: https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md
+  response:
+    body:
+      string: ''
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Age:
+      - '12171442'
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - inline; filename*=UTF-8''README.md; filename="README.md";
+      Content-Length:
+      - '10454'
+      Content-Security-Policy:
+      - default-src 'none'; sandbox
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Wed, 25 Jun 2025 18:02:23 GMT
+      ETag:
+      - '"58d4a9a45664eb9e12de9549c548c09b6134c17f"'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 1bc764620f6db84c92e8682716d68eda.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - VxH-i03DUKxEdYBTDa4fsqjy4oI9tp5AzuSJdDV_5rDyXjxx-ZZOVQ==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Hit from cloudfront
+      X-Powered-By:
+      - huggingface-moon
+      X-Repo-Commit:
+      - c9745ed1d9f207416be6d2e6f8de32d1f16199bf
+      X-Request-Id:
+      - Root=1-685c39af-66e43f6e6c4b26cf310d9aa1;855bf2f8-82b8-45e1-8be5-e445aaec618c
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+version: 1

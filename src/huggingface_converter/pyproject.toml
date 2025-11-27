@@ -1,0 +1,25 @@
+[project]
+name = "huggingface-converter"
+version = "0.1.0"
+description = ""
+authors = [
+   {name = "Your Name",email = "you@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12,<4.0.0"
+dependencies = [
+    "rdflib (>=7.1.4,<8.0.0)",
+    "requests (>=2.32.3,<3.0.0)",
+    "pyshacl (>=0.30.1,<0.31.0)",
+    "typing-extensions (>=4.13.2,<5.0.0)",
+    "python-dateutil (>=2.9.0.post0,<3.0.0)",
+    "deep-translator (>=1.11.4,<2.0.0)",
+    "python-iso639 (>=2025.2.18,<2026.0.0)",
+    "huggingface-hub (>=0.33.5,<0.34.0)",
+    "typer (>=0.17.4,<0.18.0)",
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

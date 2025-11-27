@@ -1,0 +1,595 @@
+{
+  "afl-3.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/AFL_3_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/AFL-3.0"
+    ],
+    "label_en": "Academic Free License v3.0",
+    "label_de": null
+  },
+  "agpl-3.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/AGPL_3_0_OR_LATER",
+    "exact_matches": [
+      "http://spdx.org/licenses/AGPL-3.0-or-later"
+    ],
+    "label_en": "GNU Affero General Public License v3.0 or later",
+    "label_de": null,
+    "note_en": "Original Hugging Face license: 'agpl-3.0'",
+    "note_de": "Ursprüngliche Hugging Face Lizenz: 'agpl-3.0'"
+  },
+  "apache-2.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/APACHE_2_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/Apache-2.0",
+      "https://opensource.org/licenses/Apache-2.0"
+    ],
+    "label_en": "Apache License, Version 2.0",
+    "label_de": null
+  },
+  "apple-amlr": {
+    "uri": "https://huggingface.co/apple/aimv2-large-patch14-native/blob/main/LICENSE",
+    "label_en": "Apple Model License for Research",
+    "label_de": "Apple Forschungs-KI-Modell-Lizenzvereinbarung"
+  },
+  "apple-ascl": {
+    "uri": "https://developer.apple.com/support/downloads/terms/apple-sample-code/Apple-Sample-Code-License.pdf",
+    "label_en": "Apple Sample Code license",
+    "label_de": "Apple Beispielcode-Lizenz"
+  },
+  "artistic-2.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/ARTISTIC_2_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/Artistic-2.0",
+      "https://opensource.org/licenses/Artistic-2.0"
+    ],
+    "label_en": "Artistic License 2.0",
+    "label_de": null
+  },
+  "bigcode-openrail-m": {
+    "uri": "https://huggingface.co/spaces/bigcode/bigcode-model-license-agreement",
+    "label_en": "BigCode Open & Responsible AI License for Machine Learning Models (OpenRAIL-M) v1 License Agreement",
+    "label_de": "BigCode Offene Verantwortliche KI-Lizenz für ML-Modelle (OpenRAIL-M) v1 Lizenzvereinbarung"
+  },
+  "bigscience-bloom-rail-1.0": {
+    "uri": "https://huggingface.co/spaces/bigscience/license",
+    "label_en": "BigScience RAIL License v1.0",
+    "label_de": "BigScience RAIL Lizenz v1.0"
+  },
+  "bigscience-openrail-m": {
+    "uri": "https://bigscience.huggingface.co/blog/bigscience-openrail-m",
+    "exact_matches": [
+      "https://www.licenses.ai/blog/2022/8/26/bigscience-open-rail-m-license"
+    ],
+    "label_en": "BigScience Open & Responsible AI License for Machine Learning Models (OpenRAIL-M) License",
+    "label_de": "BigScience Offene Verantwortliche KI-Lizenz für ML-Modelle (OpenRAIL-M) Lizenz"
+  },
+  "bsd": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/BSD_3_CLAUSE",
+    "exact_matches": [
+      "https://opensource.org/licenses/BSD-3-Clause"
+    ],
+    "label_en": "3-Clause BSD License",
+    "label_de": null,
+    "note_en": "Original Hugging Face license: 'bsd'",
+    "note_de": "Ursprüngliche Hugging Face Lizenz: 'bsd'"
+  },
+  "bsd-2-clause": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/BSD_2_CLAUSE",
+    "exact_matches": [
+      "https://opensource.org/licenses/BSD-2-Clause"
+    ],
+    "label_en": "2-Clause BSD License",
+    "label_de": null
+  },
+  "bsd-3-clause": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/BSD_3_CLAUSE",
+    "exact_matches": [
+      "https://opensource.org/licenses/BSD-3-Clause"
+    ],
+    "label_en": "3-Clause BSD License",
+    "label_de": null
+  },
+  "bsd-3-clause-clear": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/BSD_3_CLAUSECLEAR",
+    "exact_matches": [
+      "http://spdx.org/licenses/BSD-3-Clause-Clear"
+    ],
+    "label_en": "BSD 3-Clause Clear License",
+    "label_de": null
+  },
+  "bsl-1.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/BSL_1_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/BSL-1.0",
+      "https://opensource.org/licenses/BSL-1.0"
+    ],
+    "label_en": "Boost Software License 1.0",
+    "label_de": null
+  },
+  "c-uda": {
+    "uri": "https://spdx.org/licenses/C-UDA-1.0.html",
+    "exact_matches": [
+      "https://github.com/microsoft/Computational-Use-of-Data-Agreement/blob/master/C-UDA-1.0.md",
+      "https://cdla.dev/computational-use-of-data-agreement-v1-0/"
+    ],
+    "label_en": "Computational Use of Data Agreement v1.0",
+    "label_de": "Nutzungsvereinbarung für rechnergestützte Datenverarbeitung Version 1.0",
+    "note_en": "Original Hugging Face license: 'c-uda'",
+    "note_de": "Ursprüngliche Hugging Face Lizenz: 'c-uda'"
+  },
+  "cc": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/CC-BY-4.0",
+      "http://creativecommons.org/licenses/by/4.0/"
+    ],
+    "label_en": "Creative Commons Attribution 4.0 International",
+    "label_de": "Creative Commons Namensnennung 4.0 International",
+    "note_en": "Original Hugging Face license: 'cc'",
+    "note_de": "Ursprüngliche Hugging Face Lizenz: 'cc'"
+  },
+  "cc-by-2.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/CC_BY_2_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/CC-BY-2.0",
+      "http://creativecommons.org/licenses/by/2.0/"
+    ],
+    "label_en": "Creative Commons Attribution 2.0 Generic",
+    "label_de": "Creative Commons Namensnennung 2.0 Generic"
+  },
+  "cc-by-2.5": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/CC_BY_2_5",
+    "exact_matches": [
+      "http://spdx.org/licenses/CC-BY-2.5",
+      "http://creativecommons.org/licenses/by/2.5/"
+    ],
+    "label_en": "Creative Commons Attribution 2.5 Generic",
+    "label_de": "Creative Commons Namensnennung 2.5 Generic"
+  },
+  "cc-by-3.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/CC_BY_3_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/CC-BY-3.0",
+      "http://creativecommons.org/licenses/by/3.0/"
+    ],
+    "label_en": "Creative Commons Attribution 3.0 Unported",
+    "label_de": "Creative Commons Namensnennung 3.0 Unported"
+  },
+  "cc-by-4.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/CC-BY-4.0",
+      "http://creativecommons.org/licenses/by/4.0/"
+    ],
+    "label_en": "Creative Commons Attribution 4.0 International",
+    "label_de": "Creative Commons Namensnennung 4.0 International"
+  },
+  "cc-by-nc-2.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/CC_BYNC_2_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/CC-BY-NC-2.0",
+      "http://creativecommons.org/licenses/by-nc/2.0/"
+    ],
+    "label_en": "Creative Commons Attribution–NonCommercial 2.0 Generic",
+    "label_de": "Creative Commons Namensnennung – Nicht kommerziell 2.0 Generic"
+  },
+  "cc-by-nc-3.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/CC_BYNC_3_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/CC-BY-NC-3.0",
+      "http://creativecommons.org/licenses/by-nc/3.0/"
+    ],
+    "label_en": "Creative Commons Attribution–NonCommercial 3.0 Unported",
+    "label_de": "Creative Commons Namensnennung – Nicht kommerziell 3.0 Unported"
+  },
+  "cc-by-nc-4.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/CC_BYNC_4_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/CC-BY-NC-4.0",
+      "http://creativecommons.org/licenses/by-nc/4.0/"
+    ],
+    "label_en": "Creative Commons Attribution–NonCommercial 4.0 International",
+    "label_de": "Creative Commons Namensnennung – Nicht kommerziell 4.0 International"
+  },
+  "cc-by-nc-nd-3.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/CC_BYNCND_3_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/CC-BY-NC-ND-3.0",
+      "http://creativecommons.org/licenses/by-nc-nd/3.0/"
+    ],
+    "label_en": "Creative Commons Attribution–NonCommercial–NoDerivs 3.0 Unported",
+    "label_de": "Creative Commons Namensnennung – Nicht-kommerziell – Keine Bearbeitung 3.0 Unported"
+  },
+  "cc-by-nc-nd-4.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/CC_BYNCND_4_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/CC-BY-NC-ND-4.0",
+      "http://creativecommons.org/licenses/by-nc-nd/4.0/"
+    ],
+    "label_en": "Creative Commons Attribution–NonCommercial–NoDerivs 4.0 International",
+    "label_de": "Creative Commons Namensnennung – Nicht kommerziell – Keine Bearbeitungen 4.0 International"
+  },
+  "cc-by-nc-sa-3.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/CC_BYNCSA_3_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/CC-BY-NC-SA-3.0",
+      "http://creativecommons.org/licenses/by-nc-sa/3.0/"
+    ],
+    "label_en": "Creative Commons Attribution–NonCommercial–ShareAlike 3.0 Unported",
+    "label_de": "Creative Commons Namensnennung – Nicht-kommerziell – Weitergabe unter gleichen Bedingungen 3.0 Unported"
+  },
+  "cc-by-nc-sa-4.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/CC_BYNCSA_4_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/CC-BY-NC-SA-4.0",
+      "http://creativecommons.org/licenses/by-nc-sa/4.0/"
+    ],
+    "label_en": "Creative Commons Attribution–NonCommercial–ShareAlike 4.0 International",
+    "label_de": "Creative Commons Namensnennung – Nicht-kommerziell – Weitergabe unter gleichen Bedingungen 4.0 International"
+  },
+  "cc-by-nd-4.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/CC_BYND_4_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/CC-BY-ND-4.0",
+      "http://creativecommons.org/licenses/by-nd/4.0/"
+    ],
+    "label_en": "Creative Commons Attribution–NoDerivs 4.0 International",
+    "label_de": "Creative Commons Namensnennung-Keine Bearbeitung 4.0 International"
+  },
+  "cc-by-sa-3.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/CC_BYSA_3_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/CC-BY-SA-3.0",
+      "http://creativecommons.org/licenses/by-sa/3.0/"
+    ],
+    "label_en": "Creative Commons Attribution–ShareAlike 3.0 Unported",
+    "label_de": "Creative Commons Namensnennung – Weitergabe unter gleichen Bedingungen 3.0 Unported"
+  },
+  "cc-by-sa-4.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/CC_BYSA_4_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/CC-BY-SA-4.0",
+      "http://creativecommons.org/licenses/by-sa/4.0/"
+    ],
+    "label_en": "Creative Commons Attribution–ShareAlike 4.0 International",
+    "label_de": "Creative Commons Namensnennung – Weitergabe unter gleichen Bedingungen 4.0 International"
+  },
+  "cc0-1.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/CC0",
+    "exact_matches": [
+      "http://spdx.org/licenses/CC0-1.0",
+      "https://creativecommons.org/publicdomain/zero/1.0/"
+    ],
+    "label_en": "Creative Commons CC0 1.0 Universal",
+    "label_de": "Creative Commons CC0 1.0 Universell"
+  },
+  "cdla-permissive-1.0": {
+    "uri": "https://spdx.org/licenses/CDLA-Permissive-1.0.html",
+    "exact_matches": [
+      "https://cdla.io/permissive-1-0"
+    ],
+    "label_en": "Community Data License Agreement Permissive 1.0",
+    "label_de": "Community-Datenlizenzvereinbarung - Permissive 1.0"
+  },
+  "cdla-permissive-2.0": {
+    "uri": "https://spdx.org/licenses/CDLA-Permissive-2.0.html",
+    "exact_matches": [
+      "https://cdla.dev/permissive-2-0/"
+    ],
+    "label_en": "Community Data License Agreement Permissive 2.0",
+    "label_de": "Community-Datenlizenzvereinbarung - Permissive 2.0"
+  },
+  "cdla-sharing-1.0": {
+    "uri": "https://spdx.org/licenses/CDLA-Sharing-1.0.html",
+    "exact_matches": [
+      "https://cdla.dev/sharing-1-0/"
+    ],
+    "label_en": "Community Data License Agreement Sharing 1.0",
+    "label_de": "Community-Datenlizenzvereinbarung - Sharing 1.0"
+  },
+  "creativeml-openrail-m": {
+    "uri": "https://raw.githubusercontent.com/easydiffusion/easydiffusion/main/CreativeML%20Open%20RAIL-M%20License",
+    "label_en": "Creative Machine Learning (CreativeML) Open & Responsible AI License for Machine Learning Models (OpenRAIL‑M)",
+    "label_de": "Creative Machine Learning (CreativeML) Offene Verantwortliche KI-Lizenz für ML-Modelle (OpenRAIL‑M)"
+  },
+  "deepfloyd-if-license": {
+    "uri": "https://huggingface.co/spaces/DeepFloyd/deepfloyd-if-license",
+    "label_en": "DeepFloyd IF Research License Agreement",
+    "label_de": "DeepFloyd IF Forschungsnutzungs-Lizenzvereinbarung"
+  },
+  "ecl-2.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/ECL_2_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/ECL-2.0",
+      "https://opensource.org/licenses/ECL-2.0"
+    ],
+    "label_en": "Educational Community License version 2.0 (ECL-2.0)",
+    "label_de": null
+  },
+  "epl-1.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/EPL_1_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/EPL-1.0",
+      "https://opensource.org/licenses/EPL-1.0"
+    ],
+    "label_en": "Eclipse Public License 1.0 (EPL-1.0)",
+    "label_de": null
+  },
+  "epl-2.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/EPL_2_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/EPL-2.0",
+      "https://opensource.org/licenses/EPL-2.0"
+    ],
+    "label_en": "Eclipse Public License version 2.0",
+    "label_de": null
+  },
+  "etalab-2.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/ETALAB_2_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/etalab-2.0",
+      "https://www.etalab.gouv.fr/licence-ouverte-open-licence/"
+    ],
+    "label_en": "Etalab Open Licence V 2.0",
+    "label_de": null
+  },
+  "eupl-1.1": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/EUPL_1_1",
+    "exact_matches": [
+      "https://opensource.org/license/EUPL-1.1",
+      "http://spdx.org/licenses/EUPL-1.1"
+    ],
+    "label_en": "European Union Public Licence v. 1.1",
+    "label_de": "Open-Source-Lizenz für die Europäische Union v.1.1"
+  },
+  "eupl-1.2": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/EUPL_1_2",
+    "exact_matches": [
+      "https://opensource.org/licenses/EUPL-1.2",
+      "https://interoperable-europe.ec.europa.eu/collection/eupl/eupl-text-eupl-12",
+      "http://spdx.org/licenses/EUPL-1.2"
+    ],
+    "label_en": "European Union Public Licence v. 1.2",
+    "label_de": "Open-Source-Lizenz für die Europäische Union v.1.2"
+  },
+  "gemma": {
+    "uri": "https://ai.google.dev/gemma/terms",
+    "label_en": "Gemma Terms of Use",
+    "label_de": "Nutzungsbedingungen für Gemma"
+  },
+  "gfdl": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/GNU_FDL_1_3_OR_LATER",
+    "exact_matches": [
+      "http://spdx.org/licenses/GFDL-1.3-or-later"
+    ],
+    "label_en": "GNU Free Documentation License v1.3 or later",
+    "label_de": null,
+    "note_en": "Original Hugging Face license: 'gfdl'",
+    "note_de": "Ursprüngliche Hugging Face Lizenz: 'gfdl'"
+  },
+  "gpl": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/GPL_3_0_OR_LATER",
+    "exact_matches": [
+      "http://spdx.org/licenses/GPL-3.0-or-later"
+    ],
+    "label_en": "GNU General Public License v3.0 or later",
+    "label_de": null,
+    "note_en": "Original Hugging Face license: 'gpl'",
+    "note_de": "Ursprüngliche Hugging Face Lizenz: 'gpl'"
+  },
+  "gpl-3.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/GPL_3_0_OR_LATER",
+    "exact_matches": [
+      "http://spdx.org/licenses/GPL-3.0-or-later"
+    ],
+    "label_en": "GNU General Public License v3.0 or later",
+    "label_de": null,
+    "note_en": "Original Hugging Face license: 'gpl-3.0'",
+    "note_de": "Ursprüngliche Hugging Face Lizenz: 'gpl-3.0'"
+  },
+  "intel-research": {
+    "uri": "https://huggingface.co/OpenVINO/Llama-3.1-8B-Instruct-FastDraft-150M-int8-ov/blob/main/LICENSE.md",
+    "label_en": "Intel Research Use License Agreement",
+    "label_de": "Intel Forschungsnutzungs-Lizenzvereinbarung"
+  },
+  "isc": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/ISC",
+    "exact_matches": [
+      "http://spdx.org/licenses/ISC",
+      "https://opensource.org/licenses/ISC"
+    ],
+    "label_en": "ISC License (ISC)",
+    "label_de": null
+  },
+  "lgpl-3.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/LGPL_3_0_OR_LATER",
+    "exact_matches": [
+      "http://spdx.org/licenses/LGPL-3.0-or-later"
+    ],
+    "label_en": "GNU Lesser General Public License v3.0 or later",
+    "label_de": null,
+    "note_en": "Original Hugging Face license: 'lgpl-3.0'",
+    "note_de": "Ursprüngliche Hugging Face Lizenz: 'lgpl-3.0'"
+  },
+  "lgpl-lr": {
+    "uri": "https://spdx.org/licenses/LGPLLR.html",
+    "label_en": "Lesser General Public License For Linguistic Resources",
+    "label_de": "Abgeschwächte Allgemeine Öffentliche Lizenz für sprachliche Ressourcen"
+  },
+  "llama2": {
+    "uri": "https://github.com/meta-llama/llama-models/blob/main/models/llama2/LICENSE",
+    "label_en": "Meta Llama 2 Community License Agreement",
+    "label_de": "Meta Llama 2 Community-Lizenzvereinbarung"
+  },
+  "llama3": {
+    "uri": "https://github.com/meta-llama/llama-models/blob/main/models/llama3/LICENSE",
+    "label_en": "Meta Llama 3 Community License Agreement",
+    "label_de": "Meta Llama 3 Community-Lizenzvereinbarung"
+  },
+  "llama3.1": {
+    "uri": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_1/LICENSE",
+    "label_en": "Meta Llama 3.1 Community License Agreement",
+    "label_de": "Meta Llama 3.1 Community-Lizenzvereinbarung"
+  },
+  "llama3.2": {
+    "uri": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_2/LICENSE",
+    "label_en": "Meta Llama 3.2 Community License Agreement",
+    "label_de": "Meta Llama 3.2 Community-Lizenzvereinbarung"
+  },
+  "llama3.3": {
+    "uri": "https://github.com/meta-llama/llama-models/blob/main/models/llama3_3/LICENSE",
+    "label_en": "Meta Llama 3.3 Community License Agreement",
+    "label_de": "Meta Llama 3.3 Community-Lizenzvereinbarung"
+  },
+  "llama4": {
+    "uri": "https://github.com/meta-llama/llama-models/blob/main/models/llama4/LICENSE",
+    "label_en": "Meta Llama 4 Community License Agreement",
+    "label_de": "Meta Llama 4 Community-Lizenzvereinbarung"
+  },
+  "lppl-1.3c": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/LPPL_1_3C",
+    "exact_matches": [
+      "http://spdx.org/licenses/LPPL-1.3c",
+      "https://opensource.org/licenses/LPPL-1.3c"
+    ],
+    "label_en": "LaTeX Project Public License v1.3c (LPPL-1.3c)",
+    "label_de": null
+  },
+  "mit": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/MIT",
+    "exact_matches": [
+      "http://spdx.org/licenses/MIT",
+      "https://opensource.org/licenses/MIT"
+    ],
+    "label_en": "The MIT License",
+    "label_de": null
+  },
+  "mpl-2.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/MPL_2_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/MPL-2.0",
+      "https://opensource.org/licenses/MPL-2.0"
+    ],
+    "label_en": "Mozilla Public License (MPL), version 2.0 (MPL-2.0)",
+    "label_de": null
+  },
+  "ncsa": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/NCSA",
+    "exact_matches": [
+      "http://spdx.org/licenses/NCSA",
+      "https://opensource.org/licenses/NCSA"
+    ],
+    "label_en": "The University of Illinois/NCSA Open Source License (NCSA)",
+    "label_de": null
+  },
+  "odbl": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/ODC_BL",
+    "exact_matches": [
+      "http://spdx.org/licenses/ODbL-1.0",
+      "http://opendatacommons.org/licenses/odbl/1.0/"
+    ],
+    "label_en": "Open Data Commons Open Database License v1.0",
+    "label_de": null,
+    "note_en": "Original Hugging Face license: 'odbl'",
+    "note_de": "Ursprüngliche Hugging Face Lizenz: 'odbl'"
+  },
+  "odc-by": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/ODC_BY",
+    "exact_matches": [
+      "http://spdx.org/licenses/ODC-By-1.0",
+      "http://opendatacommons.org/licenses/by/1.0/"
+    ],
+    "label_en": "Open Data Commons Attribution License v1.0",
+    "label_de": null,
+    "note_en": "Original Hugging Face license: 'odc-by'",
+    "note_de": "Ursprüngliche Hugging Face Lizenz: 'odc-by'"
+  },
+  "ofl-1.1": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/OFL_1_1",
+    "exact_matches": [
+      "http://spdx.org/licenses/OFL-1.1",
+      "https://opensource.org/licenses/OFL-1.1"
+    ],
+    "label_en": "SIL Open Font License (OFL-1.1)",
+    "label_de": null
+  },
+  "open-mdw": {
+    "uri": "https://openmdw.ai/license/",
+    "label_en": "Open Model, Data & Weights (OpenMDW) License Agreement, version 1.0 (OpenMDW-1.0) ",
+    "label_de": "Open Model, Data & Weights (OpenMDW) Lizenzvereinbarung, Version 1.0 (OpenMDW‑1.0)"
+  },
+  "openrail": {
+    "uri": "https://www.licenses.ai/blog/2022/8/18/naming-convention-of-responsible-ai-licenses",
+    "label_en": "Open & Responsible AI licenses",
+    "label_de": "Offene Verantwortliche KI-Lizenz"
+  },
+  "openrail++": {
+    "uri": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/raw/main/LICENSE.md",
+    "label_en": "Open Rail++-M License",
+    "label_de": "Offene Verantwortliche KI-Lizenz für Modelle (Open RAIL++-M)"
+  },
+  "osl-3.0": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/OSL_3_0",
+    "exact_matches": [
+      "http://spdx.org/licenses/OSL-3.0",
+      "https://opensource.org/licenses/OSL-3.0"
+    ],
+    "label_en": "Open Software License, version 3.0 (OSL-3.0)",
+    "label_de": null
+  },
+  "other": {
+    "uri": "http://dcat-ap.de/def/licenses/other-closed",
+    "label_en": "Other license",
+    "label_de": "Andere Lizenz"
+  },
+  "pddl": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/ODC_PDDL",
+    "exact_matches": [
+      "http://spdx.org/licenses/PDDL-1.0",
+      "http://opendatacommons.org/licenses/pddl/1.0/"
+    ],
+    "label_en": "Open Data Commons Public Domain Dedication and License 1.0",
+    "label_de": null,
+    "note_en": "Original Hugging Face license: 'pddl'",
+    "note_de": "Ursprüngliche Hugging Face Lizenz: 'pddl'"
+  },
+  "postgresql": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/POSTGRE_SQL",
+    "exact_matches": [
+      "http://spdx.org/licenses/PostgreSQL",
+      "https://opensource.org/licenses/PostgreSQL"
+    ],
+    "label_en": "The PostgreSQL Licence (PostgreSQL)",
+    "label_de": null
+  },
+  "unknown": {
+    "uri": "http://dcat-ap.de/def/licenses/other-closed",
+    "label_en": "Unknown license",
+    "label_de": "Unbekannte Lizenz"
+  },
+  "unlicense": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/UNLICENCE",
+    "exact_matches": [
+      "http://spdx.org/licenses/Unlicense"
+    ],
+    "label_en": "The Unlicense",
+    "label_de": null
+  },
+  "wtfpl": {
+    "uri": "https://spdx.org/licenses/WTFPL.html",
+    "exact_matches": [
+      "https://www.wtfpl.net/about/"
+    ],
+    "label_en": "Do What The F*ck You Want To Public License",
+    "label_de": "Mach-was-du-verdammt-nochmal-willst-Lizenz"
+  },
+  "zlib": {
+    "uri": "http://publications.europa.eu/resource/authority/licence/ZLIB",
+    "exact_matches": [
+      "http://spdx.org/licenses/Zlib",
+      "https://opensource.org/licenses/Zlib"
+    ],
+    "label_en": "The zlib/libpng License (Zlib)",
+    "label_de": null
+  }
+}

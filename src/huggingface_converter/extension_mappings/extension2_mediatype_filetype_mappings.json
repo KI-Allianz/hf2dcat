@@ -1,0 +1,4476 @@
+{
+  ".123": {
+    "media_type": "application/vnd.lotus-1-2-3",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.lotus-1-2-3"
+  },
+  ".1km": {
+    "media_type": "application/vnd.1000minds.decision-model+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.1000minds.decision-model+xml"
+  },
+  ".210": {
+    "media_type": "model/step",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/step"
+  },
+  ".3dml": {
+    "media_type": "text/vnd.in3d.3dml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/vnd.in3d.3dml"
+  },
+  ".3g2": {
+    "media_type": "video/3gpp2",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/3gpp2"
+  },
+  ".3gp": {
+    "media_type": "video/3gpp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/3gpp"
+  },
+  ".3gpp": {
+    "media_type": "audio/3gpp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/3gpp"
+  },
+  ".3mf": {
+    "media_type": "model/3mf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/3mf"
+  },
+  ".7dat": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SAS",
+    "file_type_label": "SAS",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".7z": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/7Z",
+    "file_type_label": "7z",
+    "media_type": "application/x-7z-compressed",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-7z-compressed"
+  },
+  ".aab": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/AAB",
+    "file_type_label": "AAB",
+    "media_type": "application/x-authorware-bin",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-authorware-bin"
+  },
+  ".aac": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/AAC",
+    "file_type_label": "AAC",
+    "media_type": "audio/aac",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/aac"
+  },
+  ".ac": {
+    "media_type": "application/pkix-attr-cert",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/pkix-attr-cert"
+  },
+  ".acc": {
+    "media_type": "application/vnd.americandynamics.acc",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.americandynamics.acc"
+  },
+  ".acu": {
+    "media_type": "application/vnd.acucobol",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.acucobol"
+  },
+  ".acutc": {
+    "media_type": "application/vnd.acucorp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.acucorp"
+  },
+  ".adts": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/AAC",
+    "file_type_label": "AAC",
+    "media_type": "audio/aac",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/aac"
+  },
+  ".aep": {
+    "media_type": "application/vnd.audiograph",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.audiograph"
+  },
+  ".age": {
+    "media_type": "application/vnd.age",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.age"
+  },
+  ".ahead": {
+    "media_type": "application/vnd.ahead.space",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ahead.space"
+  },
+  ".ai": {
+    "media_type": "application/postscript",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/postscript"
+  },
+  ".ait": {
+    "media_type": "application/vnd.dvb.ait",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.dvb.ait"
+  },
+  ".akn": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/AKN4EU",
+    "file_type_label": "AKN4EU file",
+    "media_type": "application/xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xml"
+  },
+  ".ami": {
+    "media_type": "application/vnd.amiga.ami",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.amiga.ami"
+  },
+  ".aml": {
+    "media_type": "application/automationml-aml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/automationml-aml+xml"
+  },
+  ".amlx": {
+    "media_type": "application/automationml-amlx+zip",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/automationml-amlx+zip"
+  },
+  ".amr": {
+    "media_type": "audio/amr",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/amr"
+  },
+  ".apk": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/DAPK",
+    "file_type_label": "DAPK",
+    "media_type": "application/vnd.android.package-archive",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.android.package-archive"
+  },
+  ".apng": {
+    "media_type": "image/apng",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/apng"
+  },
+  ".appcache": {
+    "media_type": "text/cache-manifest",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/cache-manifest"
+  },
+  ".appx": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/APPX",
+    "file_type_label": "AppX",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".appxbundle": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/APPX",
+    "file_type_label": "AppX",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".apr": {
+    "media_type": "application/vnd.lotus-approach",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.lotus-approach"
+  },
+  ".arc": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ARC",
+    "file_type_label": "ARC",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".arc.gz": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ARC_GZ",
+    "file_type_label": "ARC GZ",
+    "media_type": "application/gzip",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/gzip"
+  },
+  ".arj": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ARJ",
+    "file_type_label": "ARJ",
+    "media_type": "application/x-arj",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-arj"
+  },
+  ".arrow": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ARROW_FILE",
+    "file_type_label": "Arrow file",
+    "media_type": "application/vnd.apache.arrow.file",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.apache.arrow.file"
+  },
+  ".arrows": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ARROW_STREAM",
+    "file_type_label": "Arrow stream",
+    "media_type": "application/vnd.apache.arrow.stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.apache.arrow.stream"
+  },
+  ".asc": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/GRID_ASCII",
+    "file_type_label": "Esri ASCII grid",
+    "media_type": "application/x-ascii-grid",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-ascii-grid"
+  },
+  ".aso": {
+    "media_type": "application/vnd.accpac.simply.aso",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.accpac.simply.aso"
+  },
+  ".ass": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/AAC",
+    "file_type_label": "AAC",
+    "media_type": "audio/aac",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/aac"
+  },
+  ".atc": {
+    "media_type": "application/vnd.acucorp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.acucorp"
+  },
+  ".atom": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ATOM",
+    "file_type_label": "Atom Feed",
+    "media_type": "application/atom+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/atom+xml"
+  },
+  ".atomcat": {
+    "media_type": "application/atomcat+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/atomcat+xml"
+  },
+  ".atomdeleted": {
+    "media_type": "application/atomdeleted+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/atomdeleted+xml"
+  },
+  ".atomsvc": {
+    "media_type": "application/atomsvc+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/atomsvc+xml"
+  },
+  ".atx": {
+    "media_type": "application/vnd.antix.game-component",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.antix.game-component"
+  },
+  ".au": {
+    "media_type": "audio/basic",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/basic"
+  },
+  ".avci": {
+    "media_type": "image/avci",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/avci"
+  },
+  ".avcs": {
+    "media_type": "image/avcs",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/avcs"
+  },
+  ".avif": {
+    "media_type": "image/avif",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/avif"
+  },
+  ".azf": {
+    "media_type": "application/vnd.airzip.filesecure.azf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.airzip.filesecure.azf"
+  },
+  ".azs": {
+    "media_type": "application/vnd.airzip.filesecure.azs",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.airzip.filesecure.azs"
+  },
+  ".azv": {
+    "media_type": "image/vnd.airzip.accelerator.azv",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.airzip.accelerator.azv"
+  },
+  ".azw": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/AZW",
+    "file_type_label": "Amazon Kindle eBook",
+    "media_type": "application/vnd.amazon.ebook",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.amazon.ebook"
+  },
+  ".b16": {
+    "media_type": "image/vnd.pco.b16",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.pco.b16"
+  },
+  ".bary": {
+    "media_type": "model/vnd.bary",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/vnd.bary"
+  },
+  ".bdm": {
+    "media_type": "application/vnd.syncml.dm+wbxml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.syncml.dm+wbxml"
+  },
+  ".bdo": {
+    "media_type": "application/vnd.nato.bindingdataobject+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.nato.bindingdataobject+xml"
+  },
+  ".bed": {
+    "media_type": "application/vnd.realvnc.bed",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.realvnc.bed"
+  },
+  ".bh2": {
+    "media_type": "application/vnd.fujitsu.oasysprs",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.fujitsu.oasysprs"
+  },
+  ".bin": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/BIN",
+    "file_type_label": "Binary Data",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream",
+    "file_type": "BIN"
+  },
+  ".bm": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/BMP",
+    "file_type_label": "Bitmap Image File",
+    "media_type": "image/x-ms-bmp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/x-ms-bmp"
+  },
+  ".bmi": {
+    "media_type": "application/vnd.bmi",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.bmi"
+  },
+  ".bmml": {
+    "media_type": "application/vnd.balsamiq.bmml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.balsamiq.bmml+xml"
+  },
+  ".bmp": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/BMP",
+    "file_type_label": "Bitmap Image File",
+    "media_type": "image/x-ms-bmp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/x-ms-bmp"
+  },
+  ".book": {
+    "media_type": "application/vnd.framemaker",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.framemaker"
+  },
+  ".box": {
+    "media_type": "application/vnd.previewsystems.box",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.previewsystems.box"
+  },
+  ".bpk": {
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".bsp": {
+    "media_type": "model/vnd.valve.source.compiled-map",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/vnd.valve.source.compiled-map"
+  },
+  ".btf": {
+    "media_type": "image/prs.btif",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/prs.btif"
+  },
+  ".btif": {
+    "media_type": "image/prs.btif",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/prs.btif"
+  },
+  ".buffer": {
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".bwf": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/BWF",
+    "file_type_label": "BWF",
+    "media_type": "audio/vnd.wave",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/vnd.wave"
+  },
+  ".bz2": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/BZIP2",
+    "file_type_label": "bzip2",
+    "media_type": "application/x-bzip2",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-bzip2"
+  },
+  ".c11amc": {
+    "media_type": "application/vnd.cluetrust.cartomobile-config",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.cluetrust.cartomobile-config"
+  },
+  ".c11amz": {
+    "media_type": "application/vnd.cluetrust.cartomobile-config-pkg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.cluetrust.cartomobile-config-pkg"
+  },
+  ".c4d": {
+    "media_type": "application/vnd.clonk.c4group",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.clonk.c4group"
+  },
+  ".c4f": {
+    "media_type": "application/vnd.clonk.c4group",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.clonk.c4group"
+  },
+  ".c4g": {
+    "media_type": "application/vnd.clonk.c4group",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.clonk.c4group"
+  },
+  ".c4p": {
+    "media_type": "application/vnd.clonk.c4group",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.clonk.c4group"
+  },
+  ".c4u": {
+    "media_type": "application/vnd.clonk.c4group",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.clonk.c4group"
+  },
+  ".cab": {
+    "media_type": "application/vnd.ms-cab-compressed",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-cab-compressed"
+  },
+  ".cap": {
+    "media_type": "application/vnd.tcpdump.pcap",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.tcpdump.pcap"
+  },
+  ".ccxml": {
+    "media_type": "application/ccxml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/ccxml+xml"
+  },
+  ".cdbcmsg": {
+    "media_type": "application/vnd.contact.cmsg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.contact.cmsg"
+  },
+  ".cdf": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/NETCDF",
+    "file_type_label": "NetCDF",
+    "media_type": "application/x-netcdf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-netcdf"
+  },
+  ".cdfx": {
+    "media_type": "application/cdfx+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/cdfx+xml"
+  },
+  ".cdkey": {
+    "media_type": "application/vnd.mediastation.cdkey",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.mediastation.cdkey"
+  },
+  ".cdmia": {
+    "media_type": "application/cdmi-capability",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/cdmi-capability"
+  },
+  ".cdmic": {
+    "media_type": "application/cdmi-container",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/cdmi-container"
+  },
+  ".cdmid": {
+    "media_type": "application/cdmi-domain",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/cdmi-domain"
+  },
+  ".cdmio": {
+    "media_type": "application/cdmi-object",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/cdmi-object"
+  },
+  ".cdmiq": {
+    "media_type": "application/cdmi-queue",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/cdmi-queue"
+  },
+  ".cdxml": {
+    "media_type": "application/vnd.chemdraw+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.chemdraw+xml"
+  },
+  ".cdy": {
+    "media_type": "application/vnd.cinderella",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.cinderella"
+  },
+  ".cer": {
+    "media_type": "application/pkix-cert",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/pkix-cert"
+  },
+  ".cgm": {
+    "media_type": "image/cgm",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/cgm"
+  },
+  ".chm": {
+    "media_type": "application/vnd.ms-htmlhelp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-htmlhelp"
+  },
+  ".chrt": {
+    "media_type": "application/vnd.kde.kchart",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.kde.kchart"
+  },
+  ".cii": {
+    "media_type": "application/vnd.anser-web-certificate-issue-initiation",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.anser-web-certificate-issue-initiation"
+  },
+  ".cil": {
+    "media_type": "application/vnd.ms-artgalry",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-artgalry"
+  },
+  ".cjs": {
+    "media_type": "application/node",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/node"
+  },
+  ".cla": {
+    "media_type": "application/vnd.claymore",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.claymore"
+  },
+  ".cld": {
+    "media_type": "model/vnd.cld",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/vnd.cld"
+  },
+  ".clkk": {
+    "media_type": "application/vnd.crick.clicker.keyboard",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.crick.clicker.keyboard"
+  },
+  ".clkp": {
+    "media_type": "application/vnd.crick.clicker.palette",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.crick.clicker.palette"
+  },
+  ".clkt": {
+    "media_type": "application/vnd.crick.clicker.template",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.crick.clicker.template"
+  },
+  ".clkw": {
+    "media_type": "application/vnd.crick.clicker.wordbank",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.crick.clicker.wordbank"
+  },
+  ".clkx": {
+    "media_type": "application/vnd.crick.clicker",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.crick.clicker"
+  },
+  ".cmc": {
+    "media_type": "application/vnd.cosmocaller",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.cosmocaller"
+  },
+  ".cmp": {
+    "media_type": "application/vnd.yellowriver-custom-menu",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.yellowriver-custom-menu"
+  },
+  ".conf": {
+    "media_type": "text/plain",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/plain"
+  },
+  ".cpl": {
+    "media_type": "application/cpl+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/cpl+xml"
+  },
+  ".crl": {
+    "media_type": "application/pkix-crl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/pkix-crl"
+  },
+  ".crt": {
+    "media_type": "application/x-x509-ca-cert",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-x509-ca-cert"
+  },
+  ".cryptonote": {
+    "media_type": "application/vnd.rig.cryptonote",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.rig.cryptonote"
+  },
+  ".csl": {
+    "media_type": "application/vnd.citationstyles.style+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.citationstyles.style+xml"
+  },
+  ".csp": {
+    "media_type": "application/vnd.commonspace",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.commonspace"
+  },
+  ".css": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/CSS",
+    "file_type_label": "CSS",
+    "media_type": "text/css",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/css"
+  },
+  ".csv": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/CSV",
+    "file_type_label": "CSV",
+    "media_type": "text/csv",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/csv"
+  },
+  ".curl": {
+    "media_type": "text/vnd.curl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/vnd.curl"
+  },
+  ".cwl": {
+    "media_type": "application/cwl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/cwl"
+  },
+  ".cww": {
+    "media_type": "application/prs.cww",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/prs.cww"
+  },
+  ".dae": {
+    "media_type": "model/vnd.collada+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/vnd.collada+xml"
+  },
+  ".daf": {
+    "media_type": "application/vnd.mobius.daf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.mobius.daf"
+  },
+  ".dart": {
+    "media_type": "application/vnd.dart",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.dart"
+  },
+  ".dataless": {
+    "media_type": "application/vnd.fdsn.seed",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.fdsn.seed"
+  },
+  ".davmount": {
+    "media_type": "application/davmount+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/davmount+xml"
+  },
+  ".dbf": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SHP",
+    "file_type_label": "Esri Shape",
+    "media_type": "application/x-shapefile",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-shapefile"
+  },
+  ".dcm": {
+    "media_type": "application/dicom",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/dicom"
+  },
+  ".dcmp": {
+    "media_type": "application/vnd.dcmp+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.dcmp+xml"
+  },
+  ".dcr": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/DCR",
+    "file_type_label": "DCR File",
+    "media_type": "application/x-director",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-director"
+  },
+  ".dd2": {
+    "media_type": "application/vnd.oma.dd2+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.oma.dd2+xml"
+  },
+  ".ddd": {
+    "media_type": "application/vnd.fujixerox.ddd",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.fujixerox.ddd"
+  },
+  ".ddf": {
+    "media_type": "application/vnd.syncml.dmddf+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.syncml.dmddf+xml"
+  },
+  ".deb": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/DEB",
+    "file_type_label": "deb",
+    "media_type": "application/vnd.debian.binary-package",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.debian.binary-package"
+  },
+  ".def": {
+    "media_type": "text/plain",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/plain"
+  },
+  ".deploy": {
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".der": {
+    "media_type": "application/x-x509-ca-cert",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-x509-ca-cert"
+  },
+  ".dfac": {
+    "media_type": "application/vnd.dreamfactory",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.dreamfactory"
+  },
+  ".dgn": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/DGN",
+    "file_type_label": "DGN",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".dib": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/BMP",
+    "file_type_label": "Bitmap Image File",
+    "media_type": "image/x-ms-bmp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/x-ms-bmp"
+  },
+  ".dis": {
+    "media_type": "application/vnd.mobius.dis",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.mobius.dis"
+  },
+  ".disposition-notification": {
+    "media_type": "message/disposition-notification",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/message/disposition-notification"
+  },
+  ".dist": {
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".distz": {
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".djv": {
+    "media_type": "image/vnd.djvu",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.djvu"
+  },
+  ".djvu": {
+    "media_type": "image/vnd.djvu",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.djvu"
+  },
+  ".dll": {
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".dmg": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/DMG",
+    "file_type_label": "DMG",
+    "media_type": "application/x-apple-diskimage",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-apple-diskimage"
+  },
+  ".dmp": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/DMP",
+    "file_type_label": "Oracle Dump",
+    "media_type": "application/x-oracledump",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-oracledump"
+  },
+  ".dms": {
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".dna": {
+    "media_type": "application/vnd.dna",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.dna"
+  },
+  ".doc": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/DOC",
+    "file_type_label": "Word DOC",
+    "media_type": "application/msword",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/msword"
+  },
+  ".docm": {
+    "media_type": "application/vnd.ms-word.document.macroenabled.12",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-word.document.macroenabled.12"
+  },
+  ".docx": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/DOCX",
+    "file_type_label": "Word DOCX",
+    "media_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+  },
+  ".dot": {
+    "media_type": "application/msword",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/msword"
+  },
+  ".dotm": {
+    "media_type": "application/vnd.ms-word.template.macroenabled.12",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-word.template.macroenabled.12"
+  },
+  ".dotx": {
+    "media_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.template",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.wordprocessingml.template"
+  },
+  ".dp": {
+    "media_type": "application/vnd.osgi.dp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.osgi.dp"
+  },
+  ".dpg": {
+    "media_type": "application/vnd.dpgraph",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.dpgraph"
+  },
+  ".dpx": {
+    "media_type": "image/dpx",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/dpx"
+  },
+  ".dra": {
+    "media_type": "audio/vnd.dra",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/vnd.dra"
+  },
+  ".drle": {
+    "media_type": "image/dicom-rle",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/dicom-rle"
+  },
+  ".dsc": {
+    "media_type": "text/prs.lines.tag",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/prs.lines.tag"
+  },
+  ".dssc": {
+    "media_type": "application/dssc+der",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/dssc+der"
+  },
+  ".dta": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/STATA_DTA",
+    "file_type_label": "Stata DTA",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".dtd": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/DTD_XML",
+    "file_type_label": "XML DTD",
+    "media_type": "application/xml-dtd",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xml-dtd"
+  },
+  ".dts": {
+    "media_type": "audio/vnd.dts",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/vnd.dts"
+  },
+  ".dtshd": {
+    "media_type": "audio/vnd.dts.hd",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/vnd.dts.hd"
+  },
+  ".dump": {
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".dvb": {
+    "media_type": "video/vnd.dvb.file",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/vnd.dvb.file"
+  },
+  ".dwd": {
+    "media_type": "application/atsc-dwd+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/atsc-dwd+xml"
+  },
+  ".dwf": {
+    "media_type": "model/vnd.dwf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/vnd.dwf"
+  },
+  ".dwg": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/DWG",
+    "file_type_label": "DWG",
+    "media_type": "application/dwg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/dwg"
+  },
+  ".dxf": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/DXF",
+    "file_type_label": "DXF",
+    "media_type": "image/vnd.dxf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.dxf"
+  },
+  ".dxp": {
+    "media_type": "application/vnd.spotfire.dxp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.spotfire.dxp"
+  },
+  ".e00": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/E00",
+    "file_type_label": "E00",
+    "media_type": "application/x-e00",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-e00"
+  },
+  ".ear": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/EAR",
+    "file_type_label": "EAR",
+    "media_type": "application/java-archive",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/java-archive"
+  },
+  ".ecelp4800": {
+    "media_type": "audio/vnd.nuera.ecelp4800",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/vnd.nuera.ecelp4800"
+  },
+  ".ecelp7470": {
+    "media_type": "audio/vnd.nuera.ecelp7470",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/vnd.nuera.ecelp7470"
+  },
+  ".ecelp9600": {
+    "media_type": "audio/vnd.nuera.ecelp9600",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/vnd.nuera.ecelp9600"
+  },
+  ".ecw": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ECW",
+    "file_type_label": "ECW",
+    "media_type": "application/x-ecw",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-ecw"
+  },
+  ".edi": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SDMX",
+    "file_type_label": "SDMX",
+    "media_type": "application/xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xml"
+  },
+  ".edm": {
+    "media_type": "application/vnd.novadigm.edm",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.novadigm.edm"
+  },
+  ".edx": {
+    "media_type": "application/vnd.novadigm.edx",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.novadigm.edx"
+  },
+  ".efif": {
+    "media_type": "application/vnd.picsel",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.picsel"
+  },
+  ".ei6": {
+    "media_type": "application/vnd.pg.osasli",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.pg.osasli"
+  },
+  ".elc": {
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".emf": {
+    "media_type": "image/emf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/emf"
+  },
+  ".eml": {
+    "media_type": "message/rfc822",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/message/rfc822"
+  },
+  ".emma": {
+    "media_type": "application/emma+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/emma+xml"
+  },
+  ".emotionml": {
+    "media_type": "application/emotionml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/emotionml+xml"
+  },
+  ".eol": {
+    "media_type": "audio/vnd.digital-winds",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/vnd.digital-winds"
+  },
+  ".eot": {
+    "media_type": "application/vnd.ms-fontobject",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-fontobject"
+  },
+  ".eps": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/EPS",
+    "file_type_label": "Encapsulated Postscript",
+    "media_type": "application/postscript",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/postscript"
+  },
+  ".epub": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/EPUB",
+    "file_type_label": "EPUB",
+    "media_type": "application/epub+zip",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/epub+zip"
+  },
+  ".es3": {
+    "media_type": "application/vnd.eszigno3+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.eszigno3+xml"
+  },
+  ".esa": {
+    "media_type": "application/vnd.osgi.subsystem",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.osgi.subsystem"
+  },
+  ".esf": {
+    "media_type": "application/vnd.epson.esf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.epson.esf"
+  },
+  ".et3": {
+    "media_type": "application/vnd.eszigno3+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.eszigno3+xml"
+  },
+  ".exe": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/EXE",
+    "file_type_label": "EXE",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".exi": {
+    "media_type": "application/exi",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/exi"
+  },
+  ".exp": {
+    "media_type": "application/express",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/express"
+  },
+  ".exr": {
+    "media_type": "image/aces",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/aces"
+  },
+  ".ext": {
+    "media_type": "application/vnd.novadigm.ext",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.novadigm.ext"
+  },
+  ".ez": {
+    "media_type": "application/andrew-inset",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/andrew-inset"
+  },
+  ".ez2": {
+    "media_type": "application/vnd.ezpix-album",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ezpix-album"
+  },
+  ".ez3": {
+    "media_type": "application/vnd.ezpix-package",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ezpix-package"
+  },
+  ".facti": {
+    "media_type": "image/vnd.blockfact.facti",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.blockfact.facti"
+  },
+  ".fbs": {
+    "media_type": "image/vnd.fastbidsheet",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.fastbidsheet"
+  },
+  ".fcdt": {
+    "media_type": "application/vnd.adobe.formscentral.fcdt",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.adobe.formscentral.fcdt"
+  },
+  ".fcs": {
+    "media_type": "application/vnd.isac.fcs",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.isac.fcs"
+  },
+  ".fdf": {
+    "media_type": "application/fdf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/fdf"
+  },
+  ".fdt": {
+    "media_type": "application/fdt+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/fdt+xml"
+  },
+  ".fe_launch": {
+    "media_type": "application/vnd.denovo.fcselayout-link",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.denovo.fcselayout-link"
+  },
+  ".fg5": {
+    "media_type": "application/vnd.fujitsu.oasysgp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.fujitsu.oasysgp"
+  },
+  ".fits": {
+    "media_type": "image/fits",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/fits"
+  },
+  ".flo": {
+    "media_type": "application/vnd.micrografx.flo",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.micrografx.flo"
+  },
+  ".flw": {
+    "media_type": "application/vnd.kde.kivio",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.kde.kivio"
+  },
+  ".flx": {
+    "media_type": "text/vnd.fmi.flexstor",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/vnd.fmi.flexstor"
+  },
+  ".fly": {
+    "media_type": "text/vnd.fly",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/vnd.fly"
+  },
+  ".fm": {
+    "media_type": "application/vnd.framemaker",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.framemaker"
+  },
+  ".fo": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/XSLFO",
+    "file_type_label": "XSL-FO",
+    "media_type": "application/xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xml"
+  },
+  ".fodp": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ODP",
+    "file_type_label": "ODP",
+    "media_type": "application/vnd.oasis.opendocument.presentation",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.oasis.opendocument.presentation"
+  },
+  ".fpx": {
+    "media_type": "image/vnd.fpx",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.fpx"
+  },
+  ".frame": {
+    "media_type": "application/vnd.framemaker",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.framemaker"
+  },
+  ".fsc": {
+    "media_type": "application/vnd.fsc.weblaunch",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.fsc.weblaunch"
+  },
+  ".fst": {
+    "media_type": "image/vnd.fst",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.fst"
+  },
+  ".ftc": {
+    "media_type": "application/vnd.fluxtime.clip",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.fluxtime.clip"
+  },
+  ".fvt": {
+    "media_type": "video/vnd.fvt",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/vnd.fvt"
+  },
+  ".fxp": {
+    "media_type": "application/vnd.adobe.fxp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.adobe.fxp"
+  },
+  ".fxpl": {
+    "media_type": "application/vnd.adobe.fxp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.adobe.fxp"
+  },
+  ".fzs": {
+    "media_type": "application/vnd.fuzzysheet",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.fuzzysheet"
+  },
+  ".g2w": {
+    "media_type": "application/vnd.geoplan",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.geoplan"
+  },
+  ".g3": {
+    "media_type": "image/g3fax",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/g3fax"
+  },
+  ".g3w": {
+    "media_type": "application/vnd.geospace",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.geospace"
+  },
+  ".gac": {
+    "media_type": "application/vnd.groove-account",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.groove-account"
+  },
+  ".gbr": {
+    "media_type": "application/rpki-ghostbusters",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/rpki-ghostbusters"
+  },
+  ".gdb": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/GDB",
+    "file_type_label": "Esri File Geodatabase",
+    "media_type": "application/x-filegdb",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-filegdb"
+  },
+  ".gdl": {
+    "media_type": "model/vnd.gdl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/vnd.gdl"
+  },
+  ".ged": {
+    "media_type": "text/vnd.familysearch.gedcom",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/vnd.familysearch.gedcom"
+  },
+  ".geo": {
+    "media_type": "application/vnd.dynageo",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.dynageo"
+  },
+  ".geojson": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/GEOJSON",
+    "file_type_label": "GeoJSON",
+    "media_type": "application/geo+json",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/geo+json"
+  },
+  ".gex": {
+    "media_type": "application/vnd.geometry-explorer",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.geometry-explorer"
+  },
+  ".ggb": {
+    "media_type": "application/vnd.geogebra.file",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.geogebra.file"
+  },
+  ".ggml": {
+    "file_type_uri": "https://piveau.io/def/file-type/GGML",
+    "file_type_label": "GGML",
+    "file_type": "GGML",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream",
+    "see_also": "https://huggingface.co/blog/introduction-to-ggml"
+  },
+  ".ggs": {
+    "media_type": "application/vnd.geogebra.slides",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.geogebra.slides"
+  },
+  ".ggt": {
+    "media_type": "application/vnd.geogebra.tool",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.geogebra.tool"
+  },
+  ".gguf": {
+    "file_type_uri": "https://piveau.io/def/file-type/GGUF",
+    "file_type_label": "GGUF",
+    "file_type": "GGUF",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream",
+    "see_also": "https://github.com/ggml-org/ggml/blob/master/docs/gguf.md"
+  },
+  ".ghf": {
+    "media_type": "application/vnd.groove-help",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.groove-help"
+  },
+  ".gif": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/GIF",
+    "file_type_label": "GIF",
+    "media_type": "image/gif",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/gif"
+  },
+  ".gim": {
+    "media_type": "application/vnd.groove-identity-message",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.groove-identity-message"
+  },
+  ".glb": {
+    "media_type": "model/gltf-binary",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/gltf-binary"
+  },
+  ".gltf": {
+    "media_type": "model/gltf+json",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/gltf+json"
+  },
+  ".gml": {
+    "media_type": "application/gml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/gml+xml"
+  },
+  ".gml .xml": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/GML",
+    "file_type_label": "GML",
+    "media_type": "application/gml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/gml+xml"
+  },
+  ".gmx": {
+    "media_type": "application/vnd.gmx",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.gmx"
+  },
+  ".gmz": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/GMZ",
+    "file_type_label": "Zipped GML",
+    "media_type": "application/x-gmz",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-gmz"
+  },
+  ".gph": {
+    "media_type": "application/vnd.flographit",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.flographit"
+  },
+  ".gpkg": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/GPKG",
+    "file_type_label": "GeoPackage",
+    "media_type": "application/geopackage+sqlite3",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/geopackage+sqlite3"
+  },
+  ".gpx": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/GPX",
+    "file_type_label": "GPX",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".gqf": {
+    "media_type": "application/vnd.grafeq",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.grafeq"
+  },
+  ".gqs": {
+    "media_type": "application/vnd.grafeq",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.grafeq"
+  },
+  ".gram": {
+    "media_type": "application/srgs",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/srgs"
+  },
+  ".gre": {
+    "media_type": "application/vnd.geometry-explorer",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.geometry-explorer"
+  },
+  ".grv": {
+    "media_type": "application/vnd.groove-injector",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.groove-injector"
+  },
+  ".grxml": {
+    "media_type": "application/srgs+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/srgs+xml"
+  },
+  ".gtm": {
+    "media_type": "application/vnd.groove-tool-message",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.groove-tool-message"
+  },
+  ".gtw": {
+    "media_type": "model/vnd.gtw",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/vnd.gtw"
+  },
+  ".gv": {
+    "media_type": "text/vnd.graphviz",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/vnd.graphviz"
+  },
+  ".gxt": {
+    "media_type": "application/vnd.geonext",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.geonext"
+  },
+  ".gz": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/GZIP",
+    "file_type_label": "GNU zip",
+    "media_type": "application/gzip",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/gzip"
+  },
+  ".h261": {
+    "media_type": "video/h261",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/h261"
+  },
+  ".h263": {
+    "media_type": "video/h263",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/h263"
+  },
+  ".h264": {
+    "media_type": "video/h264",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/h264"
+  },
+  ".h4": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/HDF",
+    "file_type_label": "HDF",
+    "media_type": "application/x-hdf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-hdf"
+  },
+  ".h5": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/HDF",
+    "file_type_label": "HDF",
+    "media_type": "application/x-hdf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-hdf",
+    "file_type": "HDF"
+  },
+  ".hal": {
+    "media_type": "application/vnd.hal+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.hal+xml"
+  },
+  ".hbci": {
+    "media_type": "application/vnd.hbci",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.hbci"
+  },
+  ".hdf": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/HDF",
+    "file_type_label": "HDF",
+    "media_type": "application/x-hdf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-hdf"
+  },
+  ".hdf4": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/HDF",
+    "file_type_label": "HDF",
+    "media_type": "application/x-hdf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-hdf"
+  },
+  ".hdf5": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/HDF",
+    "file_type_label": "HDF",
+    "media_type": "application/x-hdf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-hdf"
+  },
+  ".hdt": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/HDT",
+    "file_type_label": "HDT",
+    "media_type": "application/vnd.hdt",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.hdt"
+  },
+  ".he2": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/HDF",
+    "file_type_label": "HDF",
+    "media_type": "application/x-hdf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-hdf"
+  },
+  ".he5": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/HDF",
+    "file_type_label": "HDF",
+    "media_type": "application/x-hdf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-hdf"
+  },
+  ".heic": {
+    "media_type": "image/heic",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/heic"
+  },
+  ".heics": {
+    "media_type": "image/heic-sequence",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/heic-sequence"
+  },
+  ".heif": {
+    "media_type": "image/heif",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/heif"
+  },
+  ".heifs": {
+    "media_type": "image/heif-sequence",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/heif-sequence"
+  },
+  ".hej2": {
+    "media_type": "image/hej2k",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/hej2k"
+  },
+  ".held": {
+    "media_type": "application/atsc-held+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/atsc-held+xml"
+  },
+  ".hpgl": {
+    "media_type": "application/vnd.hp-hpgl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.hp-hpgl"
+  },
+  ".hpid": {
+    "media_type": "application/vnd.hp-hpid",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.hp-hpid"
+  },
+  ".hps": {
+    "media_type": "application/vnd.hp-hps",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.hp-hps"
+  },
+  ".hqx": {
+    "media_type": "application/mac-binhex40",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mac-binhex40"
+  },
+  ".htke": {
+    "media_type": "application/vnd.kenameaapp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.kenameaapp"
+  },
+  ".htm": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/HTML",
+    "file_type_label": "HTML",
+    "media_type": "text/html",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/html"
+  },
+  ".html": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/HTML",
+    "file_type_label": "HTML",
+    "media_type": "text/html",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/html"
+  },
+  ".hvd": {
+    "media_type": "application/vnd.yamaha.hv-dic",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.yamaha.hv-dic"
+  },
+  ".hvp": {
+    "media_type": "application/vnd.yamaha.hv-voice",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.yamaha.hv-voice"
+  },
+  ".hvs": {
+    "media_type": "application/vnd.yamaha.hv-script",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.yamaha.hv-script"
+  },
+  ".i2g": {
+    "media_type": "application/vnd.intergeo",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.intergeo"
+  },
+  ".ical": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ICS",
+    "file_type_label": "ICalendar",
+    "media_type": "text/calendar",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/calendar"
+  },
+  ".icalendar": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ICS",
+    "file_type_label": "ICalendar",
+    "media_type": "text/calendar",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/calendar"
+  },
+  ".icc": {
+    "media_type": "application/vnd.iccprofile",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.iccprofile"
+  },
+  ".icm": {
+    "media_type": "application/vnd.iccprofile",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.iccprofile"
+  },
+  ".ico": {
+    "media_type": "image/vnd.microsoft.icon",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.microsoft.icon"
+  },
+  ".ics": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ICS",
+    "file_type_label": "ICalendar",
+    "media_type": "text/calendar",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/calendar"
+  },
+  ".ief": {
+    "media_type": "image/ief",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/ief"
+  },
+  ".ifb": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ICS",
+    "file_type_label": "ICalendar",
+    "media_type": "text/calendar",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/calendar"
+  },
+  ".ifm": {
+    "media_type": "application/vnd.shana.informed.formdata",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.shana.informed.formdata"
+  },
+  ".iges": {
+    "media_type": "model/iges",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/iges"
+  },
+  ".igl": {
+    "media_type": "application/vnd.igloader",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.igloader"
+  },
+  ".igm": {
+    "media_type": "application/vnd.insors.igm",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.insors.igm"
+  },
+  ".igs": {
+    "media_type": "model/iges",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/iges"
+  },
+  ".igx": {
+    "media_type": "application/vnd.micrografx.igx",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.micrografx.igx"
+  },
+  ".iif": {
+    "media_type": "application/vnd.shana.informed.interchange",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.shana.informed.interchange"
+  },
+  ".img": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ISO",
+    "file_type_label": "ISO image",
+    "media_type": "application/x-iso9660-image",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-iso9660-image"
+  },
+  ".imp": {
+    "media_type": "application/vnd.accpac.simply.imp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.accpac.simply.imp"
+  },
+  ".ims": {
+    "media_type": "application/vnd.ms-ims",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-ims"
+  },
+  ".in": {
+    "media_type": "text/plain",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/plain"
+  },
+  ".indd": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/INDD",
+    "file_type_label": "INDD",
+    "media_type": "application/x-indesign",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-indesign"
+  },
+  ".ini": {
+    "media_type": "text/plain",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/plain"
+  },
+  ".ink": {
+    "media_type": "application/inkml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/inkml+xml"
+  },
+  ".inkml": {
+    "media_type": "application/inkml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/inkml+xml"
+  },
+  ".iota": {
+    "media_type": "application/vnd.astraea-software.iota",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.astraea-software.iota"
+  },
+  ".ipa": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/IPA",
+    "file_type_label": "IPA",
+    "media_type": "application/zip",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/zip"
+  },
+  ".ipfix": {
+    "media_type": "application/ipfix",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/ipfix"
+  },
+  ".ipk": {
+    "media_type": "application/vnd.shana.informed.package",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.shana.informed.package"
+  },
+  ".irm": {
+    "media_type": "application/vnd.ibm.rights-management",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ibm.rights-management"
+  },
+  ".irp": {
+    "media_type": "application/vnd.irepository.package+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.irepository.package+xml"
+  },
+  ".iso": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ISO",
+    "file_type_label": "ISO image",
+    "media_type": "application/x-iso9660-image",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-iso9660-image"
+  },
+  ".itp": {
+    "media_type": "application/vnd.shana.informed.formtemplate",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.shana.informed.formtemplate"
+  },
+  ".its": {
+    "media_type": "application/its+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/its+xml"
+  },
+  ".ivp": {
+    "media_type": "application/vnd.immervision-ivp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.immervision-ivp"
+  },
+  ".ivu": {
+    "media_type": "application/vnd.immervision-ivu",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.immervision-ivu"
+  },
+  ".jad": {
+    "media_type": "text/vnd.sun.j2me.app-descriptor",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/vnd.sun.j2me.app-descriptor"
+  },
+  ".jaii": {
+    "media_type": "image/jaii",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jaii"
+  },
+  ".jais": {
+    "media_type": "image/jais",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jais"
+  },
+  ".jam": {
+    "media_type": "application/vnd.jam",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.jam"
+  },
+  ".jar": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/JAR",
+    "file_type_label": "JAR",
+    "media_type": "application/java-archive",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/java-archive"
+  },
+  ".jgw": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/WORLD",
+    "file_type_label": "World file",
+    "media_type": "application/x-worldfile",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-worldfile"
+  },
+  ".jhc": {
+    "media_type": "image/jphc",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jphc"
+  },
+  ".jisp": {
+    "media_type": "application/vnd.jisp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.jisp"
+  },
+  ".jls": {
+    "media_type": "image/jls",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jls"
+  },
+  ".jlt": {
+    "media_type": "application/vnd.hp-jlyt",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.hp-jlyt"
+  },
+  ".joda": {
+    "media_type": "application/vnd.joost.joda-archive",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.joost.joda-archive"
+  },
+  ".jp2": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/JPEG2000",
+    "file_type_label": "JPEG 2000",
+    "media_type": "image/jp2",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jp2"
+  },
+  ".jpe": {
+    "media_type": "image/jpeg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jpeg"
+  },
+  ".jpeg": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/JPEG",
+    "file_type_label": "JPEG",
+    "media_type": "image/jpeg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jpeg"
+  },
+  ".jpf": {
+    "media_type": "image/jpx",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jpx"
+  },
+  ".jpg": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/JPEG",
+    "file_type_label": "JPEG",
+    "media_type": "image/jpeg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jpeg"
+  },
+  ".jpg2": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/JPEG2000",
+    "file_type_label": "JPEG 2000",
+    "media_type": "image/jp2",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jp2"
+  },
+  ".jpgm": {
+    "media_type": "image/jpm",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jpm"
+  },
+  ".jpgv": {
+    "media_type": "video/jpeg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/jpeg"
+  },
+  ".jph": {
+    "media_type": "image/jph",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jph"
+  },
+  ".jpm": {
+    "media_type": "image/jpm",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jpm"
+  },
+  ".jpx": {
+    "media_type": "image/jpx",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jpx"
+  },
+  ".js": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/JS",
+    "file_type_label": "JavaScript",
+    "media_type": "application/javascript",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/javascript"
+  },
+  ".json": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/GEOJSON",
+    "file_type_label": "GeoJSON",
+    "media_type": "application/geo+json",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/geo+json"
+  },
+  ".jsonl": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/JSON",
+    "file_type_label": "JSON Lines",
+    "file_type": "JSON",
+    "media_type": "application/x-ndjson",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-ndjson"
+  },
+  ".jsonl.gz": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/JSON",
+    "file_type_label": "JSON Lines (compressed)",
+    "file_type": "JSON",
+    "media_type": "application/gzip",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/gzip"
+  },
+  ".jsonld": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/JSON_LD",
+    "file_type_label": "JSON-LD",
+    "media_type": "application/ld+json",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/ld+json"
+  },
+  ".jt": {
+    "media_type": "model/jt",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/jt"
+  },
+  ".jxl": {
+    "media_type": "image/jxl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jxl"
+  },
+  ".jxr": {
+    "media_type": "image/jxr",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jxr"
+  },
+  ".jxra": {
+    "media_type": "image/jxra",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jxra"
+  },
+  ".jxrs": {
+    "media_type": "image/jxrs",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jxrs"
+  },
+  ".jxs": {
+    "media_type": "image/jxs",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jxs"
+  },
+  ".jxsc": {
+    "media_type": "image/jxsc",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jxsc"
+  },
+  ".jxsi": {
+    "media_type": "image/jxsi",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jxsi"
+  },
+  ".jxss": {
+    "media_type": "image/jxss",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/jxss"
+  },
+  ".karbon": {
+    "media_type": "application/vnd.kde.karbon",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.kde.karbon"
+  },
+  ".key": {
+    "media_type": "application/vnd.apple.keynote",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.apple.keynote"
+  },
+  ".kfo": {
+    "media_type": "application/vnd.kde.kformula",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.kde.kformula"
+  },
+  ".kia": {
+    "media_type": "application/vnd.kidspiration",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.kidspiration"
+  },
+  ".kml": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/KML",
+    "file_type_label": "KML",
+    "media_type": "application/vnd.google-earth.kml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.google-earth.kml+xml"
+  },
+  ".kmz": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/KMZ",
+    "file_type_label": "KMZ",
+    "media_type": "application/vnd.google-earth.kmz",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.google-earth.kmz"
+  },
+  ".kne": {
+    "media_type": "application/vnd.kinar",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.kinar"
+  },
+  ".knp": {
+    "media_type": "application/vnd.kinar",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.kinar"
+  },
+  ".kon": {
+    "media_type": "application/vnd.kde.kontour",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.kde.kontour"
+  },
+  ".kpr": {
+    "media_type": "application/vnd.kde.kpresenter",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.kde.kpresenter"
+  },
+  ".kpt": {
+    "media_type": "application/vnd.kde.kpresenter",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.kde.kpresenter"
+  },
+  ".ksp": {
+    "media_type": "application/vnd.kde.kspread",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.kde.kspread"
+  },
+  ".ktr": {
+    "media_type": "application/vnd.kahootz",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.kahootz"
+  },
+  ".ktx": {
+    "media_type": "image/ktx",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/ktx"
+  },
+  ".ktx2": {
+    "media_type": "image/ktx2",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/ktx2"
+  },
+  ".ktz": {
+    "media_type": "application/vnd.kahootz",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.kahootz"
+  },
+  ".kwd": {
+    "media_type": "application/vnd.kde.kword",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.kde.kword"
+  },
+  ".kwt": {
+    "media_type": "application/vnd.kde.kword",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.kde.kword"
+  },
+  ".las": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/LAS",
+    "file_type_label": "LASer file",
+    "media_type": "application/x-las",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-las"
+  },
+  ".lasxml": {
+    "media_type": "application/vnd.las.las+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.las.las+xml"
+  },
+  ".laz": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/LAZ",
+    "file_type_label": "Compressed LAS file",
+    "media_type": "application/x-laz",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-laz"
+  },
+  ".lbd": {
+    "media_type": "application/vnd.llamagraphics.life-balance.desktop",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.llamagraphics.life-balance.desktop"
+  },
+  ".lbe": {
+    "media_type": "application/vnd.llamagraphics.life-balance.exchange+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.llamagraphics.life-balance.exchange+xml"
+  },
+  ".leg": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/AKN4EU_LEG",
+    "file_type_label": "AKN4EU LEG",
+    "media_type": "application/zip",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/zip"
+  },
+  ".les": {
+    "media_type": "application/vnd.hhe.lesson-player",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.hhe.lesson-player"
+  },
+  ".lgr": {
+    "media_type": "application/lgr+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/lgr+xml"
+  },
+  ".lha": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/LHA",
+    "file_type_label": "LHA",
+    "media_type": "application/x-lzh-compressed",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-lzh-compressed"
+  },
+  ".link66": {
+    "media_type": "application/vnd.route66.link66+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.route66.link66+xml"
+  },
+  ".list": {
+    "media_type": "text/plain",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/plain"
+  },
+  ".loas": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/AAC",
+    "file_type_label": "AAC",
+    "media_type": "audio/aac",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/aac"
+  },
+  ".log": {
+    "media_type": "text/plain",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/plain"
+  },
+  ".lostxml": {
+    "media_type": "application/lost+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/lost+xml"
+  },
+  ".lpk": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/LPK",
+    "file_type_label": "Layer package",
+    "media_type": "multipart/mixed",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/multipart/mixed"
+  },
+  ".lrf": {
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".lrm": {
+    "media_type": "application/vnd.ms-lrm",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-lrm"
+  },
+  ".lvp": {
+    "media_type": "audio/vnd.lucent.voice",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/vnd.lucent.voice"
+  },
+  ".lwp": {
+    "media_type": "application/vnd.lotus-wordpro",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.lotus-wordpro"
+  },
+  ".lz": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/LZIP",
+    "file_type_label": "lzip",
+    "media_type": "application/x-lzip",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-lzip"
+  },
+  ".lzh": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/LHA",
+    "file_type_label": "LHA",
+    "media_type": "application/x-lzh-compressed",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-lzh-compressed"
+  },
+  ".lzma": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/LZMA",
+    "file_type_label": "lzma",
+    "media_type": "application/x-lzma",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-lzma"
+  },
+  ".lzo": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/LZO",
+    "file_type_label": "lzo",
+    "media_type": "application/x-lzop",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-lzop"
+  },
+  ".m1v": {
+    "media_type": "video/mpeg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/mpeg"
+  },
+  ".m21": {
+    "media_type": "application/mp21",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mp21"
+  },
+  ".m2a": {
+    "media_type": "audio/mpeg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/mpeg"
+  },
+  ".m2t": {
+    "media_type": "video/mp2t",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/mp2t"
+  },
+  ".m2ts": {
+    "media_type": "video/mp2t",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/mp2t"
+  },
+  ".m2v": {
+    "media_type": "video/mpeg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/mpeg"
+  },
+  ".m3a": {
+    "media_type": "audio/mpeg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/mpeg"
+  },
+  ".m3u8": {
+    "media_type": "application/vnd.apple.mpegurl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.apple.mpegurl"
+  },
+  ".m4a": {
+    "media_type": "audio/mp4",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/mp4"
+  },
+  ".m4b": {
+    "media_type": "audio/mp4",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/mp4"
+  },
+  ".m4p": {
+    "media_type": "application/mp4",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mp4"
+  },
+  ".m4s": {
+    "media_type": "video/iso.segment",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/iso.segment"
+  },
+  ".m4u": {
+    "media_type": "video/vnd.mpegurl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/vnd.mpegurl"
+  },
+  ".ma": {
+    "media_type": "application/mathematica",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mathematica"
+  },
+  ".mads": {
+    "media_type": "application/mads+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mads+xml"
+  },
+  ".maei": {
+    "media_type": "application/mmt-aei+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mmt-aei+xml"
+  },
+  ".mag": {
+    "media_type": "application/vnd.ecowin.chart",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ecowin.chart"
+  },
+  ".maker": {
+    "media_type": "application/vnd.framemaker",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.framemaker"
+  },
+  ".man": {
+    "media_type": "text/troff",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/troff"
+  },
+  ".manifest": {
+    "media_type": "text/cache-manifest",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/cache-manifest"
+  },
+  ".map": {
+    "media_type": "application/json",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/json"
+  },
+  ".mar": {
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".markdown": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MARKDOWN",
+    "file_type_label": "Markdown",
+    "media_type": "text/markdown",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/markdown"
+  },
+  ".mat": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MATLAB_MAT",
+    "file_type_label": "MATLAB MAT",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".mathml": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MATHML",
+    "file_type_label": "MathML",
+    "media_type": "application/mathml-presentation+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mathml-presentation+xml"
+  },
+  ".mb": {
+    "media_type": "application/mathematica",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mathematica"
+  },
+  ".mbk": {
+    "media_type": "application/vnd.mobius.mbk",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.mobius.mbk"
+  },
+  ".mbox": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MBOX",
+    "file_type_label": "MBOX",
+    "media_type": "application/mbox",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mbox"
+  },
+  ".mc1": {
+    "media_type": "application/vnd.medcalcdata",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.medcalcdata"
+  },
+  ".mcd": {
+    "media_type": "application/vnd.mcd",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.mcd"
+  },
+  ".md": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MARKDOWN",
+    "file_type_label": "Markdown",
+    "media_type": "text/markdown",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/markdown"
+  },
+  ".mdb": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MDB",
+    "file_type_label": "MDB",
+    "media_type": "application/vnd.ms-access",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-access"
+  },
+  ".mdi": {
+    "media_type": "image/vnd.ms-modi",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.ms-modi"
+  },
+  ".me": {
+    "media_type": "text/troff",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/troff"
+  },
+  ".mesh": {
+    "media_type": "model/mesh",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/mesh"
+  },
+  ".meta4": {
+    "media_type": "application/metalink4+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/metalink4+xml"
+  },
+  ".mets": {
+    "media_type": "application/mets+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mets+xml"
+  },
+  ".mfm": {
+    "media_type": "application/vnd.mfmp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.mfmp"
+  },
+  ".mft": {
+    "media_type": "application/rpki-manifest",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/rpki-manifest"
+  },
+  ".mgp": {
+    "media_type": "application/vnd.osgeo.mapguide.package",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.osgeo.mapguide.package"
+  },
+  ".mgz": {
+    "media_type": "application/vnd.proteus.magazine",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.proteus.magazine"
+  },
+  ".mht": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MHTML",
+    "file_type_label": "MHTML",
+    "media_type": "message/html",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/message/html"
+  },
+  ".mhtml": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MHTML",
+    "file_type_label": "MHTML",
+    "media_type": "message/html",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/message/html"
+  },
+  ".mid": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MIF_MID",
+    "file_type_label": "MIF/MID",
+    "media_type": "text/plain",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/plain"
+  },
+  ".mif": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MIF_MID",
+    "file_type_label": "MIF/MID",
+    "media_type": "text/plain",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/plain"
+  },
+  ".mime": {
+    "media_type": "message/rfc822",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/message/rfc822"
+  },
+  ".mj2": {
+    "media_type": "video/mj2",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/mj2"
+  },
+  ".mjp2": {
+    "media_type": "video/mj2",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/mj2"
+  },
+  ".mjs": {
+    "media_type": "text/javascript",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/javascript"
+  },
+  ".mlmodel": {
+    "file_type_uri": "https://piveau.io/def/file-type/COREML",
+    "file_type_label": "Core ML Model",
+    "file_type": "COREML",
+    "media_type": "application/x-coreml-model",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream",
+    "see_also": "https://apple.github.io/coremltools/docs-guides/"
+  },
+  ".mmd": {
+    "media_type": "application/vnd.chipnuts.karaoke-mmd",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.chipnuts.karaoke-mmd"
+  },
+  ".mmf": {
+    "media_type": "application/vnd.smaf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.smaf"
+  },
+  ".mml": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MATHML",
+    "file_type_label": "MathML",
+    "media_type": "application/mathml-presentation+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mathml-presentation+xml"
+  },
+  ".mmr": {
+    "media_type": "image/vnd.fujixerox.edmics-mmr",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.fujixerox.edmics-mmr"
+  },
+  ".mobi": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MOBI",
+    "file_type_label": "Mobipocket eBook",
+    "media_type": "application/x-mobipocket-ebook",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-mobipocket-ebook"
+  },
+  ".mods": {
+    "media_type": "application/mods+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mods+xml"
+  },
+  ".mop": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MOP",
+    "file_type_label": "MOP",
+    "media_type": "chemical/x-mopac-input",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/chemical/x-mopac-input"
+  },
+  ".mov": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MOV",
+    "file_type_label": "MOV",
+    "media_type": "video/quicktime",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/quicktime"
+  },
+  ".mp2": {
+    "media_type": "audio/mpeg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/mpeg"
+  },
+  ".mp21": {
+    "media_type": "application/mp21",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mp21"
+  },
+  ".mp2a": {
+    "media_type": "audio/mpeg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/mpeg"
+  },
+  ".mp3": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MP3",
+    "file_type_label": "MP3",
+    "media_type": "audio/mpeg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/mpeg"
+  },
+  ".mp4": {
+    "media_type": "application/mp4",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mp4"
+  },
+  ".mp4a": {
+    "media_type": "audio/mp4",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/mp4"
+  },
+  ".mp4s": {
+    "media_type": "application/mp4",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mp4"
+  },
+  ".mp4v": {
+    "media_type": "video/mp4",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/mp4"
+  },
+  ".mpc": {
+    "media_type": "application/vnd.mophun.certificate",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.mophun.certificate"
+  },
+  ".mpd": {
+    "media_type": "application/dash+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/dash+xml"
+  },
+  ".mpe": {
+    "media_type": "video/mpeg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/mpeg"
+  },
+  ".mpeg": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MPEG4",
+    "file_type_label": "MPEG-4",
+    "media_type": "video/mp4",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/mp4"
+  },
+  ".mpf": {
+    "media_type": "application/media-policy-dataset+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/media-policy-dataset+xml"
+  },
+  ".mpg": {
+    "media_type": "video/mpeg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/mpeg"
+  },
+  ".mpg4": {
+    "media_type": "application/mp4",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mp4"
+  },
+  ".mpga": {
+    "media_type": "audio/mpeg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/mpeg"
+  },
+  ".mpkg": {
+    "media_type": "application/vnd.apple.installer+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.apple.installer+xml"
+  },
+  ".mpm": {
+    "media_type": "application/vnd.blueice.multipass",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.blueice.multipass"
+  },
+  ".mpn": {
+    "media_type": "application/vnd.mophun.application",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.mophun.application"
+  },
+  ".mpp": {
+    "media_type": "application/dash-patch+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/dash-patch+xml"
+  },
+  ".mpt": {
+    "media_type": "application/vnd.ms-project",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-project"
+  },
+  ".mpy": {
+    "media_type": "application/vnd.ibm.minipay",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ibm.minipay"
+  },
+  ".mqy": {
+    "media_type": "application/vnd.mobius.mqy",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.mobius.mqy"
+  },
+  ".mrc": {
+    "media_type": "application/marc",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/marc"
+  },
+  ".mrcx": {
+    "media_type": "application/marcxml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/marcxml+xml"
+  },
+  ".ms": {
+    "media_type": "text/troff",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/troff"
+  },
+  ".mscml": {
+    "media_type": "application/mediaservercontrol+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mediaservercontrol+xml"
+  },
+  ".mseed": {
+    "media_type": "application/vnd.fdsn.mseed",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.fdsn.mseed"
+  },
+  ".mseq": {
+    "media_type": "application/vnd.mseq",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.mseq"
+  },
+  ".msf": {
+    "media_type": "application/vnd.epson.msf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.epson.msf"
+  },
+  ".msgpack": {
+    "file_type_uri": "https://piveau.io/def/file-type/MSGPACK",
+    "file_type_label": "MessagePack",
+    "file_type": "MSGPACK",
+    "media_type": "application/vnd.msgpack",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.msgpack",
+    "see_also": "https://msgpack.org/"
+  },
+  ".msh": {
+    "media_type": "model/mesh",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/mesh"
+  },
+  ".msi": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MSI",
+    "file_type_label": "MSI",
+    "media_type": "application/x-ole-storage",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-ole-storage"
+  },
+  ".msl": {
+    "media_type": "application/vnd.mobius.msl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.mobius.msl"
+  },
+  ".msm": {
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".msp": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MSI",
+    "file_type_label": "MSI",
+    "media_type": "application/x-ole-storage",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-ole-storage"
+  },
+  ".msty": {
+    "media_type": "application/vnd.muvee.style",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.muvee.style"
+  },
+  ".mtl": {
+    "media_type": "model/mtl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/mtl"
+  },
+  ".mts": {
+    "media_type": "model/vnd.mts",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/vnd.mts"
+  },
+  ".mus": {
+    "media_type": "application/vnd.musician",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.musician"
+  },
+  ".musd": {
+    "media_type": "application/mmt-usd+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mmt-usd+xml"
+  },
+  ".musicxml": {
+    "media_type": "application/vnd.recordare.musicxml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.recordare.musicxml+xml"
+  },
+  ".mvt": {
+    "media_type": "application/vnd.mapbox-vector-tile",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.mapbox-vector-tile"
+  },
+  ".mwf": {
+    "media_type": "application/vnd.mfer",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.mfer"
+  },
+  ".mxd": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MXD",
+    "file_type_label": "MXD",
+    "media_type": "application/x-mxd",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-mxd"
+  },
+  ".mxf": {
+    "media_type": "application/mxf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mxf"
+  },
+  ".mxl": {
+    "media_type": "application/vnd.recordare.musicxml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.recordare.musicxml"
+  },
+  ".mxmf": {
+    "media_type": "audio/mobile-xmf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/mobile-xmf"
+  },
+  ".mxml": {
+    "media_type": "application/xv+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xv+xml"
+  },
+  ".mxs": {
+    "media_type": "application/vnd.triscape.mxs",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.triscape.mxs"
+  },
+  ".mxu": {
+    "media_type": "video/vnd.mpegurl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/vnd.mpegurl"
+  },
+  ".n3": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/N3",
+    "file_type_label": "N3",
+    "media_type": "text/n3",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/n3"
+  },
+  ".nb": {
+    "media_type": "application/mathematica",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/mathematica"
+  },
+  ".nbp": {
+    "media_type": "application/vnd.wolfram.player",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.wolfram.player"
+  },
+  ".nc": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/NETCDF",
+    "file_type_label": "NetCDF",
+    "media_type": "application/x-netcdf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-netcdf"
+  },
+  ".ngdat": {
+    "media_type": "application/vnd.nokia.n-gage.data",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.nokia.n-gage.data"
+  },
+  ".nitf": {
+    "media_type": "application/vnd.nitf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.nitf"
+  },
+  ".nlu": {
+    "media_type": "application/vnd.neurolanguage.nlu",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.neurolanguage.nlu"
+  },
+  ".nml": {
+    "media_type": "application/vnd.enliven",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.enliven"
+  },
+  ".nnd": {
+    "media_type": "application/vnd.noblenet-directory",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.noblenet-directory"
+  },
+  ".nns": {
+    "media_type": "application/vnd.noblenet-sealer",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.noblenet-sealer"
+  },
+  ".nnw": {
+    "media_type": "application/vnd.noblenet-web",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.noblenet-web"
+  },
+  ".npx": {
+    "media_type": "image/vnd.net-fpx",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.net-fpx"
+  },
+  ".nq": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RDF_N_QUADS",
+    "file_type_label": "RDF N-Quads",
+    "media_type": "application/n-quads",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/n-quads"
+  },
+  ".nsf": {
+    "media_type": "application/vnd.lotus-notes",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.lotus-notes"
+  },
+  ".nt": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RDF_N_TRIPLES",
+    "file_type_label": "RDF N-Triples",
+    "media_type": "application/n-triples",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/n-triples"
+  },
+  ".ntf": {
+    "media_type": "application/vnd.nitf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.nitf"
+  },
+  ".numbers": {
+    "media_type": "application/vnd.apple.numbers",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.apple.numbers"
+  },
+  ".oa2": {
+    "media_type": "application/vnd.fujitsu.oasys2",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.fujitsu.oasys2"
+  },
+  ".oa3": {
+    "media_type": "application/vnd.fujitsu.oasys3",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.fujitsu.oasys3"
+  },
+  ".oas": {
+    "media_type": "application/vnd.fujitsu.oasys",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.fujitsu.oasys"
+  },
+  ".obgx": {
+    "media_type": "application/vnd.openblox.game+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.openblox.game+xml"
+  },
+  ".obj": {
+    "media_type": "model/obj",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/obj"
+  },
+  ".oda": {
+    "media_type": "application/oda",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/oda"
+  },
+  ".odb": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ODB",
+    "file_type_label": "OpenDocument Database",
+    "media_type": "application/vnd.oasis.opendocument.database",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.oasis.opendocument.database"
+  },
+  ".odc": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ODC",
+    "file_type_label": "OpenDocument Chart",
+    "media_type": "application/vnd.oasis.opendocument.chart",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.oasis.opendocument.chart"
+  },
+  ".odf": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ODF",
+    "file_type_label": "ODF",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".odft": {
+    "media_type": "application/vnd.oasis.opendocument.formula-template",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.oasis.opendocument.formula-template"
+  },
+  ".odg": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ODG",
+    "file_type_label": "OpenDocument Image",
+    "media_type": "application/vnd.oasis.opendocument.graphics",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.oasis.opendocument.graphics"
+  },
+  ".odi": {
+    "media_type": "application/vnd.oasis.opendocument.image",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.oasis.opendocument.image"
+  },
+  ".odm": {
+    "media_type": "application/vnd.oasis.opendocument.text-master",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.oasis.opendocument.text-master"
+  },
+  ".odp": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ODP",
+    "file_type_label": "ODP",
+    "media_type": "application/vnd.oasis.opendocument.presentation",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.oasis.opendocument.presentation"
+  },
+  ".ods": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ODS",
+    "file_type_label": "ODS",
+    "media_type": "application/vnd.oasis.opendocument.spreadsheet",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.oasis.opendocument.spreadsheet"
+  },
+  ".odt": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ODT",
+    "file_type_label": "ODT",
+    "media_type": "application/vnd.oasis.opendocument.text",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.oasis.opendocument.text"
+  },
+  ".oga": {
+    "media_type": "audio/ogg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/ogg"
+  },
+  ".ogex": {
+    "media_type": "model/vnd.opengex",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/vnd.opengex"
+  },
+  ".ogg": {
+    "media_type": "audio/ogg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/ogg"
+  },
+  ".ogv": {
+    "media_type": "video/ogg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/ogg"
+  },
+  ".ogx": {
+    "media_type": "application/ogg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/ogg"
+  },
+  ".onnx": {
+    "file_type_uri": "https://piveau.io/def/file-type/ONNX",
+    "file_type_label": "ONNX",
+    "file_type": "ONNX",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream",
+    "see_also": "https://onnx.ai/onnx/intro/"
+  },
+  ".opf": {
+    "media_type": "application/oebps-package+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/oebps-package+xml"
+  },
+  ".oprc": {
+    "media_type": "application/vnd.palm",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.palm"
+  },
+  ".opus": {
+    "media_type": "audio/ogg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/ogg"
+  },
+  ".org": {
+    "media_type": "application/vnd.lotus-organizer",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.lotus-organizer"
+  },
+  ".osf": {
+    "media_type": "application/vnd.yamaha.openscoreformat",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.yamaha.openscoreformat"
+  },
+  ".osfpvg": {
+    "media_type": "application/vnd.yamaha.openscoreformat.osfpvg+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.yamaha.openscoreformat.osfpvg+xml"
+  },
+  ".osm": {
+    "media_type": "application/vnd.openstreetmap.data+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.openstreetmap.data+xml"
+  },
+  ".ot": {
+    "file_type_uri": "https://piveau.io/def/file-type/TORCHSCRIPT",
+    "file_type_label": "TorchScript (Rust)",
+    "file_type": "TorchScript (Rust)",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream",
+    "see_also": "https://pytorch.org/docs/stable/jit.html"
+  },
+  ".otc": {
+    "media_type": "application/vnd.oasis.opendocument.chart-template",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.oasis.opendocument.chart-template"
+  },
+  ".otf": {
+    "media_type": "font/otf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/font/otf"
+  },
+  ".otg": {
+    "media_type": "application/vnd.oasis.opendocument.graphics-template",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.oasis.opendocument.graphics-template"
+  },
+  ".oth": {
+    "media_type": "application/vnd.oasis.opendocument.text-web",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.oasis.opendocument.text-web"
+  },
+  ".oti": {
+    "media_type": "application/vnd.oasis.opendocument.image-template",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.oasis.opendocument.image-template"
+  },
+  ".otp": {
+    "media_type": "application/vnd.oasis.opendocument.presentation-template",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.oasis.opendocument.presentation-template"
+  },
+  ".ots": {
+    "media_type": "application/vnd.oasis.opendocument.spreadsheet-template",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.oasis.opendocument.spreadsheet-template"
+  },
+  ".ott": {
+    "media_type": "application/vnd.oasis.opendocument.text-template",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.oasis.opendocument.text-template"
+  },
+  ".ovf": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/OVF",
+    "file_type_label": "OVF",
+    "media_type": "application/ovf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/ovf"
+  },
+  ".owl": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/OWL",
+    "file_type_label": "OWL",
+    "media_type": "application/owl+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/owl+xml"
+  },
+  ".owx": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/OWL",
+    "file_type_label": "OWL",
+    "media_type": "application/owl+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/owl+xml"
+  },
+  ".oxps": {
+    "media_type": "application/oxps",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/oxps"
+  },
+  ".p10": {
+    "media_type": "application/pkcs10",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/pkcs10"
+  },
+  ".p21": {
+    "media_type": "model/step",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/step"
+  },
+  ".p7c": {
+    "media_type": "application/pkcs7-mime",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/pkcs7-mime"
+  },
+  ".p7m": {
+    "media_type": "application/pkcs7-mime",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/pkcs7-mime"
+  },
+  ".p7s": {
+    "media_type": "application/pkcs7-signature",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/pkcs7-signature"
+  },
+  ".p8": {
+    "media_type": "application/pkcs8",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/pkcs8"
+  },
+  ".pages": {
+    "media_type": "application/vnd.apple.pages",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.apple.pages"
+  },
+  ".parquet": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/PARQUET",
+    "file_type_label": "Parquet",
+    "media_type": "application/vnd.apache.parquet",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.apache.parquet"
+  },
+  ".paw": {
+    "media_type": "application/vnd.pawaafile",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.pawaafile"
+  },
+  ".pbd": {
+    "media_type": "application/vnd.powerbuilder6",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.powerbuilder6"
+  },
+  ".pcap": {
+    "media_type": "application/vnd.tcpdump.pcap",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.tcpdump.pcap"
+  },
+  ".pcl": {
+    "media_type": "application/vnd.hp-pcl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.hp-pcl"
+  },
+  ".pclxl": {
+    "media_type": "application/vnd.hp-pclxl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.hp-pclxl"
+  },
+  ".pcx": {
+    "media_type": "image/vnd.zbrush.pcx",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.zbrush.pcx"
+  },
+  ".pdb": {
+    "media_type": "application/vnd.palm",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.palm"
+  },
+  ".pdf": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/PDFA3",
+    "file_type_label": "PDFA-3",
+    "media_type": "application/pdf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/pdf"
+  },
+  ".pem": {
+    "media_type": "application/x-x509-ca-cert",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-x509-ca-cert"
+  },
+  ".pfr": {
+    "media_type": "application/font-tdpfr",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/font-tdpfr"
+  },
+  ".pgp": {
+    "media_type": "application/pgp-encrypted",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/pgp-encrypted"
+  },
+  ".pkg": {
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".pki": {
+    "media_type": "application/pkixcmp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/pkixcmp"
+  },
+  ".pkipath": {
+    "media_type": "application/pkix-pkipath",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/pkix-pkipath"
+  },
+  ".pl": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/PL",
+    "file_type_label": "Perl script",
+    "media_type": "text/x-perl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/x-perl"
+  },
+  ".plb": {
+    "media_type": "application/vnd.3gpp.pic-bw-large",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.3gpp.pic-bw-large"
+  },
+  ".plc": {
+    "media_type": "application/vnd.mobius.plc",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.mobius.plc"
+  },
+  ".plf": {
+    "media_type": "application/vnd.pocketlearn",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.pocketlearn"
+  },
+  ".pls": {
+    "media_type": "application/pls+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/pls+xml"
+  },
+  ".pm": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/PL",
+    "file_type_label": "Perl script",
+    "media_type": "text/x-perl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/x-perl"
+  },
+  ".pml": {
+    "media_type": "application/vnd.ctc-posml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ctc-posml"
+  },
+  ".png": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/PNG",
+    "file_type_label": "PNG",
+    "media_type": "image/png",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/png"
+  },
+  ".pod": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/PL",
+    "file_type_label": "Perl script",
+    "media_type": "text/x-perl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/x-perl"
+  },
+  ".portpkg": {
+    "media_type": "application/vnd.macports.portpkg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.macports.portpkg"
+  },
+  ".pot": {
+    "media_type": "application/vnd.ms-powerpoint",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-powerpoint"
+  },
+  ".potm": {
+    "media_type": "application/vnd.ms-powerpoint.template.macroenabled.12",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-powerpoint.template.macroenabled.12"
+  },
+  ".potx": {
+    "media_type": "application/vnd.openxmlformats-officedocument.presentationml.template",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.presentationml.template"
+  },
+  ".ppam": {
+    "media_type": "application/vnd.ms-powerpoint.addin.macroenabled.12",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-powerpoint.addin.macroenabled.12"
+  },
+  ".ppd": {
+    "media_type": "application/vnd.cups-ppd",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.cups-ppd"
+  },
+  ".pps": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/PPS",
+    "file_type_label": "PowerPoint Slide Show",
+    "media_type": "application/vnd.ms-powerpoint",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-powerpoint"
+  },
+  ".ppsm": {
+    "media_type": "application/vnd.ms-powerpoint.slideshow.macroenabled.12",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-powerpoint.slideshow.macroenabled.12"
+  },
+  ".ppsx": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/PPSX",
+    "file_type_label": "PowerPoint PPSX",
+    "media_type": "application/vnd.openxmlformats-officedocument.presentationml.slideshow",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.presentationml.slideshow"
+  },
+  ".ppt": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/PPT",
+    "file_type_label": "PowerPoint PPT",
+    "media_type": "application/vnd.ms-powerpoint",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-powerpoint"
+  },
+  ".pptm": {
+    "media_type": "application/vnd.ms-powerpoint.presentation.macroenabled.12",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-powerpoint.presentation.macroenabled.12"
+  },
+  ".pptx": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/PPTX",
+    "file_type_label": "PowerPoint PPTX",
+    "media_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.presentationml.presentation"
+  },
+  ".pqa": {
+    "media_type": "application/vnd.palm",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.palm"
+  },
+  ".prc": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MOBI",
+    "file_type_label": "Mobipocket eBook",
+    "media_type": "application/x-mobipocket-ebook",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-mobipocket-ebook"
+  },
+  ".pre": {
+    "media_type": "application/vnd.lotus-freelance",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.lotus-freelance"
+  },
+  ".provx": {
+    "media_type": "application/provenance+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/provenance+xml"
+  },
+  ".ps": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/PS",
+    "file_type_label": "PS",
+    "media_type": "application/postscript",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/postscript"
+  },
+  ".psb": {
+    "media_type": "application/vnd.3gpp.pic-bw-small",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.3gpp.pic-bw-small"
+  },
+  ".psd": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/PSD",
+    "file_type_label": "PSD",
+    "media_type": "application/x-photoshop",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-photoshop"
+  },
+  ".pskcxml": {
+    "media_type": "application/pskc+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/pskc+xml"
+  },
+  ".pt": {
+    "file_type_uri": "https://piveau.io/def/file-type/TORCHSCRIPT",
+    "file_type_label": "TorchScript Model",
+    "file_type": "TorchScript",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream",
+    "see_also": "https://pytorch.org/docs/stable/jit.html"
+  },
+  ".pth": {
+    "file_type_uri": "https://piveau.io/def/file-type/PYTORCH",
+    "file_type_label": "PyTorch",
+    "file_type": "PyTorch",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream",
+    "see_also": "https://docs.pytorch.org/docs/stable/index.html"
+  },
+  ".pti": {
+    "media_type": "image/prs.pti",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/prs.pti"
+  },
+  ".ptid": {
+    "media_type": "application/vnd.pvi.ptid1",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.pvi.ptid1"
+  },
+  ".pvb": {
+    "media_type": "application/vnd.3gpp.pic-bw-var",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.3gpp.pic-bw-var"
+  },
+  ".pwn": {
+    "media_type": "application/vnd.3m.post-it-notes",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.3m.post-it-notes"
+  },
+  ".pya": {
+    "media_type": "audio/vnd.ms-playready.media.pya",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/vnd.ms-playready.media.pya"
+  },
+  ".pyo": {
+    "media_type": "model/vnd.pytha.pyox",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/vnd.pytha.pyox"
+  },
+  ".pyox": {
+    "media_type": "model/vnd.pytha.pyox",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/vnd.pytha.pyox"
+  },
+  ".pyv": {
+    "media_type": "video/vnd.ms-playready.media.pyv",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/vnd.ms-playready.media.pyv"
+  },
+  ".qam": {
+    "media_type": "application/vnd.epson.quickanime",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.epson.quickanime"
+  },
+  ".qbo": {
+    "media_type": "application/vnd.intu.qbo",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.intu.qbo"
+  },
+  ".qfx": {
+    "media_type": "application/vnd.intu.qfx",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.intu.qfx"
+  },
+  ".qgs": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/QGS",
+    "file_type_label": "QGS",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".qps": {
+    "media_type": "application/vnd.publishare-delta-tree",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.publishare-delta-tree"
+  },
+  ".qt": {
+    "media_type": "video/quicktime",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/quicktime"
+  },
+  ".qwd": {
+    "media_type": "application/vnd.quark.quarkxpress",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.quark.quarkxpress"
+  },
+  ".qwt": {
+    "media_type": "application/vnd.quark.quarkxpress",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.quark.quarkxpress"
+  },
+  ".qxb": {
+    "media_type": "application/vnd.quark.quarkxpress",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.quark.quarkxpress"
+  },
+  ".qxd": {
+    "media_type": "application/vnd.quark.quarkxpress",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.quark.quarkxpress"
+  },
+  ".qxl": {
+    "media_type": "application/vnd.quark.quarkxpress",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.quark.quarkxpress"
+  },
+  ".qxt": {
+    "media_type": "application/vnd.quark.quarkxpress",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.quark.quarkxpress"
+  },
+  ".r": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RDATA",
+    "file_type_label": "RData",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".r00": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RAR",
+    "file_type_label": "RAR",
+    "media_type": "application/vnd.rar",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.rar"
+  },
+  ".r01": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RAR",
+    "file_type_label": "RAR",
+    "media_type": "application/vnd.rar",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.rar"
+  },
+  ".rapd": {
+    "media_type": "application/route-apd+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/route-apd+xml"
+  },
+  ".rar": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RAR",
+    "file_type_label": "RAR",
+    "media_type": "application/vnd.rar",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.rar"
+  },
+  ".rcprofile": {
+    "media_type": "application/vnd.ipunplugged.rcprofile",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ipunplugged.rcprofile"
+  },
+  ".rdata": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RDATA",
+    "file_type_label": "RData",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".rdf": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RDF_XML",
+    "file_type_label": "RDF XML",
+    "media_type": "application/rdf+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/rdf+xml"
+  },
+  ".rdfa": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RDFA",
+    "file_type_label": "RDFa",
+    "media_type": "application/rdfa",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/rdfa"
+  },
+  ".rdz": {
+    "media_type": "application/vnd.data-vision.rdz",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.data-vision.rdz"
+  },
+  ".relo": {
+    "media_type": "application/p2p-overlay+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/p2p-overlay+xml"
+  },
+  ".rep": {
+    "media_type": "application/vnd.businessobjects",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.businessobjects"
+  },
+  ".rev": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RAR",
+    "file_type_label": "RAR",
+    "media_type": "application/vnd.rar",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.rar"
+  },
+  ".rif": {
+    "media_type": "application/reginfo+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/reginfo+xml"
+  },
+  ".rip": {
+    "media_type": "audio/vnd.rip",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/vnd.rip"
+  },
+  ".rl": {
+    "media_type": "application/resource-lists+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/resource-lists+xml"
+  },
+  ".rlc": {
+    "media_type": "image/vnd.fujixerox.edmics-rlc",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.fujixerox.edmics-rlc"
+  },
+  ".rld": {
+    "media_type": "application/resource-lists-diff+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/resource-lists-diff+xml"
+  },
+  ".rms": {
+    "media_type": "application/vnd.jcp.javame.midlet-rms",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.jcp.javame.midlet-rms"
+  },
+  ".rnc": {
+    "media_type": "application/relax-ng-compact-syntax",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/relax-ng-compact-syntax"
+  },
+  ".rng": {
+    "media_type": "application/xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xml"
+  },
+  ".roa": {
+    "media_type": "application/rpki-roa",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/rpki-roa"
+  },
+  ".roff": {
+    "media_type": "text/troff",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/troff"
+  },
+  ".rp9": {
+    "media_type": "application/vnd.cloanto.rp9",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.cloanto.rp9"
+  },
+  ".rpm": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RPM",
+    "file_type_label": "RPM",
+    "media_type": "application/x-rpm",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-rpm"
+  },
+  ".rpss": {
+    "media_type": "application/vnd.nokia.radio-presets",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.nokia.radio-presets"
+  },
+  ".rpst": {
+    "media_type": "application/vnd.nokia.radio-preset",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.nokia.radio-preset"
+  },
+  ".rq": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SPARQLQ",
+    "file_type_label": "SPARQL",
+    "media_type": "application/sparql-query",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/sparql-query"
+  },
+  ".rs": {
+    "media_type": "application/rls-services+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/rls-services+xml"
+  },
+  ".rsat": {
+    "media_type": "application/atsc-rsat+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/atsc-rsat+xml"
+  },
+  ".rsheet": {
+    "media_type": "application/urc-ressheet+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/urc-ressheet+xml"
+  },
+  ".rss": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RSS",
+    "file_type_label": "RSS feed",
+    "media_type": "application/rss+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/rss+xml"
+  },
+  ".rt": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RDF_THRIFT",
+    "file_type_label": "RDF Thrift",
+    "media_type": "application/rdf+thrift",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/rdf+thrift"
+  },
+  ".rtf": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RTF",
+    "file_type_label": "RTF",
+    "media_type": "text/rtf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/rtf"
+  },
+  ".rtx": {
+    "media_type": "text/richtext",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/richtext"
+  },
+  ".rusd": {
+    "media_type": "application/route-usd+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/route-usd+xml"
+  },
+  ".saf": {
+    "media_type": "application/vnd.yamaha.smaf-audio",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.yamaha.smaf-audio"
+  },
+  ".safetensors": {
+    "file_type_uri": "https://piveau.io/def/file-type/SAFETENSORS",
+    "file_type_label": "SafeTensors",
+    "file_type": "SafeTensors",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream",
+    "see_also": "https://github.com/huggingface/safetensors"
+  },
+  ".sas7bdat": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SAS",
+    "file_type_label": "SAS",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".sav": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SPSS_SAV",
+    "file_type_label": "SPSS SAV",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".sb3": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SB3",
+    "file_type_label": "sb3",
+    "media_type": "application/x-sb3",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-sb3"
+  },
+  ".sbml": {
+    "media_type": "application/sbml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/sbml+xml"
+  },
+  ".sc": {
+    "media_type": "application/vnd.ibm.secure-container",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ibm.secure-container"
+  },
+  ".sch": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SCH",
+    "file_type_label": "Schematron",
+    "media_type": "application/xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xml"
+  },
+  ".scm": {
+    "media_type": "application/vnd.lotus-screencam",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.lotus-screencam"
+  },
+  ".scq": {
+    "media_type": "application/scvp-cv-request",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/scvp-cv-request"
+  },
+  ".scs": {
+    "media_type": "application/scvp-cv-response",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/scvp-cv-response"
+  },
+  ".sd2": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SAS",
+    "file_type_label": "SAS",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".sdkd": {
+    "media_type": "application/vnd.solent.sdkm+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.solent.sdkm+xml"
+  },
+  ".sdkm": {
+    "media_type": "application/vnd.solent.sdkm+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.solent.sdkm+xml"
+  },
+  ".sdp": {
+    "media_type": "application/sdp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/sdp"
+  },
+  ".see": {
+    "media_type": "application/vnd.seemail",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.seemail"
+  },
+  ".seed": {
+    "media_type": "application/vnd.fdsn.seed",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.fdsn.seed"
+  },
+  ".sema": {
+    "media_type": "application/vnd.sema",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.sema"
+  },
+  ".semd": {
+    "media_type": "application/vnd.semd",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.semd"
+  },
+  ".semf": {
+    "media_type": "application/vnd.semf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.semf"
+  },
+  ".senmlx": {
+    "media_type": "application/senml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/senml+xml"
+  },
+  ".sensmlx": {
+    "media_type": "application/sensml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/sensml+xml"
+  },
+  ".setpay": {
+    "media_type": "application/set-payment-initiation",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/set-payment-initiation"
+  },
+  ".setreg": {
+    "media_type": "application/set-registration-initiation",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/set-registration-initiation"
+  },
+  ".sfd-hdstx": {
+    "media_type": "application/vnd.hydrostatix.sof-data",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.hydrostatix.sof-data"
+  },
+  ".sfs": {
+    "media_type": "application/vnd.spotfire.sfs",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.spotfire.sfs"
+  },
+  ".sgm": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SGML",
+    "file_type_label": "SGML",
+    "media_type": "text/sgml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/sgml"
+  },
+  ".sgml": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SGML",
+    "file_type_label": "SGML",
+    "media_type": "text/sgml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/sgml"
+  },
+  ".shex": {
+    "media_type": "text/shex",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/shex"
+  },
+  ".shf": {
+    "media_type": "application/shf+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/shf+xml"
+  },
+  ".shp": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SHP",
+    "file_type_label": "Esri Shape",
+    "media_type": "application/x-shapefile",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-shapefile"
+  },
+  ".shtml": {
+    "media_type": "text/html",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/html"
+  },
+  ".shx": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SHP",
+    "file_type_label": "Esri Shape",
+    "media_type": "application/x-shapefile",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-shapefile"
+  },
+  ".sid": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MRSID",
+    "file_type_label": "MrSID",
+    "media_type": "image/x-mrsid",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/x-mrsid"
+  },
+  ".sieve": {
+    "media_type": "application/sieve",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/sieve"
+  },
+  ".sig": {
+    "media_type": "application/pgp-signature",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/pgp-signature"
+  },
+  ".silo": {
+    "media_type": "model/mesh",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/mesh"
+  },
+  ".siv": {
+    "media_type": "application/sieve",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/sieve"
+  },
+  ".skd": {
+    "media_type": "application/vnd.koan",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.koan"
+  },
+  ".skm": {
+    "media_type": "application/vnd.koan",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.koan"
+  },
+  ".skp": {
+    "media_type": "application/vnd.koan",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.koan"
+  },
+  ".skt": {
+    "media_type": "application/vnd.koan",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.koan"
+  },
+  ".sldm": {
+    "media_type": "application/vnd.ms-powerpoint.slide.macroenabled.12",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-powerpoint.slide.macroenabled.12"
+  },
+  ".sldx": {
+    "media_type": "application/vnd.openxmlformats-officedocument.presentationml.slide",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.presentationml.slide"
+  },
+  ".sls": {
+    "media_type": "application/route-s-tsid+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/route-s-tsid+xml"
+  },
+  ".slt": {
+    "media_type": "application/vnd.epson.salt",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.epson.salt"
+  },
+  ".sm": {
+    "media_type": "application/vnd.stepmania.stepchart",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.stepmania.stepchart"
+  },
+  ".smi": {
+    "media_type": "application/smil+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/smil+xml"
+  },
+  ".smil": {
+    "media_type": "application/smil+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/smil+xml"
+  },
+  ".smzip": {
+    "media_type": "application/vnd.stepmania.package",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.stepmania.package"
+  },
+  ".snd": {
+    "media_type": "audio/basic",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/basic"
+  },
+  ".so": {
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".sparqlq": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SPARQLQ",
+    "file_type_label": "SPARQL",
+    "media_type": "application/sparql-query",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/sparql-query"
+  },
+  ".sparqlqr": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SPARQLQRES",
+    "file_type_label": "SPARQL results",
+    "media_type": "application/sparql-results+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/sparql-results+xml"
+  },
+  ".spdx": {
+    "media_type": "text/spdx",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/spdx"
+  },
+  ".spf": {
+    "media_type": "application/vnd.yamaha.smaf-phrase",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.yamaha.smaf-phrase"
+  },
+  ".spot": {
+    "media_type": "text/vnd.in3d.spot",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/vnd.in3d.spot"
+  },
+  ".spp": {
+    "media_type": "application/scvp-vp-response",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/scvp-vp-response"
+  },
+  ".spq": {
+    "media_type": "application/scvp-vp-request",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/scvp-vp-request"
+  },
+  ".sprite3": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SB3",
+    "file_type_label": "sb3",
+    "media_type": "application/x-sb3",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-sb3"
+  },
+  ".spx": {
+    "media_type": "audio/ogg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/ogg"
+  },
+  ".sql": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SQL",
+    "file_type_label": "SQL",
+    "media_type": "application/sql",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/sql"
+  },
+  ".sru": {
+    "media_type": "application/sru+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/sru+xml"
+  },
+  ".srx": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SPARQLQRES",
+    "file_type_label": "SPARQL results",
+    "media_type": "application/sparql-results+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/sparql-results+xml"
+  },
+  ".sse": {
+    "media_type": "application/vnd.kodak-descriptor",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.kodak-descriptor"
+  },
+  ".ssf": {
+    "media_type": "application/vnd.epson.ssf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.epson.ssf"
+  },
+  ".ssml": {
+    "media_type": "application/ssml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/ssml+xml"
+  },
+  ".st": {
+    "media_type": "application/vnd.sailingtracker.track",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.sailingtracker.track"
+  },
+  ".step": {
+    "media_type": "model/step",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/step"
+  },
+  ".stf": {
+    "media_type": "application/vnd.wt.stf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.wt.stf"
+  },
+  ".stk": {
+    "media_type": "application/hyperstudio",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/hyperstudio"
+  },
+  ".stl": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/STL",
+    "file_type_label": "StL",
+    "media_type": "model/x.stl-ascii",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/x.stl-ascii"
+  },
+  ".stp": {
+    "media_type": "model/step",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/step"
+  },
+  ".stpnc": {
+    "media_type": "model/step",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/step"
+  },
+  ".stpx": {
+    "media_type": "model/step+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/step+xml"
+  },
+  ".stpxz": {
+    "media_type": "model/step-xml+zip",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/step-xml+zip"
+  },
+  ".stpz": {
+    "media_type": "model/step+zip",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/step+zip"
+  },
+  ".str": {
+    "media_type": "application/vnd.pg.format",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.pg.format"
+  },
+  ".sub": {
+    "media_type": "image/vnd.dvb.subtitle",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.dvb.subtitle"
+  },
+  ".sus": {
+    "media_type": "application/vnd.sus-calendar",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.sus-calendar"
+  },
+  ".susp": {
+    "media_type": "application/vnd.sus-calendar",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.sus-calendar"
+  },
+  ".svc": {
+    "media_type": "application/vnd.dvb.service",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.dvb.service"
+  },
+  ".svd": {
+    "media_type": "application/vnd.svd",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.svd"
+  },
+  ".svg": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SVG",
+    "file_type_label": "SVG",
+    "media_type": "image/svg+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/svg+xml"
+  },
+  ".svgz": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SVG",
+    "file_type_label": "SVG",
+    "media_type": "image/svg+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/svg+xml"
+  },
+  ".swi": {
+    "media_type": "application/vnd.aristanetworks.swi",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.aristanetworks.swi"
+  },
+  ".swidtag": {
+    "media_type": "application/swid+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/swid+xml"
+  },
+  ".swm": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/WIM",
+    "file_type_label": "WIM",
+    "media_type": "application/x-ms-wim",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-ms-wim"
+  },
+  ".t": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/PL",
+    "file_type_label": "Perl script",
+    "media_type": "text/x-perl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/x-perl"
+  },
+  ".t38": {
+    "media_type": "image/t38",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/t38"
+  },
+  ".tab": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/TAB_RSTR",
+    "file_type_label": "MapInfo TAB raster file",
+    "media_type": "application/x-tab-raster",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-tab-raster"
+  },
+  ".taglet": {
+    "media_type": "application/vnd.mynfc",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.mynfc"
+  },
+  ".tao": {
+    "media_type": "application/vnd.tao.intent-module-archive",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.tao.intent-module-archive"
+  },
+  ".tap": {
+    "media_type": "image/vnd.tencent.tap",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.tencent.tap"
+  },
+  ".tar": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/TAR",
+    "file_type_label": "TAR",
+    "media_type": "application/x-tar",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-tar"
+  },
+  ".tar.gz": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/TAR_GZ",
+    "file_type_label": null,
+    "media_type": "application/gzip",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/gzip"
+  },
+  ".tar.xz": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/TAR_XZ",
+    "file_type_label": "TAR XZ",
+    "media_type": "application/x-compressed",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-compressed"
+  },
+  ".tcap": {
+    "media_type": "application/vnd.3gpp2.tcap",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.3gpp2.tcap"
+  },
+  ".td": {
+    "media_type": "application/urc-targetdesc+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/urc-targetdesc+xml"
+  },
+  ".teacher": {
+    "media_type": "application/vnd.smart.teacher",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.smart.teacher"
+  },
+  ".tei": {
+    "media_type": "application/tei+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/tei+xml"
+  },
+  ".teicorpus": {
+    "media_type": "application/tei+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/tei+xml"
+  },
+  ".text": {
+    "media_type": "text/plain",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/plain"
+  },
+  ".tfi": {
+    "media_type": "application/thraud+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/thraud+xml"
+  },
+  ".tfw": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/WORLD",
+    "file_type_label": "World file",
+    "media_type": "application/x-worldfile",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-worldfile"
+  },
+  ".tfx": {
+    "media_type": "image/tiff-fx",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/tiff-fx"
+  },
+  ".thmx": {
+    "media_type": "application/vnd.ms-officetheme",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-officetheme"
+  },
+  ".tif": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/TIFF",
+    "file_type_label": "TIFF",
+    "media_type": "image/tiff",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/tiff"
+  },
+  ".tiff": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/TIFF",
+    "file_type_label": "TIFF",
+    "media_type": "image/tiff",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/tiff"
+  },
+  ".tmo": {
+    "media_type": "application/vnd.tmobile-livetv",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.tmobile-livetv"
+  },
+  ".toml": {
+    "media_type": "application/toml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/toml"
+  },
+  ".tpl": {
+    "media_type": "application/vnd.groove-tool-template",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.groove-tool-template"
+  },
+  ".tpt": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SAS",
+    "file_type_label": "SAS",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".tr": {
+    "media_type": "text/troff",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/troff"
+  },
+  ".tra": {
+    "media_type": "application/vnd.trueapp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.trueapp"
+  },
+  ".trdf": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RDF_THRIFT",
+    "file_type_label": "RDF Thrift",
+    "media_type": "application/rdf+thrift",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/rdf+thrift"
+  },
+  ".trig": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RDF_TRIG",
+    "file_type_label": "RDF TriG",
+    "media_type": "application/trig",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/trig"
+  },
+  ".trix": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RDF_TRIX",
+    "file_type_label": "RDF TriX",
+    "media_type": "application/xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xml"
+  },
+  ".ts": {
+    "media_type": "video/mp2t",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/mp2t"
+  },
+  ".tsd": {
+    "media_type": "application/timestamped-data",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/timestamped-data"
+  },
+  ".tsv": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/TSV",
+    "file_type_label": "TSV",
+    "media_type": "text/tab-separated-values",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/tab-separated-values"
+  },
+  ".ttc": {
+    "media_type": "font/collection",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/font/collection"
+  },
+  ".ttf": {
+    "media_type": "font/ttf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/font/ttf"
+  },
+  ".ttl": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RDF_TURTLE",
+    "file_type_label": "RDF Turtle",
+    "media_type": "text/turtle",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/turtle"
+  },
+  ".ttml": {
+    "media_type": "application/ttml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/ttml+xml"
+  },
+  ".twd": {
+    "media_type": "application/vnd.simtech-mindmapper",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.simtech-mindmapper"
+  },
+  ".twds": {
+    "media_type": "application/vnd.simtech-mindmapper",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.simtech-mindmapper"
+  },
+  ".txd": {
+    "media_type": "application/vnd.genomatix.tuxedo",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.genomatix.tuxedo"
+  },
+  ".txf": {
+    "media_type": "application/vnd.mobius.txf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.mobius.txf"
+  },
+  ".txt": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/TXT",
+    "file_type_label": "Plain text",
+    "media_type": "text/plain",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/plain"
+  },
+  ".u3d": {
+    "media_type": "model/u3d",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/u3d"
+  },
+  ".u8dsn": {
+    "media_type": "message/global-delivery-status",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/message/global-delivery-status"
+  },
+  ".u8hdr": {
+    "media_type": "message/global-headers",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/message/global-headers"
+  },
+  ".u8mdn": {
+    "media_type": "message/global-disposition-notification",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/message/global-disposition-notification"
+  },
+  ".u8msg": {
+    "media_type": "message/global",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/message/global"
+  },
+  ".ufd": {
+    "media_type": "application/vnd.ufdl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ufdl"
+  },
+  ".ufdl": {
+    "media_type": "application/vnd.ufdl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ufdl"
+  },
+  ".umj": {
+    "media_type": "application/vnd.umajin",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.umajin"
+  },
+  ".unityweb": {
+    "media_type": "application/vnd.unity",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.unity"
+  },
+  ".uo": {
+    "media_type": "application/vnd.uoml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.uoml+xml"
+  },
+  ".uoml": {
+    "media_type": "application/vnd.uoml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.uoml+xml"
+  },
+  ".uri": {
+    "media_type": "text/uri-list",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/uri-list"
+  },
+  ".uris": {
+    "media_type": "text/uri-list",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/uri-list"
+  },
+  ".urls": {
+    "media_type": "text/uri-list",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/uri-list"
+  },
+  ".usda": {
+    "media_type": "model/vnd.usda",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/vnd.usda"
+  },
+  ".usdz": {
+    "media_type": "model/vnd.usdz+zip",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/vnd.usdz+zip"
+  },
+  ".utz": {
+    "media_type": "application/vnd.uiq.theme",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.uiq.theme"
+  },
+  ".uva": {
+    "media_type": "audio/vnd.dece.audio",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/vnd.dece.audio"
+  },
+  ".uvd": {
+    "media_type": "application/vnd.dece.data",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.dece.data"
+  },
+  ".uvf": {
+    "media_type": "application/vnd.dece.data",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.dece.data"
+  },
+  ".uvg": {
+    "media_type": "image/vnd.dece.graphic",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.dece.graphic"
+  },
+  ".uvh": {
+    "media_type": "video/vnd.dece.hd",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/vnd.dece.hd"
+  },
+  ".uvi": {
+    "media_type": "image/vnd.dece.graphic",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.dece.graphic"
+  },
+  ".uvm": {
+    "media_type": "video/vnd.dece.mobile",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/vnd.dece.mobile"
+  },
+  ".uvp": {
+    "media_type": "video/vnd.dece.pd",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/vnd.dece.pd"
+  },
+  ".uvs": {
+    "media_type": "video/vnd.dece.sd",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/vnd.dece.sd"
+  },
+  ".uvt": {
+    "media_type": "application/vnd.dece.ttml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.dece.ttml+xml"
+  },
+  ".uvu": {
+    "media_type": "video/vnd.uvvu.mp4",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/vnd.uvvu.mp4"
+  },
+  ".uvv": {
+    "media_type": "video/vnd.dece.video",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/vnd.dece.video"
+  },
+  ".uvva": {
+    "media_type": "audio/vnd.dece.audio",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/vnd.dece.audio"
+  },
+  ".uvvd": {
+    "media_type": "application/vnd.dece.data",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.dece.data"
+  },
+  ".uvvf": {
+    "media_type": "application/vnd.dece.data",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.dece.data"
+  },
+  ".uvvg": {
+    "media_type": "image/vnd.dece.graphic",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.dece.graphic"
+  },
+  ".uvvh": {
+    "media_type": "video/vnd.dece.hd",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/vnd.dece.hd"
+  },
+  ".uvvi": {
+    "media_type": "image/vnd.dece.graphic",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.dece.graphic"
+  },
+  ".uvvm": {
+    "media_type": "video/vnd.dece.mobile",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/vnd.dece.mobile"
+  },
+  ".uvvp": {
+    "media_type": "video/vnd.dece.pd",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/vnd.dece.pd"
+  },
+  ".uvvs": {
+    "media_type": "video/vnd.dece.sd",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/vnd.dece.sd"
+  },
+  ".uvvt": {
+    "media_type": "application/vnd.dece.ttml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.dece.ttml+xml"
+  },
+  ".uvvu": {
+    "media_type": "video/vnd.uvvu.mp4",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/vnd.uvvu.mp4"
+  },
+  ".uvvv": {
+    "media_type": "video/vnd.dece.video",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/vnd.dece.video"
+  },
+  ".uvvx": {
+    "media_type": "application/vnd.dece.unspecified",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.dece.unspecified"
+  },
+  ".uvvz": {
+    "media_type": "application/vnd.dece.zip",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.dece.zip"
+  },
+  ".uvx": {
+    "media_type": "application/vnd.dece.unspecified",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.dece.unspecified"
+  },
+  ".uvz": {
+    "media_type": "application/vnd.dece.zip",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.dece.zip"
+  },
+  ".vcard": {
+    "media_type": "text/vcard",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/vcard"
+  },
+  ".vcg": {
+    "media_type": "application/vnd.groove-vcard",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.groove-vcard"
+  },
+  ".vcx": {
+    "media_type": "application/vnd.vcx",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.vcx"
+  },
+  ".vds": {
+    "media_type": "model/vnd.sap.vds",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/vnd.sap.vds"
+  },
+  ".vis": {
+    "media_type": "application/vnd.visionary",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.visionary"
+  },
+  ".viv": {
+    "media_type": "video/vnd.vivo",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/vnd.vivo"
+  },
+  ".vrml": {
+    "media_type": "model/vrml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/vrml"
+  },
+  ".vsd": {
+    "media_type": "application/vnd.visio",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.visio"
+  },
+  ".vsdx": {
+    "media_type": "application/vnd.visio",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.visio"
+  },
+  ".vsf": {
+    "media_type": "application/vnd.vsf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.vsf"
+  },
+  ".vss": {
+    "media_type": "application/vnd.visio",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.visio"
+  },
+  ".vst": {
+    "media_type": "application/vnd.visio",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.visio"
+  },
+  ".vsw": {
+    "media_type": "application/vnd.visio",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.visio"
+  },
+  ".vtf": {
+    "media_type": "image/vnd.valve.source.texture",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.valve.source.texture"
+  },
+  ".vtt": {
+    "media_type": "text/vtt",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/vtt"
+  },
+  ".vtu": {
+    "media_type": "model/vnd.vtu",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/vnd.vtu"
+  },
+  ".vtx": {
+    "media_type": "application/vnd.visio",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.visio"
+  },
+  ".vxml": {
+    "media_type": "application/voicexml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/voicexml+xml"
+  },
+  ".wadl": {
+    "media_type": "application/vnd.sun.wadl+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.sun.wadl+xml"
+  },
+  ".war": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/WAR",
+    "file_type_label": "WAR",
+    "media_type": "application/java+zip",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/java+zip"
+  },
+  ".warc": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/WARC",
+    "file_type_label": "WARC",
+    "media_type": "application/warc",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/warc"
+  },
+  ".warc.gz": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/WARC_GZ",
+    "file_type_label": "WARC GZ",
+    "media_type": "application/gzip",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/gzip"
+  },
+  ".wasm": {
+    "media_type": "application/wasm",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/wasm"
+  },
+  ".wav": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/WAV",
+    "file_type_label": "WAV",
+    "media_type": "audio/vnd.wave",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/vnd.wave"
+  },
+  ".wave": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/WAV",
+    "file_type_label": "WAV",
+    "media_type": "audio/vnd.wave",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/vnd.wave"
+  },
+  ".wbmp": {
+    "media_type": "image/vnd.wap.wbmp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.wap.wbmp"
+  },
+  ".wbs": {
+    "media_type": "application/vnd.criticaltools.wbs+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.criticaltools.wbs+xml"
+  },
+  ".wbxml": {
+    "media_type": "application/vnd.wap.wbxml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.wap.wbxml"
+  },
+  ".wcm": {
+    "media_type": "application/vnd.ms-works",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-works"
+  },
+  ".wdb": {
+    "media_type": "application/vnd.ms-works",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-works"
+  },
+  ".webmanifest": {
+    "media_type": "application/manifest+json",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/manifest+json"
+  },
+  ".webp": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/WEBP",
+    "file_type_label": "WebP",
+    "media_type": "image/webp",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/webp"
+  },
+  ".wg": {
+    "media_type": "application/vnd.pmi.widget",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.pmi.widget"
+  },
+  ".wgsl": {
+    "media_type": "text/wgsl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/wgsl"
+  },
+  ".wgt": {
+    "media_type": "application/widget",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/widget"
+  },
+  ".wif": {
+    "media_type": "application/watcherinfo+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/watcherinfo+xml"
+  },
+  ".wks": {
+    "media_type": "application/vnd.ms-works",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-works"
+  },
+  ".wmf": {
+    "media_type": "image/wmf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/wmf"
+  },
+  ".wml": {
+    "media_type": "text/vnd.wap.wml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/vnd.wap.wml"
+  },
+  ".wmlc": {
+    "media_type": "application/vnd.wap.wmlc",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.wap.wmlc"
+  },
+  ".wmls": {
+    "media_type": "text/vnd.wap.wmlscript",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/vnd.wap.wmlscript"
+  },
+  ".wmlsc": {
+    "media_type": "application/vnd.wap.wmlscriptc",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.wap.wmlscriptc"
+  },
+  ".woff": {
+    "media_type": "font/woff",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/font/woff"
+  },
+  ".woff2": {
+    "media_type": "font/woff2",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/font/woff2"
+  },
+  ".wpd": {
+    "media_type": "application/vnd.wordperfect",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.wordperfect"
+  },
+  ".wpl": {
+    "media_type": "application/vnd.ms-wpl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-wpl"
+  },
+  ".wps": {
+    "media_type": "application/vnd.ms-works",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-works"
+  },
+  ".wqd": {
+    "media_type": "application/vnd.wqd",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.wqd"
+  },
+  ".wrl": {
+    "media_type": "model/vrml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/vrml"
+  },
+  ".wsc": {
+    "media_type": "message/vnd.wfa.wsc",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/message/vnd.wfa.wsc"
+  },
+  ".wsdl": {
+    "media_type": "application/wsdl+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/wsdl+xml"
+  },
+  ".wspolicy": {
+    "media_type": "application/wspolicy+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/wspolicy+xml"
+  },
+  ".wtb": {
+    "media_type": "application/vnd.webturbo",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.webturbo"
+  },
+  ".x3d": {
+    "media_type": "model/x3d+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/x3d+xml"
+  },
+  ".x3db": {
+    "media_type": "model/x3d+fastinfoset",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/x3d+fastinfoset"
+  },
+  ".x3dv": {
+    "media_type": "model/x3d-vrml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/x3d-vrml"
+  },
+  ".x3dz": {
+    "media_type": "model/x3d+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/x3d+xml"
+  },
+  ".x_b": {
+    "media_type": "model/vnd.parasolid.transmit.binary",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/vnd.parasolid.transmit.binary"
+  },
+  ".x_t": {
+    "media_type": "model/vnd.parasolid.transmit.text",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/vnd.parasolid.transmit.text"
+  },
+  ".xapk": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/DAPK",
+    "file_type_label": "DAPK",
+    "media_type": "application/vnd.android.package-archive",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.android.package-archive"
+  },
+  ".xar": {
+    "media_type": "application/vnd.xara",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.xara"
+  },
+  ".xav": {
+    "media_type": "application/xcap-att+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xcap-att+xml"
+  },
+  ".xbd": {
+    "media_type": "application/vnd.fujixerox.docuworks.binder",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.fujixerox.docuworks.binder"
+  },
+  ".xca": {
+    "media_type": "application/xcap-caps+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xcap-caps+xml"
+  },
+  ".xcs": {
+    "media_type": "application/calendar+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/calendar+xml"
+  },
+  ".xdcf": {
+    "media_type": "application/vnd.gov.sk.xmldatacontainer+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.gov.sk.xmldatacontainer+xml"
+  },
+  ".xdf": {
+    "media_type": "application/xcap-diff+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xcap-diff+xml"
+  },
+  ".xdm": {
+    "media_type": "application/vnd.syncml.dm+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.syncml.dm+xml"
+  },
+  ".xdp": {
+    "media_type": "application/vnd.adobe.xdp+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.adobe.xdp+xml"
+  },
+  ".xdssc": {
+    "media_type": "application/dssc+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/dssc+xml"
+  },
+  ".xdw": {
+    "media_type": "application/vnd.fujixerox.docuworks",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.fujixerox.docuworks"
+  },
+  ".xel": {
+    "media_type": "application/xcap-el+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xcap-el+xml"
+  },
+  ".xenc": {
+    "media_type": "application/xenc+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xenc+xml"
+  },
+  ".xer": {
+    "media_type": "application/patch-ops-error+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/patch-ops-error+xml"
+  },
+  ".xfdf": {
+    "media_type": "application/xfdf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xfdf"
+  },
+  ".xfdl": {
+    "media_type": "application/vnd.xfdl",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.xfdl"
+  },
+  ".xht": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/XHTML",
+    "file_type_label": "XHTML",
+    "media_type": "application/xhtml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xhtml+xml"
+  },
+  ".xhtm": {
+    "media_type": "application/vnd.pwg-xhtml-print+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.pwg-xhtml-print+xml"
+  },
+  ".xhtml": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/XHTML",
+    "file_type_label": "XHTML",
+    "media_type": "application/xhtml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xhtml+xml"
+  },
+  ".xhvml": {
+    "media_type": "application/xv+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xv+xml"
+  },
+  ".xif": {
+    "media_type": "image/vnd.xiff",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.xiff"
+  },
+  ".xla": {
+    "media_type": "application/vnd.ms-excel",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-excel"
+  },
+  ".xlam": {
+    "media_type": "application/vnd.ms-excel.addin.macroenabled.12",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-excel.addin.macroenabled.12"
+  },
+  ".xlc": {
+    "media_type": "application/vnd.ms-excel",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-excel"
+  },
+  ".xlf": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/XLIFF",
+    "file_type_label": "XLIFF",
+    "media_type": "application/xliff+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xliff+xml"
+  },
+  ".xlm": {
+    "media_type": "application/vnd.ms-excel",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-excel"
+  },
+  ".xls": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/XLS",
+    "file_type_label": "Excel XLS",
+    "media_type": "application/vnd.ms-excel",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-excel"
+  },
+  ".xlsb": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/XLSB",
+    "file_type_label": "XLSB",
+    "media_type": "application/vnd.ms-excel.sheet.binary.macroenabled.12",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-excel.sheet.binary.macroenabled.12"
+  },
+  ".xlsm": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/XLSM",
+    "file_type_label": "XLSM",
+    "media_type": "application/vnd.ms-excel.sheet.macroenabled.12",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-excel.sheet.macroenabled.12"
+  },
+  ".xlsx": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/XLSX",
+    "file_type_label": "Excel XLSX",
+    "media_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+  },
+  ".xlt": {
+    "media_type": "application/vnd.ms-excel",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-excel"
+  },
+  ".xltm": {
+    "media_type": "application/vnd.ms-excel.template.macroenabled.12",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-excel.template.macroenabled.12"
+  },
+  ".xltx": {
+    "media_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.template",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.openxmlformats-officedocument.spreadsheetml.template"
+  },
+  ".xlw": {
+    "media_type": "application/vnd.ms-excel",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-excel"
+  },
+  ".xml": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/FMX3",
+    "file_type_label": "Formex 3",
+    "media_type": "text/sgml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/sgml"
+  },
+  ".xns": {
+    "media_type": "application/xcap-ns+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xcap-ns+xml"
+  },
+  ".xo": {
+    "media_type": "application/vnd.olpc-sugar",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.olpc-sugar"
+  },
+  ".xop": {
+    "media_type": "application/xop+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xop+xml"
+  },
+  ".xpr": {
+    "media_type": "application/vnd.is-xpr",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.is-xpr"
+  },
+  ".xps": {
+    "media_type": "application/vnd.ms-xpsdocument",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-xpsdocument"
+  },
+  ".xpw": {
+    "media_type": "application/vnd.intercon.formnet",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.intercon.formnet"
+  },
+  ".xpx": {
+    "media_type": "application/vnd.intercon.formnet",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.intercon.formnet"
+  },
+  ".xsd": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SCHEMA_XML",
+    "file_type_label": "XML schema",
+    "media_type": "application/xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xml"
+  },
+  ".xsf": {
+    "media_type": "application/prs.xsf+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/prs.xsf+xml"
+  },
+  ".xsl": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/XSLT",
+    "file_type_label": "XSLT",
+    "media_type": "application/xslt+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xslt+xml"
+  },
+  ".xslt": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/XSLT",
+    "file_type_label": "XSLT",
+    "media_type": "application/xslt+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xslt+xml"
+  },
+  ".xsm": {
+    "media_type": "application/vnd.syncml+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.syncml+xml"
+  },
+  ".xtsl": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ETSI_TSL",
+    "file_type_label": "ETSI TSL",
+    "media_type": "application/vnd.etsi.tsl+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.etsi.tsl+xml"
+  },
+  ".xul": {
+    "media_type": "application/vnd.mozilla.xul+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.mozilla.xul+xml"
+  },
+  ".xvm": {
+    "media_type": "application/xv+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xv+xml"
+  },
+  ".xvml": {
+    "media_type": "application/xv+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xv+xml"
+  },
+  ".xyz": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/XYZ",
+    "file_type_label": "XYZ Chemical File",
+    "media_type": "chemical/x-xyz",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/chemical/x-xyz"
+  },
+  ".xz": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/XZ",
+    "file_type_label": "xz",
+    "media_type": "application/x-xz",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-xz"
+  },
+  ".yaml": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/YAML",
+    "file_type_label": "YAML",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".yang": {
+    "media_type": "application/yang",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/yang"
+  },
+  ".yin": {
+    "media_type": "application/yin+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/yin+xml"
+  },
+  ".yml": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/YAML",
+    "file_type_label": "YAML",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  ".z": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/Z",
+    "file_type_label": "Z",
+    "media_type": "application/x-compress",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-compress"
+  },
+  ".zaz": {
+    "media_type": "application/vnd.zzazz.deck+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.zzazz.deck+xml"
+  },
+  ".zip": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ZIP",
+    "file_type_label": "ZIP",
+    "media_type": "application/zip",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/zip"
+  },
+  ".zir": {
+    "media_type": "application/vnd.zul",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.zul"
+  },
+  ".zirz": {
+    "media_type": "application/vnd.zul",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.zul"
+  },
+  ".zmm": {
+    "media_type": "application/vnd.handheld-entertainment+xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.handheld-entertainment+xml"
+  },
+  ".zoo": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/OCTET",
+    "file_type_label": "Octet Stream",
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+  },
+  "_immc.xml": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/IMMC_XML",
+    "file_type_label": "IMMC XML message",
+    "media_type": "application/xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xml"
+  },
+  "m2v": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MPEG2",
+    "file_type_label": "MPEG-2",
+    "media_type": "audio/mpeg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/mpeg"
+  },
+  "mp2": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MPEG2",
+    "file_type_label": "MPEG-2",
+    "media_type": "audio/mpeg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/mpeg"
+  },
+  "mp3": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MPEG2",
+    "file_type_label": "MPEG-2",
+    "media_type": "audio/mpeg",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/audio/mpeg"
+  },
+  "mp4": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MPEG4",
+    "file_type_label": "MPEG-4",
+    "media_type": "video/mp4",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/mp4"
+  },
+  "mpg": {
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MPEG4",
+    "file_type_label": "MPEG-4",
+    "media_type": "video/mp4",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/video/mp4"
+  }
+}

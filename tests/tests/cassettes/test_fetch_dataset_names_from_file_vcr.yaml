@@ -1,0 +1,511 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      X-Amzn-Trace-Id:
+      - 23c44008-73b8-469c-adfe-820d4e17ef9c
+      user-agent:
+      - unknown/None; hf_hub/0.33.5; python/3.12.3
+    method: GET
+    uri: https://huggingface.co/api/datasets/facebook/anli?blobs=True
+  response:
+    body:
+      string: "{\"_id\":\"621ffdd236468d709f181d6b\",\"id\":\"facebook/anli\",\"author\":\"facebook\",\"sha\":\"8e4813d81f46d313dac7892e1c28076917cfcdf9\",\"lastModified\":\"2023-12-21T15:34:02.000Z\",\"private\":false,\"gated\":false,\"disabled\":false,\"tags\":[\"task_categories:text-classification\",\"task_ids:natural-language-inference\",\"task_ids:multi-input-text-classification\",\"annotations_creators:crowdsourced\",\"annotations_creators:machine-generated\",\"language_creators:found\",\"multilinguality:monolingual\",\"source_datasets:original\",\"source_datasets:extended|hotpot_qa\",\"language:en\",\"license:cc-by-nc-4.0\",\"size_categories:100K<n<1M\",\"format:parquet\",\"modality:text\",\"library:datasets\",\"library:pandas\",\"library:mlcroissant\",\"library:polars\",\"arxiv:1910.14599\",\"region:us\"],\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\tDataset
+        Card for \\\"anli\\\"\\n\\t\\n\\n\\n\\t\\n\\t\\t\\n\\t\\tDataset Summary\\n\\t\\n\\nThe
+        Adversarial Natural Language Inference (ANLI) is a new large-scale NLI benchmark
+        dataset,\\nThe dataset is collected via an iterative, adversarial human-and-model-in-the-loop
+        procedure.\\nANLI is much more difficult than its predecessors including SNLI
+        and MNLI.\\nIt contains three rounds. Each round has train/dev/test splits.\\n\\n\\t\\n\\t\\t\\n\\t\\tSupported
+        Tasks and Leaderboards\\n\\t\\n\\nMore Information Needed\\n\\n\\t\\n\\t\\t\\n\\t\\tLanguages\\n\\t\\n\\nEnglish\u2026
+        See the full description on the dataset page: https://huggingface.co/datasets/facebook/anli.\",\"paperswithcode_id\":\"anli\",\"downloads\":36494,\"likes\":45,\"cardData\":{\"annotations_creators\":[\"crowdsourced\",\"machine-generated\"],\"language_creators\":[\"found\"],\"language\":[\"en\"],\"license\":[\"cc-by-nc-4.0\"],\"multilinguality\":[\"monolingual\"],\"size_categories\":[\"100K<n<1M\"],\"source_datasets\":[\"original\",\"extended|hotpot_qa\"],\"task_categories\":[\"text-classification\"],\"task_ids\":[\"natural-language-inference\",\"multi-input-text-classification\"],\"paperswithcode_id\":\"anli\",\"pretty_name\":\"Adversarial
+        NLI\",\"dataset_info\":{\"config_name\":\"plain_text\",\"features\":[{\"name\":\"uid\",\"dtype\":\"string\"},{\"name\":\"premise\",\"dtype\":\"string\"},{\"name\":\"hypothesis\",\"dtype\":\"string\"},{\"name\":\"label\",\"dtype\":{\"class_label\":{\"names\":{\"0\":\"entailment\",\"1\":\"neutral\",\"2\":\"contradiction\"}}}},{\"name\":\"reason\",\"dtype\":\"string\"}],\"splits\":[{\"name\":\"train_r1\",\"num_bytes\":8006888,\"num_examples\":16946},{\"name\":\"dev_r1\",\"num_bytes\":573428,\"num_examples\":1000},{\"name\":\"test_r1\",\"num_bytes\":574917,\"num_examples\":1000},{\"name\":\"train_r2\",\"num_bytes\":20801581,\"num_examples\":45460},{\"name\":\"dev_r2\",\"num_bytes\":556066,\"num_examples\":1000},{\"name\":\"test_r2\",\"num_bytes\":572639,\"num_examples\":1000},{\"name\":\"train_r3\",\"num_bytes\":44720719,\"num_examples\":100459},{\"name\":\"dev_r3\",\"num_bytes\":663148,\"num_examples\":1200},{\"name\":\"test_r3\",\"num_bytes\":657586,\"num_examples\":1200}],\"download_size\":26286748,\"dataset_size\":77126972},\"configs\":[{\"config_name\":\"plain_text\",\"data_files\":[{\"split\":\"train_r1\",\"path\":\"plain_text/train_r1-*\"},{\"split\":\"dev_r1\",\"path\":\"plain_text/dev_r1-*\"},{\"split\":\"test_r1\",\"path\":\"plain_text/test_r1-*\"},{\"split\":\"train_r2\",\"path\":\"plain_text/train_r2-*\"},{\"split\":\"dev_r2\",\"path\":\"plain_text/dev_r2-*\"},{\"split\":\"test_r2\",\"path\":\"plain_text/test_r2-*\"},{\"split\":\"train_r3\",\"path\":\"plain_text/train_r3-*\"},{\"split\":\"dev_r3\",\"path\":\"plain_text/dev_r3-*\"},{\"split\":\"test_r3\",\"path\":\"plain_text/test_r3-*\"}],\"default\":true}]},\"siblings\":[{\"rfilename\":\".gitattributes\",\"blobId\":\"957b2579c6ef20995a09efd9a17f8fd90606f5ed\",\"size\":1174},{\"rfilename\":\"README.md\",\"blobId\":\"56dd39bc0499ffe31a357cb8210f3406436ba95f\",\"size\":7982},{\"rfilename\":\"plain_text/dev_r1-00000-of-00001.parquet\",\"blobId\":\"1f4d7849ccdf6c46ffaf0e8cf5fdd1562cadea04\",\"size\":351479,\"lfs\":{\"sha256\":\"72e27463177b4363be80f1fc6ccdaab44ddaeb65db58c2280f94690e15468334\",\"size\":351479,\"pointerSize\":131}},{\"rfilename\":\"plain_text/dev_r2-00000-of-00001.parquet\",\"blobId\":\"cb518b5985079ae2fb0f8a3d60888d845d432b96\",\"size\":350606,\"lfs\":{\"sha256\":\"43e4673665decf0b0e8487e55f98285423cb356b985e206fe5998defae2e38fa\",\"size\":350606,\"pointerSize\":131}},{\"rfilename\":\"plain_text/dev_r3-00000-of-00001.parquet\",\"blobId\":\"89e79ba20bb8c4b39dcc3cfad4d7ddd3665c15ce\",\"size\":434044,\"lfs\":{\"sha256\":\"61775ec09351f6011ce4dc9ea313f457bba6e11d7665d34d95c111665023a83e\",\"size\":434044,\"pointerSize\":131}},{\"rfilename\":\"plain_text/test_r1-00000-of-00001.parquet\",\"blobId\":\"522c03d1e80aecd35f4ff5a123a13883ce74bc12\",\"size\":353376,\"lfs\":{\"sha256\":\"c4a3d304c4671941d6bad5a07632a79713c5a1be485ccf75b81b6df93f61045e\",\"size\":353376,\"pointerSize\":131}},{\"rfilename\":\"plain_text/test_r2-00000-of-00001.parquet\",\"blobId\":\"b97a8578cc9331f756bb8674e64e4b23263dde2d\",\"size\":361549,\"lfs\":{\"sha256\":\"df5daccdd5623cfcaa34be0100721783485f4181a42796b1d0ac0cd7601e7acb\",\"size\":361549,\"pointerSize\":131}},{\"rfilename\":\"plain_text/test_r3-00000-of-00001.parquet\",\"blobId\":\"b2a941fcc18a330432adb324decc5dfe44b4b2d7\",\"size\":434550,\"lfs\":{\"sha256\":\"3232c4217979da00b2cd6ed97d099a8a8edf04530193ea52e3c8d69190de92a2\",\"size\":434550,\"pointerSize\":131}},{\"rfilename\":\"plain_text/train_r1-00000-of-00001.parquet\",\"blobId\":\"a6c5a2fe00635717d5875b8b8776d7fac16a97bb\",\"size\":3140120,\"lfs\":{\"sha256\":\"de2d038ae67f1fb1872073490b9e7685e9114d5f278ddd4631905fe0a4ecbcff\",\"size\":3140120,\"pointerSize\":132}},{\"rfilename\":\"plain_text/train_r2-00000-of-00001.parquet\",\"blobId\":\"3939ad9582c817fe19eeebbcb3c3ecd3fb42fb03\",\"size\":6527557,\"lfs\":{\"sha256\":\"209f4a15bf77224c62ffbde5f150fda928a7e2f5175366f4cacc3c7588aab13d\",\"size\":6527557,\"pointerSize\":132}},{\"rfilename\":\"plain_text/train_r3-00000-of-00001.parquet\",\"blobId\":\"4aefb81d5102327899b52bcd00e95213fa3fbdbb\",\"size\":14333467,\"lfs\":{\"sha256\":\"c1d3f614d673888ac56b9ab62324e21583c98a11c4fef84e938d0f8fc414b29a\",\"size\":14333467,\"pointerSize\":133}}],\"createdAt\":\"2022-03-02T23:29:22.000Z\",\"usedStorage\":1411045581}"
+    headers:
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '5739'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 14:05:38 GMT
+      ETag:
+      - W/"166b-CCUtzga4wDcIWjdjsaO9PzG7ztA"
+      RateLimit:
+      - '"api";r=443;t=94'
+      RateLimit-Policy:
+      - '"fixed window";"api";q=500;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 a99407071c3f2a96a40fff2cd5775d8e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - OFFZznmaRFJ5KcfQukdfSU6TJ7c6GCRsPn-f1nkuNSQyEA1E3rNu4A==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Powered-By:
+      - huggingface-moon
+      X-Request-Id:
+      - Root=1-6915e5b2-564f24b63518f81d1871ed4c;23c44008-73b8-469c-adfe-820d4e17ef9c
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - HuggingfaceFetcher/2.0
+    method: GET
+    uri: https://datasets-server.huggingface.co/parquet?dataset=facebook/anli
+  response:
+    body:
+      string: '{"parquet_files":[{"dataset":"facebook/anli","config":"plain_text","split":"dev_r1","url":"https://huggingface.co/datasets/facebook/anli/resolve/refs%2Fconvert%2Fparquet/plain_text/dev_r1/0000.parquet","filename":"0000.parquet","size":351479},{"dataset":"facebook/anli","config":"plain_text","split":"dev_r2","url":"https://huggingface.co/datasets/facebook/anli/resolve/refs%2Fconvert%2Fparquet/plain_text/dev_r2/0000.parquet","filename":"0000.parquet","size":350606},{"dataset":"facebook/anli","config":"plain_text","split":"dev_r3","url":"https://huggingface.co/datasets/facebook/anli/resolve/refs%2Fconvert%2Fparquet/plain_text/dev_r3/0000.parquet","filename":"0000.parquet","size":434044},{"dataset":"facebook/anli","config":"plain_text","split":"test_r1","url":"https://huggingface.co/datasets/facebook/anli/resolve/refs%2Fconvert%2Fparquet/plain_text/test_r1/0000.parquet","filename":"0000.parquet","size":353376},{"dataset":"facebook/anli","config":"plain_text","split":"test_r2","url":"https://huggingface.co/datasets/facebook/anli/resolve/refs%2Fconvert%2Fparquet/plain_text/test_r2/0000.parquet","filename":"0000.parquet","size":361549},{"dataset":"facebook/anli","config":"plain_text","split":"test_r3","url":"https://huggingface.co/datasets/facebook/anli/resolve/refs%2Fconvert%2Fparquet/plain_text/test_r3/0000.parquet","filename":"0000.parquet","size":434550},{"dataset":"facebook/anli","config":"plain_text","split":"train_r1","url":"https://huggingface.co/datasets/facebook/anli/resolve/refs%2Fconvert%2Fparquet/plain_text/train_r1/0000.parquet","filename":"0000.parquet","size":3140120},{"dataset":"facebook/anli","config":"plain_text","split":"train_r2","url":"https://huggingface.co/datasets/facebook/anli/resolve/refs%2Fconvert%2Fparquet/plain_text/train_r2/0000.parquet","filename":"0000.parquet","size":6527557},{"dataset":"facebook/anli","config":"plain_text","split":"train_r3","url":"https://huggingface.co/datasets/facebook/anli/resolve/refs%2Fconvert%2Fparquet/plain_text/train_r3/0000.parquet","filename":"0000.parquet","size":14333467}],"pending":[],"failed":[],"partial":false}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 13 Nov 2025 14:05:39 GMT
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 2c29bb35ddacc1dc2616fe65bdf5122e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - up-Qtx0BbC7JGKPcAFQuCJ4jeVjk7VsYqv0UO_u0WQWH4_cSajFZ9Q==
+      X-Amz-Cf-Pop:
+      - FRA56-P4
+      X-Cache:
+      - Miss from cloudfront
+      cache-control:
+      - max-age=120
+      content-encoding:
+      - gzip
+      server:
+      - uvicorn
+      vary:
+      - Accept-Encoding
+      x-revision:
+      - 8e4813d81f46d313dac7892e1c28076917cfcdf9
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - HuggingfaceFetcher/2.0
+    method: GET
+    uri: https://huggingface.co/api/datasets/facebook/anli/croissant
+  response:
+    body:
+      string: "{\"@context\":{\"@language\":\"en\",\"@vocab\":\"https://schema.org/\",\"citeAs\":\"cr:citeAs\",\"column\":\"cr:column\",\"conformsTo\":\"dct:conformsTo\",\"cr\":\"http://mlcommons.org/croissant/\",\"data\":{\"@id\":\"cr:data\",\"@type\":\"@json\"},\"dataBiases\":\"cr:dataBiases\",\"dataCollection\":\"cr:dataCollection\",\"dataType\":{\"@id\":\"cr:dataType\",\"@type\":\"@vocab\"},\"dct\":\"http://purl.org/dc/terms/\",\"extract\":\"cr:extract\",\"field\":\"cr:field\",\"fileProperty\":\"cr:fileProperty\",\"fileObject\":\"cr:fileObject\",\"fileSet\":\"cr:fileSet\",\"format\":\"cr:format\",\"includes\":\"cr:includes\",\"isLiveDataset\":\"cr:isLiveDataset\",\"jsonPath\":\"cr:jsonPath\",\"key\":\"cr:key\",\"md5\":\"cr:md5\",\"parentField\":\"cr:parentField\",\"path\":\"cr:path\",\"personalSensitiveInformation\":\"cr:personalSensitiveInformation\",\"recordSet\":\"cr:recordSet\",\"references\":\"cr:references\",\"regex\":\"cr:regex\",\"repeated\":\"cr:repeated\",\"replace\":\"cr:replace\",\"sc\":\"https://schema.org/\",\"separator\":\"cr:separator\",\"source\":\"cr:source\",\"subField\":\"cr:subField\",\"transform\":\"cr:transform\"},\"@type\":\"sc:Dataset\",\"distribution\":[{\"@type\":\"cr:FileObject\",\"@id\":\"repo\",\"name\":\"repo\",\"description\":\"The
+        Hugging Face git repository.\",\"contentUrl\":\"https://huggingface.co/datasets/facebook/anli/tree/refs%2Fconvert%2Fparquet\",\"encodingFormat\":\"git+https\",\"sha256\":\"https://github.com/mlcommons/croissant/issues/80\"},{\"@type\":\"cr:FileSet\",\"@id\":\"parquet-files-for-config-plain_text\",\"name\":\"parquet-files-for-config-plain_text\",\"description\":\"The
+        underlying Parquet files as converted by Hugging Face (see: https://huggingface.co/docs/dataset-viewer/parquet).\",\"containedIn\":{\"@id\":\"repo\"},\"encodingFormat\":\"application/x-parquet\",\"includes\":\"plain_text/*/*.parquet\"}],\"recordSet\":[{\"@type\":\"cr:RecordSet\",\"dataType\":\"cr:Split\",\"key\":{\"@id\":\"plain_text_splits/split_name\"},\"@id\":\"plain_text_splits\",\"name\":\"plain_text_splits\",\"description\":\"Splits
+        for the plain_text config.\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"plain_text_splits/split_name\",\"name\":\"split_name\",\"description\":\"The
+        name of the split.\",\"dataType\":\"sc:Text\"}],\"data\":[{\"plain_text_splits/split_name\":\"train_r1\"},{\"plain_text_splits/split_name\":\"dev_r1\"},{\"plain_text_splits/split_name\":\"test_r1\"},{\"plain_text_splits/split_name\":\"train_r2\"},{\"plain_text_splits/split_name\":\"dev_r2\"},{\"plain_text_splits/split_name\":\"test_r2\"},{\"plain_text_splits/split_name\":\"train_r3\"},{\"plain_text_splits/split_name\":\"dev_r3\"},{\"plain_text_splits/split_name\":\"test_r3\"}]},{\"@type\":\"cr:RecordSet\",\"@id\":\"plain_text\",\"name\":\"plain_text\",\"description\":\"facebook/anli
+        - 'plain_text' subset\\n\\nAdditional information:\\n- 9 splits: train_r1,
+        dev_r1, test_r1, train_r2, dev_r2, test_r2, train_r3, dev_r3, test_r3\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"plain_text/split\",\"name\":\"plain_text/split\",\"description\":\"Split
+        to which the example belongs to.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-plain_text\"},\"extract\":{\"fileProperty\":\"fullpath\"},\"transform\":{\"regex\":\"plain_text/(?:partial-)?(train_r1|dev_r1|test_r1|train_r2|dev_r2|test_r2|train_r3|dev_r3|test_r3)/.+parquet$\"}},\"references\":{\"field\":{\"@id\":\"plain_text_splits/split_name\"}}},{\"@type\":\"cr:Field\",\"@id\":\"plain_text/uid\",\"name\":\"plain_text/uid\",\"description\":\"Column
+        'uid' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-plain_text\"},\"extract\":{\"column\":\"uid\"}}},{\"@type\":\"cr:Field\",\"@id\":\"plain_text/premise\",\"name\":\"plain_text/premise\",\"description\":\"Column
+        'premise' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-plain_text\"},\"extract\":{\"column\":\"premise\"}}},{\"@type\":\"cr:Field\",\"@id\":\"plain_text/hypothesis\",\"name\":\"plain_text/hypothesis\",\"description\":\"Column
+        'hypothesis' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-plain_text\"},\"extract\":{\"column\":\"hypothesis\"}}},{\"@type\":\"cr:Field\",\"@id\":\"plain_text/label\",\"name\":\"plain_text/label\",\"description\":\"ClassLabel
+        column 'label' from the Hugging Face parquet file.\\nLabels:\\nentailment
+        (0), neutral (1), contradiction (2)\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-plain_text\"},\"extract\":{\"column\":\"label\"}}},{\"@type\":\"cr:Field\",\"@id\":\"plain_text/reason\",\"name\":\"plain_text/reason\",\"description\":\"Column
+        'reason' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-plain_text\"},\"extract\":{\"column\":\"reason\"}}}]}],\"conformsTo\":\"http://mlcommons.org/croissant/1.0\",\"name\":\"anli\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\tDataset
+        Card for \\\"anli\\\"\\n\\t\\n\\n\\n\\t\\n\\t\\t\\n\\t\\tDataset Summary\\n\\t\\n\\nThe
+        Adversarial Natural Language Inference (ANLI) is a new large-scale NLI benchmark
+        dataset,\\nThe dataset is collected via an iterative, adversarial human-and-model-in-the-loop
+        procedure.\\nANLI is much more difficult than its predecessors including SNLI
+        and MNLI.\\nIt contains three rounds. Each round has train/dev/test splits.\\n\\n\\t\\n\\t\\t\\n\\t\\tSupported
+        Tasks and Leaderboards\\n\\t\\n\\nMore Information Needed\\n\\n\\t\\n\\t\\t\\n\\t\\tLanguages\\n\\t\\n\\nEnglish\u2026
+        See the full description on the dataset page: https://huggingface.co/datasets/facebook/anli.\",\"alternateName\":[\"facebook/anli\",\"Adversarial
+        NLI\"],\"creator\":{\"@type\":\"Organization\",\"name\":\"AI at Meta\",\"url\":\"https://huggingface.co/facebook\"},\"keywords\":[\"text-classification\",\"natural-language-inference\",\"multi-input-text-classification\",\"crowdsourced\",\"machine-generated\",\"found\",\"monolingual\",\"original\",\"extended|hotpot_qa\",\"English\",\"cc-by-nc-4.0\",\"100K
+        - 1M\",\"parquet\",\"Text\",\"Datasets\",\"pandas\",\"Croissant\",\"Polars\",\"arxiv:1910.14599\",\"\U0001F1FA\U0001F1F8
+        Region: US\"],\"license\":\"https://choosealicense.com/licenses/cc-by-nc-4.0/\",\"sameAs\":\"\",\"url\":\"https://huggingface.co/datasets/facebook/anli\"}"
+    headers:
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '5798'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 14:05:39 GMT
+      ETag:
+      - W/"16a6-sP0cpXsbCPLwtS56Hrav1Ywr56U"
+      RateLimit:
+      - '"api";r=442;t=93'
+      RateLimit-Policy:
+      - '"fixed window";"api";q=500;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 7f01ac3c2b3b2aec2108ed414afd3146.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - zdq8BGWMmnxd_1OVo9ffFlLLh4NIc_zQB2LbO-9N5bjJ5ie_nVJfSw==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Powered-By:
+      - huggingface-moon
+      X-Request-Id:
+      - Root=1-6915e5b3-5e5b8ec30f5e1e2231b15af4
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      X-Amzn-Trace-Id:
+      - 2a45b2f5-9b5f-4487-9ee9-c81eba57c371
+      user-agent:
+      - unknown/None; hf_hub/0.33.5; python/3.12.3
+    method: GET
+    uri: https://huggingface.co/api/datasets/nyu-mll/glue?blobs=True
+  response:
+    body:
+      string: "{\"_id\":\"621ffdd236468d709f181e3f\",\"id\":\"nyu-mll/glue\",\"author\":\"nyu-mll\",\"sha\":\"bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c\",\"lastModified\":\"2024-01-30T07:41:18.000Z\",\"private\":false,\"gated\":false,\"disabled\":false,\"tags\":[\"task_categories:text-classification\",\"task_ids:acceptability-classification\",\"task_ids:natural-language-inference\",\"task_ids:semantic-similarity-scoring\",\"task_ids:sentiment-classification\",\"task_ids:text-scoring\",\"annotations_creators:other\",\"language_creators:other\",\"multilinguality:monolingual\",\"source_datasets:original\",\"language:en\",\"license:other\",\"size_categories:1M<n<10M\",\"format:parquet\",\"modality:tabular\",\"modality:text\",\"library:datasets\",\"library:pandas\",\"library:mlcroissant\",\"library:polars\",\"arxiv:1804.07461\",\"region:us\",\"qa-nli\",\"coreference-nli\",\"paraphrase-identification\"],\"citation\":null,\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\tDataset
+        Card for GLUE\\n\\t\\n\\n\\n\\t\\n\\t\\t\\n\\t\\tDataset Summary\\n\\t\\n\\nGLUE,
+        the General Language Understanding Evaluation benchmark (https://gluebenchmark.com/)
+        is a collection of resources for training, evaluating, and analyzing natural
+        language understanding systems.\\n\\n\\t\\n\\t\\t\\n\\t\\tSupported Tasks
+        and Leaderboards\\n\\t\\n\\nThe leaderboard for the GLUE benchmark can be
+        found at this address. It comprises the following tasks:\\n\\n\\t\\n\\t\\t\\n\\t\\tax\\n\\t\\n\\nA
+        manually-curated evaluation dataset for fine-grained analysis of system\u2026
+        See the full description on the dataset page: https://huggingface.co/datasets/nyu-mll/glue.\",\"paperswithcode_id\":\"glue\",\"downloads\":402331,\"likes\":451,\"cardData\":{\"annotations_creators\":[\"other\"],\"language_creators\":[\"other\"],\"language\":[\"en\"],\"license\":[\"other\"],\"multilinguality\":[\"monolingual\"],\"size_categories\":[\"10K<n<100K\"],\"source_datasets\":[\"original\"],\"task_categories\":[\"text-classification\"],\"task_ids\":[\"acceptability-classification\",\"natural-language-inference\",\"semantic-similarity-scoring\",\"sentiment-classification\",\"text-scoring\"],\"paperswithcode_id\":\"glue\",\"pretty_name\":\"GLUE
+        (General Language Understanding Evaluation benchmark)\",\"config_names\":[\"ax\",\"cola\",\"mnli\",\"mnli_matched\",\"mnli_mismatched\",\"mrpc\",\"qnli\",\"qqp\",\"rte\",\"sst2\",\"stsb\",\"wnli\"],\"tags\":[\"qa-nli\",\"coreference-nli\",\"paraphrase-identification\"],\"dataset_info\":[{\"config_name\":\"ax\",\"features\":[{\"name\":\"premise\",\"dtype\":\"string\"},{\"name\":\"hypothesis\",\"dtype\":\"string\"},{\"name\":\"label\",\"dtype\":{\"class_label\":{\"names\":{\"0\":\"entailment\",\"1\":\"neutral\",\"2\":\"contradiction\"}}}},{\"name\":\"idx\",\"dtype\":\"int32\"}],\"splits\":[{\"name\":\"test\",\"num_bytes\":237694,\"num_examples\":1104}],\"download_size\":80767,\"dataset_size\":237694},{\"config_name\":\"cola\",\"features\":[{\"name\":\"sentence\",\"dtype\":\"string\"},{\"name\":\"label\",\"dtype\":{\"class_label\":{\"names\":{\"0\":\"unacceptable\",\"1\":\"acceptable\"}}}},{\"name\":\"idx\",\"dtype\":\"int32\"}],\"splits\":[{\"name\":\"train\",\"num_bytes\":484869,\"num_examples\":8551},{\"name\":\"validation\",\"num_bytes\":60322,\"num_examples\":1043},{\"name\":\"test\",\"num_bytes\":60513,\"num_examples\":1063}],\"download_size\":326394,\"dataset_size\":605704},{\"config_name\":\"mnli\",\"features\":[{\"name\":\"premise\",\"dtype\":\"string\"},{\"name\":\"hypothesis\",\"dtype\":\"string\"},{\"name\":\"label\",\"dtype\":{\"class_label\":{\"names\":{\"0\":\"entailment\",\"1\":\"neutral\",\"2\":\"contradiction\"}}}},{\"name\":\"idx\",\"dtype\":\"int32\"}],\"splits\":[{\"name\":\"train\",\"num_bytes\":74619646,\"num_examples\":392702},{\"name\":\"validation_matched\",\"num_bytes\":1833783,\"num_examples\":9815},{\"name\":\"validation_mismatched\",\"num_bytes\":1949231,\"num_examples\":9832},{\"name\":\"test_matched\",\"num_bytes\":1848654,\"num_examples\":9796},{\"name\":\"test_mismatched\",\"num_bytes\":1950703,\"num_examples\":9847}],\"download_size\":57168425,\"dataset_size\":82202017},{\"config_name\":\"mnli_matched\",\"features\":[{\"name\":\"premise\",\"dtype\":\"string\"},{\"name\":\"hypothesis\",\"dtype\":\"string\"},{\"name\":\"label\",\"dtype\":{\"class_label\":{\"names\":{\"0\":\"entailment\",\"1\":\"neutral\",\"2\":\"contradiction\"}}}},{\"name\":\"idx\",\"dtype\":\"int32\"}],\"splits\":[{\"name\":\"validation\",\"num_bytes\":1833783,\"num_examples\":9815},{\"name\":\"test\",\"num_bytes\":1848654,\"num_examples\":9796}],\"download_size\":2435055,\"dataset_size\":3682437},{\"config_name\":\"mnli_mismatched\",\"features\":[{\"name\":\"premise\",\"dtype\":\"string\"},{\"name\":\"hypothesis\",\"dtype\":\"string\"},{\"name\":\"label\",\"dtype\":{\"class_label\":{\"names\":{\"0\":\"entailment\",\"1\":\"neutral\",\"2\":\"contradiction\"}}}},{\"name\":\"idx\",\"dtype\":\"int32\"}],\"splits\":[{\"name\":\"validation\",\"num_bytes\":1949231,\"num_examples\":9832},{\"name\":\"test\",\"num_bytes\":1950703,\"num_examples\":9847}],\"download_size\":2509009,\"dataset_size\":3899934},{\"config_name\":\"mrpc\",\"features\":[{\"name\":\"sentence1\",\"dtype\":\"string\"},{\"name\":\"sentence2\",\"dtype\":\"string\"},{\"name\":\"label\",\"dtype\":{\"class_label\":{\"names\":{\"0\":\"not_equivalent\",\"1\":\"equivalent\"}}}},{\"name\":\"idx\",\"dtype\":\"int32\"}],\"splits\":[{\"name\":\"train\",\"num_bytes\":943843,\"num_examples\":3668},{\"name\":\"validation\",\"num_bytes\":105879,\"num_examples\":408},{\"name\":\"test\",\"num_bytes\":442410,\"num_examples\":1725}],\"download_size\":1033400,\"dataset_size\":1492132},{\"config_name\":\"qnli\",\"features\":[{\"name\":\"question\",\"dtype\":\"string\"},{\"name\":\"sentence\",\"dtype\":\"string\"},{\"name\":\"label\",\"dtype\":{\"class_label\":{\"names\":{\"0\":\"entailment\",\"1\":\"not_entailment\"}}}},{\"name\":\"idx\",\"dtype\":\"int32\"}],\"splits\":[{\"name\":\"train\",\"num_bytes\":25612443,\"num_examples\":104743},{\"name\":\"validation\",\"num_bytes\":1368304,\"num_examples\":5463},{\"name\":\"test\",\"num_bytes\":1373093,\"num_examples\":5463}],\"download_size\":19278324,\"dataset_size\":28353840},{\"config_name\":\"qqp\",\"features\":[{\"name\":\"question1\",\"dtype\":\"string\"},{\"name\":\"question2\",\"dtype\":\"string\"},{\"name\":\"label\",\"dtype\":{\"class_label\":{\"names\":{\"0\":\"not_duplicate\",\"1\":\"duplicate\"}}}},{\"name\":\"idx\",\"dtype\":\"int32\"}],\"splits\":[{\"name\":\"train\",\"num_bytes\":50900820,\"num_examples\":363846},{\"name\":\"validation\",\"num_bytes\":5653754,\"num_examples\":40430},{\"name\":\"test\",\"num_bytes\":55171111,\"num_examples\":390965}],\"download_size\":73982265,\"dataset_size\":111725685},{\"config_name\":\"rte\",\"features\":[{\"name\":\"sentence1\",\"dtype\":\"string\"},{\"name\":\"sentence2\",\"dtype\":\"string\"},{\"name\":\"label\",\"dtype\":{\"class_label\":{\"names\":{\"0\":\"entailment\",\"1\":\"not_entailment\"}}}},{\"name\":\"idx\",\"dtype\":\"int32\"}],\"splits\":[{\"name\":\"train\",\"num_bytes\":847320,\"num_examples\":2490},{\"name\":\"validation\",\"num_bytes\":90728,\"num_examples\":277},{\"name\":\"test\",\"num_bytes\":974053,\"num_examples\":3000}],\"download_size\":1274409,\"dataset_size\":1912101},{\"config_name\":\"sst2\",\"features\":[{\"name\":\"sentence\",\"dtype\":\"string\"},{\"name\":\"label\",\"dtype\":{\"class_label\":{\"names\":{\"0\":\"negative\",\"1\":\"positive\"}}}},{\"name\":\"idx\",\"dtype\":\"int32\"}],\"splits\":[{\"name\":\"train\",\"num_bytes\":4681603,\"num_examples\":67349},{\"name\":\"validation\",\"num_bytes\":106252,\"num_examples\":872},{\"name\":\"test\",\"num_bytes\":216640,\"num_examples\":1821}],\"download_size\":3331080,\"dataset_size\":5004495},{\"config_name\":\"stsb\",\"features\":[{\"name\":\"sentence1\",\"dtype\":\"string\"},{\"name\":\"sentence2\",\"dtype\":\"string\"},{\"name\":\"label\",\"dtype\":\"float32\"},{\"name\":\"idx\",\"dtype\":\"int32\"}],\"splits\":[{\"name\":\"train\",\"num_bytes\":754791,\"num_examples\":5749},{\"name\":\"validation\",\"num_bytes\":216064,\"num_examples\":1500},{\"name\":\"test\",\"num_bytes\":169974,\"num_examples\":1379}],\"download_size\":766983,\"dataset_size\":1140829},{\"config_name\":\"wnli\",\"features\":[{\"name\":\"sentence1\",\"dtype\":\"string\"},{\"name\":\"sentence2\",\"dtype\":\"string\"},{\"name\":\"label\",\"dtype\":{\"class_label\":{\"names\":{\"0\":\"not_entailment\",\"1\":\"entailment\"}}}},{\"name\":\"idx\",\"dtype\":\"int32\"}],\"splits\":[{\"name\":\"train\",\"num_bytes\":107109,\"num_examples\":635},{\"name\":\"validation\",\"num_bytes\":12162,\"num_examples\":71},{\"name\":\"test\",\"num_bytes\":37889,\"num_examples\":146}],\"download_size\":63522,\"dataset_size\":157160}],\"configs\":[{\"config_name\":\"ax\",\"data_files\":[{\"split\":\"test\",\"path\":\"ax/test-*\"}]},{\"config_name\":\"cola\",\"data_files\":[{\"split\":\"train\",\"path\":\"cola/train-*\"},{\"split\":\"validation\",\"path\":\"cola/validation-*\"},{\"split\":\"test\",\"path\":\"cola/test-*\"}]},{\"config_name\":\"mnli\",\"data_files\":[{\"split\":\"train\",\"path\":\"mnli/train-*\"},{\"split\":\"validation_matched\",\"path\":\"mnli/validation_matched-*\"},{\"split\":\"validation_mismatched\",\"path\":\"mnli/validation_mismatched-*\"},{\"split\":\"test_matched\",\"path\":\"mnli/test_matched-*\"},{\"split\":\"test_mismatched\",\"path\":\"mnli/test_mismatched-*\"}]},{\"config_name\":\"mnli_matched\",\"data_files\":[{\"split\":\"validation\",\"path\":\"mnli_matched/validation-*\"},{\"split\":\"test\",\"path\":\"mnli_matched/test-*\"}]},{\"config_name\":\"mnli_mismatched\",\"data_files\":[{\"split\":\"validation\",\"path\":\"mnli_mismatched/validation-*\"},{\"split\":\"test\",\"path\":\"mnli_mismatched/test-*\"}]},{\"config_name\":\"mrpc\",\"data_files\":[{\"split\":\"train\",\"path\":\"mrpc/train-*\"},{\"split\":\"validation\",\"path\":\"mrpc/validation-*\"},{\"split\":\"test\",\"path\":\"mrpc/test-*\"}]},{\"config_name\":\"qnli\",\"data_files\":[{\"split\":\"train\",\"path\":\"qnli/train-*\"},{\"split\":\"validation\",\"path\":\"qnli/validation-*\"},{\"split\":\"test\",\"path\":\"qnli/test-*\"}]},{\"config_name\":\"qqp\",\"data_files\":[{\"split\":\"train\",\"path\":\"qqp/train-*\"},{\"split\":\"validation\",\"path\":\"qqp/validation-*\"},{\"split\":\"test\",\"path\":\"qqp/test-*\"}]},{\"config_name\":\"rte\",\"data_files\":[{\"split\":\"train\",\"path\":\"rte/train-*\"},{\"split\":\"validation\",\"path\":\"rte/validation-*\"},{\"split\":\"test\",\"path\":\"rte/test-*\"}]},{\"config_name\":\"sst2\",\"data_files\":[{\"split\":\"train\",\"path\":\"sst2/train-*\"},{\"split\":\"validation\",\"path\":\"sst2/validation-*\"},{\"split\":\"test\",\"path\":\"sst2/test-*\"}]},{\"config_name\":\"stsb\",\"data_files\":[{\"split\":\"train\",\"path\":\"stsb/train-*\"},{\"split\":\"validation\",\"path\":\"stsb/validation-*\"},{\"split\":\"test\",\"path\":\"stsb/test-*\"}]},{\"config_name\":\"wnli\",\"data_files\":[{\"split\":\"train\",\"path\":\"wnli/train-*\"},{\"split\":\"validation\",\"path\":\"wnli/validation-*\"},{\"split\":\"test\",\"path\":\"wnli/test-*\"}]}],\"train-eval-index\":[{\"config\":\"cola\",\"task\":\"text-classification\",\"task_id\":\"binary_classification\",\"splits\":{\"train_split\":\"train\",\"eval_split\":\"validation\"},\"col_mapping\":{\"sentence\":\"text\",\"label\":\"target\"}},{\"config\":\"sst2\",\"task\":\"text-classification\",\"task_id\":\"binary_classification\",\"splits\":{\"train_split\":\"train\",\"eval_split\":\"validation\"},\"col_mapping\":{\"sentence\":\"text\",\"label\":\"target\"}},{\"config\":\"mrpc\",\"task\":\"text-classification\",\"task_id\":\"natural_language_inference\",\"splits\":{\"train_split\":\"train\",\"eval_split\":\"validation\"},\"col_mapping\":{\"sentence1\":\"text1\",\"sentence2\":\"text2\",\"label\":\"target\"}},{\"config\":\"qqp\",\"task\":\"text-classification\",\"task_id\":\"natural_language_inference\",\"splits\":{\"train_split\":\"train\",\"eval_split\":\"validation\"},\"col_mapping\":{\"question1\":\"text1\",\"question2\":\"text2\",\"label\":\"target\"}},{\"config\":\"stsb\",\"task\":\"text-classification\",\"task_id\":\"natural_language_inference\",\"splits\":{\"train_split\":\"train\",\"eval_split\":\"validation\"},\"col_mapping\":{\"sentence1\":\"text1\",\"sentence2\":\"text2\",\"label\":\"target\"}},{\"config\":\"mnli\",\"task\":\"text-classification\",\"task_id\":\"natural_language_inference\",\"splits\":{\"train_split\":\"train\",\"eval_split\":\"validation_matched\"},\"col_mapping\":{\"premise\":\"text1\",\"hypothesis\":\"text2\",\"label\":\"target\"}},{\"config\":\"mnli_mismatched\",\"task\":\"text-classification\",\"task_id\":\"natural_language_inference\",\"splits\":{\"train_split\":\"train\",\"eval_split\":\"validation\"},\"col_mapping\":{\"premise\":\"text1\",\"hypothesis\":\"text2\",\"label\":\"target\"}},{\"config\":\"mnli_matched\",\"task\":\"text-classification\",\"task_id\":\"natural_language_inference\",\"splits\":{\"train_split\":\"train\",\"eval_split\":\"validation\"},\"col_mapping\":{\"premise\":\"text1\",\"hypothesis\":\"text2\",\"label\":\"target\"}},{\"config\":\"qnli\",\"task\":\"text-classification\",\"task_id\":\"natural_language_inference\",\"splits\":{\"train_split\":\"train\",\"eval_split\":\"validation\"},\"col_mapping\":{\"question\":\"text1\",\"sentence\":\"text2\",\"label\":\"target\"}},{\"config\":\"rte\",\"task\":\"text-classification\",\"task_id\":\"natural_language_inference\",\"splits\":{\"train_split\":\"train\",\"eval_split\":\"validation\"},\"col_mapping\":{\"sentence1\":\"text1\",\"sentence2\":\"text2\",\"label\":\"target\"}},{\"config\":\"wnli\",\"task\":\"text-classification\",\"task_id\":\"natural_language_inference\",\"splits\":{\"train_split\":\"train\",\"eval_split\":\"validation\"},\"col_mapping\":{\"sentence1\":\"text1\",\"sentence2\":\"text2\",\"label\":\"target\"}}]},\"siblings\":[{\"rfilename\":\".gitattributes\",\"blobId\":\"957b2579c6ef20995a09efd9a17f8fd90606f5ed\",\"size\":1174,\"lfs\":null},{\"rfilename\":\"README.md\",\"blobId\":\"274c0b2c4c5524fe09285a8b7d945fe98a1dfe7a\",\"size\":35296,\"lfs\":null},{\"rfilename\":\"ax/test-00000-of-00001.parquet\",\"blobId\":\"9e08ffaaf712ff76753b01ed0e55f5e45132c933\",\"size\":80767,\"lfs\":{\"sha256\":\"a07b802fe2d4968a1f7ccce9406826dc77e0d1dc53fea9491664bd8ebba8571a\",\"size\":80767,\"pointerSize\":130}},{\"rfilename\":\"cola/test-00000-of-00001.parquet\",\"blobId\":\"b43b1f9ffedc30937b976436fd91381381b45f5b\",\"size\":37719,\"lfs\":{\"sha256\":\"3c4d526b6f49f432621de43569f9ecf6af41f639baaf4a9d821b95d745def61d\",\"size\":37719,\"pointerSize\":130}},{\"rfilename\":\"cola/train-00000-of-00001.parquet\",\"blobId\":\"14489f30a11737fe912d8f5a392e1193c8ccf1f8\",\"size\":251124,\"lfs\":{\"sha256\":\"2e7538afa2000e63f5343f16a758d75c452661a384208399d2035cd2fce45c33\",\"size\":251124,\"pointerSize\":131}},{\"rfilename\":\"cola/validation-00000-of-00001.parquet\",\"blobId\":\"9a2187db434d15b9e5a938cc0284ab723e2c6d46\",\"size\":37551,\"lfs\":{\"sha256\":\"c14b7219a7d9f9fe3dd291fd000f6623ee413805eb108c9c49578ed50873e4ba\",\"size\":37551,\"pointerSize\":130}},{\"rfilename\":\"mnli/test_matched-00000-of-00001.parquet\",\"blobId\":\"c84793d1cb7a2bc940bd2821db04b9027c7f95bb\",\"size\":1220119,\"lfs\":{\"sha256\":\"a330c4f2aeb0bc92f1b4b133fbbaf51bf9c7d0f5cac3d06f49ef63af47dbb822\",\"size\":1220119,\"pointerSize\":132}},{\"rfilename\":\"mnli/test_mismatched-00000-of-00001.parquet\",\"blobId\":\"6a68b1317215fd2d7fb7c5a2158559a6eccc4cff\",\"size\":1257857,\"lfs\":{\"sha256\":\"e5078398d5c83d183578b1bdafe94e4491ed28ad1cf8d98ee8846afcec651f16\",\"size\":1257857,\"pointerSize\":132}},{\"rfilename\":\"mnli/train-00000-of-00001.parquet\",\"blobId\":\"027c8297cb9ab82ba6f501136de8cc8d9e7fd7f5\",\"size\":52224361,\"lfs\":{\"sha256\":\"49a4a5508b89b8fed2c6e81d2c47d00f4759050a7048c6cc5d95d31122ced3c1\",\"size\":52224361,\"pointerSize\":133}},{\"rfilename\":\"mnli/validation_matched-00000-of-00001.parquet\",\"blobId\":\"fdad3fd7e20f5e08007ebc75a09dad86d7f73023\",\"size\":1214936,\"lfs\":{\"sha256\":\"7f918c09d9c35446b8e8f06a5672f8ab704e2897fecbf52e2e154141f3d7c421\",\"size\":1214936,\"pointerSize\":132}},{\"rfilename\":\"mnli/validation_mismatched-00000-of-00001.parquet\",\"blobId\":\"ebb40d0ef0c2f62108424f456d6cf71486da4340\",\"size\":1251152,\"lfs\":{\"sha256\":\"04aba92823a954be36fe1b69b61eed334c9eb1009daba0dd79f69d77b87c535c\",\"size\":1251152,\"pointerSize\":132}},{\"rfilename\":\"mnli_matched/test-00000-of-00001.parquet\",\"blobId\":\"c84793d1cb7a2bc940bd2821db04b9027c7f95bb\",\"size\":1220119,\"lfs\":{\"sha256\":\"a330c4f2aeb0bc92f1b4b133fbbaf51bf9c7d0f5cac3d06f49ef63af47dbb822\",\"size\":1220119,\"pointerSize\":132}},{\"rfilename\":\"mnli_matched/validation-00000-of-00001.parquet\",\"blobId\":\"fdad3fd7e20f5e08007ebc75a09dad86d7f73023\",\"size\":1214936,\"lfs\":{\"sha256\":\"7f918c09d9c35446b8e8f06a5672f8ab704e2897fecbf52e2e154141f3d7c421\",\"size\":1214936,\"pointerSize\":132}},{\"rfilename\":\"mnli_mismatched/test-00000-of-00001.parquet\",\"blobId\":\"6a68b1317215fd2d7fb7c5a2158559a6eccc4cff\",\"size\":1257857,\"lfs\":{\"sha256\":\"e5078398d5c83d183578b1bdafe94e4491ed28ad1cf8d98ee8846afcec651f16\",\"size\":1257857,\"pointerSize\":132}},{\"rfilename\":\"mnli_mismatched/validation-00000-of-00001.parquet\",\"blobId\":\"ebb40d0ef0c2f62108424f456d6cf71486da4340\",\"size\":1251152,\"lfs\":{\"sha256\":\"04aba92823a954be36fe1b69b61eed334c9eb1009daba0dd79f69d77b87c535c\",\"size\":1251152,\"pointerSize\":132}},{\"rfilename\":\"mrpc/test-00000-of-00001.parquet\",\"blobId\":\"535b3f50ecc75e1311fb073d8637614dd63cbbd9\",\"size\":308441,\"lfs\":{\"sha256\":\"a623ed1cbdf445b11f8e249acbf649d7d3a5ee58c918554c40cbd8307e488693\",\"size\":308441,\"pointerSize\":131}},{\"rfilename\":\"mrpc/train-00000-of-00001.parquet\",\"blobId\":\"d9536e81cb28e8f3a431cbb43d2a0ef0e31de7ca\",\"size\":649281,\"lfs\":{\"sha256\":\"61fd41301e0e244b0420c4350a170c8e7cf64740335fc875a4af2d79af0df0af\",\"size\":649281,\"pointerSize\":131}},{\"rfilename\":\"mrpc/validation-00000-of-00001.parquet\",\"blobId\":\"755c6fe48229183cb5aa27e04ceb546e015945dd\",\"size\":75678,\"lfs\":{\"sha256\":\"33c007dbf5bfa8463d87a13e6226df8c0fcf2596c2cd39d0f3bb79754e00f50f\",\"size\":75678,\"pointerSize\":130}},{\"rfilename\":\"qnli/test-00000-of-00001.parquet\",\"blobId\":\"1f69b5409b7a4947a37d986ed74134ccac6b5eb3\",\"size\":877345,\"lfs\":{\"sha256\":\"f39520cd07925c9784e4a7f1f7aed8f17f136039b8498f7ad07c7bf13d65ba83\",\"size\":877345,\"pointerSize\":131}},{\"rfilename\":\"qnli/train-00000-of-00001.parquet\",\"blobId\":\"59e9e525c4038f3a8c51d414fe17530093c57417\",\"size\":17528917,\"lfs\":{\"sha256\":\"ebc7cb70a5bbde0b0336c3d51f31bb4df4673e908e8874b090b52169b1365c6c\",\"size\":17528917,\"pointerSize\":133}},{\"rfilename\":\"qnli/validation-00000-of-00001.parquet\",\"blobId\":\"86f227f6b0f89419c3d558781e394c5773cce56f\",\"size\":872062,\"lfs\":{\"sha256\":\"e69311b81dc65589286091d9905a27617a90436dd215c7a59832fa8f4f336169\",\"size\":872062,\"pointerSize\":131}},{\"rfilename\":\"qqp/test-00000-of-00001.parquet\",\"blobId\":\"15f49242dcc3aec29e9f44ef8976ef15e5957f4b\",\"size\":36694152,\"lfs\":{\"sha256\":\"95d5d1efcfa3ff7e090565e98085770b3497aad8dbcf12996412b23d2fb669e8\",\"size\":36694152,\"pointerSize\":133}},{\"rfilename\":\"qqp/train-00000-of-00001.parquet\",\"blobId\":\"d8c3b92d9dad49c730e27e8ca80ad7781cee338d\",\"size\":33558839,\"lfs\":{\"sha256\":\"4d6f02e643f7c36e9a4f7d4971a5ee9bd74063a319452fe6c87850c739774cd7\",\"size\":33558839,\"pointerSize\":133}},{\"rfilename\":\"qqp/validation-00000-of-00001.parquet\",\"blobId\":\"d5fe977f2e937bf4895b5ae533c18a4e5f292771\",\"size\":3729274,\"lfs\":{\"sha256\":\"efd86a539c412d74874ee451573d7bd142f56c47fe36de033b9f367d8bb0fa71\",\"size\":3729274,\"pointerSize\":132}},{\"rfilename\":\"rte/test-00000-of-00001.parquet\",\"blobId\":\"c0458c329e8d9b9c2a5058b415bb0608970f48f6\",\"size\":621413,\"lfs\":{\"sha256\":\"3f44aadbfb8bbb7a64ba0674bd26ff77b66e88fdf7a6d64255a5ba6ae9057383\",\"size\":621413,\"pointerSize\":131}},{\"rfilename\":\"rte/train-00000-of-00001.parquet\",\"blobId\":\"7fe059d0b9b817269f06732d779b0628b362bfe5\",\"size\":583976,\"lfs\":{\"sha256\":\"a6252ab17015d718f6de1effe0980f7b158df63e3d16207cd8bd396b608e5147\",\"size\":583976,\"pointerSize\":131}},{\"rfilename\":\"rte/validation-00000-of-00001.parquet\",\"blobId\":\"db2d914fd10e564d97bdd059ec021835f9957a0a\",\"size\":69020,\"lfs\":{\"sha256\":\"fb2aa2e04f551133ba663617a15ae133dc22b0f6a969bc0629b5ea6003ee9cf8\",\"size\":69020,\"pointerSize\":130}},{\"rfilename\":\"sst2/test-00000-of-00001.parquet\",\"blobId\":\"51daf03787ea35f7587014f44253e3317ba5e498\",\"size\":147793,\"lfs\":{\"sha256\":\"e9d23cf0067211d2baf018328b507f5153fb6704d75117295a8bda47c7adccb1\",\"size\":147793,\"pointerSize\":131}},{\"rfilename\":\"sst2/train-00000-of-00001.parquet\",\"blobId\":\"ddfd0a771052e3a541257da167614a7c61ece3bc\",\"size\":3110468,\"lfs\":{\"sha256\":\"66a253e67968acfabcbe49dbe9da964b42ac1c851c40ab760e8c8942efdb3229\",\"size\":3110468,\"pointerSize\":132}},{\"rfilename\":\"sst2/validation-00000-of-00001.parquet\",\"blobId\":\"51827d4966533e9be520ab31c563028dcd6e61b9\",\"size\":72819,\"lfs\":{\"sha256\":\"a1371f3b3a7b0bcefa8388799a9359dc3ce76c349cc0079507a7991364fd2a9b\",\"size\":72819,\"pointerSize\":130}},{\"rfilename\":\"stsb/test-00000-of-00001.parquet\",\"blobId\":\"2470da9f2e614cb594da29f0eac7718a482f3716\",\"size\":114296,\"lfs\":{\"sha256\":\"04fa2561f1ff3c395cf8980e3eed5d133c194abf636d5e1870d765c861087bd9\",\"size\":114296,\"pointerSize\":131}},{\"rfilename\":\"stsb/train-00000-of-00001.parquet\",\"blobId\":\"170f310ee329964319e0915a9e8016ea47eb470a\",\"size\":502065,\"lfs\":{\"sha256\":\"bbd93bbb988fd18437e02185fe3b2bd9a18350376c392e7820de9df1b247ed1f\",\"size\":502065,\"pointerSize\":131}},{\"rfilename\":\"stsb/validation-00000-of-00001.parquet\",\"blobId\":\"01fd563aace476f30eac5e72136ee627415648be\",\"size\":150622,\"lfs\":{\"sha256\":\"152de7cf1fa34ee4df1c243bd209b02ade21a1d5c4fb3b7da5240f78e4000aa9\",\"size\":150622,\"pointerSize\":131}},{\"rfilename\":\"wnli/test-00000-of-00001.parquet\",\"blobId\":\"4d48a68172fec380f819552b85fdf86bb7e6e1ba\",\"size\":13620,\"lfs\":{\"sha256\":\"766d3754c46a80f3275cb81a32ee6b7b49176fa8c1ef85ea92a4a3676510b902\",\"size\":13620,\"pointerSize\":130}},{\"rfilename\":\"wnli/train-00000-of-00001.parquet\",\"blobId\":\"73a21b064146503ed47d2222c47ea61373173113\",\"size\":38835,\"lfs\":{\"sha256\":\"40f4c0c60db68addeda8e9cbe25e6344cd99d5bbb80125535994a9a3141ee0a9\",\"size\":38835,\"pointerSize\":130}},{\"rfilename\":\"wnli/validation-00000-of-00001.parquet\",\"blobId\":\"083ec60b1591bddaa60cd792abe6c196c4822a4f\",\"size\":11067,\"lfs\":{\"sha256\":\"880037e45e03df868d5799ca21dc03f3a6378f0adf3c01c7bfc46b94fa61f1cb\",\"size\":11067,\"pointerSize\":130}}],\"createdAt\":\"2022-03-02T23:29:22.000Z\",\"usedStorage\":4006562287}"
+    headers:
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '20403'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 14:05:40 GMT
+      ETag:
+      - W/"4fb3-NEUATT/GBxh+gm4dYBPEtrUVrAY"
+      RateLimit:
+      - '"api";r=441;t=92'
+      RateLimit-Policy:
+      - '"fixed window";"api";q=500;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 2e5530cd574fa6a27f079027dd7a281a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - liMZTnoQs2ULDisCVFt3RwwW_uMXiMFhYBQH4lnpYPAUtZmNyKyAog==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Powered-By:
+      - huggingface-moon
+      X-Request-Id:
+      - Root=1-6915e5b4-0a13b9662207e01339caaadb;2a45b2f5-9b5f-4487-9ee9-c81eba57c371
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - HuggingfaceFetcher/2.0
+    method: GET
+    uri: https://datasets-server.huggingface.co/parquet?dataset=nyu-mll/glue
+  response:
+    body:
+      string: '{"parquet_files":[{"dataset":"nyu-mll/glue","config":"ax","split":"test","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/ax/test/0000.parquet","filename":"0000.parquet","size":80767},{"dataset":"nyu-mll/glue","config":"cola","split":"test","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/cola/test/0000.parquet","filename":"0000.parquet","size":37719},{"dataset":"nyu-mll/glue","config":"cola","split":"train","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/cola/train/0000.parquet","filename":"0000.parquet","size":251124},{"dataset":"nyu-mll/glue","config":"cola","split":"validation","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/cola/validation/0000.parquet","filename":"0000.parquet","size":37551},{"dataset":"nyu-mll/glue","config":"mnli","split":"test_matched","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/mnli/test_matched/0000.parquet","filename":"0000.parquet","size":1220119},{"dataset":"nyu-mll/glue","config":"mnli","split":"test_mismatched","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/mnli/test_mismatched/0000.parquet","filename":"0000.parquet","size":1257857},{"dataset":"nyu-mll/glue","config":"mnli","split":"train","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/mnli/train/0000.parquet","filename":"0000.parquet","size":52224361},{"dataset":"nyu-mll/glue","config":"mnli","split":"validation_matched","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/mnli/validation_matched/0000.parquet","filename":"0000.parquet","size":1214936},{"dataset":"nyu-mll/glue","config":"mnli","split":"validation_mismatched","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/mnli/validation_mismatched/0000.parquet","filename":"0000.parquet","size":1251152},{"dataset":"nyu-mll/glue","config":"mnli_matched","split":"test","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/mnli_matched/test/0000.parquet","filename":"0000.parquet","size":1220119},{"dataset":"nyu-mll/glue","config":"mnli_matched","split":"validation","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/mnli_matched/validation/0000.parquet","filename":"0000.parquet","size":1214936},{"dataset":"nyu-mll/glue","config":"mnli_mismatched","split":"test","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/mnli_mismatched/test/0000.parquet","filename":"0000.parquet","size":1257857},{"dataset":"nyu-mll/glue","config":"mnli_mismatched","split":"validation","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/mnli_mismatched/validation/0000.parquet","filename":"0000.parquet","size":1251152},{"dataset":"nyu-mll/glue","config":"mrpc","split":"test","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/mrpc/test/0000.parquet","filename":"0000.parquet","size":308441},{"dataset":"nyu-mll/glue","config":"mrpc","split":"train","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/mrpc/train/0000.parquet","filename":"0000.parquet","size":649281},{"dataset":"nyu-mll/glue","config":"mrpc","split":"validation","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/mrpc/validation/0000.parquet","filename":"0000.parquet","size":75678},{"dataset":"nyu-mll/glue","config":"qnli","split":"test","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/qnli/test/0000.parquet","filename":"0000.parquet","size":877345},{"dataset":"nyu-mll/glue","config":"qnli","split":"train","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/qnli/train/0000.parquet","filename":"0000.parquet","size":17528917},{"dataset":"nyu-mll/glue","config":"qnli","split":"validation","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/qnli/validation/0000.parquet","filename":"0000.parquet","size":872062},{"dataset":"nyu-mll/glue","config":"qqp","split":"test","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/qqp/test/0000.parquet","filename":"0000.parquet","size":36694152},{"dataset":"nyu-mll/glue","config":"qqp","split":"train","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/qqp/train/0000.parquet","filename":"0000.parquet","size":33558839},{"dataset":"nyu-mll/glue","config":"qqp","split":"validation","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/qqp/validation/0000.parquet","filename":"0000.parquet","size":3729274},{"dataset":"nyu-mll/glue","config":"rte","split":"test","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/rte/test/0000.parquet","filename":"0000.parquet","size":621413},{"dataset":"nyu-mll/glue","config":"rte","split":"train","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/rte/train/0000.parquet","filename":"0000.parquet","size":583976},{"dataset":"nyu-mll/glue","config":"rte","split":"validation","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/rte/validation/0000.parquet","filename":"0000.parquet","size":69020},{"dataset":"nyu-mll/glue","config":"sst2","split":"test","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/sst2/test/0000.parquet","filename":"0000.parquet","size":147793},{"dataset":"nyu-mll/glue","config":"sst2","split":"train","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/sst2/train/0000.parquet","filename":"0000.parquet","size":3110468},{"dataset":"nyu-mll/glue","config":"sst2","split":"validation","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/sst2/validation/0000.parquet","filename":"0000.parquet","size":72819},{"dataset":"nyu-mll/glue","config":"stsb","split":"test","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/stsb/test/0000.parquet","filename":"0000.parquet","size":114296},{"dataset":"nyu-mll/glue","config":"stsb","split":"train","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/stsb/train/0000.parquet","filename":"0000.parquet","size":502065},{"dataset":"nyu-mll/glue","config":"stsb","split":"validation","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/stsb/validation/0000.parquet","filename":"0000.parquet","size":150622},{"dataset":"nyu-mll/glue","config":"wnli","split":"test","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/wnli/test/0000.parquet","filename":"0000.parquet","size":13620},{"dataset":"nyu-mll/glue","config":"wnli","split":"train","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/wnli/train/0000.parquet","filename":"0000.parquet","size":38835},{"dataset":"nyu-mll/glue","config":"wnli","split":"validation","url":"https://huggingface.co/datasets/nyu-mll/glue/resolve/refs%2Fconvert%2Fparquet/wnli/validation/0000.parquet","filename":"0000.parquet","size":11067}],"pending":[],"failed":[],"partial":false}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 13 Nov 2025 14:05:41 GMT
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 3d34e163f3f1a0c4a397ad818b79a810.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - Y17K2OHOqevWi3UE70JgnHnxP4782YGlZrpfhMejs8s9Ss_T7GmLTA==
+      X-Amz-Cf-Pop:
+      - FRA56-P4
+      X-Cache:
+      - Miss from cloudfront
+      cache-control:
+      - max-age=120
+      content-encoding:
+      - gzip
+      server:
+      - uvicorn
+      vary:
+      - Accept-Encoding
+      x-revision:
+      - bcdcba79d07bc864c1c254ccfcedcce55bcc9a8c
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - HuggingfaceFetcher/2.0
+    method: GET
+    uri: https://huggingface.co/api/datasets/nyu-mll/glue/croissant
+  response:
+    body:
+      string: "{\"@context\":{\"@language\":\"en\",\"@vocab\":\"https://schema.org/\",\"citeAs\":\"cr:citeAs\",\"column\":\"cr:column\",\"conformsTo\":\"dct:conformsTo\",\"cr\":\"http://mlcommons.org/croissant/\",\"data\":{\"@id\":\"cr:data\",\"@type\":\"@json\"},\"dataBiases\":\"cr:dataBiases\",\"dataCollection\":\"cr:dataCollection\",\"dataType\":{\"@id\":\"cr:dataType\",\"@type\":\"@vocab\"},\"dct\":\"http://purl.org/dc/terms/\",\"extract\":\"cr:extract\",\"field\":\"cr:field\",\"fileProperty\":\"cr:fileProperty\",\"fileObject\":\"cr:fileObject\",\"fileSet\":\"cr:fileSet\",\"format\":\"cr:format\",\"includes\":\"cr:includes\",\"isLiveDataset\":\"cr:isLiveDataset\",\"jsonPath\":\"cr:jsonPath\",\"key\":\"cr:key\",\"md5\":\"cr:md5\",\"parentField\":\"cr:parentField\",\"path\":\"cr:path\",\"personalSensitiveInformation\":\"cr:personalSensitiveInformation\",\"recordSet\":\"cr:recordSet\",\"references\":\"cr:references\",\"regex\":\"cr:regex\",\"repeated\":\"cr:repeated\",\"replace\":\"cr:replace\",\"sc\":\"https://schema.org/\",\"separator\":\"cr:separator\",\"source\":\"cr:source\",\"subField\":\"cr:subField\",\"transform\":\"cr:transform\"},\"@type\":\"sc:Dataset\",\"distribution\":[{\"@type\":\"cr:FileObject\",\"@id\":\"repo\",\"name\":\"repo\",\"description\":\"The
+        Hugging Face git repository.\",\"contentUrl\":\"https://huggingface.co/datasets/nyu-mll/glue/tree/refs%2Fconvert%2Fparquet\",\"encodingFormat\":\"git+https\",\"sha256\":\"https://github.com/mlcommons/croissant/issues/80\"},{\"@type\":\"cr:FileSet\",\"@id\":\"parquet-files-for-config-ax\",\"name\":\"parquet-files-for-config-ax\",\"description\":\"The
+        underlying Parquet files as converted by Hugging Face (see: https://huggingface.co/docs/dataset-viewer/parquet).\",\"containedIn\":{\"@id\":\"repo\"},\"encodingFormat\":\"application/x-parquet\",\"includes\":\"ax/*/*.parquet\"},{\"@type\":\"cr:FileSet\",\"@id\":\"parquet-files-for-config-cola\",\"name\":\"parquet-files-for-config-cola\",\"description\":\"The
+        underlying Parquet files as converted by Hugging Face (see: https://huggingface.co/docs/dataset-viewer/parquet).\",\"containedIn\":{\"@id\":\"repo\"},\"encodingFormat\":\"application/x-parquet\",\"includes\":\"cola/*/*.parquet\"},{\"@type\":\"cr:FileSet\",\"@id\":\"parquet-files-for-config-mnli\",\"name\":\"parquet-files-for-config-mnli\",\"description\":\"The
+        underlying Parquet files as converted by Hugging Face (see: https://huggingface.co/docs/dataset-viewer/parquet).\",\"containedIn\":{\"@id\":\"repo\"},\"encodingFormat\":\"application/x-parquet\",\"includes\":\"mnli/*/*.parquet\"},{\"@type\":\"cr:FileSet\",\"@id\":\"parquet-files-for-config-mnli_matched\",\"name\":\"parquet-files-for-config-mnli_matched\",\"description\":\"The
+        underlying Parquet files as converted by Hugging Face (see: https://huggingface.co/docs/dataset-viewer/parquet).\",\"containedIn\":{\"@id\":\"repo\"},\"encodingFormat\":\"application/x-parquet\",\"includes\":\"mnli_matched/*/*.parquet\"},{\"@type\":\"cr:FileSet\",\"@id\":\"parquet-files-for-config-mnli_mismatched\",\"name\":\"parquet-files-for-config-mnli_mismatched\",\"description\":\"The
+        underlying Parquet files as converted by Hugging Face (see: https://huggingface.co/docs/dataset-viewer/parquet).\",\"containedIn\":{\"@id\":\"repo\"},\"encodingFormat\":\"application/x-parquet\",\"includes\":\"mnli_mismatched/*/*.parquet\"},{\"@type\":\"cr:FileSet\",\"@id\":\"parquet-files-for-config-mrpc\",\"name\":\"parquet-files-for-config-mrpc\",\"description\":\"The
+        underlying Parquet files as converted by Hugging Face (see: https://huggingface.co/docs/dataset-viewer/parquet).\",\"containedIn\":{\"@id\":\"repo\"},\"encodingFormat\":\"application/x-parquet\",\"includes\":\"mrpc/*/*.parquet\"},{\"@type\":\"cr:FileSet\",\"@id\":\"parquet-files-for-config-qnli\",\"name\":\"parquet-files-for-config-qnli\",\"description\":\"The
+        underlying Parquet files as converted by Hugging Face (see: https://huggingface.co/docs/dataset-viewer/parquet).\",\"containedIn\":{\"@id\":\"repo\"},\"encodingFormat\":\"application/x-parquet\",\"includes\":\"qnli/*/*.parquet\"},{\"@type\":\"cr:FileSet\",\"@id\":\"parquet-files-for-config-qqp\",\"name\":\"parquet-files-for-config-qqp\",\"description\":\"The
+        underlying Parquet files as converted by Hugging Face (see: https://huggingface.co/docs/dataset-viewer/parquet).\",\"containedIn\":{\"@id\":\"repo\"},\"encodingFormat\":\"application/x-parquet\",\"includes\":\"qqp/*/*.parquet\"},{\"@type\":\"cr:FileSet\",\"@id\":\"parquet-files-for-config-rte\",\"name\":\"parquet-files-for-config-rte\",\"description\":\"The
+        underlying Parquet files as converted by Hugging Face (see: https://huggingface.co/docs/dataset-viewer/parquet).\",\"containedIn\":{\"@id\":\"repo\"},\"encodingFormat\":\"application/x-parquet\",\"includes\":\"rte/*/*.parquet\"},{\"@type\":\"cr:FileSet\",\"@id\":\"parquet-files-for-config-sst2\",\"name\":\"parquet-files-for-config-sst2\",\"description\":\"The
+        underlying Parquet files as converted by Hugging Face (see: https://huggingface.co/docs/dataset-viewer/parquet).\",\"containedIn\":{\"@id\":\"repo\"},\"encodingFormat\":\"application/x-parquet\",\"includes\":\"sst2/*/*.parquet\"},{\"@type\":\"cr:FileSet\",\"@id\":\"parquet-files-for-config-stsb\",\"name\":\"parquet-files-for-config-stsb\",\"description\":\"The
+        underlying Parquet files as converted by Hugging Face (see: https://huggingface.co/docs/dataset-viewer/parquet).\",\"containedIn\":{\"@id\":\"repo\"},\"encodingFormat\":\"application/x-parquet\",\"includes\":\"stsb/*/*.parquet\"},{\"@type\":\"cr:FileSet\",\"@id\":\"parquet-files-for-config-wnli\",\"name\":\"parquet-files-for-config-wnli\",\"description\":\"The
+        underlying Parquet files as converted by Hugging Face (see: https://huggingface.co/docs/dataset-viewer/parquet).\",\"containedIn\":{\"@id\":\"repo\"},\"encodingFormat\":\"application/x-parquet\",\"includes\":\"wnli/*/*.parquet\"}],\"recordSet\":[{\"@type\":\"cr:RecordSet\",\"dataType\":\"cr:Split\",\"key\":{\"@id\":\"ax_splits/split_name\"},\"@id\":\"ax_splits\",\"name\":\"ax_splits\",\"description\":\"Splits
+        for the ax config.\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"ax_splits/split_name\",\"name\":\"split_name\",\"description\":\"The
+        name of the split.\",\"dataType\":\"sc:Text\"}],\"data\":[{\"ax_splits/split_name\":\"test\"}]},{\"@type\":\"cr:RecordSet\",\"@id\":\"ax\",\"name\":\"ax\",\"description\":\"nyu-mll/glue
+        - 'ax' subset\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"ax/split\",\"name\":\"ax/split\",\"description\":\"Split
+        to which the example belongs to.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-ax\"},\"extract\":{\"fileProperty\":\"fullpath\"},\"transform\":{\"regex\":\"ax/(?:partial-)?(test)/.+parquet$\"}},\"references\":{\"field\":{\"@id\":\"ax_splits/split_name\"}}},{\"@type\":\"cr:Field\",\"@id\":\"ax/premise\",\"name\":\"ax/premise\",\"description\":\"Column
+        'premise' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-ax\"},\"extract\":{\"column\":\"premise\"}}},{\"@type\":\"cr:Field\",\"@id\":\"ax/hypothesis\",\"name\":\"ax/hypothesis\",\"description\":\"Column
+        'hypothesis' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-ax\"},\"extract\":{\"column\":\"hypothesis\"}}},{\"@type\":\"cr:Field\",\"@id\":\"ax/label\",\"name\":\"ax/label\",\"description\":\"ClassLabel
+        column 'label' from the Hugging Face parquet file.\\nLabels:\\nentailment
+        (0), neutral (1), contradiction (2)\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-ax\"},\"extract\":{\"column\":\"label\"}}},{\"@type\":\"cr:Field\",\"@id\":\"ax/idx\",\"name\":\"ax/idx\",\"description\":\"Column
+        'idx' from the Hugging Face parquet file.\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-ax\"},\"extract\":{\"column\":\"idx\"}}}]},{\"@type\":\"cr:RecordSet\",\"dataType\":\"cr:Split\",\"key\":{\"@id\":\"cola_splits/split_name\"},\"@id\":\"cola_splits\",\"name\":\"cola_splits\",\"description\":\"Splits
+        for the cola config.\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"cola_splits/split_name\",\"name\":\"split_name\",\"description\":\"The
+        name of the split.\",\"dataType\":\"sc:Text\"}],\"data\":[{\"cola_splits/split_name\":\"train\"},{\"cola_splits/split_name\":\"validation\"},{\"cola_splits/split_name\":\"test\"}]},{\"@type\":\"cr:RecordSet\",\"@id\":\"cola\",\"name\":\"cola\",\"description\":\"nyu-mll/glue
+        - 'cola' subset\\n\\nAdditional information:\\n- 3 splits: train, validation,
+        test\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"cola/split\",\"name\":\"cola/split\",\"description\":\"Split
+        to which the example belongs to.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-cola\"},\"extract\":{\"fileProperty\":\"fullpath\"},\"transform\":{\"regex\":\"cola/(?:partial-)?(train|validation|test)/.+parquet$\"}},\"references\":{\"field\":{\"@id\":\"cola_splits/split_name\"}}},{\"@type\":\"cr:Field\",\"@id\":\"cola/sentence\",\"name\":\"cola/sentence\",\"description\":\"Column
+        'sentence' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-cola\"},\"extract\":{\"column\":\"sentence\"}}},{\"@type\":\"cr:Field\",\"@id\":\"cola/label\",\"name\":\"cola/label\",\"description\":\"ClassLabel
+        column 'label' from the Hugging Face parquet file.\\nLabels:\\nunacceptable
+        (0), acceptable (1)\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-cola\"},\"extract\":{\"column\":\"label\"}}},{\"@type\":\"cr:Field\",\"@id\":\"cola/idx\",\"name\":\"cola/idx\",\"description\":\"Column
+        'idx' from the Hugging Face parquet file.\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-cola\"},\"extract\":{\"column\":\"idx\"}}}]},{\"@type\":\"cr:RecordSet\",\"dataType\":\"cr:Split\",\"key\":{\"@id\":\"mnli_splits/split_name\"},\"@id\":\"mnli_splits\",\"name\":\"mnli_splits\",\"description\":\"Splits
+        for the mnli config.\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"mnli_splits/split_name\",\"name\":\"split_name\",\"description\":\"The
+        name of the split.\",\"dataType\":\"sc:Text\"}],\"data\":[{\"mnli_splits/split_name\":\"train\"},{\"mnli_splits/split_name\":\"validation_matched\"},{\"mnli_splits/split_name\":\"validation_mismatched\"},{\"mnli_splits/split_name\":\"test_matched\"},{\"mnli_splits/split_name\":\"test_mismatched\"}]},{\"@type\":\"cr:RecordSet\",\"@id\":\"mnli\",\"name\":\"mnli\",\"description\":\"nyu-mll/glue
+        - 'mnli' subset\\n\\nAdditional information:\\n- 5 splits: train, validation_matched,
+        validation_mismatched, test_matched, test_mismatched\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"mnli/split\",\"name\":\"mnli/split\",\"description\":\"Split
+        to which the example belongs to.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mnli\"},\"extract\":{\"fileProperty\":\"fullpath\"},\"transform\":{\"regex\":\"mnli/(?:partial-)?(train|validation_matched|validation_mismatched|test_matched|test_mismatched)/.+parquet$\"}},\"references\":{\"field\":{\"@id\":\"mnli_splits/split_name\"}}},{\"@type\":\"cr:Field\",\"@id\":\"mnli/premise\",\"name\":\"mnli/premise\",\"description\":\"Column
+        'premise' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mnli\"},\"extract\":{\"column\":\"premise\"}}},{\"@type\":\"cr:Field\",\"@id\":\"mnli/hypothesis\",\"name\":\"mnli/hypothesis\",\"description\":\"Column
+        'hypothesis' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mnli\"},\"extract\":{\"column\":\"hypothesis\"}}},{\"@type\":\"cr:Field\",\"@id\":\"mnli/label\",\"name\":\"mnli/label\",\"description\":\"ClassLabel
+        column 'label' from the Hugging Face parquet file.\\nLabels:\\nentailment
+        (0), neutral (1), contradiction (2)\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mnli\"},\"extract\":{\"column\":\"label\"}}},{\"@type\":\"cr:Field\",\"@id\":\"mnli/idx\",\"name\":\"mnli/idx\",\"description\":\"Column
+        'idx' from the Hugging Face parquet file.\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mnli\"},\"extract\":{\"column\":\"idx\"}}}]},{\"@type\":\"cr:RecordSet\",\"dataType\":\"cr:Split\",\"key\":{\"@id\":\"mnli_matched_splits/split_name\"},\"@id\":\"mnli_matched_splits\",\"name\":\"mnli_matched_splits\",\"description\":\"Splits
+        for the mnli_matched config.\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"mnli_matched_splits/split_name\",\"name\":\"split_name\",\"description\":\"The
+        name of the split.\",\"dataType\":\"sc:Text\"}],\"data\":[{\"mnli_matched_splits/split_name\":\"validation\"},{\"mnli_matched_splits/split_name\":\"test\"}]},{\"@type\":\"cr:RecordSet\",\"@id\":\"mnli_matched\",\"name\":\"mnli_matched\",\"description\":\"nyu-mll/glue
+        - 'mnli_matched' subset\\n\\nAdditional information:\\n- 2 splits: validation,
+        test\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"mnli_matched/split\",\"name\":\"mnli_matched/split\",\"description\":\"Split
+        to which the example belongs to.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mnli_matched\"},\"extract\":{\"fileProperty\":\"fullpath\"},\"transform\":{\"regex\":\"mnli_matched/(?:partial-)?(validation|test)/.+parquet$\"}},\"references\":{\"field\":{\"@id\":\"mnli_matched_splits/split_name\"}}},{\"@type\":\"cr:Field\",\"@id\":\"mnli_matched/premise\",\"name\":\"mnli_matched/premise\",\"description\":\"Column
+        'premise' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mnli_matched\"},\"extract\":{\"column\":\"premise\"}}},{\"@type\":\"cr:Field\",\"@id\":\"mnli_matched/hypothesis\",\"name\":\"mnli_matched/hypothesis\",\"description\":\"Column
+        'hypothesis' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mnli_matched\"},\"extract\":{\"column\":\"hypothesis\"}}},{\"@type\":\"cr:Field\",\"@id\":\"mnli_matched/label\",\"name\":\"mnli_matched/label\",\"description\":\"ClassLabel
+        column 'label' from the Hugging Face parquet file.\\nLabels:\\nentailment
+        (0), neutral (1), contradiction (2)\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mnli_matched\"},\"extract\":{\"column\":\"label\"}}},{\"@type\":\"cr:Field\",\"@id\":\"mnli_matched/idx\",\"name\":\"mnli_matched/idx\",\"description\":\"Column
+        'idx' from the Hugging Face parquet file.\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mnli_matched\"},\"extract\":{\"column\":\"idx\"}}}]},{\"@type\":\"cr:RecordSet\",\"dataType\":\"cr:Split\",\"key\":{\"@id\":\"mnli_mismatched_splits/split_name\"},\"@id\":\"mnli_mismatched_splits\",\"name\":\"mnli_mismatched_splits\",\"description\":\"Splits
+        for the mnli_mismatched config.\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"mnli_mismatched_splits/split_name\",\"name\":\"split_name\",\"description\":\"The
+        name of the split.\",\"dataType\":\"sc:Text\"}],\"data\":[{\"mnli_mismatched_splits/split_name\":\"validation\"},{\"mnli_mismatched_splits/split_name\":\"test\"}]},{\"@type\":\"cr:RecordSet\",\"@id\":\"mnli_mismatched\",\"name\":\"mnli_mismatched\",\"description\":\"nyu-mll/glue
+        - 'mnli_mismatched' subset\\n\\nAdditional information:\\n- 2 splits: validation,
+        test\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"mnli_mismatched/split\",\"name\":\"mnli_mismatched/split\",\"description\":\"Split
+        to which the example belongs to.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mnli_mismatched\"},\"extract\":{\"fileProperty\":\"fullpath\"},\"transform\":{\"regex\":\"mnli_mismatched/(?:partial-)?(validation|test)/.+parquet$\"}},\"references\":{\"field\":{\"@id\":\"mnli_mismatched_splits/split_name\"}}},{\"@type\":\"cr:Field\",\"@id\":\"mnli_mismatched/premise\",\"name\":\"mnli_mismatched/premise\",\"description\":\"Column
+        'premise' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mnli_mismatched\"},\"extract\":{\"column\":\"premise\"}}},{\"@type\":\"cr:Field\",\"@id\":\"mnli_mismatched/hypothesis\",\"name\":\"mnli_mismatched/hypothesis\",\"description\":\"Column
+        'hypothesis' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mnli_mismatched\"},\"extract\":{\"column\":\"hypothesis\"}}},{\"@type\":\"cr:Field\",\"@id\":\"mnli_mismatched/label\",\"name\":\"mnli_mismatched/label\",\"description\":\"ClassLabel
+        column 'label' from the Hugging Face parquet file.\\nLabels:\\nentailment
+        (0), neutral (1), contradiction (2)\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mnli_mismatched\"},\"extract\":{\"column\":\"label\"}}},{\"@type\":\"cr:Field\",\"@id\":\"mnli_mismatched/idx\",\"name\":\"mnli_mismatched/idx\",\"description\":\"Column
+        'idx' from the Hugging Face parquet file.\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mnli_mismatched\"},\"extract\":{\"column\":\"idx\"}}}]},{\"@type\":\"cr:RecordSet\",\"dataType\":\"cr:Split\",\"key\":{\"@id\":\"mrpc_splits/split_name\"},\"@id\":\"mrpc_splits\",\"name\":\"mrpc_splits\",\"description\":\"Splits
+        for the mrpc config.\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"mrpc_splits/split_name\",\"name\":\"split_name\",\"description\":\"The
+        name of the split.\",\"dataType\":\"sc:Text\"}],\"data\":[{\"mrpc_splits/split_name\":\"train\"},{\"mrpc_splits/split_name\":\"validation\"},{\"mrpc_splits/split_name\":\"test\"}]},{\"@type\":\"cr:RecordSet\",\"@id\":\"mrpc\",\"name\":\"mrpc\",\"description\":\"nyu-mll/glue
+        - 'mrpc' subset\\n\\nAdditional information:\\n- 3 splits: train, validation,
+        test\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"mrpc/split\",\"name\":\"mrpc/split\",\"description\":\"Split
+        to which the example belongs to.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mrpc\"},\"extract\":{\"fileProperty\":\"fullpath\"},\"transform\":{\"regex\":\"mrpc/(?:partial-)?(train|validation|test)/.+parquet$\"}},\"references\":{\"field\":{\"@id\":\"mrpc_splits/split_name\"}}},{\"@type\":\"cr:Field\",\"@id\":\"mrpc/sentence1\",\"name\":\"mrpc/sentence1\",\"description\":\"Column
+        'sentence1' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mrpc\"},\"extract\":{\"column\":\"sentence1\"}}},{\"@type\":\"cr:Field\",\"@id\":\"mrpc/sentence2\",\"name\":\"mrpc/sentence2\",\"description\":\"Column
+        'sentence2' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mrpc\"},\"extract\":{\"column\":\"sentence2\"}}},{\"@type\":\"cr:Field\",\"@id\":\"mrpc/label\",\"name\":\"mrpc/label\",\"description\":\"ClassLabel
+        column 'label' from the Hugging Face parquet file.\\nLabels:\\nnot_equivalent
+        (0), equivalent (1)\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mrpc\"},\"extract\":{\"column\":\"label\"}}},{\"@type\":\"cr:Field\",\"@id\":\"mrpc/idx\",\"name\":\"mrpc/idx\",\"description\":\"Column
+        'idx' from the Hugging Face parquet file.\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-mrpc\"},\"extract\":{\"column\":\"idx\"}}}]},{\"@type\":\"cr:RecordSet\",\"dataType\":\"cr:Split\",\"key\":{\"@id\":\"qnli_splits/split_name\"},\"@id\":\"qnli_splits\",\"name\":\"qnli_splits\",\"description\":\"Splits
+        for the qnli config.\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"qnli_splits/split_name\",\"name\":\"split_name\",\"description\":\"The
+        name of the split.\",\"dataType\":\"sc:Text\"}],\"data\":[{\"qnli_splits/split_name\":\"train\"},{\"qnli_splits/split_name\":\"validation\"},{\"qnli_splits/split_name\":\"test\"}]},{\"@type\":\"cr:RecordSet\",\"@id\":\"qnli\",\"name\":\"qnli\",\"description\":\"nyu-mll/glue
+        - 'qnli' subset\\n\\nAdditional information:\\n- 3 splits: train, validation,
+        test\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"qnli/split\",\"name\":\"qnli/split\",\"description\":\"Split
+        to which the example belongs to.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-qnli\"},\"extract\":{\"fileProperty\":\"fullpath\"},\"transform\":{\"regex\":\"qnli/(?:partial-)?(train|validation|test)/.+parquet$\"}},\"references\":{\"field\":{\"@id\":\"qnli_splits/split_name\"}}},{\"@type\":\"cr:Field\",\"@id\":\"qnli/question\",\"name\":\"qnli/question\",\"description\":\"Column
+        'question' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-qnli\"},\"extract\":{\"column\":\"question\"}}},{\"@type\":\"cr:Field\",\"@id\":\"qnli/sentence\",\"name\":\"qnli/sentence\",\"description\":\"Column
+        'sentence' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-qnli\"},\"extract\":{\"column\":\"sentence\"}}},{\"@type\":\"cr:Field\",\"@id\":\"qnli/label\",\"name\":\"qnli/label\",\"description\":\"ClassLabel
+        column 'label' from the Hugging Face parquet file.\\nLabels:\\nentailment
+        (0), not_entailment (1)\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-qnli\"},\"extract\":{\"column\":\"label\"}}},{\"@type\":\"cr:Field\",\"@id\":\"qnli/idx\",\"name\":\"qnli/idx\",\"description\":\"Column
+        'idx' from the Hugging Face parquet file.\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-qnli\"},\"extract\":{\"column\":\"idx\"}}}]},{\"@type\":\"cr:RecordSet\",\"dataType\":\"cr:Split\",\"key\":{\"@id\":\"qqp_splits/split_name\"},\"@id\":\"qqp_splits\",\"name\":\"qqp_splits\",\"description\":\"Splits
+        for the qqp config.\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"qqp_splits/split_name\",\"name\":\"split_name\",\"description\":\"The
+        name of the split.\",\"dataType\":\"sc:Text\"}],\"data\":[{\"qqp_splits/split_name\":\"train\"},{\"qqp_splits/split_name\":\"validation\"},{\"qqp_splits/split_name\":\"test\"}]},{\"@type\":\"cr:RecordSet\",\"@id\":\"qqp\",\"name\":\"qqp\",\"description\":\"nyu-mll/glue
+        - 'qqp' subset\\n\\nAdditional information:\\n- 3 splits: train, validation,
+        test\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"qqp/split\",\"name\":\"qqp/split\",\"description\":\"Split
+        to which the example belongs to.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-qqp\"},\"extract\":{\"fileProperty\":\"fullpath\"},\"transform\":{\"regex\":\"qqp/(?:partial-)?(train|validation|test)/.+parquet$\"}},\"references\":{\"field\":{\"@id\":\"qqp_splits/split_name\"}}},{\"@type\":\"cr:Field\",\"@id\":\"qqp/question1\",\"name\":\"qqp/question1\",\"description\":\"Column
+        'question1' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-qqp\"},\"extract\":{\"column\":\"question1\"}}},{\"@type\":\"cr:Field\",\"@id\":\"qqp/question2\",\"name\":\"qqp/question2\",\"description\":\"Column
+        'question2' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-qqp\"},\"extract\":{\"column\":\"question2\"}}},{\"@type\":\"cr:Field\",\"@id\":\"qqp/label\",\"name\":\"qqp/label\",\"description\":\"ClassLabel
+        column 'label' from the Hugging Face parquet file.\\nLabels:\\nnot_duplicate
+        (0), duplicate (1)\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-qqp\"},\"extract\":{\"column\":\"label\"}}},{\"@type\":\"cr:Field\",\"@id\":\"qqp/idx\",\"name\":\"qqp/idx\",\"description\":\"Column
+        'idx' from the Hugging Face parquet file.\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-qqp\"},\"extract\":{\"column\":\"idx\"}}}]},{\"@type\":\"cr:RecordSet\",\"dataType\":\"cr:Split\",\"key\":{\"@id\":\"rte_splits/split_name\"},\"@id\":\"rte_splits\",\"name\":\"rte_splits\",\"description\":\"Splits
+        for the rte config.\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"rte_splits/split_name\",\"name\":\"split_name\",\"description\":\"The
+        name of the split.\",\"dataType\":\"sc:Text\"}],\"data\":[{\"rte_splits/split_name\":\"train\"},{\"rte_splits/split_name\":\"validation\"},{\"rte_splits/split_name\":\"test\"}]},{\"@type\":\"cr:RecordSet\",\"@id\":\"rte\",\"name\":\"rte\",\"description\":\"nyu-mll/glue
+        - 'rte' subset\\n\\nAdditional information:\\n- 3 splits: train, validation,
+        test\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"rte/split\",\"name\":\"rte/split\",\"description\":\"Split
+        to which the example belongs to.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-rte\"},\"extract\":{\"fileProperty\":\"fullpath\"},\"transform\":{\"regex\":\"rte/(?:partial-)?(train|validation|test)/.+parquet$\"}},\"references\":{\"field\":{\"@id\":\"rte_splits/split_name\"}}},{\"@type\":\"cr:Field\",\"@id\":\"rte/sentence1\",\"name\":\"rte/sentence1\",\"description\":\"Column
+        'sentence1' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-rte\"},\"extract\":{\"column\":\"sentence1\"}}},{\"@type\":\"cr:Field\",\"@id\":\"rte/sentence2\",\"name\":\"rte/sentence2\",\"description\":\"Column
+        'sentence2' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-rte\"},\"extract\":{\"column\":\"sentence2\"}}},{\"@type\":\"cr:Field\",\"@id\":\"rte/label\",\"name\":\"rte/label\",\"description\":\"ClassLabel
+        column 'label' from the Hugging Face parquet file.\\nLabels:\\nentailment
+        (0), not_entailment (1)\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-rte\"},\"extract\":{\"column\":\"label\"}}},{\"@type\":\"cr:Field\",\"@id\":\"rte/idx\",\"name\":\"rte/idx\",\"description\":\"Column
+        'idx' from the Hugging Face parquet file.\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-rte\"},\"extract\":{\"column\":\"idx\"}}}]},{\"@type\":\"cr:RecordSet\",\"dataType\":\"cr:Split\",\"key\":{\"@id\":\"sst2_splits/split_name\"},\"@id\":\"sst2_splits\",\"name\":\"sst2_splits\",\"description\":\"Splits
+        for the sst2 config.\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"sst2_splits/split_name\",\"name\":\"split_name\",\"description\":\"The
+        name of the split.\",\"dataType\":\"sc:Text\"}],\"data\":[{\"sst2_splits/split_name\":\"train\"},{\"sst2_splits/split_name\":\"validation\"},{\"sst2_splits/split_name\":\"test\"}]},{\"@type\":\"cr:RecordSet\",\"@id\":\"sst2\",\"name\":\"sst2\",\"description\":\"nyu-mll/glue
+        - 'sst2' subset\\n\\nAdditional information:\\n- 3 splits: train, validation,
+        test\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"sst2/split\",\"name\":\"sst2/split\",\"description\":\"Split
+        to which the example belongs to.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-sst2\"},\"extract\":{\"fileProperty\":\"fullpath\"},\"transform\":{\"regex\":\"sst2/(?:partial-)?(train|validation|test)/.+parquet$\"}},\"references\":{\"field\":{\"@id\":\"sst2_splits/split_name\"}}},{\"@type\":\"cr:Field\",\"@id\":\"sst2/sentence\",\"name\":\"sst2/sentence\",\"description\":\"Column
+        'sentence' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-sst2\"},\"extract\":{\"column\":\"sentence\"}}},{\"@type\":\"cr:Field\",\"@id\":\"sst2/label\",\"name\":\"sst2/label\",\"description\":\"ClassLabel
+        column 'label' from the Hugging Face parquet file.\\nLabels:\\nnegative (0),
+        positive (1)\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-sst2\"},\"extract\":{\"column\":\"label\"}}},{\"@type\":\"cr:Field\",\"@id\":\"sst2/idx\",\"name\":\"sst2/idx\",\"description\":\"Column
+        'idx' from the Hugging Face parquet file.\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-sst2\"},\"extract\":{\"column\":\"idx\"}}}]},{\"@type\":\"cr:RecordSet\",\"dataType\":\"cr:Split\",\"key\":{\"@id\":\"stsb_splits/split_name\"},\"@id\":\"stsb_splits\",\"name\":\"stsb_splits\",\"description\":\"Splits
+        for the stsb config.\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"stsb_splits/split_name\",\"name\":\"split_name\",\"description\":\"The
+        name of the split.\",\"dataType\":\"sc:Text\"}],\"data\":[{\"stsb_splits/split_name\":\"train\"},{\"stsb_splits/split_name\":\"validation\"},{\"stsb_splits/split_name\":\"test\"}]},{\"@type\":\"cr:RecordSet\",\"@id\":\"stsb\",\"name\":\"stsb\",\"description\":\"nyu-mll/glue
+        - 'stsb' subset\\n\\nAdditional information:\\n- 3 splits: train, validation,
+        test\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"stsb/split\",\"name\":\"stsb/split\",\"description\":\"Split
+        to which the example belongs to.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-stsb\"},\"extract\":{\"fileProperty\":\"fullpath\"},\"transform\":{\"regex\":\"stsb/(?:partial-)?(train|validation|test)/.+parquet$\"}},\"references\":{\"field\":{\"@id\":\"stsb_splits/split_name\"}}},{\"@type\":\"cr:Field\",\"@id\":\"stsb/sentence1\",\"name\":\"stsb/sentence1\",\"description\":\"Column
+        'sentence1' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-stsb\"},\"extract\":{\"column\":\"sentence1\"}}},{\"@type\":\"cr:Field\",\"@id\":\"stsb/sentence2\",\"name\":\"stsb/sentence2\",\"description\":\"Column
+        'sentence2' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-stsb\"},\"extract\":{\"column\":\"sentence2\"}}},{\"@type\":\"cr:Field\",\"@id\":\"stsb/label\",\"name\":\"stsb/label\",\"description\":\"Column
+        'label' from the Hugging Face parquet file.\",\"dataType\":\"sc:Float\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-stsb\"},\"extract\":{\"column\":\"label\"}}},{\"@type\":\"cr:Field\",\"@id\":\"stsb/idx\",\"name\":\"stsb/idx\",\"description\":\"Column
+        'idx' from the Hugging Face parquet file.\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-stsb\"},\"extract\":{\"column\":\"idx\"}}}]},{\"@type\":\"cr:RecordSet\",\"dataType\":\"cr:Split\",\"key\":{\"@id\":\"wnli_splits/split_name\"},\"@id\":\"wnli_splits\",\"name\":\"wnli_splits\",\"description\":\"Splits
+        for the wnli config.\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"wnli_splits/split_name\",\"name\":\"split_name\",\"description\":\"The
+        name of the split.\",\"dataType\":\"sc:Text\"}],\"data\":[{\"wnli_splits/split_name\":\"train\"},{\"wnli_splits/split_name\":\"validation\"},{\"wnli_splits/split_name\":\"test\"}]},{\"@type\":\"cr:RecordSet\",\"@id\":\"wnli\",\"name\":\"wnli\",\"description\":\"nyu-mll/glue
+        - 'wnli' subset\\n\\nAdditional information:\\n- 3 splits: train, validation,
+        test\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"wnli/split\",\"name\":\"wnli/split\",\"description\":\"Split
+        to which the example belongs to.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-wnli\"},\"extract\":{\"fileProperty\":\"fullpath\"},\"transform\":{\"regex\":\"wnli/(?:partial-)?(train|validation|test)/.+parquet$\"}},\"references\":{\"field\":{\"@id\":\"wnli_splits/split_name\"}}},{\"@type\":\"cr:Field\",\"@id\":\"wnli/sentence1\",\"name\":\"wnli/sentence1\",\"description\":\"Column
+        'sentence1' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-wnli\"},\"extract\":{\"column\":\"sentence1\"}}},{\"@type\":\"cr:Field\",\"@id\":\"wnli/sentence2\",\"name\":\"wnli/sentence2\",\"description\":\"Column
+        'sentence2' from the Hugging Face parquet file.\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-wnli\"},\"extract\":{\"column\":\"sentence2\"}}},{\"@type\":\"cr:Field\",\"@id\":\"wnli/label\",\"name\":\"wnli/label\",\"description\":\"ClassLabel
+        column 'label' from the Hugging Face parquet file.\\nLabels:\\nnot_entailment
+        (0), entailment (1)\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-wnli\"},\"extract\":{\"column\":\"label\"}}},{\"@type\":\"cr:Field\",\"@id\":\"wnli/idx\",\"name\":\"wnli/idx\",\"description\":\"Column
+        'idx' from the Hugging Face parquet file.\",\"dataType\":\"sc:Integer\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-wnli\"},\"extract\":{\"column\":\"idx\"}}}]}],\"conformsTo\":\"http://mlcommons.org/croissant/1.0\",\"name\":\"glue\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\tDataset
+        Card for GLUE\\n\\t\\n\\n\\n\\t\\n\\t\\t\\n\\t\\tDataset Summary\\n\\t\\n\\nGLUE,
+        the General Language Understanding Evaluation benchmark (https://gluebenchmark.com/)
+        is a collection of resources for training, evaluating, and analyzing natural
+        language understanding systems.\\n\\n\\t\\n\\t\\t\\n\\t\\tSupported Tasks
+        and Leaderboards\\n\\t\\n\\nThe leaderboard for the GLUE benchmark can be
+        found at this address. It comprises the following tasks:\\n\\n\\t\\n\\t\\t\\n\\t\\tax\\n\\t\\n\\nA
+        manually-curated evaluation dataset for fine-grained analysis of system\u2026
+        See the full description on the dataset page: https://huggingface.co/datasets/nyu-mll/glue.\",\"alternateName\":[\"nyu-mll/glue\",\"GLUE
+        (General Language Understanding Evaluation benchmark)\"],\"creator\":{\"@type\":\"Organization\",\"name\":\"NYU
+        Machine Learning for Language\",\"url\":\"https://huggingface.co/nyu-mll\"},\"keywords\":[\"text-classification\",\"acceptability-classification\",\"natural-language-inference\",\"semantic-similarity-scoring\",\"sentiment-classification\",\"text-scoring\",\"other\",\"other\",\"monolingual\",\"original\",\"English\",\"other\",\"1M
+        - 10M\",\"parquet\",\"Tabular\",\"Text\",\"Datasets\",\"pandas\",\"Croissant\",\"Polars\",\"arxiv:1804.07461\",\"\U0001F1FA\U0001F1F8
+        Region: US\",\"qa-nli\",\"coreference-nli\",\"paraphrase-identification\"],\"license\":\"https://choosealicense.com/licenses/other/\",\"sameAs\":\"https://gluebenchmark.com/\",\"url\":\"https://huggingface.co/datasets/nyu-mll/glue\"}"
+    headers:
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '30751'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 14:05:42 GMT
+      ETag:
+      - W/"781f-Wp3AHDPPrTUzEoQT2q9OzB/gXC4"
+      RateLimit:
+      - '"api";r=440;t=90'
+      RateLimit-Policy:
+      - '"fixed window";"api";q=500;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 53fd5912708d75e6ec2b16a58625cb1e.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 1A6303hTsTHFYETt7b2cA2NpoU9k_4bgWi0x7NyjPHMrtaxym0DspQ==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Powered-By:
+      - huggingface-moon
+      X-Request-Id:
+      - Root=1-6915e5b6-6abfa27d2108a68e0fba3c66
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+version: 1

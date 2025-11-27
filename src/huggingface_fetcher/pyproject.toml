@@ -1,0 +1,23 @@
+[project]
+name = "huggingface-fetcher"
+version = "0.1.0"
+description = "A metadata harvester for datasets and models hosted on the Hugging Face Hub"
+authors = [
+    {name = "Your Name",email = "you@example.com"}
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "huggingface-hub (>=0.30.2,<0.31.0)",
+    "rich (>=14.0.0,<15.0.0)",
+    "datasets (>=3.6.0,<4.0.0)",
+    "python-dotenv (>=1.1.0,<2.0.0)",
+    "requests (>=2.32.5,<3.0.0)",
+    "typing-extensions (>=4.15.0,<5.0.0)",
+    "typer (>=0.17.4,<0.18.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"

@@ -1,0 +1,1289 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      X-Amzn-Trace-Id:
+      - b0fc9dca-7ca7-493b-a439-43dfb86d6bc9
+      user-agent:
+      - unknown/None; hf_hub/0.33.5; python/3.12.3
+    method: GET
+    uri: https://huggingface.co/api/models?sort=downloads&direction=-1&limit=6
+  response:
+    body:
+      string: '[{"_id":"621ffdc136468d709f180294","id":"sentence-transformers/all-MiniLM-L6-v2","likes":4103,"private":false,"downloads":141475902,"tags":["sentence-transformers","pytorch","tf","rust","onnx","safetensors","openvino","bert","feature-extraction","sentence-similarity","transformers","en","dataset:s2orc","dataset:flax-sentence-embeddings/stackexchange_xml","dataset:ms_marco","dataset:gooaq","dataset:yahoo_answers_topics","dataset:code_search_net","dataset:search_qa","dataset:eli5","dataset:snli","dataset:multi_nli","dataset:wikihow","dataset:natural_questions","dataset:trivia_qa","dataset:embedding-data/sentence-compression","dataset:embedding-data/flickr30k-captions","dataset:embedding-data/altlex","dataset:embedding-data/simple-wiki","dataset:embedding-data/QQP","dataset:embedding-data/SPECTER","dataset:embedding-data/PAQ_pairs","dataset:embedding-data/WikiAnswers","arxiv:1904.06472","arxiv:2102.07033","arxiv:2104.08727","arxiv:1704.05179","arxiv:1810.09305","license:apache-2.0","autotrain_compatible","text-embeddings-inference","endpoints_compatible","region:us"],"pipeline_tag":"sentence-similarity","library_name":"sentence-transformers","createdAt":"2022-03-02T23:29:05.000Z","modelId":"sentence-transformers/all-MiniLM-L6-v2"},{"_id":"621ffdc136468d709f17b61d","id":"google/electra-base-discriminator","likes":67,"private":false,"downloads":75507004,"tags":["transformers","pytorch","tf","jax","rust","electra","pretraining","en","arxiv:1406.2661","license:apache-2.0","endpoints_compatible","region:us"],"library_name":"transformers","createdAt":"2022-03-02T23:29:05.000Z","modelId":"google/electra-base-discriminator"},{"_id":"6529d7a960f06c6e52e84b53","id":"Falconsai/nsfw_image_detection","likes":879,"private":false,"downloads":75237529,"tags":["transformers","pytorch","safetensors","vit","image-classification","arxiv:2010.11929","license:apache-2.0","autotrain_compatible","endpoints_compatible","region:us"],"pipeline_tag":"image-classification","library_name":"transformers","createdAt":"2023-10-13T23:50:01.000Z","modelId":"Falconsai/nsfw_image_detection"},{"_id":"621ffdc036468d709f174338","id":"google-bert/bert-base-uncased","likes":2465,"private":false,"downloads":55161325,"tags":["transformers","pytorch","tf","jax","rust","coreml","onnx","safetensors","bert","fill-mask","exbert","en","dataset:bookcorpus","dataset:wikipedia","arxiv:1810.04805","license:apache-2.0","autotrain_compatible","endpoints_compatible","region:us"],"pipeline_tag":"fill-mask","library_name":"transformers","createdAt":"2022-03-02T23:29:04.000Z","modelId":"google-bert/bert-base-uncased"},{"_id":"67531148405ec5d08a81a223","id":"dima806/fairface_age_image_detection","likes":51,"private":false,"downloads":29495638,"tags":["transformers","safetensors","vit","image-classification","dataset:nateraw/fairface","base_model:google/vit-base-patch16-224-in21k","base_model:finetune:google/vit-base-patch16-224-in21k","license:apache-2.0","autotrain_compatible","endpoints_compatible","region:us"],"pipeline_tag":"image-classification","library_name":"transformers","createdAt":"2024-12-06T14:59:20.000Z","modelId":"dima806/fairface_age_image_detection"},{"_id":"639c045c34967bcf4564bdc5","id":"timm/mobilenetv3_small_100.lamb_in1k","likes":41,"private":false,"downloads":23170964,"tags":["timm","pytorch","safetensors","image-classification","transformers","dataset:imagenet-1k","arxiv:2110.00476","arxiv:1905.02244","license:apache-2.0","region:us"],"pipeline_tag":"image-classification","library_name":"timm","createdAt":"2022-12-16T05:38:36.000Z","modelId":"timm/mobilenetv3_small_100.lamb_in1k"}]'
+    headers:
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '3608'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 15:32:14 GMT
+      ETag:
+      - W/"e18-j1dSpPILYOu95Wpi0RQwbpKd4EQ"
+      Link:
+      - <https://huggingface.co/api/models?sort=downloads&direction=-1&limit=6&cursor=eyIkb3IiOlt7ImRvd25sb2FkcyI6MjMxNzA5NjQsIl9pZCI6eyIkZ3QiOiI2MzljMDQ1YzM0OTY3YmNmNDU2NGJkYzUifX0seyJkb3dubG9hZHMiOnsiJGx0IjoyMzE3MDk2NH19LHsiZG93bmxvYWRzIjpudWxsfV19>;
+        rel="next"
+      RateLimit:
+      - '"api";r=499;t=298'
+      RateLimit-Policy:
+      - '"fixed window";"api";q=500;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Server-Timing:
+      - mongo1-0;dur=1.2561789974570274
+      Vary:
+      - Origin
+      Via:
+      - 1.1 2cce65cc9ed94a08f98eec766e6667a8.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - _hZP3HgmxdWJIdKbJtSWBPNFVYs-28R1GDOa3-LT605F8_kQ9Q98qw==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Powered-By:
+      - huggingface-moon
+      X-Request-Id:
+      - Root=1-6915f9fe-58c1459f4d40f06458ef113e;b0fc9dca-7ca7-493b-a439-43dfb86d6bc9
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      X-Amzn-Trace-Id:
+      - 9cb8db2a-6029-4399-b2d7-f35c4ebd4449
+      user-agent:
+      - unknown/None; hf_hub/0.33.5; python/3.12.3
+    method: GET
+    uri: https://huggingface.co/api/models/google-bert/bert-base-uncased?blobs=True
+  response:
+    body:
+      string: '{"_id":"621ffdc036468d709f174338","id":"google-bert/bert-base-uncased","private":false,"pipeline_tag":"fill-mask","library_name":"transformers","tags":["transformers","pytorch","tf","jax","rust","coreml","onnx","safetensors","bert","fill-mask","exbert","en","dataset:bookcorpus","dataset:wikipedia","arxiv:1810.04805","license:apache-2.0","autotrain_compatible","endpoints_compatible","region:us"],"downloads":55161325,"likes":2465,"modelId":"google-bert/bert-base-uncased","author":"google-bert","sha":"86b5e0934494bd15c9632b12f734a8a67f723594","lastModified":"2024-02-19T11:06:12.000Z","gated":false,"disabled":false,"mask_token":"[MASK]","widgetData":[{"text":"Paris
+        is the [MASK] of France."},{"text":"The goal of life is [MASK]."}],"model-index":null,"config":{"architectures":["BertForMaskedLM"],"model_type":"bert","tokenizer_config":{}},"cardData":{"language":"en","tags":["exbert"],"license":"apache-2.0","datasets":["bookcorpus","wikipedia"]},"transformersInfo":{"auto_model":"AutoModelForMaskedLM","pipeline_tag":"fill-mask","processor":"AutoTokenizer"},"siblings":[{"rfilename":".gitattributes","blobId":"505a7adf8be9e5fdf06aabbfbe9046e6c811f91b","size":491},{"rfilename":"LICENSE","blobId":"f49a4e16e68b128803cc2dcea614603632b04eac","size":11356},{"rfilename":"README.md","blobId":"40a2aaca31dd005eb5f6ffad07b5ffed0a31d1f6","size":10517},{"rfilename":"config.json","blobId":"45a2321a7ecfdaaf60a6c1fd7f5463994cc8907d","size":570},{"rfilename":"coreml/fill-mask/float32_model.mlpackage/Data/com.apple.CoreML/model.mlmodel","blobId":"bd3e35c1681371542bd98f96b299be1832d89dbf","size":164911},{"rfilename":"coreml/fill-mask/float32_model.mlpackage/Data/com.apple.CoreML/weights/weight.bin","blobId":"a886295655f51659368757f79135fb2ffa664141","size":531833856,"lfs":{"sha256":"c0c9f4914b4f0053785e96b8583cd59cda63c2f1b6e95a03970d772bf097e289","size":531833856,"pointerSize":134}},{"rfilename":"coreml/fill-mask/float32_model.mlpackage/Manifest.json","blobId":"c1c37cd58b9eb000ddbb7ca90f04b893a33e50c8","size":617},{"rfilename":"flax_model.msgpack","blobId":"5dfe9adac0748dcecbb14ab068f6a9406d7348da","size":438064459,"lfs":{"sha256":"ea201fabe466ef7182f1f687fb5be4b62a73d3a78883f11264ff7f682cdb54bf","size":438064459,"pointerSize":134}},{"rfilename":"model.onnx","blobId":"8d99a124dfd90bd9deb433ce0fea34e9b260ec43","size":532091246,"lfs":{"sha256":"44d7a2896d341c51fb1eba89aea3a590e6af0ce33e25481136f7eeecb62e5f7f","size":532091246,"pointerSize":134}},{"rfilename":"model.safetensors","blobId":"a090ee7d80c0e00eca57c5aaaa54d136d58c5218","size":440449768,"lfs":{"sha256":"68d45e234eb4a928074dfd868cead0219ab85354cc53d20e772753c6bb9169d3","size":440449768,"pointerSize":134}},{"rfilename":"pytorch_model.bin","blobId":"ba5d19791be1dd7992e33bd61f20207b0f7f50a5","size":440473133,"lfs":{"sha256":"097417381d6c7230bd9e3557456d726de6e83245ec8b24f529f60198a67b203a","size":440473133,"pointerSize":134}},{"rfilename":"rust_model.ot","blobId":"b0e67f4070874a51359949d8efcb2e36c9926d18","size":534240408,"lfs":{"sha256":"afd9aa425fd45c5655d3d43a0d041f9b76729bf475d6c017a0e9304a38f89972","size":534240408,"pointerSize":134}},{"rfilename":"tf_model.h5","blobId":"9eb98c817f04b051b3bcca591bcd4e03cec88018","size":536063208,"lfs":{"sha256":"a7a17d6d844b5de815ccab5f42cad6d24496db3850a2a43d8258221018ce87d2","size":536063208,"pointerSize":134}},{"rfilename":"tokenizer.json","blobId":"949a6f013d67eb8a5b4b5b46026217b888021b88","size":466062},{"rfilename":"tokenizer_config.json","blobId":"e5c73d8a50df1f56fb5b0b8002d7cf4010afdccb","size":48},{"rfilename":"vocab.txt","blobId":"fb140275c155a9c7c5a3b3e0e77a9e839594a938","size":231508}],"spaces":["mteb/leaderboard","alexnasa/Chain-of-Zoom","merve/Grounding_DINO_demo","xinyu1205/recognize-anything","exbert-project/exbert","RoyYang0714/3D-MOOD","TechAudio/audiosr","BroDvd/AudioSep","assasinatee/STAR","Amithkuppili/Translating_model","microsoft/HuggingGPT","Vision-CAIR/minigpt4","lnyan/stablediffusion-infinity","multimodalart/latentdiffusion","mrfakename/MeloTTS","Salesforce/BLIP","shi-labs/Versatile-Diffusion","yizhangliu/Grounded-Segment-Anything","stepfun-ai/Step1X-Edit","H-Liu1997/TANGO","hilamanor/audioEditing","cvlab/zero123-live","AIGC-Audio/AudioGPT","m-ric/chunk_visualizer","Audio-AGI/AudioSep","jadechoghari/OpenMusic","DAMO-NLP-SG/Video-LLaMA","gligen/demo","declare-lab/mustango","Yiwen-ntu/MeshAnything","shgao/EditAnything","LiruiZhao/Diffree","Vision-CAIR/MiniGPT-v2","multimodalart/MoDA-fast-talking-head","nikigoli/countgd","Yuliang/ECON","THUdyh/Oryx","IDEA-Research/Grounded-SAM","OpenSound/CapSpeech-TTS","Awiny/Image2Paragraph","ShilongLiu/Grounding_DINO_demo","yangheng/Super-Resolution-Anime-Diffusion","liuyuan-pal/SyncDreamer","XiangJinYu/SPO","sam-hq-team/sam-hq","haotiz/glip-zeroshot-demo","Nick088/Audio-SR","TencentARC/BrushEdit","nateraw/lavila","abyildirim/inst-inpaint","Yiwen-ntu/MeshAnythingV2","Pinwheel/GLIP-BLIP-Object-Detection-VQA","Junfeng5/GLEE_demo","shi-labs/Matting-Anything","fffiloni/Video-Matting-Anything","burtenshaw/autotrain-mcp","Vision-CAIR/MiniGPT4-video","linfanluntan/Grounded-SAM","magicr/BuboGPT","WensongSong/Insert-Anything","mteb/leaderboard_legacy","nvidia/audio-flamingo-2","clip-italian/clip-italian-demo","OpenGVLab/InternGPT","3DTopia/3DTopia","yenniejun/tokenizers-languages","mmlab-ntu/relate-anything-model","amphion/PicoAudio","byeongjun-park/HarmonyView","fffiloni/vta-ldm","keras-io/bert-semantic-similarity","MirageML/sjc","zakaria-narjis/photo-enhancer","NAACL2022/CLIP-Caption-Reward","society-ethics/model-card-regulatory-check","fffiloni/miniGPT4-Video-Zero","AIGC-Audio/AudioLCM","Gladiator/Text-Summarizer","SVGRender/DiffSketcher","ethanchern/Anole","LittleFrog/IntrinsicAnything","topdu/OpenOCR-Demo","milyiyo/reimagine-it","ysharma/text-to-image-to-video","acmc/whatsapp-chats-finetuning-formatter","OpenGVLab/VideoChatGPT","ZebangCheng/Emotion-LLaMA","sonalkum/GAMA","kaushalya/medclip-roco","AIGC-Audio/Make_An_Audio","avid-ml/bias-detection","kevinwang676/E2-F5-TTS","bartar/tokenizers","RitaParadaRamos/SmallCapDemo","llizhx/TinyGPT-V","codelion/Grounding_DINO_demo","flosstradamus/FluxMusicGUI","Tinkering/Pytorch-day-prez","sasha/BiasDetection","Pusheen/LoCo"],"createdAt":"2022-03-02T23:29:04.000Z","safetensors":{"parameters":{"F32":110106428},"total":110106428},"usedStorage":13397387509}'
+    headers:
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '6329'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 15:32:15 GMT
+      ETag:
+      - W/"18b9-BqXzBf95Lh9EbwWM8og6+p3Rvsc"
+      RateLimit:
+      - '"api";r=496;t=297'
+      RateLimit-Policy:
+      - '"fixed window";"api";q=500;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 2cce65cc9ed94a08f98eec766e6667a8.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - zVjQcKtkU5V0xwUGywjkvovXfEX9p4eS8GO4SoOFYB_ZF8rZUJ6gng==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Powered-By:
+      - huggingface-moon
+      X-Request-Id:
+      - Root=1-6915f9ff-4dec19fc4bb3a2075a61e4dc;9cb8db2a-6029-4399-b2d7-f35c4ebd4449
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      X-Amzn-Trace-Id:
+      - 40a16a03-e003-4cb4-8a0a-73300a88012c
+      user-agent:
+      - unknown/None; hf_hub/0.33.5; python/3.12.3
+    method: GET
+    uri: https://huggingface.co/api/models/dima806/fairface_age_image_detection?blobs=True
+  response:
+    body:
+      string: '{"_id":"67531148405ec5d08a81a223","id":"dima806/fairface_age_image_detection","private":false,"pipeline_tag":"image-classification","library_name":"transformers","tags":["transformers","safetensors","vit","image-classification","dataset:nateraw/fairface","base_model:google/vit-base-patch16-224-in21k","base_model:finetune:google/vit-base-patch16-224-in21k","license:apache-2.0","autotrain_compatible","endpoints_compatible","region:us"],"downloads":29495638,"likes":51,"modelId":"dima806/fairface_age_image_detection","author":"dima806","sha":"4e02ab8057ea7fd74b1670940995c5dfda3e6ec0","lastModified":"2024-12-15T19:54:53.000Z","gated":false,"disabled":false,"model-index":null,"config":{"architectures":["ViTForImageClassification"],"model_type":"vit"},"cardData":{"license":"apache-2.0","metrics":["accuracy","f1"],"base_model":["google/vit-base-patch16-224-in21k"],"pipeline_tag":"image-classification","library_name":"transformers","datasets":["nateraw/fairface"]},"transformersInfo":{"auto_model":"AutoModelForImageClassification","pipeline_tag":"image-classification","processor":"AutoImageProcessor"},"siblings":[{"rfilename":".gitattributes","blobId":"a6344aac8c09253b3b630fb776ae94478aa0275b","size":1519},{"rfilename":"README.md","blobId":"dc4e6a33ffb4ccb98523bb8051199207042ff3e9","size":1198},{"rfilename":"checkpoint-32/config.json","blobId":"816a16336ec0b244bd66fc7f8dcc19b35c6e98e1","size":967},{"rfilename":"checkpoint-32/model.safetensors","blobId":"bd9ee554bfc28f4c59e23836e3ff2efaa63cce08","size":343245508,"lfs":{"sha256":"8c2e34c076a38920a0faa6bd6d28ab3c256de02211af98588a84de50a3fcbf61","size":343245508,"pointerSize":134}},{"rfilename":"checkpoint-32/optimizer.pt","blobId":"b9ff8564d9aa5c66d702fb46263fca84ff0b3488","size":686611898,"lfs":{"sha256":"ecf20baba72b0625f4b93c33924e6dbdc7864803fe84800ca6d7684d763d07c5","size":686611898,"pointerSize":134}},{"rfilename":"checkpoint-32/preprocessor_config.json","blobId":"658ffceeabf492d50f178a281293c1c3e26d0928","size":351},{"rfilename":"checkpoint-32/rng_state.pth","blobId":"06c25b71551e4830f82f7687d2345c7fbd987daa","size":14244,"lfs":{"sha256":"6b3ee827a7a00012c0a116546df467feee35e70376d81a7a85b1a70eb90414d3","size":14244,"pointerSize":130}},{"rfilename":"checkpoint-32/scheduler.pt","blobId":"73abe906e99124d03402097ba866ffa0c55e70b0","size":1064,"lfs":{"sha256":"56eec20d0c973eb7e7f22bff0d2cd051e8d4c98231e7961894dc75b33a3a36fe","size":1064,"pointerSize":129}},{"rfilename":"checkpoint-32/trainer_state.json","blobId":"369e4f8d3125e1be1189ef92133b014ea9c09f88","size":1337},{"rfilename":"checkpoint-32/training_args.bin","blobId":"0f99dfdf813c35c44afc2b3e35d1ad827663aa21","size":5304,"lfs":{"sha256":"28ebf2b6dbb08045128c07625eb89924fd949f0c3794edd35784a5c320305df8","size":5304,"pointerSize":129}},{"rfilename":"checkpoint-4688/config.json","blobId":"816a16336ec0b244bd66fc7f8dcc19b35c6e98e1","size":967},{"rfilename":"checkpoint-4688/model.safetensors","blobId":"c79c824b8e337bc8008b2d0d1b2db02522131b9a","size":343245508,"lfs":{"sha256":"1f6f3b28c3de06bcedbae8b985363f2df21de98524d8165e2c6cc7f998d98c57","size":343245508,"pointerSize":134}},{"rfilename":"checkpoint-4688/optimizer.pt","blobId":"887114acc10eb699e5aeddc2a88519142268c375","size":686611898,"lfs":{"sha256":"8791320f4d583baaa89f9cc262a7a6bbf539b9f9a9e4914e6837a32bd47a7d98","size":686611898,"pointerSize":134}},{"rfilename":"checkpoint-4688/preprocessor_config.json","blobId":"658ffceeabf492d50f178a281293c1c3e26d0928","size":351},{"rfilename":"checkpoint-4688/rng_state.pth","blobId":"06c25b71551e4830f82f7687d2345c7fbd987daa","size":14244,"lfs":{"sha256":"6b3ee827a7a00012c0a116546df467feee35e70376d81a7a85b1a70eb90414d3","size":14244,"pointerSize":130}},{"rfilename":"checkpoint-4688/scheduler.pt","blobId":"0543586980b0b1cc3c9b45b27a7ed30b30d54d5e","size":1064,"lfs":{"sha256":"b93e187257ca6fe0f5b0bc88b5e29ad4936be1b98b0acb5f887bb184be713f3d","size":1064,"pointerSize":129}},{"rfilename":"checkpoint-4688/trainer_state.json","blobId":"1429cb2bd1bc00bd56a1fdcfb603bd1617577506","size":2921},{"rfilename":"checkpoint-4688/training_args.bin","blobId":"0f99dfdf813c35c44afc2b3e35d1ad827663aa21","size":5304,"lfs":{"sha256":"28ebf2b6dbb08045128c07625eb89924fd949f0c3794edd35784a5c320305df8","size":5304,"pointerSize":129}},{"rfilename":"checkpoint-8752/config.json","blobId":"816a16336ec0b244bd66fc7f8dcc19b35c6e98e1","size":967},{"rfilename":"checkpoint-8752/model.safetensors","blobId":"b9d0b44627a0397d38247b1b6ff19c43ba57d777","size":343245508,"lfs":{"sha256":"cd3a725b1119d48b89118403515c77428316605407f871bbc7bba7fb50b32305","size":343245508,"pointerSize":134}},{"rfilename":"checkpoint-8752/optimizer.pt","blobId":"e06d5f8d1d7c05901f56eac6f3e0d4d315b38dee","size":686611898,"lfs":{"sha256":"087e51816b138512d362a1022cf69ae38505cd21144fa8057f954593880b9011","size":686611898,"pointerSize":134}},{"rfilename":"checkpoint-8752/preprocessor_config.json","blobId":"658ffceeabf492d50f178a281293c1c3e26d0928","size":351},{"rfilename":"checkpoint-8752/rng_state.pth","blobId":"585f2a6a28a143f55b2a0574f949d7f87bb22a65","size":14244,"lfs":{"sha256":"48ee9b73399c28d7e668360bf1d5a4d11095c4738bf96c13f7bb6fbff59f8ccb","size":14244,"pointerSize":130}},{"rfilename":"checkpoint-8752/scheduler.pt","blobId":"42fdd1d9a1efb213d3880f99fa17743b3929afe2","size":1064,"lfs":{"sha256":"197fc8dcfe2b6e4805b14a2ff8529c35795cc2f0491c4b5a6bd2783753725f19","size":1064,"pointerSize":129}},{"rfilename":"checkpoint-8752/trainer_state.json","blobId":"b24d4c047bab3ed3173957b71130f5af39d113e5","size":4855},{"rfilename":"checkpoint-8752/training_args.bin","blobId":"a101cf2e1ea5be0f53dd204b1d0821ca867559e4","size":5304,"lfs":{"sha256":"e97ef976af56a6fd0395073925187744ad7c56829cffa99ff2332a90f94307b2","size":5304,"pointerSize":129}},{"rfilename":"checkpoint-9376/config.json","blobId":"816a16336ec0b244bd66fc7f8dcc19b35c6e98e1","size":967},{"rfilename":"checkpoint-9376/model.safetensors","blobId":"0641027873922930a06ea3029345fc32128d6256","size":343245508,"lfs":{"sha256":"1265d8e5a8a363a615898be873c224aebc6f310654bf23b1745da0975a7b7555","size":343245508,"pointerSize":134}},{"rfilename":"checkpoint-9376/optimizer.pt","blobId":"f030e62264157a9a3e8ae1897bfd26ceb991ab58","size":686611898,"lfs":{"sha256":"db14e1baf0fce1ab79882476b9e400854724970e5adf6d8b17ef6d264fad3b22","size":686611898,"pointerSize":134}},{"rfilename":"checkpoint-9376/preprocessor_config.json","blobId":"658ffceeabf492d50f178a281293c1c3e26d0928","size":351},{"rfilename":"checkpoint-9376/rng_state.pth","blobId":"585f2a6a28a143f55b2a0574f949d7f87bb22a65","size":14244,"lfs":{"sha256":"48ee9b73399c28d7e668360bf1d5a4d11095c4738bf96c13f7bb6fbff59f8ccb","size":14244,"pointerSize":130}},{"rfilename":"checkpoint-9376/scheduler.pt","blobId":"83abb26e7e6049d76fe38e028cce86ac64c6e419","size":1064,"lfs":{"sha256":"162830a25651b28da57d4375090a0500b22eb117bbfd79d4a2bf61dd85a56833","size":1064,"pointerSize":129}},{"rfilename":"checkpoint-9376/trainer_state.json","blobId":"d3fbd841ce8e0894ce945e079054e046c1101610","size":5021},{"rfilename":"checkpoint-9376/training_args.bin","blobId":"138b27eccc0867e99e7d600860e01f831502cc3e","size":5304,"lfs":{"sha256":"5ba8df84fa27b6ce1aa5fc9dad74c0fa9ee6fdec46d72d1f00235b986d4684db","size":5304,"pointerSize":129}},{"rfilename":"config.json","blobId":"816a16336ec0b244bd66fc7f8dcc19b35c6e98e1","size":967},{"rfilename":"model.safetensors","blobId":"0641027873922930a06ea3029345fc32128d6256","size":343245508,"lfs":{"sha256":"1265d8e5a8a363a615898be873c224aebc6f310654bf23b1745da0975a7b7555","size":343245508,"pointerSize":134}},{"rfilename":"preprocessor_config.json","blobId":"658ffceeabf492d50f178a281293c1c3e26d0928","size":351},{"rfilename":"training_args.bin","blobId":"138b27eccc0867e99e7d600860e01f831502cc3e","size":5304,"lfs":{"sha256":"5ba8df84fa27b6ce1aa5fc9dad74c0fa9ee6fdec46d72d1f00235b986d4684db","size":5304,"pointerSize":129}}],"spaces":["RichardTiny/dima806-fairface_age_image_detection"],"createdAt":"2024-12-06T14:59:20.000Z","safetensors":{"parameters":{"F32":85805577},"total":85805577},"usedStorage":5149342054}'
+    headers:
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '8069'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 15:32:16 GMT
+      ETag:
+      - W/"1f85-4Cb7Oq0x0vkDUuDwQJ/HJRxzyKI"
+      RateLimit:
+      - '"api";r=494;t=297'
+      RateLimit-Policy:
+      - '"fixed window";"api";q=500;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 eea44cfdd1770b9ba28f1b455f101b4c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - guVXTBam4-K_C3JXgXjv0lR7JiC0dlX9JmHDM_ZCPVoT2xiJ3msMpg==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Powered-By:
+      - huggingface-moon
+      X-Request-Id:
+      - Root=1-6915f9ff-56052cbd5dd18caa4f717efe;40a16a03-e003-4cb4-8a0a-73300a88012c
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Connection:
+      - keep-alive
+      X-Amzn-Trace-Id:
+      - 20d33466-b2fc-480e-bd23-9f9f50592961
+      user-agent:
+      - unknown/None; hf_hub/0.33.5; python/3.12.3
+    method: HEAD
+    uri: https://huggingface.co/Falconsai/nsfw_image_detection/resolve/main/README.md
+  response:
+    body:
+      string: ''
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - inline; filename*=UTF-8''README.md; filename="README.md";
+      Content-Length:
+      - '260'
+      Content-Security-Policy:
+      - default-src 'none'; sandbox
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 15:32:16 GMT
+      Location:
+      - /api/resolve-cache/models/Falconsai/nsfw_image_detection/04367978d3474804ab1a00a9bd6548b741764069/README.md?%2FFalconsai%2Fnsfw_image_detection%2Fresolve%2Fmain%2FREADME.md=&etag=%22785a7363e84b62406e4446fe5a888c99fb63e4b9%22
+      RateLimit:
+      - '"resolvers";r=2998;t=296'
+      RateLimit-Policy:
+      - '"fixed window";"resolvers";q=3000;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin, Accept
+      Via:
+      - 1.1 8027798dc40af04392a940303e0fc516.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - rrOIpLKxeJTtimUZga2weQBcKyL0etUrugZraXJWM-yLnGPGO_6IRQ==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Hub-Cache:
+      - MISS
+      X-Linked-ETag:
+      - '"785a7363e84b62406e4446fe5a888c99fb63e4b9"'
+      X-Powered-By:
+      - huggingface-moon
+      X-Repo-Commit:
+      - 04367978d3474804ab1a00a9bd6548b741764069
+      X-Request-Id:
+      - Root=1-6915fa00-232fed223fe337b90da5be59;20d33466-b2fc-480e-bd23-9f9f50592961
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 307
+      message: Temporary Redirect
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Connection:
+      - keep-alive
+      X-Amzn-Trace-Id:
+      - 8643cefc-37b2-47f8-92c1-8fadc2fe0526
+      user-agent:
+      - unknown/None; hf_hub/0.33.5; python/3.12.3
+    method: HEAD
+    uri: https://huggingface.co/api/resolve-cache/models/sentence-transformers/all-MiniLM-L6-v2/c9745ed1d9f207416be6d2e6f8de32d1f16199bf/README.md
+  response:
+    body:
+      string: ''
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Age:
+      - '12192491'
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - inline; filename*=UTF-8''README.md; filename="README.md";
+      Content-Length:
+      - '10454'
+      Content-Security-Policy:
+      - default-src 'none'; sandbox
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Wed, 25 Jun 2025 12:44:05 GMT
+      ETag:
+      - '"58d4a9a45664eb9e12de9549c548c09b6134c17f"'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - Tn3kSdQuLLAgyop9T7iVUMQfrcB25RWPMuqsBrY2-IqxsQSlQgDxcw==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Hit from cloudfront
+      X-Hub-Cache:
+      - HIT
+      X-Powered-By:
+      - huggingface-moon
+      X-Repo-Commit:
+      - c9745ed1d9f207416be6d2e6f8de32d1f16199bf
+      X-Request-Id:
+      - Root=1-685bef15-5184967d56e8e4fc62644cc6;66eece55-b81e-4130-8adf-e8c9e4ec5fb7
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Connection:
+      - keep-alive
+      X-Amzn-Trace-Id:
+      - c04e839e-5bec-4263-bceb-236a48ae6fb5
+      user-agent:
+      - unknown/None; hf_hub/0.33.5; python/3.12.3
+    method: HEAD
+    uri: https://huggingface.co/google/electra-base-discriminator/resolve/main/README.md
+  response:
+    body:
+      string: ''
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - inline; filename*=UTF-8''README.md; filename="README.md";
+      Content-Length:
+      - '266'
+      Content-Security-Policy:
+      - default-src 'none'; sandbox
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 15:32:17 GMT
+      Location:
+      - /api/resolve-cache/models/google/electra-base-discriminator/1ae76a97c7e84a4e640876a07453fccd636f0667/README.md?%2Fgoogle%2Felectra-base-discriminator%2Fresolve%2Fmain%2FREADME.md=&etag=%22b24ddfef7c687d46e3ce99d03f4c6fbafcd3128a%22
+      RateLimit:
+      - '"resolvers";r=2997;t=295'
+      RateLimit-Policy:
+      - '"fixed window";"resolvers";q=3000;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin, Accept
+      Via:
+      - 1.1 89d30ce8a4c37b9d11d7f552521193ae.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - xnGZjE2IsQzBoUMFx0up9SvB3ivsIa8vrL1uLeySGFdDRLZ1GtS0cg==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Hub-Cache:
+      - MISS
+      X-Linked-ETag:
+      - '"b24ddfef7c687d46e3ce99d03f4c6fbafcd3128a"'
+      X-Powered-By:
+      - huggingface-moon
+      X-Repo-Commit:
+      - 1ae76a97c7e84a4e640876a07453fccd636f0667
+      X-Request-Id:
+      - Root=1-6915fa01-66ded6a65a3252840f2aed04;c04e839e-5bec-4263-bceb-236a48ae6fb5
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 307
+      message: Temporary Redirect
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Connection:
+      - keep-alive
+      X-Amzn-Trace-Id:
+      - 5e82f87f-2783-42f8-90db-e009c54754fd
+      user-agent:
+      - unknown/None; hf_hub/0.33.5; python/3.12.3
+    method: HEAD
+    uri: https://huggingface.co/google-bert/bert-base-uncased/resolve/main/README.md
+  response:
+    body:
+      string: ''
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - inline; filename*=UTF-8''README.md; filename="README.md";
+      Content-Length:
+      - '258'
+      Content-Security-Policy:
+      - default-src 'none'; sandbox
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 15:32:17 GMT
+      Location:
+      - /api/resolve-cache/models/google-bert/bert-base-uncased/86b5e0934494bd15c9632b12f734a8a67f723594/README.md?%2Fgoogle-bert%2Fbert-base-uncased%2Fresolve%2Fmain%2FREADME.md=&etag=%2240a2aaca31dd005eb5f6ffad07b5ffed0a31d1f6%22
+      RateLimit:
+      - '"resolvers";r=2996;t=295'
+      RateLimit-Policy:
+      - '"fixed window";"resolvers";q=3000;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin, Accept
+      Via:
+      - 1.1 8027798dc40af04392a940303e0fc516.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - Krnyvbb3ca-yVbv5Wh226H2FOEBbtWmILDYeJrN-FCX-fg-4O4Z1MA==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Hub-Cache:
+      - MISS
+      X-Linked-ETag:
+      - '"40a2aaca31dd005eb5f6ffad07b5ffed0a31d1f6"'
+      X-Powered-By:
+      - huggingface-moon
+      X-Repo-Commit:
+      - 86b5e0934494bd15c9632b12f734a8a67f723594
+      X-Request-Id:
+      - Root=1-6915fa01-48b71f4f199dfa6b13b7f355;5e82f87f-2783-42f8-90db-e009c54754fd
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 307
+      message: Temporary Redirect
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Connection:
+      - keep-alive
+      X-Amzn-Trace-Id:
+      - c1b3947e-755d-4939-8efe-7e8fc42c257f
+      user-agent:
+      - unknown/None; hf_hub/0.33.5; python/3.12.3
+    method: HEAD
+    uri: https://huggingface.co/api/resolve-cache/models/google/electra-base-discriminator/1ae76a97c7e84a4e640876a07453fccd636f0667/README.md
+  response:
+    body:
+      string: ''
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Age:
+      - '1431029'
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - inline; filename*=UTF-8''README.md; filename="README.md";
+      Content-Length:
+      - '2199'
+      Content-Security-Policy:
+      - default-src 'none'; sandbox
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Tue, 28 Oct 2025 02:01:48 GMT
+      ETag:
+      - '"b24ddfef7c687d46e3ce99d03f4c6fbafcd3128a"'
+      RateLimit:
+      - '"resolvers";r=2652;t=232'
+      RateLimit-Policy:
+      - '"fixed window";"resolvers";q=3000;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 fde6fada26b7302661010feaa587bdb8.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - PLyoR7-b_NwsoDKNMS1YdHnjfp6DIiEvwouOgDBM5aRr-h0so-a8oQ==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Hit from cloudfront
+      X-Hub-Cache:
+      - MISS
+      X-Powered-By:
+      - huggingface-moon
+      X-Repo-Commit:
+      - 1ae76a97c7e84a4e640876a07453fccd636f0667
+      X-Request-Id:
+      - Root=1-6900240c-0e696b0f2915d9b204b829e3;12190380-a31b-4218-9161-49a7a01ef387
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Connection:
+      - keep-alive
+      X-Amzn-Trace-Id:
+      - 17e8a8b3-e821-4ee2-8ce9-0d9bb30ce474
+      user-agent:
+      - unknown/None; hf_hub/0.33.5; python/3.12.3
+    method: HEAD
+    uri: https://huggingface.co/api/resolve-cache/models/google-bert/bert-base-uncased/86b5e0934494bd15c9632b12f734a8a67f723594/README.md
+  response:
+    body:
+      string: ''
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Age:
+      - '5008098'
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - inline; filename*=UTF-8''README.md; filename="README.md";
+      Content-Length:
+      - '10517'
+      Content-Security-Policy:
+      - default-src 'none'; sandbox
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Tue, 16 Sep 2025 16:23:59 GMT
+      ETag:
+      - '"40a2aaca31dd005eb5f6ffad07b5ffed0a31d1f6"'
+      RateLimit-Limit:
+      - '5000'
+      RateLimit-Remaining:
+      - '4470'
+      RateLimit-Reset:
+      - '61'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 df11b13b779c62601ca4cd4d2bb0ce18.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - U7jedfkWVa6NQetfS_eN62COBc1YkHAkG9HaiBsJ-ydErHes35ZnGQ==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Hit from cloudfront
+      X-Powered-By:
+      - huggingface-moon
+      X-Repo-Commit:
+      - 86b5e0934494bd15c9632b12f734a8a67f723594
+      X-Request-Id:
+      - Root=1-68c98f1f-0afa837e35a7082079129e7f;0ccd65e1-594e-43e4-9957-f0a084d42207
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Connection:
+      - keep-alive
+      X-Amzn-Trace-Id:
+      - 9054115b-562a-44e8-8679-8f9a2053b0e1
+      user-agent:
+      - unknown/None; hf_hub/0.33.5; python/3.12.3
+    method: HEAD
+    uri: https://huggingface.co/dima806/fairface_age_image_detection/resolve/main/README.md
+  response:
+    body:
+      string: ''
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - inline; filename*=UTF-8''README.md; filename="README.md";
+      Content-Length:
+      - '272'
+      Content-Security-Policy:
+      - default-src 'none'; sandbox
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 15:32:17 GMT
+      Location:
+      - /api/resolve-cache/models/dima806/fairface_age_image_detection/4e02ab8057ea7fd74b1670940995c5dfda3e6ec0/README.md?%2Fdima806%2Ffairface_age_image_detection%2Fresolve%2Fmain%2FREADME.md=&etag=%22dc4e6a33ffb4ccb98523bb8051199207042ff3e9%22
+      RateLimit:
+      - '"resolvers";r=2994;t=295'
+      RateLimit-Policy:
+      - '"fixed window";"resolvers";q=3000;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin, Accept
+      Via:
+      - 1.1 1ff9ce989cf7cac5366389a5419a6d38.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - qT0SV6bHBt8nVBWquXv_ZALhmEqF--b2BQF5o8-X8lpAquQXcdT2XQ==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Hub-Cache:
+      - MISS
+      X-Linked-ETag:
+      - '"dc4e6a33ffb4ccb98523bb8051199207042ff3e9"'
+      X-Powered-By:
+      - huggingface-moon
+      X-Repo-Commit:
+      - 4e02ab8057ea7fd74b1670940995c5dfda3e6ec0
+      X-Request-Id:
+      - Root=1-6915fa01-1b658af455e501a311f9d44e;9054115b-562a-44e8-8679-8f9a2053b0e1
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 307
+      message: Temporary Redirect
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - HuggingfaceFetcher/2.0
+    method: HEAD
+    uri: https://huggingface.co/api/models/sentence-transformers/all-MiniLM-L6-v2
+  response:
+    body:
+      string: ''
+    headers:
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '6854'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 15:32:17 GMT
+      ETag:
+      - W/"1ac6-0/UhXMU3gZS3yigwd6UFH9Qqd6A"
+      RateLimit:
+      - '"api";r=492;t=295'
+      RateLimit-Policy:
+      - '"fixed window";"api";q=500;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 203ee6b98de7af3adc87c8746659929c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - GLlUlEzb3kbx_LNiaeikAab_RmN8lgnrfcau6uQ5GkjvaUfSaYCt3Q==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Powered-By:
+      - huggingface-moon
+      X-Request-Id:
+      - Root=1-6915fa01-6140c32a6974c45d27638aef
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - identity
+      Connection:
+      - keep-alive
+      X-Amzn-Trace-Id:
+      - 5452fd82-e676-42f2-8f90-f04451139c4a
+      user-agent:
+      - unknown/None; hf_hub/0.33.5; python/3.12.3
+    method: HEAD
+    uri: https://huggingface.co/api/resolve-cache/models/dima806/fairface_age_image_detection/4e02ab8057ea7fd74b1670940995c5dfda3e6ec0/README.md
+  response:
+    body:
+      string: ''
+    headers:
+      Accept-Ranges:
+      - bytes
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Age:
+      - '913774'
+      Connection:
+      - keep-alive
+      Content-Disposition:
+      - inline; filename*=UTF-8''README.md; filename="README.md";
+      Content-Length:
+      - '1198'
+      Content-Security-Policy:
+      - default-src 'none'; sandbox
+      Content-Type:
+      - text/plain; charset=utf-8
+      Date:
+      - Mon, 03 Nov 2025 01:42:43 GMT
+      ETag:
+      - '"dc4e6a33ffb4ccb98523bb8051199207042ff3e9"'
+      RateLimit:
+      - '"resolvers";r=2993;t=177'
+      RateLimit-Policy:
+      - '"fixed window";"resolvers";q=3000;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 d3567cb7a3a02c495b66e54c187b0ea2.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - 4O7T2tk-S-V5ocEdFJAgKGYJ2I61Kc8NFTyyLLkR9bKLY-4H1UnXyQ==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Hit from cloudfront
+      X-Hub-Cache:
+      - MISS
+      X-Powered-By:
+      - huggingface-moon
+      X-Repo-Commit:
+      - 4e02ab8057ea7fd74b1670940995c5dfda3e6ec0
+      X-Request-Id:
+      - Root=1-69080893-0cf6188a62142cd24253c005;82118463-1782-47b9-b27b-109ec80a5ddf
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - HuggingfaceFetcher/2.0
+    method: HEAD
+    uri: https://huggingface.co/api/models/Falconsai/nsfw_image_detection
+  response:
+    body:
+      string: ''
+    headers:
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '4459'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 15:32:18 GMT
+      ETag:
+      - W/"116b-q9qJ0tjK+R2On77zAGb3L9/eR9w"
+      RateLimit:
+      - '"api";r=491;t=294'
+      RateLimit-Policy:
+      - '"fixed window";"api";q=500;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 161bb6093ee10b11ad6a8a23b3138bee.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - c8XEUKNnAT6xvvHF7Gb0eMauepkVhAqn8K7AMh_dzp4GSB3G2Nnvxg==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Powered-By:
+      - huggingface-moon
+      X-Request-Id:
+      - Root=1-6915fa02-6f50522001352c0f3f3278ca
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - HuggingfaceFetcher/2.0
+    method: HEAD
+    uri: https://huggingface.co/api/models/google/electra-base-discriminator
+  response:
+    body:
+      string: ''
+    headers:
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1612'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 15:32:18 GMT
+      ETag:
+      - W/"64c-/qbJa2Ynru1rHqKyoM+1EyMxRM0"
+      RateLimit:
+      - '"api";r=490;t=294'
+      RateLimit-Policy:
+      - '"fixed window";"api";q=500;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 1ff9ce989cf7cac5366389a5419a6d38.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - gCqUDuAeRvUQIHAhR2Esb5ZBOxprEZI1eQUWFgTA-LWGnUSjnyWtwQ==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Powered-By:
+      - huggingface-moon
+      X-Request-Id:
+      - Root=1-6915fa02-288e96aa7eb4e94c3a3b2e90
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - HuggingfaceFetcher/2.0
+    method: HEAD
+    uri: https://huggingface.co/api/models/google-bert/bert-base-uncased
+  response:
+    body:
+      string: ''
+    headers:
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '4453'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 15:32:19 GMT
+      ETag:
+      - W/"1165-k9VBxXWJ4b//TSdlMpW+Nv9Hs84"
+      RateLimit:
+      - '"api";r=489;t=293'
+      RateLimit-Policy:
+      - '"fixed window";"api";q=500;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 2d859daa66fde82c2a8685f4b0ee0dbe.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - jM3o-EvCa39v8h4TKGwdhlM8gedtCvB-GQQHNg4m_5JeRX-J_RtzbA==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Powered-By:
+      - huggingface-moon
+      X-Request-Id:
+      - Root=1-6915fa03-5d32b7ca58fd65127bbe1056
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - HuggingfaceFetcher/2.0
+    method: HEAD
+    uri: https://huggingface.co/api/models/timm/mobilenetv3_small_100.lamb_in1k
+  response:
+    body:
+      string: ''
+    headers:
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '1053'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 15:32:19 GMT
+      ETag:
+      - W/"41d-9ovaIZrYxOkRKnxrDhZWqWiKU50"
+      RateLimit:
+      - '"api";r=488;t=293'
+      RateLimit-Policy:
+      - '"fixed window";"api";q=500;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 4f762327597c2647c5dac5e573d910fa.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - oez9xj6UNgCOTqwhgZoteR1MviRNmp5B4F_2NIHNwx4-gtQ9Z73J2g==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Powered-By:
+      - huggingface-moon
+      X-Request-Id:
+      - Root=1-6915fa03-49c6b264780219ba6666de8c
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - HuggingfaceFetcher/2.0
+    method: HEAD
+    uri: https://huggingface.co/api/models/dima806/fairface_age_image_detection
+  response:
+    body:
+      string: ''
+    headers:
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '3060'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 15:32:20 GMT
+      ETag:
+      - W/"bf4-+HV0G1oPjD0J3aKF5++HrP+8XxU"
+      RateLimit:
+      - '"api";r=487;t=292'
+      RateLimit-Policy:
+      - '"fixed window";"api";q=500;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 2e5530cd574fa6a27f079027dd7a281a.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - Te9BJTUsvGx6zYhaB_wAYZ9qo4WYjuFzkNBNQTDp5Aez4AoefYoc7w==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Powered-By:
+      - huggingface-moon
+      X-Request-Id:
+      - Root=1-6915fa04-665bdc7b439d125e13f4e409
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - python-requests/2.32.5
+    method: GET
+    uri: https://translate.google.com/m?tl=de&sl=en&q=The+Fine-Tuned+Vision+Transformer+%28ViT%29+is+a+variant+of+the+transformer+encoder+architecture%2C+similar+to+BERT%2C+that+has+been+adapted+for+image+classification+tasks.+This+specific+model%2C+named+%22google%2Fvit-base-patch16-224-in21k%2C%22+is+pre-trained+on+a+substantial+collection+of+images+in+a+supervised+manner%2C+leveraging+the+ImageNet-21k+dataset.+The+images+in+the+pre-training+dataset+are+resized+to+a+resolution+of+224x224+pixels%2C+making+it+suitable+for+a+wide+range+of+image+recognition+tasks.+During+the+training+phase%2C+meticulous+attention+was+given+to+hyperparameter+settings+to+ensure+optimal+model+performance.+The+model+was+fine-tuned+with+a+judiciously+chosen+batch+size+of+16.+This+choice+not+only+balanced+computational+efficiency+but+also+allowed+for+the+model+to+effectively+process+and+learn+from+a+diverse+array+of+images.+To+facilitate+this+fine-tuning+process%2C+a+learning+rate+of+5e-5+was+employed.+The+learning+rate+serves+as+a+critical+tuning+parameter+that+dictates+the+magnitude+of+adjustments+made+to+the+model%27s+parameters+during+training.+In+this+case%2C+a+learning+rate+of+5e-5+was+selected+to+strike+a+harmonious+balance+between+rapid+convergence+and+steady+optimization%2C+resulting+in+a+model+that+not+only+learns+swiftly+but+also+steadily+refines+its+capabilities+throughout+the+training+process.+This+training+phase+was+executed+using+a+proprietary+dataset+containing+an+extensive+collection+of+80%2C000+images%2C+each+characterized+by+a+substantial+degree+of+variability.+The+dataset+was+thoughtfully+curated+to+include+two+distinct+classes%2C+namely+%22normal%22+and+%22nsfw.%22+This+diversity+allowed+the+model+to+grasp+nuanced+visual+patterns%2C+equipping+it+with+the+competence+to+accurately+differentiate+between+safe+and+explicit+content.+The+overarching+objective+of+this+meticulous+training+process+was+to+impart+the+model+with+a+deep+understanding+of+visual+cues%2C+ensuring+its+robustness+and+competence+in+tackling+the+specific+task+of+NSFW+image+classification.+The+result+is+a+model+that+stands+ready+to+contribute+significantly+to+content+safety+and+moderation%2C+all+while+maintaining+the+highest+standards+of+accuracy+and+reliability.
+  response:
+    body:
+      string: "<!DOCTYPE html><html dir=\"ltr\" lang=\"en-US\"><head><title>Google
+        Translate</title><meta name=\"google\" content=\"notranslate\"><meta name=\"viewport\"
+        content=\"width=device-width,initial-scale=1\"><link rel=\"icon\" href=\"//ssl.gstatic.com/translate/favicon.ico\"
+        sizes=\"64x64\"><style nonce=\"kxKiFr3CpdQy4hiBTV0Xsg\">\n    body {\n      font-family:
+        'Arial', sans-serif;\n      margin: 0;\n    }\n    a:link,\n    a:visited,\n
+        \   a:active {\n      color: #1a73e8; /* blue 600 */\n      text-decoration:
+        none;\n    }\n    .header {\n      background-color: #fff;\n      border-bottom:
+        1px solid #dadce0; /* grey 300 */\n      box-sizing: border-box;\n      color:
+        #5f6368; /* grey 700 */\n      font-size: 18px;\n      line-height: 21px;\n
+        \     padding: 14px 16px;\n    }\n    .logo-image {\n      background-image:
+        url('https://ssl.gstatic.com/images/branding/googlelogo/svg/googlelogo_clr_68x28px.svg');\n
+        \     background-repeat: no-repeat;\n      height: 48px;\n      width: 68px;\n
+        \     position: absolute;\n    }\n    .logo-text {\n      margin-left: 72px;\n
+        \     margin-right: 76px;\n      margin-top: 2px;\n    }\n  \n    body {\n
+        \     background-color: #f1f3f4; /* grey 100 */\n    }\n    .languages-container
+        {\n      background-color: #fff;\n      border-bottom: 1px solid #dadce0;
+        /* grey 300 */\n      box-sizing: border-box;\n      color: #3c4043; /* grey
+        800 */\n      font-size: 14px;\n      height: 48px;\n      padding: 14px 16px;\n
+        \   }\n    .sl-and-tl {\n      display: inline-block;\n    }\n    .swap-container
+        {\n      float: right;\n    }\n    html[dir=\"rtl\"] .swap-container {\n      float:
+        left;\n    }\n    .input-container {\n      background-color: #fff;\n      box-shadow:\n
+        \       0px -1px 5px rgba(128, 134, 139, 0.09),\n        0px 3px 5px rgba(128,
+        134, 139, 0.06),\n        0px 1px 2px rgba(60, 64, 67, 0.3),\n        0px
+        1px 3px rgba(60, 64, 67, 0.15);\n    }\n    .input-field {\n      border:
+        0;\n      color: #3c4043; /* grey 800 */\n      font-size: 18px;\n      line-height:
+        24px;\n      padding: 18px 16px;\n      width: 100%;\n    }\n    .translate-button-container
+        {\n      padding: 16px;\n      text-align: right;\n    }\n    html[dir=\"rtl\"]
+        .translate-button-container {\n      text-align: left;\n    }\n    .translate-button
+        {\n      background: #1a73e8; /* blue 600 */\n      border-radius: 4px;\n
+        \     color: #fff;\n      font-size: 14px;\n      line-height: 20px;\n      padding:
+        8px 16px;\n    }\n    .result-container {\n      background: #1a73e8; /* blue
+        600 */\n      box-shadow:\n        0px -1px 5px rgba(128, 134, 139, 0.09),\n
+        \       0px 3px 5px rgba(128, 134, 139, 0.06),\n        0px 1px 2px rgba(60,
+        64, 67, 0.3),\n        0px 1px 3px rgba(60, 64, 67, 0.15);\n      color: #fff;\n
+        \     font-size: 18px;\n      line-height: 24px;\n      margin-bottom: 50px;\n
+        \     padding: 16px 16px 40px 16px;\n    }\n    .links-container a {\n      color:
+        #1967d2; /* blue 700 */\n    }\n    .links-container ul {\n      font-size:
+        12px;\n      line-height: 16px;\n      list-style-type: none;\n      margin:
+        16px;\n      padding: 0;\n    }\n    .links-container ul li {\n      margin-bottom:
+        16px;\n    }\n  </style></head><body><div class=\"header\"><div class=\"logo-image\"></div><div
+        class=\"logo-text\">Translate</div></div><div class=\"languages-container\"><div
+        class=\"sl-and-tl\"><a href=\"./m?sl=en&amp;tl=de&amp;q=The%20Fine-Tuned%20Vision%20Transformer%20%28ViT%29%20is%20a%20variant%20of%20the%20transformer%20encoder%20architecture%2C%20similar%20to%20BERT%2C%20that%20has%20been%20adapted%20for%20image%20classification%20tasks.%20This%20specific%20model%2C%20named%20%22google%2Fvit-base-patch16-224-in21k%2C%22%20is%20pre-trained%20on%20a%20substantial%20collection%20of%20images%20in%20a%20supervised%20manner%2C%20leveraging%20the%20ImageNet-21k%20dataset.%20The%20images%20in%20the%20pre-training%20dataset%20are%20resized%20to%20a%20resolution%20of%20224x224%20pixels%2C%20making%20it%20suitable%20for%20a%20wide%20range%20of%20image%20recognition%20tasks.%20During%20the%20training%20phase%2C%20meticulous%20attention%20was%20given%20to%20hyperparameter%20settings%20to%20ensure%20optimal%20model%20performance.%20The%20model%20was%20fine-tuned%20with%20a%20judiciously%20chosen%20batch%20size%20of%2016.%20This%20choice%20not%20only%20balanced%20computational%20efficiency%20but%20also%20allowed%20for%20the%20model%20to%20effectively%20process%20and%20learn%20from%20a%20diverse%20array%20of%20images.%20To%20facilitate%20this%20fine-tuning%20process%2C%20a%20learning%20rate%20of%205e-5%20was%20employed.%20The%20learning%20rate%20serves%20as%20a%20critical%20tuning%20parameter%20that%20dictates%20the%20magnitude%20of%20adjustments%20made%20to%20the%20model%27s%20parameters%20during%20training.%20In%20this%20case%2C%20a%20learning%20rate%20of%205e-5%20was%20selected%20to%20strike%20a%20harmonious%20balance%20between%20rapid%20convergence%20and%20steady%20optimization%2C%20resulting%20in%20a%20model%20that%20not%20only%20learns%20swiftly%20but%20also%20steadily%20refines%20its%20capabilities%20throughout%20the%20training%20process.%20This%20training%20phase%20was%20executed%20using%20a%20proprietary%20dataset%20containing%20an%20extensive%20collection%20of%2080%2C000%20images%2C%20each%20characterized%20by%20a%20substantial%20degree%20of%20variability.%20The%20dataset%20was%20thoughtfully%20curated%20to%20include%20two%20distinct%20classes%2C%20namely%20%22normal%22%20and%20%22nsfw.%22%20This%20diversity%20allowed%20the%20model%20to%20grasp%20nuanced%20visual%20patterns%2C%20equipping%20it%20with%20the%20competence%20to%20accurately%20differentiate%20between%20safe%20and%20explicit%20content.%20The%20overarching%20objective%20of%20this%20meticulous%20training%20process%20was%20to%20impart%20the%20model%20with%20a%20deep%20understanding%20of%20visual%20cues%2C%20ensuring%20its%20robustness%20and%20competence%20in%20tackling%20the%20specific%20task%20of%20NSFW%20image%20classification.%20The%20result%20is%20a%20model%20that%20stands%20ready%20to%20contribute%20significantly%20to%20content%20safety%20and%20moderation%2C%20all%20while%20maintaining%20the%20highest%20standards%20of%20accuracy%20and%20reliability.&amp;mui=sl&amp;hl=en-US\">English</a>
+        \u2192 <a href=\"./m?sl=en&amp;tl=de&amp;q=The%20Fine-Tuned%20Vision%20Transformer%20%28ViT%29%20is%20a%20variant%20of%20the%20transformer%20encoder%20architecture%2C%20similar%20to%20BERT%2C%20that%20has%20been%20adapted%20for%20image%20classification%20tasks.%20This%20specific%20model%2C%20named%20%22google%2Fvit-base-patch16-224-in21k%2C%22%20is%20pre-trained%20on%20a%20substantial%20collection%20of%20images%20in%20a%20supervised%20manner%2C%20leveraging%20the%20ImageNet-21k%20dataset.%20The%20images%20in%20the%20pre-training%20dataset%20are%20resized%20to%20a%20resolution%20of%20224x224%20pixels%2C%20making%20it%20suitable%20for%20a%20wide%20range%20of%20image%20recognition%20tasks.%20During%20the%20training%20phase%2C%20meticulous%20attention%20was%20given%20to%20hyperparameter%20settings%20to%20ensure%20optimal%20model%20performance.%20The%20model%20was%20fine-tuned%20with%20a%20judiciously%20chosen%20batch%20size%20of%2016.%20This%20choice%20not%20only%20balanced%20computational%20efficiency%20but%20also%20allowed%20for%20the%20model%20to%20effectively%20process%20and%20learn%20from%20a%20diverse%20array%20of%20images.%20To%20facilitate%20this%20fine-tuning%20process%2C%20a%20learning%20rate%20of%205e-5%20was%20employed.%20The%20learning%20rate%20serves%20as%20a%20critical%20tuning%20parameter%20that%20dictates%20the%20magnitude%20of%20adjustments%20made%20to%20the%20model%27s%20parameters%20during%20training.%20In%20this%20case%2C%20a%20learning%20rate%20of%205e-5%20was%20selected%20to%20strike%20a%20harmonious%20balance%20between%20rapid%20convergence%20and%20steady%20optimization%2C%20resulting%20in%20a%20model%20that%20not%20only%20learns%20swiftly%20but%20also%20steadily%20refines%20its%20capabilities%20throughout%20the%20training%20process.%20This%20training%20phase%20was%20executed%20using%20a%20proprietary%20dataset%20containing%20an%20extensive%20collection%20of%2080%2C000%20images%2C%20each%20characterized%20by%20a%20substantial%20degree%20of%20variability.%20The%20dataset%20was%20thoughtfully%20curated%20to%20include%20two%20distinct%20classes%2C%20namely%20%22normal%22%20and%20%22nsfw.%22%20This%20diversity%20allowed%20the%20model%20to%20grasp%20nuanced%20visual%20patterns%2C%20equipping%20it%20with%20the%20competence%20to%20accurately%20differentiate%20between%20safe%20and%20explicit%20content.%20The%20overarching%20objective%20of%20this%20meticulous%20training%20process%20was%20to%20impart%20the%20model%20with%20a%20deep%20understanding%20of%20visual%20cues%2C%20ensuring%20its%20robustness%20and%20competence%20in%20tackling%20the%20specific%20task%20of%20NSFW%20image%20classification.%20The%20result%20is%20a%20model%20that%20stands%20ready%20to%20contribute%20significantly%20to%20content%20safety%20and%20moderation%2C%20all%20while%20maintaining%20the%20highest%20standards%20of%20accuracy%20and%20reliability.&amp;mui=tl&amp;hl=en-US\">German</a></div><div
+        class=\"swap-container\"><a href=\"./m?sl=de&amp;tl=en&amp;q=Der%20Fine-Tuned%20Vision%20Transformer%20%28ViT%29%20ist%20eine%20Variante%20der%20Transformer-Encoder-Architektur%2C%20%C3%A4hnlich%20wie%20BERT%2C%20die%20f%C3%BCr%20Bildklassifizierungsaufgaben%20angepasst%20wurde.%20Dieses%20spezielle%20Modell%20mit%20dem%20Namen%20%E2%80%9Egoogle%2Fvit-base-patch16-224-in21k%E2%80%9C%20wird%20auf%20%C3%BCberwachte%20Weise%20anhand%20einer%20umfangreichen%20Sammlung%20von%20Bildern%20vorab%20trainiert%20und%20nutzt%20dabei%20den%20ImageNet-21k-Datensatz.%20Die%20Gr%C3%B6%C3%9Fe%20der%20Bilder%20im%20Pre-Training-Datensatz%20wird%20auf%20eine%20Aufl%C3%B6sung%20von%20224%20x%20224%20Pixel%20ge%C3%A4ndert%2C%20sodass%20sie%20f%C3%BCr%20eine%20Vielzahl%20von%20Bilderkennungsaufgaben%20geeignet%20sind.%20W%C3%A4hrend%20der%20Trainingsphase%20wurde%20den%20Hyperparametereinstellungen%20gr%C3%B6%C3%9Fte%20Aufmerksamkeit%20geschenkt%2C%20um%20eine%20optimale%20Modellleistung%20sicherzustellen.%20Das%20Modell%20wurde%20mit%20einer%20sorgf%C3%A4ltig%20gew%C3%A4hlten%20Stapelgr%C3%B6%C3%9Fe%20von%2016%20verfeinert.%20Diese%20Wahl%20sorgte%20nicht%20nur%20f%C3%BCr%20ein%20ausgewogenes%20Verh%C3%A4ltnis%20der%20Recheneffizienz%2C%20sondern%20erm%C3%B6glichte%20es%20dem%20Modell%20auch%2C%20eine%20Vielzahl%20von%20Bildern%20effektiv%20zu%20verarbeiten%20und%20daraus%20zu%20lernen.%20Um%20diesen%20Feinabstimmungsprozess%20zu%20erleichtern%2C%20wurde%20eine%20Lernrate%20von%205e-5%20verwendet.%20Die%20Lernrate%20dient%20als%20kritischer%20Optimierungsparameter%2C%20der%20das%20Ausma%C3%9F%20der%20w%C3%A4hrend%20des%20Trainings%20an%20den%20Modellparametern%20vorgenommenen%20Anpassungen%20bestimmt.%20In%20diesem%20Fall%20wurde%20eine%20Lernrate%20von%205e-5%20gew%C3%A4hlt%2C%20um%20ein%20harmonisches%20Gleichgewicht%20zwischen%20schneller%20Konvergenz%20und%20stetiger%20Optimierung%20zu%20erreichen.%20Das%20Ergebnis%20ist%20ein%20Modell%2C%20das%20nicht%20nur%20schnell%20lernt%2C%20sondern%20auch%20seine%20F%C3%A4higkeiten%20w%C3%A4hrend%20des%20gesamten%20Trainingsprozesses%20stetig%20verfeinert.%20Diese%20Trainingsphase%20wurde%20unter%20Verwendung%20eines%20propriet%C3%A4ren%20Datensatzes%20durchgef%C3%BChrt%2C%20der%20eine%20umfangreiche%20Sammlung%20von%2080.000%20Bildern%20enthielt%2C%20die%20sich%20jeweils%20durch%20ein%20erhebliches%20Ma%C3%9F%20an%20Variabilit%C3%A4t%20auszeichneten.%20Der%20Datensatz%20wurde%20sorgf%C3%A4ltig%20zusammengestellt%2C%20um%20zwei%20unterschiedliche%20Klassen%20einzuschlie%C3%9Fen%2C%20n%C3%A4mlich%20%E2%80%9Enormal%E2%80%9C%20und%20%E2%80%9Ensfw%E2%80%9C.%20Diese%20Vielfalt%20erm%C3%B6glichte%20es%20dem%20Modell%2C%20nuancierte%20visuelle%20Muster%20zu%20erfassen%2C%20und%20verlieh%20ihm%20die%20F%C3%A4higkeit%2C%20genau%20zwischen%20sicheren%20und%20expliziten%20Inhalten%20zu%20unterscheiden.%20Das%20%C3%BCbergeordnete%20Ziel%20dieses%20sorgf%C3%A4ltigen%20Trainingsprozesses%20bestand%20darin%2C%20dem%20Modell%20ein%20tiefes%20Verst%C3%A4ndnis%20f%C3%BCr%20visuelle%20Hinweise%20zu%20vermitteln%20und%20so%20seine%20Robustheit%20und%20Kompetenz%20bei%20der%20Bew%C3%A4ltigung%20der%20spezifischen%20Aufgabe%20der%20NSFW-Bildklassifizierung%20sicherzustellen.%20Das%20Ergebnis%20ist%20ein%20Modell%2C%20das%20bereit%20ist%2C%20erheblich%20zur%20Sicherheit%20und%20Moderation%20von%20Inhalten%20beizutragen%20und%20gleichzeitig%20die%20h%C3%B6chsten%20Standards%20an%20Genauigkeit%20und%20Zuverl%C3%A4ssigkeit%20einzuhalten.&amp;hl=en-US\">Swap</a></div></div><div
+        class=\"input-container\"><form action=\"/m\"><input type=\"hidden\" name=\"sl\"
+        value=\"en\"><input type=\"hidden\" name=\"tl\" value=\"de\"><input type=\"hidden\"
+        name=\"hl\" value=\"en-US\"><input type=\"text\" aria-label=\"Source text\"
+        name=\"q\" class=\"input-field\" maxlength=\"2048\" value=\"The Fine-Tuned
+        Vision Transformer (ViT) is a variant of the transformer encoder architecture,
+        similar to BERT, that has been adapted for image classification tasks. This
+        specific model, named &quot;google/vit-base-patch16-224-in21k,&quot; is pre-trained
+        on a substantial collection of images in a supervised manner, leveraging the
+        ImageNet-21k dataset. The images in the pre-training dataset are resized to
+        a resolution of 224x224 pixels, making it suitable for a wide range of image
+        recognition tasks. During the training phase, meticulous attention was given
+        to hyperparameter settings to ensure optimal model performance. The model
+        was fine-tuned with a judiciously chosen batch size of 16. This choice not
+        only balanced computational efficiency but also allowed for the model to effectively
+        process and learn from a diverse array of images. To facilitate this fine-tuning
+        process, a learning rate of 5e-5 was employed. The learning rate serves as
+        a critical tuning parameter that dictates the magnitude of adjustments made
+        to the model&#39;s parameters during training. In this case, a learning rate
+        of 5e-5 was selected to strike a harmonious balance between rapid convergence
+        and steady optimization, resulting in a model that not only learns swiftly
+        but also steadily refines its capabilities throughout the training process.
+        This training phase was executed using a proprietary dataset containing an
+        extensive collection of 80,000 images, each characterized by a substantial
+        degree of variability. The dataset was thoughtfully curated to include two
+        distinct classes, namely &quot;normal&quot; and &quot;nsfw.&quot; This diversity
+        allowed the model to grasp nuanced visual patterns, equipping it with the
+        competence to accurately differentiate between safe and explicit content.
+        The overarching objective of this meticulous training process was to impart
+        the model with a deep understanding of visual cues, ensuring its robustness
+        and competence in tackling the specific task of NSFW image classification.
+        The result is a model that stands ready to contribute significantly to content
+        safety and moderation, all while maintaining the highest standards of accuracy
+        and reliability.\"><div class=\"translate-button-container\"><input type=\"submit\"
+        value=\"Translate\" class=\"translate-button\"></div></form></div><div class=\"result-container\">Der
+        Fine-Tuned Vision Transformer (ViT) ist eine Variante der Transformer-Encoder-Architektur,
+        \xE4hnlich wie BERT, die f\xFCr Bildklassifizierungsaufgaben angepasst wurde.
+        Dieses spezielle Modell mit dem Namen \u201Egoogle/vit-base-patch16-224-in21k\u201C
+        wird auf \xFCberwachte Weise anhand einer umfangreichen Sammlung von Bildern
+        vorab trainiert und nutzt dabei den ImageNet-21k-Datensatz. Die Gr\xF6\xDFe
+        der Bilder im Pre-Training-Datensatz wird auf eine Aufl\xF6sung von 224 x
+        224 Pixel ge\xE4ndert, sodass sie f\xFCr eine Vielzahl von Bilderkennungsaufgaben
+        geeignet sind. W\xE4hrend der Trainingsphase wurde den Hyperparametereinstellungen
+        gr\xF6\xDFte Aufmerksamkeit geschenkt, um eine optimale Modellleistung sicherzustellen.
+        Das Modell wurde mit einer sorgf\xE4ltig gew\xE4hlten Stapelgr\xF6\xDFe von
+        16 verfeinert. Diese Wahl sorgte nicht nur f\xFCr ein ausgewogenes Verh\xE4ltnis
+        der Recheneffizienz, sondern erm\xF6glichte es dem Modell auch, eine Vielzahl
+        von Bildern effektiv zu verarbeiten und daraus zu lernen. Um diesen Feinabstimmungsprozess
+        zu erleichtern, wurde eine Lernrate von 5e-5 verwendet. Die Lernrate dient
+        als kritischer Optimierungsparameter, der das Ausma\xDF der w\xE4hrend des
+        Trainings an den Modellparametern vorgenommenen Anpassungen bestimmt. In diesem
+        Fall wurde eine Lernrate von 5e-5 gew\xE4hlt, um ein harmonisches Gleichgewicht
+        zwischen schneller Konvergenz und stetiger Optimierung zu erreichen. Das Ergebnis
+        ist ein Modell, das nicht nur schnell lernt, sondern auch seine F\xE4higkeiten
+        w\xE4hrend des gesamten Trainingsprozesses stetig verfeinert. Diese Trainingsphase
+        wurde unter Verwendung eines propriet\xE4ren Datensatzes durchgef\xFChrt,
+        der eine umfangreiche Sammlung von 80.000 Bildern enthielt, die sich jeweils
+        durch ein erhebliches Ma\xDF an Variabilit\xE4t auszeichneten. Der Datensatz
+        wurde sorgf\xE4ltig zusammengestellt, um zwei unterschiedliche Klassen einzuschlie\xDFen,
+        n\xE4mlich \u201Enormal\u201C und \u201Ensfw\u201C. Diese Vielfalt erm\xF6glichte
+        es dem Modell, nuancierte visuelle Muster zu erfassen, und verlieh ihm die
+        F\xE4higkeit, genau zwischen sicheren und expliziten Inhalten zu unterscheiden.
+        Das \xFCbergeordnete Ziel dieses sorgf\xE4ltigen Trainingsprozesses bestand
+        darin, dem Modell ein tiefes Verst\xE4ndnis f\xFCr visuelle Hinweise zu vermitteln
+        und so seine Robustheit und Kompetenz bei der Bew\xE4ltigung der spezifischen
+        Aufgabe der NSFW-Bildklassifizierung sicherzustellen. Das Ergebnis ist ein
+        Modell, das bereit ist, erheblich zur Sicherheit und Moderation von Inhalten
+        beizutragen und gleichzeitig die h\xF6chsten Standards an Genauigkeit und
+        Zuverl\xE4ssigkeit einzuhalten.</div><div class=\"links-container\"><ul><li><a
+        href=\"https://www.google.com/m?hl=en-US\">Google home</a></li><li><a href=\"https://www.google.com/tools/feedback/survey/xhtml?productId=95112&hl=en-US\">Send
+        feedback</a></li><li><a href=\"https://www.google.com/intl/en-US/policies\">Privacy
+        and terms</a></li><li><a href=\"./full\">Switch to full site</a></li></ul></div></body></html>"
+    headers:
+      Accept-CH:
+      - Sec-CH-UA-Arch, Sec-CH-UA-Bitness, Sec-CH-UA-Full-Version, Sec-CH-UA-Full-Version-List,
+        Sec-CH-UA-Model, Sec-CH-UA-WoW64, Sec-CH-UA-Form-Factors, Sec-CH-UA-Platform,
+        Sec-CH-UA-Platform-Version
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+      Cache-Control:
+      - no-cache, no-store, max-age=0, must-revalidate
+      Content-Encoding:
+      - gzip
+      Content-Security-Policy:
+      - require-trusted-types-for 'script';report-uri /_/TranslateNoJsUi/cspreport
+      - script-src 'nonce-N8bnpB3iWGDZVHJy83w4ZQ' 'unsafe-inline';object-src 'none';base-uri
+        'self';report-uri /_/TranslateNoJsUi/cspreport;worker-src 'self'
+      Content-Type:
+      - text/html; charset=utf-8
+      Cross-Origin-Opener-Policy:
+      - same-origin
+      Cross-Origin-Resource-Policy:
+      - same-site
+      Date:
+      - Thu, 13 Nov 2025 15:32:21 GMT
+      Expires:
+      - Mon, 01 Jan 1990 00:00:00 GMT
+      P3P:
+      - CP="This is not a P3P policy! See g.co/p3phelp for more info."
+      Permissions-Policy:
+      - ch-ua-arch=*, ch-ua-bitness=*, ch-ua-full-version=*, ch-ua-full-version-list=*,
+        ch-ua-model=*, ch-ua-wow64=*, ch-ua-form-factors=*, ch-ua-platform=*, ch-ua-platform-version=*
+      Pragma:
+      - no-cache
+      Server:
+      - ESF
+      Set-Cookie:
+      - __Secure-ENID=29.SE=myOot3aBVYTwMMkctY6yjztSOUTOMh_H87dAOyKoNOKqwAurZ2Ydo8ch0nvaPCxLSvpmjCDmTbGM6_AjKjJ_mG25gXy9WsoDXkhHTOHnVafqdOVMNliP503RdtfnYhzhpkE5IoDcIfAnejksiy8vJ1tHNelbh4ujbv-zDAC9lpCsZV_CvOS5cU6fikOVXQ_dgIrR4BOkZGr4;
+        expires=Mon, 14-Dec-2026 07:50:39 GMT; path=/; domain=.google.com; Secure;
+        HttpOnly; SameSite=lax
+      Transfer-Encoding:
+      - chunked
+      Vary:
+      - Sec-Fetch-Dest, Sec-Fetch-Mode, Sec-Fetch-Site
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - SAMEORIGIN
+      X-XSS-Protection:
+      - '0'
+      reporting-endpoints:
+      - default="/_/TranslateNoJsUi/web-reports?context=eJzjstDikmJw15BiaL15jnUqEHctOs86C4gNFS6xOgJxkcQV1iYg_lR1g1Wo-gar6cFbrK5ALMTN0frl-gk2gQ1zZ8koqSXlF8aXFCXmFecklqTqlqcmFacWlaUWxRsZGJkaAoGegVl8gQEAEIMozQ"
+    status:
+      code: 200
+      message: OK
+version: 1

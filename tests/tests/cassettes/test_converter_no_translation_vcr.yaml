@@ -1,0 +1,185 @@
+interactions:
+- request:
+    body: null
+    headers:
+      Accept:
+      - '*/*'
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      X-Amzn-Trace-Id:
+      - 1d31d599-63d7-4b58-b4b7-a8741dd61265
+      user-agent:
+      - unknown/None; hf_hub/0.33.5; python/3.12.3
+    method: GET
+    uri: https://huggingface.co/api/datasets/nebius/SWE-rebench?blobs=True
+  response:
+    body:
+      string: "{\"_id\":\"680f523123b95edd6987db29\",\"id\":\"nebius/SWE-rebench\",\"author\":\"nebius\",\"sha\":\"e48395ab18e9b192e96211a21d827fa968d6389e\",\"lastModified\":\"2025-11-06T19:15:51.000Z\",\"private\":false,\"gated\":false,\"disabled\":false,\"tags\":[\"task_categories:other\",\"license:cc-by-4.0\",\"size_categories:10K<n<100K\",\"format:parquet\",\"modality:text\",\"library:datasets\",\"library:dask\",\"library:mlcroissant\",\"library:polars\",\"arxiv:2505.20411\",\"region:us\"],\"citation\":null,\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\tDataset
+        Summary\\n\\t\\n\\nSWE-rebench is a large-scale dataset designed to support
+        training and evaluation of LLM-based software engineering (SWE) agents, building
+        upon and expanding our earlier release, SWE-bench-extra. It is constructed
+        using a fully automated pipeline that continuously extracts real-world interactive
+        SWE tasks from GitHub repositories at scale, as detailed in our paper SWE-rebench:
+        An Automated Pipeline for Task Collection and Decontaminated Evaluation of
+        Software\u2026 See the full description on the dataset page: https://huggingface.co/datasets/nebius/SWE-rebench.\",\"downloads\":609014,\"likes\":38,\"cardData\":{\"license\":\"cc-by-4.0\",\"task_categories\":[\"other\"],\"library_name\":\"datasets\",\"dataset_info\":{\"features\":[{\"name\":\"instance_id\",\"dtype\":\"string\"},{\"name\":\"base_commit\",\"dtype\":\"string\"},{\"name\":\"created_at\",\"dtype\":\"string\"},{\"name\":\"environment_setup_commit\",\"dtype\":\"string\"},{\"name\":\"hints_text\",\"dtype\":\"string\"},{\"name\":\"patch\",\"dtype\":\"string\"},{\"name\":\"problem_statement\",\"dtype\":\"string\"},{\"name\":\"repo\",\"dtype\":\"string\"},{\"name\":\"test_patch\",\"dtype\":\"string\"},{\"name\":\"meta\",\"struct\":[{\"name\":\"commit_name\",\"dtype\":\"string\"},{\"name\":\"failed_lite_validators\",\"sequence\":\"string\"},{\"name\":\"has_test_patch\",\"dtype\":\"bool\"},{\"name\":\"is_lite\",\"dtype\":\"bool\"},{\"name\":\"llm_score\",\"struct\":[{\"name\":\"difficulty_score\",\"dtype\":\"int64\"},{\"name\":\"issue_text_score\",\"dtype\":\"int64\"},{\"name\":\"test_score\",\"dtype\":\"int64\"}]},{\"name\":\"num_modified_files\",\"dtype\":\"int64\"}]},{\"name\":\"version\",\"dtype\":\"string\"},{\"name\":\"install_config\",\"struct\":[{\"name\":\"env_vars\",\"struct\":[{\"name\":\"JUPYTER_PLATFORM_DIRS\",\"dtype\":\"string\"}]},{\"name\":\"env_yml_path\",\"sequence\":\"string\"},{\"name\":\"install\",\"dtype\":\"string\"},{\"name\":\"log_parser\",\"dtype\":\"string\"},{\"name\":\"no_use_env\",\"dtype\":\"bool\"},{\"name\":\"packages\",\"dtype\":\"string\"},{\"name\":\"pip_packages\",\"sequence\":\"string\"},{\"name\":\"pre_install\",\"sequence\":\"string\"},{\"name\":\"python\",\"dtype\":\"string\"},{\"name\":\"reqs_path\",\"sequence\":\"string\"},{\"name\":\"test_cmd\",\"dtype\":\"string\"}]},{\"name\":\"requirements\",\"dtype\":\"string\"},{\"name\":\"environment\",\"dtype\":\"string\"},{\"name\":\"FAIL_TO_PASS\",\"sequence\":\"string\"},{\"name\":\"FAIL_TO_FAIL\",\"sequence\":\"string\"},{\"name\":\"PASS_TO_PASS\",\"sequence\":\"string\"},{\"name\":\"PASS_TO_FAIL\",\"sequence\":\"string\"},{\"name\":\"license_name\",\"dtype\":\"string\"},{\"name\":\"docker_image\",\"dtype\":\"string\"}],\"splits\":[{\"name\":\"test\",\"num_bytes\":737822177,\"num_examples\":21336}],\"download_size\":211154614,\"dataset_size\":737822177},\"configs\":[{\"config_name\":\"default\",\"data_files\":[{\"split\":\"test\",\"path\":\"data/test-*\"}]}]},\"siblings\":[{\"rfilename\":\".gitattributes\",\"blobId\":\"1ef325f1b111266a6b26e0196871bd78baa8c2f3\",\"size\":2461,\"lfs\":null},{\"rfilename\":\"README.md\",\"blobId\":\"d25629fd0eefbca33da9d814d5f2317fc2d5a5c9\",\"size\":9057,\"lfs\":null},{\"rfilename\":\"data/test-00000-of-00002.parquet\",\"blobId\":\"fd98eae173e454c30a8117c95cefa2f2ceb5587b\",\"size\":101503536,\"lfs\":{\"sha256\":\"030ad0a5f4ce04216a87600cd878ec764e7eeba8c2900a04daa301b380e8600c\",\"size\":101503536,\"pointerSize\":134}},{\"rfilename\":\"data/test-00001-of-00002.parquet\",\"blobId\":\"167d0952350e9ebd91c881c48f60160fe2581344\",\"size\":109651078,\"lfs\":{\"sha256\":\"bd9aabc512f7dbc73c98c99e3b6d5e73948d3743273720c5bf05128a5004e068\",\"size\":109651078,\"pointerSize\":134}}],\"createdAt\":\"2025-04-28T10:02:25.000Z\",\"usedStorage\":692372801}"
+    headers:
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '3837'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 14:04:24 GMT
+      ETag:
+      - W/"efd-VooQ6wp+CI2d95zPYj73CmDKtIE"
+      RateLimit:
+      - '"api";r=497;t=168'
+      RateLimit-Policy:
+      - '"fixed window";"api";q=500;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 611ca6d7a586f9a7ac13f280c5d6da36.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - Pw5FLWrI157I_Mks918R68Z1yjxTHiQetLOWo_4hf9cRxZKhbKCOrw==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Powered-By:
+      - huggingface-moon
+      X-Request-Id:
+      - Root=1-6915e568-080cb74e20f759c8289c36ad;1d31d599-63d7-4b58-b4b7-a8741dd61265
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - HuggingfaceFetcher/2.0
+    method: GET
+    uri: https://datasets-server.huggingface.co/parquet?dataset=nebius/SWE-rebench
+  response:
+    body:
+      string: '{"parquet_files":[{"dataset":"nebius/SWE-rebench","config":"default","split":"test","url":"https://huggingface.co/datasets/nebius/SWE-rebench/resolve/refs%2Fconvert%2Fparquet/default/test/0000.parquet","filename":"0000.parquet","size":101503536},{"dataset":"nebius/SWE-rebench","config":"default","split":"test","url":"https://huggingface.co/datasets/nebius/SWE-rebench/resolve/refs%2Fconvert%2Fparquet/default/test/0001.parquet","filename":"0001.parquet","size":109651078}],"pending":[],"failed":[],"partial":false}'
+    headers:
+      Connection:
+      - keep-alive
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 13 Nov 2025 14:04:24 GMT
+      Transfer-Encoding:
+      - chunked
+      Via:
+      - 1.1 803246727539350977d724c9e4a027c6.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - s3nAoKQsuoB7ecDCq9utcu0IBwHMh7U-9S-z_71Jy1eXX1vF7YN4ZQ==
+      X-Amz-Cf-Pop:
+      - FRA56-P4
+      X-Cache:
+      - Miss from cloudfront
+      cache-control:
+      - max-age=120
+      content-encoding:
+      - gzip
+      server:
+      - uvicorn
+      vary:
+      - Accept-Encoding
+      x-revision:
+      - e48395ab18e9b192e96211a21d827fa968d6389e
+    status:
+      code: 200
+      message: OK
+- request:
+    body: null
+    headers:
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip, deflate
+      Connection:
+      - keep-alive
+      User-Agent:
+      - HuggingfaceFetcher/2.0
+    method: GET
+    uri: https://huggingface.co/api/datasets/nebius/SWE-rebench/croissant
+  response:
+    body:
+      string: "{\"@context\":{\"@language\":\"en\",\"@vocab\":\"https://schema.org/\",\"arrayShape\":\"cr:arrayShape\",\"citeAs\":\"cr:citeAs\",\"column\":\"cr:column\",\"conformsTo\":\"dct:conformsTo\",\"cr\":\"http://mlcommons.org/croissant/\",\"data\":{\"@id\":\"cr:data\",\"@type\":\"@json\"},\"dataBiases\":\"cr:dataBiases\",\"dataCollection\":\"cr:dataCollection\",\"dataType\":{\"@id\":\"cr:dataType\",\"@type\":\"@vocab\"},\"dct\":\"http://purl.org/dc/terms/\",\"extract\":\"cr:extract\",\"field\":\"cr:field\",\"fileProperty\":\"cr:fileProperty\",\"fileObject\":\"cr:fileObject\",\"fileSet\":\"cr:fileSet\",\"format\":\"cr:format\",\"includes\":\"cr:includes\",\"isArray\":\"cr:isArray\",\"isLiveDataset\":\"cr:isLiveDataset\",\"jsonPath\":\"cr:jsonPath\",\"key\":\"cr:key\",\"md5\":\"cr:md5\",\"parentField\":\"cr:parentField\",\"path\":\"cr:path\",\"personalSensitiveInformation\":\"cr:personalSensitiveInformation\",\"recordSet\":\"cr:recordSet\",\"references\":\"cr:references\",\"regex\":\"cr:regex\",\"repeated\":\"cr:repeated\",\"replace\":\"cr:replace\",\"sc\":\"https://schema.org/\",\"separator\":\"cr:separator\",\"source\":\"cr:source\",\"subField\":\"cr:subField\",\"transform\":\"cr:transform\"},\"@type\":\"sc:Dataset\",\"distribution\":[{\"@type\":\"cr:FileObject\",\"@id\":\"repo\",\"name\":\"repo\",\"description\":\"The
+        Hugging Face git repository.\",\"contentUrl\":\"https://huggingface.co/datasets/nebius/SWE-rebench/tree/refs%2Fconvert%2Fparquet\",\"encodingFormat\":\"git+https\",\"sha256\":\"https://github.com/mlcommons/croissant/issues/80\"},{\"@type\":\"cr:FileSet\",\"@id\":\"parquet-files-for-config-default\",\"containedIn\":{\"@id\":\"repo\"},\"encodingFormat\":\"application/x-parquet\",\"includes\":\"default/*/*.parquet\"}],\"recordSet\":[{\"@type\":\"cr:RecordSet\",\"dataType\":\"cr:Split\",\"key\":{\"@id\":\"default_splits/split_name\"},\"@id\":\"default_splits\",\"name\":\"default_splits\",\"description\":\"Splits
+        for the default config.\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"default_splits/split_name\",\"dataType\":\"sc:Text\"}],\"data\":[{\"default_splits/split_name\":\"test\"}]},{\"@type\":\"cr:RecordSet\",\"@id\":\"default\",\"description\":\"nebius/SWE-rebench
+        - 'default' subset\",\"field\":[{\"@type\":\"cr:Field\",\"@id\":\"default/split\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"fileProperty\":\"fullpath\"},\"transform\":{\"regex\":\"default/(?:partial-)?(test)/.+parquet$\"}},\"references\":{\"field\":{\"@id\":\"default_splits/split_name\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/instance_id\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"instance_id\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/base_commit\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"base_commit\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/created_at\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"created_at\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/environment_setup_commit\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"environment_setup_commit\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/hints_text\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"hints_text\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/patch\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"patch\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/problem_statement\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"problem_statement\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/repo\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"repo\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/test_patch\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"test_patch\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/meta\",\"subField\":[{\"@type\":\"cr:Field\",\"@id\":\"default/meta/commit_name\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"meta\"},\"transform\":{\"jsonPath\":\"commit_name\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/meta/failed_lite_validators\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"meta\"},\"transform\":{\"jsonPath\":\"failed_lite_validators\"}},\"isArray\":true,\"arrayShape\":\"-1\"},{\"@type\":\"cr:Field\",\"@id\":\"default/meta/has_test_patch\",\"dataType\":\"sc:Boolean\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"meta\"},\"transform\":{\"jsonPath\":\"has_test_patch\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/meta/is_lite\",\"dataType\":\"sc:Boolean\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"meta\"},\"transform\":{\"jsonPath\":\"is_lite\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/meta/llm_score\",\"subField\":[{\"@type\":\"cr:Field\",\"@id\":\"default/meta/llm_score/difficulty_score\",\"dataType\":\"cr:Int64\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"meta\"},\"transform\":[{\"jsonPath\":\"llm_score\"},{\"jsonPath\":\"difficulty_score\"}]}},{\"@type\":\"cr:Field\",\"@id\":\"default/meta/llm_score/issue_text_score\",\"dataType\":\"cr:Int64\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"meta\"},\"transform\":[{\"jsonPath\":\"llm_score\"},{\"jsonPath\":\"issue_text_score\"}]}},{\"@type\":\"cr:Field\",\"@id\":\"default/meta/llm_score/test_score\",\"dataType\":\"cr:Int64\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"meta\"},\"transform\":[{\"jsonPath\":\"llm_score\"},{\"jsonPath\":\"test_score\"}]}}]},{\"@type\":\"cr:Field\",\"@id\":\"default/meta/num_modified_files\",\"dataType\":\"cr:Int64\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"meta\"},\"transform\":{\"jsonPath\":\"num_modified_files\"}}}]},{\"@type\":\"cr:Field\",\"@id\":\"default/version\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"version\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/install_config\",\"subField\":[{\"@type\":\"cr:Field\",\"@id\":\"default/install_config/env_vars\",\"subField\":[{\"@type\":\"cr:Field\",\"@id\":\"default/install_config/env_vars/JUPYTER_PLATFORM_DIRS\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"install_config\"},\"transform\":[{\"jsonPath\":\"env_vars\"},{\"jsonPath\":\"JUPYTER_PLATFORM_DIRS\"}]}}]},{\"@type\":\"cr:Field\",\"@id\":\"default/install_config/env_yml_path\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"install_config\"},\"transform\":{\"jsonPath\":\"env_yml_path\"}},\"isArray\":true,\"arrayShape\":\"-1\"},{\"@type\":\"cr:Field\",\"@id\":\"default/install_config/install\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"install_config\"},\"transform\":{\"jsonPath\":\"install\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/install_config/log_parser\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"install_config\"},\"transform\":{\"jsonPath\":\"log_parser\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/install_config/no_use_env\",\"dataType\":\"sc:Boolean\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"install_config\"},\"transform\":{\"jsonPath\":\"no_use_env\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/install_config/packages\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"install_config\"},\"transform\":{\"jsonPath\":\"packages\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/install_config/pip_packages\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"install_config\"},\"transform\":{\"jsonPath\":\"pip_packages\"}},\"isArray\":true,\"arrayShape\":\"-1\"},{\"@type\":\"cr:Field\",\"@id\":\"default/install_config/pre_install\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"install_config\"},\"transform\":{\"jsonPath\":\"pre_install\"}},\"isArray\":true,\"arrayShape\":\"-1\"},{\"@type\":\"cr:Field\",\"@id\":\"default/install_config/python\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"install_config\"},\"transform\":{\"jsonPath\":\"python\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/install_config/reqs_path\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"install_config\"},\"transform\":{\"jsonPath\":\"reqs_path\"}},\"isArray\":true,\"arrayShape\":\"-1\"},{\"@type\":\"cr:Field\",\"@id\":\"default/install_config/test_cmd\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"install_config\"},\"transform\":{\"jsonPath\":\"test_cmd\"}}}]},{\"@type\":\"cr:Field\",\"@id\":\"default/requirements\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"requirements\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/environment\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"environment\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/FAIL_TO_PASS\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"FAIL_TO_PASS\"}},\"isArray\":true,\"arrayShape\":\"-1\"},{\"@type\":\"cr:Field\",\"@id\":\"default/FAIL_TO_FAIL\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"FAIL_TO_FAIL\"}},\"isArray\":true,\"arrayShape\":\"-1\"},{\"@type\":\"cr:Field\",\"@id\":\"default/PASS_TO_PASS\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"PASS_TO_PASS\"}},\"isArray\":true,\"arrayShape\":\"-1\"},{\"@type\":\"cr:Field\",\"@id\":\"default/PASS_TO_FAIL\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"PASS_TO_FAIL\"}},\"isArray\":true,\"arrayShape\":\"-1\"},{\"@type\":\"cr:Field\",\"@id\":\"default/license_name\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"license_name\"}}},{\"@type\":\"cr:Field\",\"@id\":\"default/docker_image\",\"dataType\":\"sc:Text\",\"source\":{\"fileSet\":{\"@id\":\"parquet-files-for-config-default\"},\"extract\":{\"column\":\"docker_image\"}}}]}],\"conformsTo\":\"http://mlcommons.org/croissant/1.1\",\"name\":\"SWE-rebench\",\"description\":\"\\n\\t\\n\\t\\t\\n\\t\\tDataset
+        Summary\\n\\t\\n\\nSWE-rebench is a large-scale dataset designed to support
+        training and evaluation of LLM-based software engineering (SWE) agents, building
+        upon and expanding our earlier release, SWE-bench-extra. It is constructed
+        using a fully automated pipeline that continuously extracts real-world interactive
+        SWE tasks from GitHub repositories at scale, as detailed in our paper SWE-rebench:
+        An Automated Pipeline for Task Collection and Decontaminated Evaluation of
+        Software\u2026 See the full description on the dataset page: https://huggingface.co/datasets/nebius/SWE-rebench.\",\"alternateName\":[\"nebius/SWE-rebench\"],\"creator\":{\"@type\":\"Organization\",\"name\":\"Nebius\",\"url\":\"https://huggingface.co/nebius\"},\"keywords\":[\"other\",\"cc-by-4.0\",\"10K
+        - 100K\",\"parquet\",\"Text\",\"Datasets\",\"Dask\",\"Croissant\",\"Polars\",\"arxiv:2505.20411\",\"\U0001F1FA\U0001F1F8
+        Region: US\"],\"license\":\"https://choosealicense.com/licenses/cc-by-4.0/\",\"url\":\"https://huggingface.co/datasets/nebius/SWE-rebench\"}"
+    headers:
+      Access-Control-Allow-Origin:
+      - https://huggingface.co
+      Access-Control-Expose-Headers:
+      - X-Repo-Commit,X-Request-Id,X-Error-Code,X-Error-Message,X-Total-Count,ETag,Link,Accept-Ranges,Content-Range,X-Linked-Size,X-Linked-ETag,X-Xet-Hash
+      Access-Control-Max-Age:
+      - '86400'
+      Connection:
+      - keep-alive
+      Content-Length:
+      - '11276'
+      Content-Type:
+      - application/json; charset=utf-8
+      Date:
+      - Thu, 13 Nov 2025 14:04:25 GMT
+      ETag:
+      - W/"2c0c-ZMDuKhGDbxOClhaGRl92ve91M2o"
+      RateLimit:
+      - '"api";r=496;t=167'
+      RateLimit-Policy:
+      - '"fixed window";"api";q=500;w=300'
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      Vary:
+      - Origin
+      Via:
+      - 1.1 eea44cfdd1770b9ba28f1b455f101b4c.cloudfront.net (CloudFront)
+      X-Amz-Cf-Id:
+      - bmCInlS39IXm511NtQPVvKeJidJdtSGqjLKe2d81B0Slirtt1Qyz9g==
+      X-Amz-Cf-Pop:
+      - FRA50-P2
+      X-Cache:
+      - Miss from cloudfront
+      X-Powered-By:
+      - huggingface-moon
+      X-Request-Id:
+      - Root=1-6915e569-71e72c353c073d87401cca06
+      cross-origin-opener-policy:
+      - same-origin
+    status:
+      code: 200
+      message: OK
+version: 1
