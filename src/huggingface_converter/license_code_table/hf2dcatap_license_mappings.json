@@ -89,14 +89,6 @@
     "label_en": "3-Clause BSD License",
     "label_de": null
   },
-  "bsd-3-clause-clear": {
-    "uri": "http://publications.europa.eu/resource/authority/licence/BSD_3_CLAUSECLEAR",
-    "exact_matches": [
-      "http://spdx.org/licenses/BSD-3-Clause-Clear"
-    ],
-    "label_en": "BSD 3-Clause Clear License",
-    "label_de": null
-  },
   "bsl-1.0": {
     "uri": "http://publications.europa.eu/resource/authority/licence/BSL_1_0",
     "exact_matches": [
@@ -352,6 +344,11 @@
     "label_en": "European Union Public Licence v. 1.2",
     "label_de": "Open-Source-Lizenz für die Europäische Union v.1.2"
   },
+  "fair-noncommercial-research-license": {
+    "uri": "https://huggingface.co/facebook/fair-noncommercial-research-license/blob/main/LICENSE",
+    "label_en": "FAIR Noncommercial Research License",
+    "label_de": "FAIR-Lizenz für nichtkommerzielle Forschung"
+  },
   "gemma": {
     "uri": "https://ai.google.dev/gemma/terms",
     "label_en": "Gemma Terms of Use",
@@ -386,11 +383,6 @@
     "label_de": null,
     "note_en": "Original Hugging Face license: 'gpl-3.0'",
     "note_de": "Ursprüngliche Hugging Face Lizenz: 'gpl-3.0'"
-  },
-  "intel-research": {
-    "uri": "https://huggingface.co/OpenVINO/Llama-3.1-8B-Instruct-FastDraft-150M-int8-ov/blob/main/LICENSE.md",
-    "label_en": "Intel Research Use License Agreement",
-    "label_de": "Intel Forschungsnutzungs-Lizenzvereinbarung"
   },
   "isc": {
     "uri": "http://publications.europa.eu/resource/authority/licence/ISC",

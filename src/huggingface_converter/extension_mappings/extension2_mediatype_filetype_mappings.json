@@ -120,8 +120,8 @@
     "media_type_uri": "http://www.iana.org/assignments/media-types/audio/amr"
   },
   ".apk": {
-    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/DAPK",
-    "file_type_label": "DAPK",
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/APK",
+    "file_type_label": "APK",
     "media_type": "application/vnd.android.package-archive",
     "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.android.package-archive"
   },
@@ -569,10 +569,10 @@
     "media_type_uri": "http://www.iana.org/assignments/media-types/application/davmount+xml"
   },
   ".dbf": {
-    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SHP",
-    "file_type_label": "Esri Shape",
-    "media_type": "application/x-shapefile",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-shapefile"
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/DBF",
+    "file_type_label": "DBF",
+    "media_type": "application/x-dbase",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-dbase"
   },
   ".dcm": {
     "media_type": "application/dicom",
@@ -1135,10 +1135,6 @@
     "media_type_uri": "http://www.iana.org/assignments/media-types/model/gltf+json"
   },
   ".gml": {
-    "media_type": "application/gml+xml",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/gml+xml"
-  },
-  ".gml .xml": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/GML",
     "file_type_label": "GML",
     "media_type": "application/gml+xml",
@@ -1616,10 +1612,10 @@
     "media_type_uri": "http://www.iana.org/assignments/media-types/application/javascript"
   },
   ".json": {
-    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/GEOJSON",
-    "file_type_label": "GeoJSON",
-    "media_type": "application/geo+json",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/geo+json"
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/JSON",
+    "file_type_label": "JSON",
+    "media_type": "application/json",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/json"
   },
   ".jsonl": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/JSON",
@@ -2682,8 +2678,8 @@
     "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.palm"
   },
   ".pdf": {
-    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/PDFA3",
-    "file_type_label": "PDFA-3",
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/PDF",
+    "file_type_label": "PDF",
     "media_type": "application/pdf",
     "media_type_uri": "http://www.iana.org/assignments/media-types/application/pdf"
   },
@@ -2986,8 +2982,8 @@
     "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
   },
   ".rdf": {
-    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RDF_XML",
-    "file_type_label": "RDF XML",
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RDF",
+    "file_type_label": "RDF",
     "media_type": "application/rdf+xml",
     "media_type_uri": "http://www.iana.org/assignments/media-types/application/rdf+xml"
   },
@@ -3506,8 +3502,8 @@
     "media_type_uri": "http://www.iana.org/assignments/media-types/application/swid+xml"
   },
   ".swm": {
-    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/WIM",
-    "file_type_label": "WIM",
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SWM",
+    "file_type_label": "SWM",
     "media_type": "application/x-ms-wim",
     "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-ms-wim"
   },
@@ -3522,10 +3518,10 @@
     "media_type_uri": "http://www.iana.org/assignments/media-types/image/t38"
   },
   ".tab": {
-    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/TAB_RSTR",
-    "file_type_label": "MapInfo TAB raster file",
-    "media_type": "application/x-tab-raster",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-tab-raster"
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/TSV",
+    "file_type_label": "TSV",
+    "media_type": "text/tab-separated-values",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/text/tab-separated-values"
   },
   ".taglet": {
     "media_type": "application/vnd.mynfc",
@@ -4138,8 +4134,8 @@
     "media_type_uri": "http://www.iana.org/assignments/media-types/model/vnd.parasolid.transmit.text"
   },
   ".xapk": {
-    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/DAPK",
-    "file_type_label": "DAPK",
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/APK",
+    "file_type_label": "APK",
     "media_type": "application/vnd.android.package-archive",
     "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.android.package-archive"
   },
@@ -4294,10 +4290,10 @@
     "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.ms-excel"
   },
   ".xml": {
-    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/FMX3",
-    "file_type_label": "Formex 3",
-    "media_type": "text/sgml",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/text/sgml"
+    "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/XML",
+    "file_type_label": "XML",
+    "media_type": "application/xml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/xml"
   },
   ".xns": {
     "media_type": "application/xcap-ns+xml",
@@ -4386,8 +4382,8 @@
   ".yaml": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/YAML",
     "file_type_label": "YAML",
-    "media_type": "application/octet-stream",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+    "media_type": "application/yaml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/yaml"
   },
   ".yang": {
     "media_type": "application/yang",
@@ -4400,8 +4396,8 @@
   ".yml": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/YAML",
     "file_type_label": "YAML",
-    "media_type": "application/octet-stream",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
+    "media_type": "application/yaml",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/yaml"
   },
   ".z": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/Z",

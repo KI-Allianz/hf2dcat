@@ -23,7 +23,7 @@ The following tables show how Hugging Face metadata fields are mapped to DCAT-AP
 
 ### **Model-Specific Fields**
 
-| **HF Field**                          | **hf2dcat Field**               | **DCAT Class**                      | **RDF Property**                       | **Notes**                                                        |
+| **HF Metadata Field**                          | **hf2dcat Field**               | **DCAT Class**                      | **RDF Property**                       | **Notes**                                                        |
 | -------------------------------------- | ------------------------------- | ----------------------------------- | -------------------------------------- | ---------------------------------------------------------------- |
 | `library_name`                        | `library_name`                  | `dcat:Dataset`                      | `schema:softwareRequirements`          | Framework: Transformers, SentenceTransformers, etc.              |
 | `transformers_info`                 | `transformers_info`             | `dcat:Dataset`                      | `schema:additionalProperty`            | auto_model, custom_class, processor, pipeline_tag                |
@@ -33,7 +33,7 @@ The following tables show how Hugging Face metadata fields are mapped to DCAT-AP
 
 ### **Dataset-Specific Fields**
 
-| **HF Field**                          | **hf2dcat Field**               | **DCAT Class**                      | **RDF Property**                       | **Notes**                                                        |
+| **HF Metadata Field**                          | **hf2dcat Field**               | **DCAT Class**                      | **RDF Property**                       | **Notes**                                                        |
 | -------------------------------------- | ------------------------------- | ----------------------------------- | -------------------------------------- | ---------------------------------------------------------------- |
 | `size_categories`                     | `size_categories`               | `dcat:Dataset`                      | `schema:additionalProperty`            | Small / medium / large                                           |
 | `task_categories`                     | `task_categories`               | `dcat:Dataset` / `mls:Dataset`      | `dct:subject` → `mls:Task`             | Broad ML tasks                                                    |
@@ -42,7 +42,7 @@ The following tables show how Hugging Face metadata fields are mapped to DCAT-AP
 
 ### **Distributions**
 
-| **HF Field**                          | **hf2dcat Field**               | **DCAT Class**                      | **RDF Property**                       | **Notes**                                                        |
+| **HF Metadata Field**                          | **hf2dcat Field**               | **DCAT Class**                      | **RDF Property**                       | **Notes**                                                        |
 | -------------------------------------- | ------------------------------- | ----------------------------------- | -------------------------------------- | ---------------------------------------------------------------- |
 | `siblings` / `parquet_files`          | `distributions → name`          | `dcat:Distribution`                 | `dct:title`                            | File label                                                        |
 | —                                      | `distributions → description`   | `dcat:Distribution`                 | `dct:description`                      | Description                                         |
@@ -54,7 +54,7 @@ The following tables show how Hugging Face metadata fields are mapped to DCAT-AP
 
 ### **General Metadata**
 
-| **HF Field**                          | **hf2dcat Field**               | **DCAT Class**                      | **RDF Property**                       | **Notes**                                                        |
+| **HF Metadata Field**                          | **hf2dcat Field**               | **DCAT Class**                      | **RDF Property**                       | **Notes**                                                        |
 | -------------------------------------- | ------------------------------- | ----------------------------------- | -------------------------------------- | ---------------------------------------------------------------- |
 |   id                                     | `hub_url`                       | `dcat:Dataset`                      | `dcat:landingPage`   `it6: hasRepository`                  | HF model/dataset page                                             |
 | “Hugging Face” provenance              | provenance                      | `dcat:Dataset`                      | `dct:provenance`                       | Source                                                            |

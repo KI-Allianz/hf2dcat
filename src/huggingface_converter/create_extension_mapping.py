@@ -1,7 +1,8 @@
 import logging
 import json
+import re 
 from pathlib import Path
-from typing import Dict, Any, Optional, Union
+from typing import Dict, Any, Optional, Union, List, Tuple
 from rdflib import Graph, RDF, SKOS, URIRef, Literal, Namespace
 
 logging.basicConfig(
@@ -9,6 +10,63 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+
+def normalize(s: str) -> str:
+    return re.sub(r"[^a-z0-9]", "", s.lower())
+
+def has_digits(s: str) -> bool:
+    return any(c.isdigit() for c in s)
+
+FORBIDDEN_SUBSTRINGS = [
+    "pdfa", "pdfx", "xslt","jsonld",
+    "rdfxml", "gzip", "bzip", "zipx"
+]
+
+def valid_prefix(ext_n: str, label_n: str) -> bool:
+    if not label_n.startswith(ext_n):
+        return False
+    suffix = label_n[len(ext_n):]
+    return suffix[:1].isdigit() or suffix.startswith(("-", "_"))
+
+def score_candidate(ext: str, label: str) -> Tuple:
+    ext_n = normalize(ext)
+    label_n = normalize(label)
+
+    return (
+        label_n != ext_n,                           # exact match
+        not valid_prefix(ext_n, label_n),           # controlled prefix
+        (not has_digits(ext_n) and has_digits(label_n)),
+        len(label_n)                                # shorter = more generic
+    )
+
+def eliminate_unsafe_candidates(ext: str, candidates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    ext_n = normalize(ext)
+    safe: List[Dict[str, Any]] = []
+
+    for c in candidates:
+        label_n = normalize(c["file_type_label"])
+
+        if label_n == ext_n:
+            safe.append(c)
+            continue
+
+        if has_digits(label_n) and not has_digits(ext_n):
+            continue
+
+        if any(x in label_n for x in FORBIDDEN_SUBSTRINGS):
+            continue
+
+        safe.append(c)
+
+    return safe or candidates   
+
+def select_best_eu_filetype(ext: str, candidates: List[Dict[str, Any]]) -> Dict[str, Any]:
+    safe_candidates = eliminate_unsafe_candidates(ext, candidates)
+    return sorted(
+        safe_candidates,
+        key=lambda c: score_candidate(ext, c["file_type_label"])
+    )[0]
 
 def create_db_mapping(data_dir: Union[Path, str] = Path("./extension_mappings")) -> Dict:
     """Load db.json file and create a mapping from file extension to mime type."""
@@ -41,7 +99,6 @@ def create_db_mapping(data_dir: Union[Path, str] = Path("./extension_mappings"))
                 ext_to_mime[ext_lower] = mime_type
 
     sorted_ext_to_mime = dict(sorted(ext_to_mime.items()))
-
     return sorted_ext_to_mime
 
 def load_rdf_graph(data_dir: Union[Path, str] = Path("./extension_mappings")) -> Graph:
@@ -62,11 +119,11 @@ def create_eu_extension_mapping(g: Graph) -> Dict[str, Dict[str, Any]]:
 
     EUVOC = Namespace("http://publications.europa.eu/ontology/euvoc#")
 
-    extension_mappings = {}
+    extension_candidates: Dict[str, List[Dict[str, Any]]] = {}
     try:       
         for concept in g.subjects(RDF.type, SKOS.Concept):
             file_type_uri = str(concept)
-
+          
             # Get preferred English label
             label = None
             for _, _, o in g.triples((concept, SKOS.prefLabel, None)):
@@ -75,35 +132,41 @@ def create_eu_extension_mapping(g: Graph) -> Dict[str, Dict[str, Any]]:
                     break
 
             # Gather all extensions and IANA media types for this concept
-            extensions = []
-            media_types = []
+            extensions: List[str]= []
+            media_types: List[str] = []
 
             for _, _, o in g.triples((concept, SKOS.notation, None)):
                 if isinstance(o, Literal):
                     datatype = o.datatype
                     value = str(o).strip()
                     if datatype == EUVOC.FILE_EXT:
-                        extensions.append(value.lower())
+                        raw = value.lower()
+                        if " " in raw or "," in raw:
+                            for ext in re.split(r"[,\s]+", raw):
+                                if ext.startswith("."):
+                                    extensions.append(ext)
+                        else:
+                            extensions.append(raw)
                     elif datatype == EUVOC.IANA_MT:
-                        media_types.append(value.lower())
+                        mt = value.lower()
+                        if " " not in mt and mt not in media_types:
+                            media_types.append(mt)
 
             for ext in extensions:
-                if ext not in extension_mappings:
-                    extension_mappings[ext] = {
-                        "file_type_uri": file_type_uri,
-                        "file_type_label": label,
-                        "media_types": media_types
-                    }
-                else:
-                    # Merge media types if extension is shared
-                    extension_mappings[ext]["media_types"].extend(
-                        [mt for mt in media_types if mt not in extension_mappings[ext]["media_types"]]
-                    )
+                extension_candidates.setdefault(ext, []).append({
+                    "file_type_uri": file_type_uri,
+                    "file_type_label": label,
+                    "media_types": media_types,
+                })
         
+        final_mappings: Dict[str, Dict[str, Any]] = {}
+        for ext, candidates in extension_candidates.items():
+            final_mappings[ext] = select_best_eu_filetype(ext, candidates)
+
+        return final_mappings
     except Exception as e:
         logger.exception(f"Error during RDF filetype parsing: {e}")
-    
-    return extension_mappings
+        return {}
 
 def create_extension_mapping(data_dir: Union[Path, str] = Path("./extension_mappings"))-> Dict:
      # Create extension to IANA mime type mapping based on db.json from the specified directory
@@ -117,6 +180,22 @@ def create_extension_mapping(data_dir: Union[Path, str] = Path("./extension_mapp
             "file_type": "TAR_GZ", 
             "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/TAR_GZ", 
             "media_types": ["application/gzip"]
+        }
+    
+    if ".yaml" in eu_extension_mapping:
+        eu_extension_mapping[".yaml"] = {
+            "media_types": ["application/yaml"], 
+            "file_type": "YAML",
+            "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/YAML",
+            "file_type_label": "YAML"
+        }
+    
+    if ".yml" in eu_extension_mapping:
+        eu_extension_mapping[".yml"] = {
+            "media_types": ["application/yaml"], 
+            "file_type": "YAML",
+            "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/YAML",
+            "file_type_label": "YAML"
         }
         
     # Custom mappings for model weight file extensions
@@ -219,7 +298,7 @@ def create_extension_mapping(data_dir: Union[Path, str] = Path("./extension_mapp
             "file_type_uri": "https://piveau.io/def/file-type/GGML", # self defined uri
             "file_type_label": "GGML", 
             "see_also": "https://huggingface.co/blog/introduction-to-ggml"
-        },
+        }
     }
 
     final_mapping = {}
@@ -298,4 +377,6 @@ if __name__ == "__main__":
     save_results(mapping_output_filepath, final_mapping)
 
     logger.info(f"unmapped extensions: {unmapped_extensions}")
+
+ 
 

@@ -82,13 +82,6 @@
     ],
     "label_en": "3-Clause BSD License"
   },
-  "bsd-3-clause-clear": {
-    "uri": "http://dcat-ap.de/def/licenses/bsdlicense",
-    "exact_matches": [
-      "http://spdx.org/licenses/BSD-3-Clause-Clear"
-    ],
-    "label_en": "BSD 3-Clause Clear License"
-  },
   "bsl-1.0": {
     "uri": "http://dcat-ap.de/def/licenses/other-opensource",
     "exact_matches": [
@@ -339,6 +332,11 @@
     "label_en": "European Union Public Licence v. 1.2",
     "label_de": "Open-Source-Lizenz für die Europäische Union v.1.2"
   },
+  "fair-noncommercial-research-license": {
+    "uri": "http://dcat-ap.de/def/licenses/other-closed",
+    "label_en": "FAIR Noncommercial Research License",
+    "label_de": "FAIR-Lizenz für nichtkommerzielle Forschung"
+  },
   "gemma": {
     "uri": "http://dcat-ap.de/def/licenses/other-closed",
     "label_en": "Gemma Terms of Use",
@@ -376,11 +374,6 @@
   },
   "h-research": {
     "uri": "http://dcat-ap.de/def/licenses/other-closed"
-  },
-  "intel-research": {
-    "uri": "http://dcat-ap.de/def/licenses/other-commercial",
-    "label_en": "Intel Research Use License Agreement",
-    "label_de": "Intel Forschungsnutzungs-Lizenzvereinbarung"
   },
   "isc": {
     "uri": "http://dcat-ap.de/def/licenses/other-opensource",

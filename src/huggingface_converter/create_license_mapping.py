@@ -59,7 +59,6 @@ def load_rdf_graph(data_dir: Union[Path, str] = Path("./license_code_table")) ->
         g.parse(rdf_path, format="xml")
     except Exception as e:
         logger.exception(f"Failed to load RDF graph: {e}")
-    
     return g
 
 def create_eu_license_mapping(g: Graph) -> Dict[str, Dict[str, Any]]:
@@ -93,7 +92,6 @@ def create_eu_license_mapping(g: Graph) -> Dict[str, Dict[str, Any]]:
                 }
     except Exception as e:
         logger.exception(f"Error during RDF license parsing: {e}")
-    
     return license_mapping
 
 def save_results(file_path: Union[Path, str],results: Dict[str, Any]) -> None:
