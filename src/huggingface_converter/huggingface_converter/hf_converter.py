@@ -10,7 +10,7 @@ from datetime import datetime
 from pathlib import Path
 from urllib.parse import quote, urlparse, urlunparse
 from typing import Union, Dict, Any, List, Optional, Tuple
-from rdflib import Graph, URIRef, Literal, Namespace, BNode
+from rdflib import Graph, URIRef, Literal, Namespace, BNode, Node
 from rdflib.namespace import DCAT, DCTERMS, FOAF, RDF, XSD, SKOS, PROV, RDFS, OWL
 from deep_translator import GoogleTranslator
 from uuid import uuid4
@@ -18,8 +18,9 @@ from uuid import uuid4
 from .enums import Profile, OutputFormat
 from .shacl_validator import SHACLValidator, SHACLProfile
 from .constants import (
-    SCHEMA, DCATAP, DCATDE, ADMS, VCARD, MLS, IT6, LPWCC, 
-    RESOURCE_CONFIG, METRICS, LANG_CODE_MAPPINGS, LANG_LABELS_MULTI
+    SCHEMA, DCATAP, DCATDE, ADMS, VCARD, MLS, IT6, LPWC, LPWCC, MLSO, CR,
+    RESOURCE_CONFIG, METRICS, LANG_CODE_MAPPINGS, HF_TASKS, 
+    LANG_LABELS_MULTI
 )
 from .vocabulary_manager import VocabularyManager
 from .translation_manager import TranslationManager
@@ -31,6 +32,9 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 BASE_DIR = Path(__file__).resolve().parent
+ML_TASK_TYPES_TTL = BASE_DIR.parent / "mlso_ttl" / "mlso_ml_task_types_v2.ttl"
+ML_ALGORITHMS_TTL = BASE_DIR.parent / "mlso_ttl" / "mlso_ml_algorithms.ttl"
+ML_FIELD_TTL = BASE_DIR.parent / "mlso_ttl" / "mlso_ml_fields.ttl"
 
 
 class HFToDCATConverter:
@@ -41,7 +45,8 @@ class HFToDCATConverter:
         profile: Profile = Profile.DCAT_AP,
         default_format: OutputFormat = OutputFormat.TURTLE,
         enable_translation: bool = True,
-        validate_flag: bool = True
+        validate_flag: bool = True, 
+        add_public_keyword: bool = False
     ):
         self.base_uri = base_uri.rstrip("/") + "/"
         self.profile = profile
@@ -59,6 +64,25 @@ class HFToDCATConverter:
                 BASE_DIR.parent / "extension_mappings/extension2_mediatype_filetype_mappings.json"
             )
         self.validate_flag = validate_flag
+        self.add_public_keyword = add_public_keyword
+        
+        # self.mlso_graph = Graph()
+        # self.mlso_graph.parse(ML_TASK_TYPES_TTL, format="turtle")
+        self.mlso_task_lookup = self._build_mlso_task_lookup(ML_TASK_TYPES_TTL)
+        self.mlso_algorithm_lookup = self._build_mlso_algorithm_lookup(ML_ALGORITHMS_TTL)
+        self.mlso_field_lookup = self._build_mlso_field_lookup(ML_FIELD_TTL)
+
+        self.MODEL_IMPLEMENTATION = URIRef(f"{self.base_uri}def/ModelImplementation")
+
+        # self.HAS_IMPLEMENTATION = URIRef(f"{self.base_uri}def/hasImplementation")
+        self.HAS_PROCESSOR = URIRef(f"{self.base_uri}def/hasProcessor")
+        self.HAS_MODEL_TYPE = URIRef(f"{self.base_uri}def/hasModelType")
+        self.HAS_EXECUTION_TASK = URIRef(f"{self.base_uri}def/hasExecutionTask")
+      
+        self.PYTHON_MODULE = URIRef(f"{self.base_uri}def/pythonModule")
+        self.PYTHON_CLASS = URIRef(f"{self.base_uri}def/pythonClass")
+
+        self.translation_cache = {}
 
     def _bind_namespaces(self, g: Graph, profile: Profile) -> None:
         g.bind("dcat", DCAT)
@@ -75,12 +99,29 @@ class HFToDCATConverter:
         g.bind("mls", MLS)
         g.bind("owl", OWL)
         g.bind("it6", IT6)
+        g.bind("lpwc", LPWC)
         g.bind("lpwcc", LPWCC)
+        g.bind("mlso", MLSO)
+        g.bind("phf", Namespace(f"{self.base_uri}def/"))
+        # g.bind("cr", CR)
    
     def _load_hf_metadata(self, json_path: Union[str, Path]) -> Dict[str, Any]:
         with open(json_path, 'r', encoding='utf-8') as f:
             data = json.load(f)
         
+        metadata = data.get("metadata", {})
+        status = metadata.get("status")
+
+        if status == "failed":
+            raise RuntimeError(
+                metadata.get("error", f"Fetch operation failed for {json_path}")
+            )
+
+        if status == "empty":
+            raise ValueError(
+                metadata.get("message", f"No datasets or models were kept in {json_path}")
+            )
+
         fetched = data.get("fetched_metadata", {})
     
         if not fetched or (
@@ -189,7 +230,226 @@ class HFToDCATConverter:
 
     def _create_bnode(self, resource_uri_id: str, suffix: str = "") -> BNode:
         """Create a unique BNode using dataset SHA with optional suffix"""
-        return BNode(f"bn_{resource_uri_id}{f'_{suffix}' if suffix else ''}")
+        # return BNode(f"bn_{resource_uri_id}{f'_{suffix}' if suffix else ''}")
+        # sanitize dataset/model id 
+        safe_id = re.sub(r"[^A-Za-z0-9_-]", "_", resource_uri_id)
+
+        return BNode(f"bn_{safe_id}{f'_{suffix}' if suffix else ''}")
+
+    
+    def _slugify_lookup_key(self, value: str) -> str:
+        return re.sub(r"[^a-z0-9]+", "-", str(value).lower()).strip("-")
+
+    def _build_mlso_skos_lookup(
+        self,
+        ttl_path: str,
+        *,
+        rdf_types: tuple[URIRef, ...] = (SKOS.Concept, OWL.NamedIndividual),
+        restrict_to_collection: URIRef | None = None,
+        include_alt_labels: bool = True,
+        include_uri_fragment: bool = True,
+    ) -> dict[str, URIRef]:
+        g = Graph()
+        g.parse(ttl_path, format="turtle")
+
+        if restrict_to_collection:
+            subjects = set(g.objects(restrict_to_collection, SKOS.member))
+        else:
+            subjects = set()
+            for rdf_type in rdf_types:
+                subjects.update(g.subjects(RDF.type, rdf_type))
+
+        lookup: dict[str, URIRef] = {}
+
+        for s in subjects:
+            labels = list(g.objects(s, SKOS.prefLabel))
+            if include_alt_labels:
+                labels += list(g.objects(s, SKOS.altLabel))
+
+            for label in labels:
+                key = self._slugify_lookup_key(str(label))
+                if key:
+                    lookup.setdefault(key, s)
+
+            if include_uri_fragment:
+                fragment = str(s).rstrip("/#").split("/")[-1].split("#")[-1]
+                key = self._slugify_lookup_key(fragment)
+                if key:
+                    lookup.setdefault(key, s)
+
+        return lookup
+
+    def _build_mlso_algorithm_lookup(self, ttl_path: str) -> dict[str, URIRef]:
+        return self._build_mlso_skos_lookup(
+            ttl_path,
+            rdf_types=(SKOS.Concept,),
+            restrict_to_collection=None,
+        )
+    
+    def _build_mlso_task_lookup(self, ttl_path: str) -> dict[str, URIRef]:
+        return self._build_mlso_skos_lookup(
+            ttl_path,
+            restrict_to_collection=URIRef(
+                "http://w3id.org/mlso/vocab/ml_task/MachineLearningTask"
+            ),
+        )
+
+    def _build_mlso_field_lookup(self, ttl_path: str) -> dict[str, URIRef]:
+        return self._build_mlso_skos_lookup(
+            ttl_path,
+            restrict_to_collection=URIRef(
+                "http://w3id.org/mlso/vocab/ml_field/MachineLearningField"
+            ),
+        )
+    # def _build_mlso_task_lookup(self, ttl_path: str) -> dict:
+    #     """
+    #     Load MLSO machine learning task type TTL and build lookup mapping normalized_label to URIRef
+    #     """
+    #     g = Graph()
+    #     g.parse(ttl_path, format="turtle")
+
+    #     lookup = {}
+
+    #     for s in g.subjects(RDF.type, OWL.NamedIndividual):
+    #         label = g.value(s, SKOS.prefLabel)
+
+    #         if label:
+    #             slug = label.lower().replace(" ", "-").replace("_", "-").strip()
+    #             lookup[slug] = s
+
+    #     return lookup
+    
+    # def _build_mlso_algorithm_lookup(self, ttl_path: str) -> Dict[str, URIRef]:
+    #     """
+    #     Load MLSO machine learning algorithm type TTL and build lookup mapping normalized_label to URIRef
+    #     """
+    #     g = Graph()
+    #     g.parse(ttl_path, format="turtle")
+
+    #     lookup = {}
+
+    #     for s in g.subjects(RDF.type, SKOS.Concept):
+    #         labels = list(g.objects(s, SKOS.prefLabel)) + list(g.objects(s, SKOS.altLabel))
+
+    #         for label in labels:
+    #             key = str(label).strip().lower()
+    #             lookup[key] = s
+
+    #     return lookup
+    
+    # def _build_mlso_field_lookup(self, ttl_path: str) -> dict[str, URIRef]:
+    #     g = Graph()
+    #     g.parse(ttl_path, format="turtle")
+
+    #     lookup = {}
+
+    #     for s in g.subjects(RDF.type, OWL.NamedIndividual):
+    #         labels = list(g.objects(s, SKOS.prefLabel)) + list(g.objects(s, SKOS.altLabel))
+
+    #         for label in labels:
+    #             key = re.sub(r"[^a-z0-9]+", "-", str(label).lower()).strip("-")
+    #             lookup[key] = s
+
+    #     return lookup
+
+    def _init_ml_classes(self, g: Graph):
+        """Initialize custom ML implementation subclasses """
+      
+        if (self.MODEL_IMPLEMENTATION, RDF.type, RDFS.Class) not in g:
+            g.add((self.MODEL_IMPLEMENTATION, RDF.type, RDFS.Class))
+            g.add((self.MODEL_IMPLEMENTATION, RDFS.subClassOf, MLS.Implementation))
+            g.add((self.MODEL_IMPLEMENTATION, RDFS.label, Literal("Model Implementation", lang="en")))
+            g.add((self.MODEL_IMPLEMENTATION, RDFS.comment,
+               Literal("Concrete implementation of a model architecture (e.g., BertForMaskedLM).", lang="en")))
+            
+            if self.enable_translation:
+                g.add((self.MODEL_IMPLEMENTATION, RDFS.label, Literal("Modellimplementierung", lang="de")))
+                g.add((self.MODEL_IMPLEMENTATION, RDFS.comment,
+                    Literal("Konkrete Implementierung einer Modellarchitektur (z. B. BertForMaskedLM).", lang="de")))
+
+    def _init_ml_properties(self, g: Graph):
+        """Initialize ML-related properties """
+
+        def add_property(prop, label_en, comment_en, label_de=None, comment_de=None):
+            if (prop, RDF.type, RDF.Property) not in g:
+                g.add((prop, RDF.type, RDF.Property))
+                g.add((prop, RDFS.label, Literal(label_en, lang="en")))
+                g.add((prop, RDFS.comment, Literal(comment_en, lang="en")))
+
+                if self.enable_translation and label_de:
+                    g.add((prop, RDFS.label, Literal(label_de, lang="de")))
+                    if comment_de:
+                        g.add((prop, RDFS.comment, Literal(comment_de, lang="de")))
+
+        # add_property(
+        #     self.HAS_MODEL_TYPE,
+        #     "has model family",
+        #     "Links a model to its model family (e.g., BERT, GPT), derived directly from the Hugging Face metadata field model_type.",
+        #     "hat Modellfamilie",
+        #     "Verknüpft ein Modell mit seiner Modellfamilie (z. B. BERT, GPT), die direkt aus dem Hugging-Face-Metadatenfeld model_type abgeleitet wird."
+        # )
+
+        # add_property(
+        #     self.HAS_EXECUTION_TASK,
+        #     "has execution task",
+        #     "Links a model to an execution-level task (e.g., feature-extraction) derived from the Hugging Face metadata field transformersInfo.pipeline_tag.",
+        #     "hat Ausführungsaufgabe",
+        #     "Verknüpft ein Modell mit einer laufzeitspezifischen Aufgabe (z. B. Feature-Extraction), die aus dem Hugging-Face-Metadatenfeld transformersInfo.pipeline_tag abgeleitet wird."
+        # )
+
+        # add_property(
+        #     self.HAS_PROCESSOR,
+        #     "has processor",
+        #     "Links a model to its preprocessing component (e.g., tokenizer or feature extractor) derived from the Hugging Face metadata field transformersInfo.processor.",
+        #     "hat Prozessor",
+        #     "Verknüpft ein Modell mit seiner Vorverarbeitungskomponente (z. B. Tokenizer oder Feature-Extraktor), die aus dem Hugging-Face-Metadatenfeld transformersInfo.processor abgeleitet wird."
+        # )
+
+        add_property(
+            self.PYTHON_MODULE,
+            "python module",
+            "Specifies the Python module used to load or execute a model implementation (e.g., from transformers or custom code).",
+            "Python-Modul",
+            "Gibt das Python-Modul an, das zum Laden oder Ausführen einer Modellimplementierung verwendet wird (z. B. aus transformers oder benutzerdefiniertem Code)."
+        )
+
+        add_property(
+            self.PYTHON_CLASS,
+            "python class",
+            "Specifies the Python class used to load or execute a model implementation (e.g., AutoModel or custom classes) derived from Hugging Face metadata.",
+            "Python-Klasse",
+            "Gibt die Python-Klasse an, die zum Laden oder Ausführen einer Modellimplementierung verwendet wird (z. B. AutoModel oder benutzerdefinierte Klassen), abgeleitet aus Hugging-Face-Metadaten."
+        )
+
+    def _init_ml_skos(self, g: Graph):
+        custom_schemes = {
+            "hf-task-type": {
+                "en": "Hugging Face Task Types",
+                "de": "Hugging Face Aufgabentypen"
+            },
+            "hf-modality": {
+                "en": "Hugging Face Modalities",
+                "de": "Hugging Face Modalitäten"
+            },
+            "hf-size": {
+                "en": "Hugging Face Size Categories",
+                "de": "Hugging Face Größenkategorien"
+            },
+            "hf-task-category": {
+                "en": "Hugging Face Task Categories",
+                "de": "Hugging Face Aufgabenkategorien"
+            }
+        }
+
+        for slug, labels in custom_schemes.items():
+            uri = URIRef(f"{self.base_uri}def/{slug}")
+
+            g.add((uri, RDF.type, SKOS.ConceptScheme))
+
+            for lang, label in labels.items():
+                g.add((uri, SKOS.prefLabel, Literal(label, lang=lang)))
+                g.add((uri, RDFS.label, Literal(label, lang=lang)))
+                g.add((uri, DCTERMS.title, Literal(label, lang=lang)))
 
     def convert(self, g: Graph, resource_type: str, metadata: Dict[str, Any]) -> None:
         """
@@ -238,9 +498,17 @@ class HFToDCATConverter:
         if resource_type == "model":
             g.add((dataset_uri, RDF.type, MLS.Model)) 
             g.add((dataset_uri, RDF.type, IT6.MachineLearningModel)) 
+
+            # ML_LIBRARY = URIRef(f"{self.base_uri}def/MLLibrary")
+            # MODEL_IMPLEMENTATION = URIRef(f"{self.base_uri}def/ModelImplementation")
+
         elif  resource_type == "dataset":
             g.add((dataset_uri, RDF.type, MLS.Dataset)) 
-     
+            croissant_meta = metadata.get("croissant")
+            license_meta = metadata.get("license")
+            if croissant_meta and isinstance(croissant_meta, dict):
+                self._add_croissant(g, dataset_uri, resource_id, croissant_meta, license_meta)
+
         # Add basic metadata with translations
         self._add_basic_metadata(g, dataset_uri, metadata, resource_id, resource_type)
         
@@ -248,15 +516,14 @@ class HFToDCATConverter:
         self._add_controlled_vocabulary_terms(g, dataset_uri, metadata)
 
         # Add metrics
-        self._add_metrics(g, dataset_uri, resource_id, metadata)
+        self._add_metrics(g, dataset_uri, resource_id, resource_type, metadata)
         
-        # Add publisher info
-        self._add_publisher_info(g, dataset_uri, resource_id)
-
         self._add_citations_documentation(g, dataset_uri, resource_type, metadata)
 
         # Add creator info
         self._add_creator_info(g, dataset_uri, resource_id, metadata)
+        # Add publisher info
+        self._add_publisher_info(g, dataset_uri, resource_id)
 
         # Add contactPoint and provenance:
         self._add_provenance(g, dataset_uri, resource_id)
@@ -273,6 +540,215 @@ class HFToDCATConverter:
                     g.add((dcat_ap_uri, RDFS.label, Literal("DCAT-AP 3.0.0", lang="en")))
                     if self.enable_translation: 
                         g.add((dcat_ap_uri, RDFS.label, Literal("DCAT-AP 3.0.0", lang="de")))
+    
+    def _normalize_croissant_urls(self, g: Graph) -> None:
+        """Convert string URLs in Croissant RDF to URIRefs where appropriate."""
+
+        URL_PREDICATES = {
+            SCHEMA.contentUrl,
+            SCHEMA.url,
+        }
+
+        for s, p, o in list(g.triples((None, None, None))):
+            if p in URL_PREDICATES and isinstance(o, Literal):
+                url = str(o).strip()
+
+                if url.startswith("http"):
+                    g.remove((s, p, o))
+                    g.add((s, p, URIRef(url)))
+    
+    def _normalize_schema_org(self, g: Graph):
+        """ Normalize schema in Croissant RDF """
+        SCHEMA_HTTP = "http://schema.org/"
+        SCHEMA_HTTPS = "https://schema.org/"
+
+        for s, p, o in list(g):
+            s_new = s
+            p_new = p
+            o_new = o
+
+            if isinstance(s, URIRef) and str(s).startswith(SCHEMA_HTTP):
+                s_new = URIRef(str(s).replace(SCHEMA_HTTP, SCHEMA_HTTPS))
+
+            if isinstance(p, URIRef) and str(p).startswith(SCHEMA_HTTP):
+                p_new = URIRef(str(p).replace(SCHEMA_HTTP, SCHEMA_HTTPS))
+
+            if isinstance(o, URIRef) and str(o).startswith(SCHEMA_HTTP):
+                o_new = URIRef(str(o).replace(SCHEMA_HTTP, SCHEMA_HTTPS))
+
+            if (s_new, p_new, o_new) != (s, p, o):
+                g.remove((s, p, o))
+                g.add((s_new, p_new, o_new))
+    
+    def _replace_croissant_blank_nodes(self, graph: Graph, base_uri: URIRef) -> Graph:
+        """ Replace all blank nodes in croissant rdf """
+
+        base = str(base_uri).rstrip("/") + "/"
+
+        # Assign stable local IDs to blank nodes ---
+        bnode_ids = {}
+        counter = 0
+
+        def get_bnode_id(b):
+            nonlocal counter
+            if b not in bnode_ids:
+                counter += 1
+                bnode_ids[b] = counter
+            return bnode_ids[b]
+
+        def normalize_term(term):
+            if isinstance(term, Literal):
+                if term.datatype:
+                    return f"literal:{term.value}:{term.datatype}"
+                elif term.language:
+                    return f"literal:{term.value}:{term.language}"
+                return f"literal:{term.value}"
+            elif isinstance(term, URIRef):
+                return f"uri:{str(term)}"
+            elif isinstance(term, BNode):
+                return f"bnode:{get_bnode_id(term)}"
+            else:
+                return str(term)
+
+        # Collect context of each blank node 
+        bnode_contexts = {}
+
+        for s, p, o in graph:
+            if isinstance(s, BNode):
+                bnode_contexts.setdefault(s, []).append(("subject", p, o))
+            if isinstance(o, BNode):
+                bnode_contexts.setdefault(o, []).append(("object", s, p))
+
+        # Generate stable URIs
+        bnode_map = {}
+
+        for bnode, contexts in bnode_contexts.items():
+            context_items = []
+
+            for role, p, term in contexts:
+                context_items.append((
+                    role,
+                    str(p),
+                    normalize_term(term)
+                ))
+
+            # Deterministic hash
+            context_str = json.dumps(sorted(context_items), sort_keys=True)
+            hash_val = hashlib.sha256(context_str.encode()).hexdigest()[:12]
+
+            stable_uri = URIRef(f"{base}node/{hash_val}")
+            bnode_map[bnode] = stable_uri
+
+        # Rewirte graph
+        new_graph = Graph()
+
+        # Preserve namespace bindings
+        for prefix, namespace in graph.namespaces():
+            new_graph.bind(prefix, namespace)
+
+        # Bind croissant namespace if desired
+        new_graph.bind("crdf", base_uri)
+
+        for s, p, o in graph:
+            new_s = bnode_map.get(s, s)
+            new_o = bnode_map.get(o, o)
+            new_graph.add((new_s, p, new_o))
+
+        return new_graph
+
+    def _add_croissant(self, g: Graph, subject: URIRef, dataset_id: str, croissant_meta: Dict[str, Any], license_meta):
+
+        # Add croissant as distribution
+        dist_uri = URIRef(f"{subject}/distribution/croissant")
+  
+        g.add((subject, DCAT.distribution, dist_uri))
+        g.add((dist_uri, RDF.type, DCAT.Distribution))
+
+        license_uri = self._process_license(g, license_meta)   
+        if license_uri:
+            g.add((dist_uri, DCTERMS.license, license_uri))
+
+        g.add((dist_uri, DCTERMS.title, Literal("Croissant metadata (JSON-LD)", lang="en")))
+        g.add((
+            dist_uri, 
+            DCTERMS.description, 
+            Literal("Dataset metadata following the Croissant (MLCommons) schema in JSON-LD format.",
+                lang="en"
+            )
+        ))
+        if self.enable_translation:
+            g.add((dist_uri, DCTERMS.title, Literal("Croissant-Metadaten (JSON-LD)", lang="de")))
+            g.add((
+                dist_uri,
+                DCTERMS.description,
+                Literal(
+                    "Datensatzmetadaten gemäß dem Croissant-Standard (MLCommons) im JSON-LD-Format.", 
+                    lang="de"
+                )
+            ))
+
+        croissant_uri = URIRef(f"https://huggingface.co/api/datasets/{dataset_id}/croissant")
+        # Add access URL for croissant metadata JSON-LD
+        g.add((dist_uri, DCAT.accessURL, croissant_uri))
+    
+        # Add format .jsonld 
+        self._add_file_media_type(g, dist_uri, ".jsonld")
+        g.add((dist_uri, DCTERMS.format, URIRef("http://publications.europa.eu/resource/authority/file-type/JSON_LD")))
+
+        # conformsTo (from croissant)
+        conforms_to = croissant_meta.get("conformsTo")
+        if not conforms_to:
+            conforms_to = "https://mlcommons.org/croissant/1.1" 
+
+        conform_uri = URIRef(conforms_to)
+        g.add((dist_uri, DCTERMS.conformsTo, conform_uri))       
+        # g.add((subject, DCTERMS.conformsTo, conform_uri))
+
+        ml_version = conforms_to.rstrip("/").split("/")[-1]
+        ml_label = f"MLCommons Croissant {ml_version}" if ml_version else "MLCommons Croissant"
+
+        if (conform_uri, RDF.type, DCTERMS.Standard) not in g:
+            g.add((conform_uri, RDF.type, DCTERMS.Standard))
+            g.add((conform_uri, RDFS.label, Literal(ml_label, lang="en")))
+
+            if self.enable_translation:
+                g.add((conform_uri, RDFS.label, Literal(ml_label, lang="de")))
+        
+        # try:
+        #     croissant_graph = Graph()
+        #     croissant_rdf_base_uri = URIRef(f"{subject}/croissant/")
+        #     croissant_rdf_uri = URIRef(croissant_rdf_base_uri.rstrip("/"))
+        
+        #     croissant_graph.bind("crdf", croissant_rdf_base_uri)
+        #     croissant_meta_enriched = dict(croissant_meta)
+        #     # Add @id for identification
+        #     croissant_meta_enriched["@id"] = str(croissant_rdf_uri)
+
+        #     croissant_graph.parse(
+        #         data=json.dumps(croissant_meta_enriched),
+        #         format="json-ld",
+        #         base=croissant_rdf_base_uri
+        #     )
+
+        #     self._normalize_schema_org(croissant_graph)
+        #     self._normalize_croissant_urls(croissant_graph)
+
+        #     # # Look for blank nodes in cross graph
+        #     # blank_nodes = [s for s in croissant_graph.subjects() if isinstance(s, BNode)]
+        #     # if blank_nodes:
+        #     #     croissant_graph = self._replace_croissant_blank_nodes(croissant_graph, croissant_rdf_base_uri)
+        #     #     blank_nodes = [s for s in croissant_graph.subjects() if isinstance(s, BNode)]
+        #     #     print(f"blank nodes: {blank_nodes}")
+
+        #     if len(croissant_graph) > 0:
+        #         for triple in croissant_graph:
+        #             g.add(triple)
+        #         g.add((subject, DCTERMS.relation, croissant_rdf_uri))                        
+        #         g.add((croissant_rdf_uri, DCTERMS.hasFormat, dist_uri))
+        #         g.add((dist_uri, DCTERMS.isFormatOf, croissant_rdf_uri))
+
+        # except Exception as e:
+        #     logger.exception(f"Croissant parsing failed for {dataset_id}: {e}")
     
     def _add_property(self, g: Graph, subject: URIRef, resource_uri_id: str, name: str, value: str, category: str = None, multi: bool = False):
         """Add (name, value) pair of metadata for dataset/model as schema property"""
@@ -295,7 +771,7 @@ class HFToDCATConverter:
         # Use propertyID as grouping/category identifier
         if category:
             g.add((bnode, SCHEMA.propertyID, Literal(category)))
-            
+               
     def _add_basic_metadata(self, g: Graph, subject: URIRef, metadata: Dict[str, Any], resource_id: str, resource_type: str):
         """
         Add basic metadata fields (title, description, tags, landing page, etc.) to the RDF graph.
@@ -384,6 +860,9 @@ class HFToDCATConverter:
                 # Tags are kept as-is due to technical nature
                 g.add((subject, DCAT.keyword, Literal(tag, lang="en")))
 
+        if self.add_public_keyword and "public" not in {t.lower() for t in tags}:
+            g.add((subject, DCAT.keyword, Literal("public", lang="en")))
+
         # Add AI-related keyword (translated) for model
         if resource_type == "model":
             g.add((subject, DCAT.keyword, Literal("AI model", lang="en")))
@@ -399,9 +878,16 @@ class HFToDCATConverter:
         # Add hub_url as landingPage
         hub_url = str(metadata.get("hub_url") or "").strip()
         if hub_url.startswith(("http://", "https://")):
-            g.add((subject, DCAT.landingPage, URIRef(hub_url)))
-            g.add((subject, IT6.hasRepository, URIRef(hub_url)))
-            g.add((URIRef(hub_url), RDF.type, FOAF.Document))
+            repo_uri = URIRef(hub_url)
+            g.add((subject, DCAT.landingPage, repo_uri))
+            g.add((repo_uri, RDF.type, FOAF.Document))  
+            if resource_type == "model":
+                g.add((subject, IT6.hasRepository, repo_uri))
+                g.add((repo_uri, RDF.type, LPWCC.Repository))
+            if isinstance(title, str):
+                g.add((repo_uri, RDFS.label, Literal(title, lang="en")))
+                if self.enable_translation:
+                    g.add((repo_uri, RDFS.label, Literal(title, lang="de")))
 
         # Add created_at and last_modified as issued and modified respectively
         self._add_dates(g, subject, metadata)
@@ -411,32 +897,336 @@ class HFToDCATConverter:
         # Add modality, task_categories, task_ids and size_category for datasets 
         if resource_type == "dataset":
             self._add_dataset_structured_keywords(g, subject, resource_id, metadata, tags)  
+            
         # Add access rights and availability
         self._handle_boolean_flags(g, subject, metadata)
     
-    def _add_task(self, g: Graph, subject: URIRef, task: str, origin: str):
-        """Create or reuse an MLS Task and link it to the subject via dct:subject."""
-        task_text = task.lower().strip()
+    def _add_skos_concept(
+        self,
+        g: Graph,
+        subject: URIRef,
+        value: str,
+        scheme_slug: str,
+        relation: URIRef,
+        *,
+        rdf_types: list = None,
+        exact_match: URIRef = None,
+        translate: bool = False,
+    ):
+        """Generic SKOS concept creator and linker for custom schemes"""
+
+        text = value.strip()
+        if not text:
+            return None
+
+        slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+
+        concept_uri = URIRef(f"{self.base_uri}def/{scheme_slug}/{slug}")
+        scheme_uri = URIRef(f"{self.base_uri}def/{scheme_slug}")
+
+        label = re.sub(r"[-_]+", " ", text).strip()
+        if not label.isupper():
+            label = label[:1].upper() + label[1:]
+
+        # Link subject to concept
+        g.add((subject, relation, concept_uri))
+
+        is_new = (concept_uri, RDF.type, SKOS.Concept) not in g
+
+        # Add concept if not already in graph
+        if is_new:
+            g.add((concept_uri, RDF.type, SKOS.Concept))
+            g.add((concept_uri, SKOS.prefLabel, Literal(label, lang="en")))
+            g.add((concept_uri, RDFS.label, Literal(label, lang="en")))
+            g.add((concept_uri, SKOS.inScheme, scheme_uri))
+
+            # Optional semantic typing 
+            if rdf_types:
+                for t in rdf_types:
+                    g.add((concept_uri, RDF.type, t))
+
+            # Optional translation
+            if translate and self.enable_translation:
+                translated = None 
+                if label in self.translation_cache:
+                    translated = self.translation_cache[label]
+                else:  
+                    try: 
+                        translated = self.translator.translate_text(label)
+                        self.translation_cache[label] = translated
+                    except Exception:
+                        pass
+                
+                if translated and translated != label:
+                    g.add((concept_uri, SKOS.prefLabel, Literal(translated, lang="de")))
+                    g.add((concept_uri, RDFS.label, Literal(translated, lang="de")))
+
+        # Optional external mapping
+        if exact_match:
+            g.add((concept_uri, SKOS.exactMatch, exact_match))
+
+        return concept_uri
+
+    # def _add_task(self, g: Graph, subject: URIRef, task: str, relation: URIRef, source:Optional[str|None]):
+    #     """Create MLS Task instance and SKOS task type with optional MLSO alignment."""
+
+    #     task_text = task.strip()
+    #     if not task_text:
+    #         return
+
+    #     task_slug = re.sub(r"[^a-z0-9]+", "-", task_text.lower()).strip("-")
+    #     task_node = URIRef(f"{self.base_uri}def/task/{task_slug}")
+
+    #     # Link model to task instance
+    #     g.add((subject, relation, task_node))
+    #     g.add((task_node, RDF.type, MLS.Task))
+
+    #     # Lookup MLSO
+    #     mlso_concept = self.mlso_task_lookup.get(task_slug)
+
+    #     # Create SKOS task type
+    #     concept_uri = self._add_skos_concept(
+    #         g,
+    #         subject=task_node, 
+    #         value=task,
+    #         scheme_slug="hf-task-type",
+    #         relation=MLSO.hasTaskType,
+    #         exact_match=mlso_concept,
+    #         translate=True,
+    #     )
+
+    #     if source == "hf_pipeline_tag" and concept_uri:
+    #         if (concept_uri, RDFS.comment, None) not in g:
+    #             g.add((concept_uri, RDFS.comment, Literal(
+    #                 "Hugging Face pipeline_tag describing the intended use or main task of the model.",
+    #                 lang="en"
+    #             )))
+
+    def _slug_to_mlso_camel(self, slug: str) -> str:
+        """Convert HF task category slug to MLSO ML field format."""
+
+        special = {
+            "dna": "DNA",
+        }
+
+        parts = re.split(r"[-_\s]+", slug.strip())
+        return "".join(
+            special.get(part.lower(), part[:1].upper() + part[1:])
+            for part in parts
+            if part
+        )
+
+    def _add_task(
+        self,
+        g: Graph,
+        subject: URIRef,
+        task: str,
+        relation: URIRef,
+        source: str | None = None,
+        source_data: URIRef | list[URIRef] | None = None,
+    ) -> tuple[URIRef | None, URIRef | None]:
+        """Create Task instance and add Task Type ."""
+
+        task_text = task.strip()
         if not task_text:
+            return None, None
+
+        task_slug = re.sub(r"[^a-z0-9]+", "-", task_text.lower()).strip("-")
+        task_node = URIRef(f"{self.base_uri}def/hf-task/task-{task_slug}")
+
+        task_info = HF_TASKS.get(task_slug)
+        task_label = task_info["label"] if task_info else task_text
+
+        # Link resource to task instance
+        g.add((subject, relation, task_node))
+        g.add((task_node, RDF.type, IT6.Task))
+        g.add((task_node, DCTERMS.title, Literal(task_label, lang="en")))
+        if self.enable_translation:
+            g.add((task_node, DCTERMS.title, Literal(task_label, lang="de")))
+      
+        # if source_data:
+        #     source_data_items = (
+        #         source_data if isinstance(source_data, list) else [source_data]
+        #     )
+        #     valid_dataset_uris = [
+        #         ds for ds in source_data_items if isinstance(ds, URIRef)
+        #     ]
+
+        #     # Only add sourceData when a single dataset is clearly associated
+        #     # Avoid overclaiming when the model was trained on more than one dataset 
+        #     # (task directly associated with a specific dataset)
+        #     if len(valid_dataset_uris) == 1:
+        #         g.add((task_node, IT6.sourceData, valid_dataset_uris[0]))
+
+            # for dataset_uri in source_data_items:
+            #     if isinstance(dataset_uri, URIRef):
+            #         g.add((task_node, IT6.sourceData, dataset_uri))
+
+        source_comments = {
+            "hf_pipeline_tag": (
+                "Task from Hugging Face model metadata field 'pipeline_tag'. "
+                "Represents the model's primary intended task."
+            ),
+
+            "hf_transformers_pipeline_tag": (
+                "Task from Hugging Face model metadata field "
+                "'transformersInfo.pipeline_tag'. "
+                "Represents the Transformers pipeline task used to run the model."
+            ),
+
+            "hf_dataset_task_category": (
+                "Task from Hugging Face dataset metadata field 'task_categories'. "
+                "Represents tasks the dataset is intended or suitable for."
+            ),
+        }
+
+        if source in source_comments:
+            g.add((task_node, RDFS.comment, Literal(source_comments[source], lang="en")))
+            if self.enable_translation:
+                de_comment = {
+                    "hf_pipeline_tag": (
+                        "Aufgabe aus dem Hugging Face-Modellmetadatenfeld pipeline_tag abgeleitet. "
+                        "Sie beschreibt die primäre vorgesehene Aufgabe des Modells."
+                    ),
+                    "hf_transformers_pipeline_tag": (
+                        "Aufgabe aus dem Hugging Face-Feld transformersInfo.pipeline_tag abgeleitet. "
+                        "Sie beschreibt die Transformers-Laufzeit-Pipeline-Aufgabe."
+                    ),
+                    "hf_dataset_task_category": (
+                        "Aufgabe aus dem Hugging Face-Datensatzmetadatenfeld task_categories abgeleitet. "
+                        "Sie beschreibt Aufgaben, für die der Datensatz vorgesehen oder geeignet ist."
+                    ),
+                }.get(source)
+
+                if de_comment:
+                    g.add((task_node, RDFS.comment, Literal(de_comment, lang="de")))
+
+        # Lookup MLSO task type
+        mlso_task_type = self.mlso_task_lookup.get(task_slug)
+
+        task_type_uri = self._add_skos_concept(
+            g,
+            subject=task_node,
+            value=task_label,
+            scheme_slug="hf-task-type",
+            relation=IT6.hasTaskType,
+            rdf_types=[IT6.TaskType],
+            exact_match=mlso_task_type,
+            translate=True,
+        )
+
+        if not task_type_uri:
+            return task_node, None
+
+        g.add((task_type_uri, SKOS.notation, Literal(task_slug)))
+
+        # # Optional MLSO compatibility
+        # g.add((task_node, MLSO.hasTaskType, task_type_uri))
+
+        # Add HF task page only for known HF task slugs
+        if task_slug in HF_TASKS:
+            g.add((
+                task_type_uri,
+                RDFS.seeAlso,
+                URIRef(f"https://huggingface.co/tasks/{quote(task_slug, safe='-_')}")
+            ))
+
+        # Add HF category as SKOS broader grouping
+        if task_info and task_info.get("category"):
+            category_slug = task_info["category"]
+            category_label = task_info.get(
+                "category_label",
+                category_slug.replace("-", " ").title(),
+            )
+
+            category_uri = URIRef(
+                f"{self.base_uri}def/hf-task-category/{category_slug}"
+            )
+            category_scheme = URIRef(f"{self.base_uri}def/hf-task-category")
+
+            if (category_uri, RDF.type, SKOS.Concept) not in g:
+                g.add((category_uri, RDF.type, SKOS.Concept))
+                g.add((category_uri, SKOS.prefLabel, Literal(category_label, lang="en")))
+                g.add((category_uri, RDFS.label, Literal(category_label, lang="en")))
+                g.add((category_uri, SKOS.notation, Literal(category_slug)))
+                g.add((category_uri, SKOS.inScheme, category_scheme))
+
+            g.add((task_type_uri, SKOS.broader, category_uri))
+            g.add((category_uri, SKOS.narrower, task_type_uri))
+
+            # Map HF task category to MLSO ML field
+            camel_key = self._slug_to_mlso_camel(category_slug)
+            normalized_camel_key = self._slugify_lookup_key(camel_key)
+
+            field_uri = (
+                self.mlso_field_lookup.get(normalized_camel_key)
+                or self.mlso_field_lookup.get(category_slug)
+                or self.mlso_field_lookup.get(camel_key)
+            )
+
+            if isinstance(field_uri, URIRef):
+                g.add((task_node, MLSO.relatedToField, field_uri))
+                g.add((category_uri, SKOS.exactMatch, field_uri))
+
+        return task_node, task_type_uri
+    
+    def _add_modality(self, g: Graph, subject: URIRef, modality: str):
+        """Create modality concept (SKOS + optional MLSO typing)."""
+
+        self._add_skos_concept(
+            g,
+            subject=subject,
+            value=modality,
+            scheme_slug="hf-modality",
+            relation=MLSO.hasModality,
+            rdf_types=[MLSO.DataModality],
+            translate=True,
+        )
+    
+    def _add_size_category(self, g: Graph, subject: URIRef, size: str):
+        """Create size category as SKOS concept."""
+
+        size_text = size.strip()
+        if not size_text:
             return
-        
-        task_slug = re.sub(r"[^a-z0-9]+", "-", task_text).strip("-")
 
-        task_uri = URIRef(f"{self.base_uri}def/hf-ml-task/{task_slug}") # self defined uri for HF task
+        # Normalize label
+        clean_label = size_text.strip()
 
-        g.add((subject, DCTERMS.subject, task_uri))
+        # Case 3: 1K<n<10K
+        clean_label = re.sub(r"\s*<\s*n\s*<\s*", " – ", clean_label)
+        # Case 1: n<1K 
+        clean_label = re.sub(r"n\s*<\s*", "< ", clean_label)
+        # Case 2: n>1M 
+        clean_label = re.sub(r"n\s*>\s*", "> ", clean_label)
 
-        # Link dataset task 
-        if (task_uri, RDF.type, MLS.Task) not in g:
-            g.add((task_uri, RDF.type, MLS.Task))
-            g.add((task_uri, RDFS.label, Literal(task_text)))
+        # Normalize spacing
+        clean_label = re.sub(r"\s+", " ", clean_label).strip()
 
-        g.add((task_uri, SKOS.note, Literal(origin)))
 
+        concept_uri = self._add_skos_concept(
+            g,
+            subject=subject,
+            value=size_text,  
+            scheme_slug="hf-size",
+            relation=DCTERMS.subject,
+            translate=True,
+        )
+
+        if not concept_uri:
+            return
+
+        g.set((concept_uri, SKOS.prefLabel, Literal(clean_label, lang="en")))
+        g.set((concept_uri, RDFS.label, Literal(clean_label, lang="en")))
+
+        if size_text != clean_label:
+            g.add((concept_uri, SKOS.altLabel, Literal(size_text, lang="en")))
+    
     def _add_dataset_structured_keywords(self, g: Graph, subject: URIRef, resource_uri_id:str, metadata: Dict[str, Any], tags: List[str]) -> None:
         """Convert HF dataset modality, task_categories, task_ids, size_categories"""
         modalities = []
         size_categories = []
+        libraries = []
         # task_ids = []
 
         task_categories = metadata.get("task_categories", [])
@@ -454,26 +1244,34 @@ class HFToDCATConverter:
             #     task_ids.append(value)
             elif key == "size_categories":
                 size_categories.append(value)
+            elif key == "library":
+                libraries.append(value)
      
         # Add modality 
         multi = len(modalities) > 1
         for mod in modalities:
-            self._add_property(g, subject, resource_uri_id, name="modality", value=mod, category="modality", multi=multi)
+            # self._add_property(g, subject, resource_uri_id, name="modality", value=mod, category="modality", multi=multi)
+            self._add_modality(g, subject, mod)
 
         # Add task category 
         multi = len(task_categories) > 1
         for task in task_categories:
-            self._add_task(g, subject, task, "task_category")
- 
+            self._add_task(g, subject, task, LPWC.usedForTask, "hf_dataset_task_category", source_data=subject)
+
         # Add task id 
         multi = len(task_ids) > 1
         for tid in task_ids:
-            self._add_task(g, subject, tid, "task_id")
+            # self._add_task(g, subject, tid, "task_id")
+            self._add_property(g, subject, resource_uri_id, "task_id", tid)
         
         # Add size_category 
         multi = len(size_categories) > 1
         for size in size_categories:
-            self._add_property(g, subject, resource_uri_id, name="size_category", value=size, category="size", multi=multi)
+            self._add_size_category(g, subject, size)
+        
+        # Add dataset libraries
+        for lib in libraries:
+            self._add_library(g, subject, resource_uri_id, lib, comment="Library used to load, access, and process datasets.")
    
     def _add_controlled_vocabulary_terms(self, g: Graph, subject: URIRef, metadata: Dict[str, Any]):
         """Add language, theme, accrualPeriodicity and spatial """
@@ -541,7 +1339,6 @@ class HFToDCATConverter:
         elif isinstance(language_val, str) and language_val.strip():
             language_codes.add(language_val.strip().lower())
 
-     
         bcp_language_val = metadata.get("language_bcp47")
         if isinstance(bcp_language_val, list):
             for code in bcp_language_val:
@@ -650,83 +1447,589 @@ class HFToDCATConverter:
             logger.debug(f"Invalid base code from BCP-47 tag: '{code}' → '{base}'")
             return None
         return base
+    
+    def _add_library(
+        self, 
+        g: Graph,
+        subject: URIRef,
+        resource_uri_id: str,
+        library_name: Optional[str],
+        comment: Optional[str] = None,
+        infrastructure_label: str = "Hugging Face runtime environment"
+    ) -> Optional[URIRef]:
+        """Add library information."""
 
-    def _add_library_transformers_config(self, g: Graph, subject: URIRef, resource_uri_id:str, metadata: Dict[str, Any]) -> None:
-        """Add library, transformers and config info"""
-        # ------------------------
-        # library and transformers info
-        # ------------------------
-        library_name = metadata.get("library_name")
-        transformers_info = metadata.get("transformers_info", {})
-        pipeline_tag = metadata.get("pipeline_tag")
-        # Add library 
-        if library_name and  isinstance(library_name, str):
-            g.add((subject, SCHEMA.softwareRequirements, Literal(library_name.strip(), lang="en")))
-            g.add((subject, IT6.modelArchitecture, Literal(library_name.strip(), lang="en")))
-        # Add transformers info 
-        if transformers_info:
-            if auto_model := transformers_info.get("auto_model"):
-                self._add_property(g, subject, resource_uri_id, "auto_model", auto_model, "transformers_info")
-            if custom_class := transformers_info.get("custom_class"):
-                self._add_property(g, subject, resource_uri_id, "custom_class", custom_class, "transformers_info")
-            if  transformer_pipeline_tag := transformers_info.get("pipeline_tag"): 
-                self._add_property(g, subject, resource_uri_id, "pipeline_tag", transformer_pipeline_tag, "transformers_info")       
-            if  processor := transformers_info.get("processor"):
-                self._add_property(g, subject, resource_uri_id, "processor", processor, "transformers_info")
-           
-        # Add fallback pipeline_tag when there is no transformers info
-        elif pipeline_tag:
-            self._add_property(g, subject, resource_uri_id, "pipeline_tag", pipeline_tag)
+        if not isinstance(library_name, str):
+            return None
 
-        # ------------------------
-        # config info
-        # ------------------------
-        config = metadata.get("config", {})
-        mask_token_added = False
-        if config:
-            # Add architectures 
-            if (architectures := config.get("architectures", [])):
-                if len(architectures) == 1:
-                    self._add_property(g, subject, resource_uri_id, "architecture", architectures[0], "config", False)
-                else: 
-                    for arch in architectures:
-                        self._add_property(g, subject, resource_uri_id, "architecture", arch, "config", True)
+        lib = library_name.strip()
+        if not lib or lib.lower() in {"null", "none", "generic"}:
+            return None
 
-            # Add model_type
-            if (model_type := config.get("model_type", "")):
-                self._add_property(g, subject, resource_uri_id, "model_type", model_type, category="config")
+        lib_slug = quote(lib.lower(), safe="-_")
+        lib_uri = URIRef(f"{self.base_uri}def/library/{lib_slug}")
 
-            # Add tokenizer 
-            if tokenizer := metadata.get("tokenizer_config", {}):
-                for key, value in tokenizer.items():
-                    # Skip anything not related to tokens
-                    if "token" not in key:
-                        continue
-                    if key == "mask_token":
-                        if isinstance(value, str):
-                            self._add_property(g, subject, resource_uri_id, f"tokenizer_{key}", value, category="tokenizer_config")
-                            mask_token_added = True
-                            continue
-                        if isinstance(value, dict):
-                            if (content := value.get("content", "")):
-                                self._add_property(g, subject, resource_uri_id, f"tokenizer_{key}", content, category="tokenizer_config")
-                                mask_token_added = True
-                            continue 
-                       
-                        continue
+        # Link model/dataset to runtime/software environment
+        infra_slug = self._slugify_lookup_key(resource_uri_id)
+        infra_uri = URIRef(f"{self.base_uri}def/computer-infrastructure/{infra_slug}")
+        g.add((subject, DCTERMS.relation, infra_uri))
 
-                    self._add_property(g, subject, resource_uri_id, f"tokenizer_{key}", value, category="tokenizer_config")
+        # Define MLDCAT-AP ComputerInfrastructure node 
+        if (infra_uri, None, None) not in g:
+            g.add((infra_uri, RDF.type, IT6.ComputerInfrastructure))
+            g.add((infra_uri, DCTERMS.title, Literal(infrastructure_label, lang="en")))
+            g.add((infra_uri, RDFS.label, Literal(infrastructure_label, lang="en")))
+
+            if self.enable_translation:
+                g.add((infra_uri, DCTERMS.title, Literal("Hugging-Face-Laufzeitumgebung", lang="de")))
+                g.add((infra_uri, RDFS.label, Literal("Hugging-Face-Laufzeitumgebung", lang="de")))
+
+        # ComputerInfrastructure has Library
+        g.add((infra_uri, IT6.hasLibrary, lib_uri))
+
+        g.add((subject, SCHEMA.softwareRequirements, lib_uri))
+      
+        if (lib_uri, None, None) not in g:
+            g.add((lib_uri, RDF.type, SCHEMA.SoftwareApplication))
+            g.add((lib_uri, RDF.type, IT6.Library))
+
+            g.add((lib_uri, SCHEMA.name, Literal(lib, lang="en")))
+            g.add((lib_uri, DCTERMS.title, Literal(lib, lang="en")))
+            g.add((lib_uri, RDFS.label, Literal(lib, lang="en")))
+
+            if comment:
+                g.add((lib_uri, RDFS.comment, Literal(comment, lang="en")))
+
+                if self.enable_translation:
+                    if "model" in comment.lower():
+                        g.add((lib_uri, RDFS.comment, Literal(
+                            "Bibliothek zum Laden und Ausführen von Machine-Learning-Modellen.",
+                            lang="de"
+                        )))
+                    elif "dataset" in comment.lower():
+                        g.add((lib_uri, RDFS.comment, Literal(
+                            "Bibliothek zum Laden, Zugreifen und Verarbeiten von Datensätzen.",
+                            lang="de"
+                        )))
+
+            if self.enable_translation:
+                g.add((lib_uri, DCTERMS.title, Literal(lib, lang="de")))
+                g.add((lib_uri, RDFS.label, Literal(lib, lang="de")))
+
+        return lib_uri
+
+    def _get_high_level_architecture(
+        self, 
+        model_type: Optional[str], 
+        architectures: Optional[list] = None, 
+        auto_model: Optional[str] = None
+    ) -> Optional[str]:
+        """ Infer high-level model architecture using architectures, auto_model and model_type) """
+
+        def normalize(s: str) -> str:
+            return s.lower().replace("_", "").replace("-", "")
+
+        # architectures 
+        if isinstance(architectures, list):
+            for arch in architectures:
+                if not isinstance(arch, str):
+                    continue
+                a = normalize(arch)
+
+                # Hybrid / state-space
+                if any(x in a for x in ["jamba", "mamba", "rwkv"]):
+                    return "Hybrid State Space Model"
+
+                # Multimodal
+                if any(x in a for x in ["llava", "blip", "clip", "visiontext"]):
+                    return "Multimodal Transformer Model"
+
+                # Whisper (special case)
+                if "whisper" in a:
+                    return "Encoder-Decoder Transformer"
+
+                # Encoder-decoder 
+                if any(x in a for x in ["seq2seq", "conditionalgeneration", "encoderdecoder", "visionencoderdecoder"]):
+                    return "Encoder-Decoder Transformer"
+
+                # Audio 
+                if any(x in a for x in ["wav2vec", "hubert", "unispeech", "speech2text", "speechtotext"]):
+                    return "Audio Transformer Model"
+
+                # Vision
+                if any(x in a for x in ["visionmodel", "visiontransformer", "vitmodel", "swin", 
+                    "vit", "dinov2", "forimageclassification", "forobjectdetection", "fordepthestimation"
+                ]):
+                    return "Vision Transformer Model"
+
+                # Decoder-only
+                if "causallm" in a:
+                    return "Decoder-only Transformer"
+
+                # Encoder-only
+                if any(x in a for x in ["maskedlm", "sequenceclassification", "tokenclassification"]):
+                    return "Encoder-only Transformer"
+
+        # auto_model 
+        if isinstance(auto_model, str):
+            am = normalize(auto_model)
+
+            if any(x in am for x in ["imagetexttotext", "visualquestionanswering", "vision2seq"]):
+                return "Multimodal Transformer Model"
+
+            if "whisper" in am:
+                return "Encoder-Decoder Transformer"
+
+            if any(x in am for x in ["seq2seq", "conditionalgeneration"]):
+                return "Encoder-Decoder Transformer"
+            
+            if any(x in am for x in ["speechseq2seq", "ctc"]):
+                return "Audio Transformer Model"
+
+            if any(x in am for x in [
+                "imageclassification", "objectdetection", "depthestimation", "imagesegmentation"
+            ]):
+                return "Vision Transformer Model"
+
+            if "causallm" in am:
+                return "Decoder-only Transformer"
+
+            if "maskedlm" in am:
+                return "Encoder-only Transformer"
+
+    
+        # model_type 
+        if not isinstance(model_type, str):
+            return None
+
+        mt = normalize(model_type)
+        base = mt.split("-")[0].split("_")[0]
+
+        # Special overrides
+        if base.startswith(("jamba", "mamba", "rwkv")):
+            return "Hybrid State Space Model"
+
+        if base.startswith("apertus"):
+            return "Decoder-only Transformer"
+
+        if base.startswith("whisper"):
+            return "Encoder-Decoder Transformer"
+
+        # ===== Representative mapping sets =====
+        encoder_only = {
+            "bert", "roberta", "distilbert", "deberta", "albert", "electra",
+            "mpnet", "longformer", "modernbert", "camembert", "xlmroberta"
+        }
+
+        decoder_only = {
+            "gpt2", "gptneo", "gptneox", "llama", "mistral", "mixtral", "falcon", "mpt", "phi", 
+            "phi3", "phi4", "gemma", "gemma2", "gemma3", "qwen2", "qwen3", "deepseek", "glm", 
+            "opt", "granite", "cohere", "starcoder", "starcoder2","dbrx", "olmo"
+        }
+
+        encoder_decoder = {
+            "t5", "mt5", "bart", "mbart", "marian", "pegasus", "ul2", "m2m100"
+        }
+
+        multimodal = {
+            "clip", "blip", "blip2", "llava", "idefics", "florence",
+            "internvl", "qwen2vl", "qwen3vl", "deepseekvl", "glm4v"
+        }
+
+        vision = {"vit", "swin", "swinv2", "dinov2", "sam", "beit", "siglip"}
+        cnn = {"resnet", "efficientnet", "mobilenet", "resnext", "densenet"}
+        audio = {"wav2vec2", "hubert", "parakeet", "speech2text"}
+
+        # Matching
+        if any(base.startswith(k) for k in multimodal):
+            return "Multimodal Transformer Model"
+
+        if any(base.startswith(k) for k in audio):
+            return "Audio Transformer Model"
+
+        if any(base.startswith(k) for k in vision):
+            return "Vision Transformer Model"
+
+        if any(base.startswith(k) for k in cnn):
+            return "Convolutional Neural Network"
+
+        if any(base.startswith(k) for k in encoder_only):
+            return "Encoder-only Transformer"
+
+        if any(base.startswith(k) for k in decoder_only):
+            return "Decoder-only Transformer"
+
+        if any(base.startswith(k) for k in encoder_decoder):
+            return "Encoder-Decoder Transformer"
+
+        return None
+
+    def _add_library_transformers_config(
+        self,
+        g: Graph,
+        subject: URIRef,
+        resource_uri_id: str,
+        metadata: Dict[str, Any],
+    ) -> None:
+        """ Add Hugging Face model semantic metadata for DCAT + ML loading."""
+
+        # Link used datasets
+        used_dataset_uris = []
+
+        used_datasets = as_array(metadata.get("datasets"))
+        if used_datasets:
+            used_dataset_uris = self._link_used_datasets(
+                g,
+                subject,
+                resource_uri_id,
+                used_datasets,
+            )
+
+        # Add library_name 
+        lib_uri = self._add_library(
+            g, 
+            subject, 
+            resource_uri_id, 
+            metadata.get("library_name"), 
+            comment="Library used to load and run machine learning models."
+        )
+
+        # Add pipeline_tag as task 
+        root_pipeline = metadata.get("pipeline_tag")
+        if isinstance(root_pipeline, str) and root_pipeline.strip():
+            # LPWC.usedForTask is defined as the relation between dataset and task but here use it also for model because of strong semantic match
+            self._add_task(g, subject, root_pipeline, LPWC.usedForTask, "hf_pipeline_tag", source_data=used_dataset_uris) 
         
-            if not mask_token_added:
-                if (raw_mask_token := metadata.get("mask_token", "")):
-                    if isinstance(raw_mask_token, str):
-                            self._add_property(g, subject, resource_uri_id, "tokenizer_mask_token", raw_mask_token, category="tokenizer_config")
-                    elif isinstance(raw_mask_token, dict):
-                        if (content := value.get("content", "")):
-                            self._add_property(g, subject, resource_uri_id, "tokenizer_mask_token", content, category="tokenizer_config")
+        config = metadata.get("config", {})
+        transformers_info = metadata.get("transformers_info", {})
+        model_type = config.get("model_type") if isinstance(config, dict) else None
+        architectures = config.get("architectures") if isinstance(config, dict) else None
+        auto_model = transformers_info.get("auto_model") if isinstance(transformers_info, dict) else None
+       
+        model_type_uri = None 
+        algo_uri = None 
+        if isinstance(model_type, str) and model_type.strip():
+            mt = model_type.strip()
+            # key = mt.lower()
+            key = self._slugify_lookup_key(mt)
 
-    def _add_metrics(self, g: Graph, subject: URIRef, resource_uri_id: str, metadata: Dict[str, Any]):
+            slug = quote(key, safe="-_")
+            model_type_uri = URIRef(f"{self.base_uri}def/model-type/{slug}")
+
+            if (model_type_uri, None, None) not in g:
+                g.add((model_type_uri, RDF.type, SKOS.Concept))
+                g.add((model_type_uri, SKOS.prefLabel, Literal(mt, lang="en")))
+                g.add((model_type_uri, RDFS.label, Literal(mt, lang="en")))
+                g.add((model_type_uri, SKOS.notation, Literal(key)))
+
+                # Semantic interpretation
+                g.add((
+                    model_type_uri,
+                    SKOS.scopeNote,
+                    Literal(
+                    "Represents a Hugging Face model family specified in "
+                    "the config.model_type field.", 
+                        lang="en",
+                    )
+                ))
+
+                # Metadata provenance
+                # g.add((model_type_uri, DCTERMS.source, Literal("config.model_type"))) # DCATAP dct:source not applicable here 
+            
+                if self.enable_translation:
+                    g.add((model_type_uri, SKOS.prefLabel, Literal(mt, lang="de")))
+                    g.add((model_type_uri, RDFS.label, Literal(mt, lang="de")))
+
+                    g.add((
+                        model_type_uri,
+                        SKOS.scopeNote,
+                        Literal(
+                            "Repräsentiert eine Hugging-Face-Modellfamilie "
+                            "aus dem Feld config.model_type.",
+                            lang="de",
+                        )
+                    ))
+
+
+            # # Link model to model type:
+            # g.add((subject, self.HAS_MODEL_TYPE, model_type_uri))
+            # Add generic interoperable relation from model to model type
+            g.add((subject, DCTERMS.relation, model_type_uri))
+
+            algo_uri = self.mlso_algorithm_lookup.get(key)
+            if isinstance(algo_uri, URIRef):
+                g.add((model_type_uri, SKOS.exactMatch, algo_uri))
+
+        # Add high level architecture
+        high_level_arch = self._get_high_level_architecture(    
+            model_type=model_type,
+            architectures=architectures,
+            auto_model=auto_model
+        )
+        if high_level_arch:
+            g.add((subject, IT6.modelArchitecture, Literal(high_level_arch)))
+
+        # config architectures is mls#Implementation          
+        if isinstance(architectures, list):
+            for arch in architectures:
+                if isinstance(arch, str) and arch.strip():
+                    arch_label = arch.strip()
+                    arch_slug = quote(arch_label.lower(), safe="-_")
+                    arch_impl_uri = URIRef(f"{self.base_uri}def/implementation/{arch_slug}")
+
+                    # Link model to implementation 
+                    # g.add((subject, self.HAS_IMPLEMENTATION, arch_impl_uri))
+                    # g.add((subject, MLS.hasPart, arch_impl_uri))
+                    # Link model to implementation as a generic relation 
+                    g.add((subject, DCTERMS.relation, arch_impl_uri))
+
+
+                    # Define implementation node
+                    if (arch_impl_uri, None, None) not in g:
+                        g.add((arch_impl_uri, RDF.type, MLS.Implementation))
+                        g.add((arch_impl_uri, RDF.type, self.MODEL_IMPLEMENTATION))
+                        g.add((arch_impl_uri, RDFS.label, Literal(arch_label, lang="en")))
+                        # g.add((arch_impl_uri, DCTERMS.source, Literal("config.architectures"))) # DCATAP dct:source not applicable here 
+
+                        g.add((arch_impl_uri, RDFS.comment, Literal(
+                            "Model implementation class specified in the Hugging Face config.architectures field.",
+                            lang="en",
+                        )))
+
+                        if self.enable_translation:
+                            g.add((arch_impl_uri, RDFS.label, Literal(arch_label, lang="de")))
+                            g.add((arch_impl_uri, RDFS.comment, Literal(
+                                "Modellimplementierungsklasse aus dem Hugging-Face-Feld config.architectures.",
+                                lang="de",
+                            )))
+                        
+
+                    # # Link implementation to model type-related algorithm if available, otherwise use relation to link to model_type 
+                    # added note: implements concept is not valid. so skip the relationship between arch_impl and algo_uri
+                    # if isinstance(algo_uri, URIRef):
+                    #     g.add((arch_impl_uri, MLS.implements, algo_uri))
+                    # elif model_type_uri:
+                    #     g.add((arch_impl_uri, DCTERMS.relation, model_type_uri))
+                    if  model_type_uri:
+                        g.add((arch_impl_uri, DCTERMS.relation, model_type_uri))
+
+                    # # Link implementation to library if available
+                    # if lib_uri:
+                    #     g.add((arch_impl_uri, DCTERMS.isPartOf, lib_uri))
+        
+        # Add total number of parameters 
+        safetensors = metadata.get("safetensors", {})
+        params = safetensors.get("parameters", {})
+        total_params = params.get("total")
+        if isinstance(total_params, int) and total_params >= 0:
+            g.add((subject, IT6.numberOfParameters, Literal(total_params, datatype=XSD.nonNegativeInteger)))
+        
+        # Add transformers info
+        if isinstance(transformers_info, dict):
+            auto_model = transformers_info.get("auto_model")
+            custom_class = transformers_info.get("custom_class")
+
+            def _add_loader(class_name: str, module_name: str, source_field: str, comment_en: str, comment_de: str):
+                class_slug = quote(class_name.lower(), safe="-_")
+                loader_uri = URIRef(f"{self.base_uri}def/implementation/{class_slug}")
+
+                # Link model to implementation (used for loading)
+                # g.add((subject, self.HAS_IMPLEMENTATION, loader_uri))
+                # g.add((subject, MLS.hasPart, loader_uri))
+                g.add((subject, DCTERMS.relation, loader_uri))
+
+                # Define node
+                if (loader_uri, None, None) not in g:
+                    g.add((loader_uri, RDF.type, MLS.Implementation))
+                    g.add((loader_uri, RDF.type, self.MODEL_IMPLEMENTATION))
+                    if model_type_uri: 
+                        g.add((loader_uri, MLS.implements, model_type_uri))
+                    g.add((loader_uri, RDFS.label, Literal(class_name, lang="en")))
+                    g.add((loader_uri, RDFS.comment, Literal(comment_en, lang="en")))
+                    # g.add((loader_uri, DCTERMS.source, Literal(source_field)))  # DCATAP dct:source not applicable here 
+
+                    if self.enable_translation:
+                        g.add((loader_uri, RDFS.label, Literal(class_name, lang="de")))
+                        g.add((loader_uri, RDFS.comment, Literal(comment_de, lang="de")))
+
+                    if module_name:
+                        g.add((loader_uri, self.PYTHON_MODULE, Literal(module_name)))
+                        g.add((loader_uri, self.PYTHON_CLASS, Literal(class_name)))
+
+                # # Link to library
+                # if isinstance(lib_uri, Node):
+                #     g.add((loader_uri, DCTERMS.isPartOf, lib_uri))
+
+            # Add custom_class 
+            if isinstance(custom_class, str) and "." in custom_class:
+                module_name, class_name = custom_class.rsplit(".", 1)
+
+                _add_loader(
+                    class_name=class_name,
+                    module_name=module_name,
+                    source_field="transformersInfo.custom_class",
+                    comment_en="Custom implementation class used to instantiate or load the model.",
+                    comment_de="Benutzerdefinierte Implementierungsklasse zum Laden oder Instanziieren des Modells."
+                )
+
+            # Add auto_model (generic loader) ---
+            if isinstance(auto_model, str) and auto_model.strip():
+                class_name = auto_model.strip()
+
+                _add_loader(
+                    class_name=class_name,
+                    module_name="transformers",
+                    source_field="transformersInfo.auto_model",
+                    comment_en="Hugging Face AutoModel class used to instantiate or load the model.",
+                    comment_de="Hugging-Face-AutoModel-Klasse zum Laden oder Instanziieren des Modells."
+                )
+
+            # Add processor 
+            processor = transformers_info.get("processor")
+         
+            if isinstance(processor, str) and processor.strip():
+                proc = processor.strip()
+
+                proc_slug = quote(proc.lower(), safe="-_")
+                proc_uri = URIRef(f"{self.base_uri}def/processor/{proc_slug}")
+
+                # Link model to processor
+                # g.add((subject, self.HAS_PROCESSOR, proc_uri))
+                # Generic interoperable relation
+                g.add((subject, DCTERMS.relation, proc_uri))
+
+                # Define processor node
+                if (proc_uri, None, None) not in g:
+                    g.add((proc_uri, RDF.type, SCHEMA.SoftwareApplication))
+                    g.add((proc_uri, RDFS.label, Literal(proc, lang="en")))
+                    # g.add((proc_uri, DCTERMS.source, Literal("transformersInfo.processor")))  # DCATAP dct:source not applicable here 
+
+                    # Default module = transformers (safe assumption here)
+                    g.add((proc_uri, self.PYTHON_MODULE, Literal("transformers")))
+                    g.add((proc_uri, self.PYTHON_CLASS, Literal(proc)))
+
+                    g.add((proc_uri, RDFS.comment, Literal(
+                        "Processor specified in the transformersInfo.processor field, "
+                        "used for preprocessing such as tokenization or feature extraction.",
+                        lang="en",
+                    )))
+
+                    if self.enable_translation:
+                        g.add((proc_uri, RDFS.label, Literal(proc, lang="de")))
+
+                        g.add((proc_uri, RDFS.comment, Literal(
+                            "Prozessor aus dem Feld transformersInfo.processor zur "
+                            "Vorverarbeitung wie Tokenisierung oder Merkmalsextraktion.",
+                            lang="de",
+                        )))
+
+                # # Link processor to library
+                # if lib_uri:
+                #     g.add((proc_uri, DCTERMS.isPartOf, lib_uri))
+
+
+            t_pipeline = transformers_info.get("pipeline_tag")
+
+            if isinstance(t_pipeline, str) and t_pipeline.strip():
+                t_pipeline = t_pipeline.strip()
+
+                same_as_root = (
+                    isinstance(root_pipeline, str)
+                    and t_pipeline.lower() == root_pipeline.strip().lower()
+                )
+
+                if not same_as_root:
+                    self._add_task(g, subject, t_pipeline, LPWC.usedForTask, "hf_transformers_pipeline_tag")
+
+    def _add_model_engagement(
+        self,
+        g: Graph,
+        subject: URIRef,
+        resource_uri_id: str,
+        metadata: Dict[str, Any],
+    ) -> None:
+        """Add MLDCAT-AP engagement information for Hugging Face models."""
+
+        likes = metadata.get("likes")
+        downloads = metadata.get("downloads")
+
+        if likes is None and downloads is None:
+            return
+
+        engagement_slug = self._slugify_lookup_key(resource_uri_id)
+        engagement_uri = URIRef(
+            f"{self.base_uri}def/engagement/{engagement_slug}"
+        )
+
+        g.add((subject, IT6.hasEngagement, engagement_uri))
+        g.add((engagement_uri, RDF.type, IT6.Engagement))
+
+        g.add((
+            engagement_uri,
+            DCTERMS.title,
+            Literal("Hugging Face engagement metrics", lang="en")
+        ))
+
+        if self.enable_translation:
+            g.add((
+                engagement_uri,
+                DCTERMS.title,
+                Literal("Hugging Face Engagement-Metriken", lang="de")
+            ))
+
+        if isinstance(likes, int) and likes >= 0:
+            g.add((
+                engagement_uri,
+                IT6.like,
+                Literal(likes, datatype=XSD.nonNegativeInteger)
+            ))
+
+        if isinstance(downloads, int) and downloads >= 0:
+            g.add((
+                engagement_uri,
+                IT6.download,
+                Literal(downloads, datatype=XSD.nonNegativeInteger)
+            ))
+
+            g.add((
+                engagement_uri,
+                RDFS.comment,
+                Literal(
+                    "Downloads are counted over the last 30 days",
+                    lang="en"
+                )
+            ))
+            if self.enable_translation:
+                g.add((
+                    engagement_uri,
+                    RDFS.comment,
+                    Literal(
+                        "Downloads werden für die letzten 30 Tage gezählt.",
+                        lang="de"
+                    )
+                ))
+
+    def _add_metrics(self, g: Graph, subject: URIRef, resource_uri_id: str, resource_type: str, metadata: Dict[str, Any]):
         """Add metrics (likes, downloads) if available"""
+
+        if resource_type == "model":
+            self._add_model_engagement(g, subject, resource_uri_id, metadata)
+
+        metric_labels = {
+            "likes": {
+                "en": "likes",
+                "de": "Likes",
+                "comment_en": "Total likes received.",
+                "comment_de": "Gesamtzahl der erhaltenen Likes."
+            },
+            "downloads": {
+                "en": "downloads",
+                "de": "Downloads",
+                "comment_en": "Downloads in the last 30 days.", 
+                "comment_de": "Downloads der letzten 30 Tage."
+            },
+        }
+
         for i, (field, (action_term, dt)) in enumerate(METRICS.items()):
             count = metadata.get(field)
             if count is None:
@@ -735,14 +2038,24 @@ class HFToDCATConverter:
             ic = self._create_bnode(resource_uri_id, f"metric_{i}")
             g.add((subject, SCHEMA.interactionStatistic, ic))
             g.add((ic, RDF.type, SCHEMA.InteractionCounter))
-            g.add((ic, SCHEMA.name, Literal(field, lang="en")))
-            de_name = self.vocab_manager.get_metric_translation(field)
-            if self.enable_translation: 
-                g.add((ic, SCHEMA.name, Literal(de_name, lang="de")))
+
+            label_info = metric_labels.get(field, {"en": field})
+            g.add((ic, SCHEMA.name, Literal(label_info["en"], lang="en")))
+
+            if self.enable_translation and label_info.get("de"):
+                g.add((ic, SCHEMA.name, Literal(label_info["de"], lang="de")))
+
+            if label_info.get("comment_en"):
+                g.add((ic, RDFS.comment, Literal(label_info["comment_en"], lang="en")))
+
+            if self.enable_translation and label_info.get("comment_de"):
+                g.add((ic, RDFS.comment, Literal(label_info["comment_de"], lang="de")))
 
             if action_term in (SCHEMA.LikeAction, SCHEMA.DownloadAction):
                 g.add((ic, SCHEMA.interactionType, action_term))
+
             g.add((ic, SCHEMA.userInteractionCount, Literal(count, datatype=dt)))
+
 
     def _add_publisher_info(self, g: Graph, subject: URIRef, resource_id: str):
         pub_id = resource_id.split("/", 1)[0].strip()
@@ -753,8 +2066,28 @@ class HFToDCATConverter:
         pub_uri = URIRef(f"https://huggingface.co/{pub_path}")
         g.add((subject, DCTERMS.publisher, pub_uri))
         g.add((pub_uri, RDF.type, FOAF.Agent))
-        g.add((pub_uri, RDF.type, FOAF.Organization))
-        g.add((pub_uri, FOAF.name, Literal(pub_id)))
+        existing_names = list(g.objects(pub_uri, FOAF.name))
+
+        pub_id_norm = pub_id.strip().lower()
+        should_add = True
+
+        for name in existing_names:
+            name_str = str(name).strip()
+            name_norm = name_str.lower()
+
+            # Case 1: existing name is longer 
+            if len(name_str) > len(pub_id):
+                should_add = False
+                break
+
+            # Case 2: same length AND same (case-insensitive) 
+            if len(name_str) == len(pub_id) and name_norm == pub_id_norm:
+                should_add = False
+                break
+
+        if should_add:
+            g.add((pub_uri, FOAF.name, Literal(pub_id)))
+
         g.add((pub_uri, FOAF.homepage, pub_uri))
         # if self.profile == Profile.DCAT_AP_DE:
         #     g.add((pub_uri, RDF.type, SKOS.Concept))
@@ -798,7 +2131,7 @@ class HFToDCATConverter:
                     arxiv_uri = URIRef(f"https://arxiv.org/abs/{arxiv_id}")
                     arxiv_triples = [
                         (subject, DCTERMS.isReferencedBy, arxiv_uri, g),
-                        (arxiv_uri, RDF.type, RDFS.Resource, g),
+                        # (arxiv_uri, RDF.type, RDFS.Resource, g),
                         (arxiv_uri, RDF.type, DCTERMS.BibliographicResource, g), 
                         (arxiv_uri, RDF.type, FOAF.Document, g), 
                         (arxiv_uri, RDFS.label, Literal(f"arXiv paper {arxiv_id}", lang="en"), g),
@@ -832,7 +2165,7 @@ class HFToDCATConverter:
                     doi_uri = URIRef(f"https://doi.org/{doi_id}")
                     doi_triples = [
                         (subject, DCTERMS.isReferencedBy, doi_uri, g),
-                        (doi_uri, RDF.type, RDFS.Resource, g),
+                        # (doi_uri, RDF.type, RDFS.Resource, g),
                         (doi_uri, RDF.type, DCTERMS.BibliographicResource, g), 
                         (doi_uri, RDF.type, FOAF.Document, g), 
                         (doi_uri, RDFS.label, Literal(f"DOI {doi_id}", lang="en"), g),
@@ -877,37 +2210,80 @@ class HFToDCATConverter:
             except Exception as e:
                 logger.warning(f"Failed to process README URL {readme_url}: {str(e)}")
     
+    def _add_croissant_creators(self, g: Graph, subject: URIRef, creators):
+        """ Add creator info based on croissant creator metadata """
+
+        if isinstance(creators, dict):
+            creators = [creators]
+
+        for creator in creators:
+
+            if not isinstance(creator, dict):
+                continue
+
+            name = creator.get("name")
+            url = creator.get("url")
+            ctype = creator.get("@type")
+
+            if not name:
+                continue
+
+            name = name.strip()
+
+            if url:
+                creator_node = URIRef(url)
+            else:
+                creator_node = BNode()
+
+            # Link to dataset
+            g.add((subject, DCTERMS.creator, creator_node))
+            g.add((creator_node, RDF.type, FOAF.Agent))
+            if ctype == "Person":
+                g.add((creator_node, RDF.type, FOAF.Person))
+            elif ctype == "Organization":
+                g.add((creator_node, RDF.type, FOAF.Organization))
+         
+            # Name
+            g.add((creator_node, FOAF.name, Literal(name)))
+
+            # Homepage 
+            if url:
+                g.add((creator_node, FOAF.homepage, URIRef(url)))
+            
     def _add_creator_info(self, g: Graph, subject: URIRef, resource_id: str, metadata: Dict[str, Any]):
-              
-        creator_id = resource_id.split("/", 1)[0].strip()
+        
+        croissant = metadata.get("croissant")
+        croissant_creators = croissant.get("creator") if isinstance(croissant, dict) else None
+        if croissant_creators:
+            self._add_croissant_creators(g, subject, croissant_creators)
+        else:
+            creator_id = resource_id.split("/", 1)[0].strip()
 
-        if not creator_id:
-            return
+            if not creator_id:
+                return
 
-        creator_path = quote(creator_id, safe="-_.")
-        creator_uri = URIRef(f"https://huggingface.co/{creator_path}")
+            creator_path = quote(creator_id, safe="-_.")
+            creator_uri = URIRef(f"https://huggingface.co/{creator_path}")
 
-        g.add((subject, DCTERMS.creator, creator_uri))
-        g.add((creator_uri, RDF.type, FOAF.Agent))
-        g.add((creator_uri, RDF.type, FOAF.Organization))
+            g.add((subject, DCTERMS.creator, creator_uri))
+            g.add((creator_uri, RDF.type, FOAF.Agent))
+            g.add((creator_uri, FOAF.name, Literal(creator_id)))
+            g.add((creator_uri, FOAF.homepage, creator_uri))
 
-        g.add((creator_uri, FOAF.name, Literal(creator_id)))
-        g.add((creator_uri, FOAF.homepage, creator_uri))
-
-        if self.profile == Profile.DCAT_AP_DE:
-            g.add((creator_uri, RDF.type, SKOS.Concept))
-            g.add((creator_uri, SKOS.prefLabel, Literal("Creator", lang="en")))
-            if self.enable_translation: 
-                g.add((creator_uri, SKOS.prefLabel, Literal("Ersteller", lang="de")))    
+            # if self.profile == Profile.DCAT_AP_DE:
+            #     g.add((creator_uri, RDF.type, SKOS.Concept))
+            #     g.add((creator_uri, SKOS.prefLabel, Literal("Creator", lang="en")))
+            #     if self.enable_translation: 
+            #         g.add((creator_uri, SKOS.prefLabel, Literal("Ersteller", lang="de")))    
 
     def _add_provenance(self, g: Graph, subject: URIRef, resource_id: str):
         # Add provenance
         prov = self._create_bnode(resource_id, "prov")
         g.add((subject, DCTERMS.provenance, prov))
         g.add((prov, RDF.type, DCTERMS.ProvenanceStatement))
-        g.add((prov, RDFS.label, Literal("The dataset was harvested from the Hugging Face website.", lang="en")))
+        g.add((prov, RDFS.label, Literal("The metadata was harvested from the Hugging Face platform.", lang="en")))
         if self.enable_translation: 
-            g.add((prov, RDFS.label, Literal("Der Datensatz wurde von der Hugging Face-Website geharvestet.", lang="de")))
+            g.add((prov, RDFS.label, Literal("Die Metadaten wurde von der Hugging Face-Plattform geharvestet.", lang="de")))
       
     def _handle_boolean_flags(self, g: Graph, subject: URIRef, metadata: Dict[str, Any]):
         """Handle special boolean flags with their specific predicates"""
@@ -972,7 +2348,7 @@ class HFToDCATConverter:
         license_uri = self._process_license(g, metadata.get("license"))
 
         # Use minted repo URI (for repo-level overall distribution)
-        HF_FORMAT_URI = URIRef(f"{self.base_uri}/def/file-type/repository") # self defined uri
+        HF_FORMAT_URI = URIRef(f"{self.base_uri}def/file-type/repository") # self defined uri
         g.add((HF_FORMAT_URI, RDF.type, DCTERMS.MediaTypeOrExtent))
         g.add((HF_FORMAT_URI, SKOS.exactMatch, LPWCC.Repository))
 
@@ -1053,10 +2429,10 @@ class HFToDCATConverter:
         for dist in metadata.get("distributions", []):
              self._add_model_distribution(g, subject, dist, resource_id, metadata, hf_format_uri, license_uri)
         
-        # Link used datasets
-        used_datasets = as_array(metadata.get("datasets"))
-        if used_datasets:
-            self._link_used_datasets(g, subject, resource_id, used_datasets)
+        # # Link used datasets
+        # used_datasets = as_array(metadata.get("datasets"))
+        # if used_datasets:
+        #     self._link_used_datasets(g, subject, resource_id, used_datasets)
         
         # Link base model
         base_models = as_array(metadata.get("base_model"))
@@ -1291,6 +2667,8 @@ class HFToDCATConverter:
     def _link_used_datasets(self, g: Graph, subject: URIRef, resource_id: str, dataset_ids: List[str]) -> None:
         """Link model to datasets it uses via it6:trainedOn
         """
+        dataset_uris: list[URIRef] = []
+
         if isinstance(dataset_ids, str):
             logger.exception("dataset_ids is a str rather than a list")
         for dataset_id in dataset_ids:
@@ -1313,8 +2691,12 @@ class HFToDCATConverter:
                 incomplete_id = False
 
             # Add datasets as training datasets
+            # g.add((subject, PROV.used, dataset_uri))  
+            dataset_uris.append(dataset_uri)
+
             g.add((subject, IT6.trainedOn, dataset_uri))
-            g.add((dataset_uri, RDF.type, MLS.Dataset))
+            # g.add((dataset_uri, RDF.type, MLS.Dataset))
+            # g.add((dataset_uri, RDF.type, DCAT.Dataset))
               
             g.add((dataset_uri, DCTERMS.title, Literal(dataset_id, lang="en")))
             if self.enable_translation: 
@@ -1340,6 +2722,8 @@ class HFToDCATConverter:
             g.add((dataset_uri, DCTERMS.description, Literal(desc_en, lang="en")))
             if self.enable_translation: 
                 g.add((dataset_uri, DCTERMS.description, Literal(desc_de, lang="de")))
+        
+        return dataset_uris
     
     def _link_base_models(self, g: Graph, subject: URIRef, resource_id: str, base_models: List[Dict[str, Any]]) -> None:
         """
@@ -1431,13 +2815,29 @@ class HFToDCATConverter:
             thread_converter = HFToDCATConverter(
                 base_uri=self.base_uri,
                 profile=self.profile,
-                enable_translation=self.enable_translation
+                enable_translation=self.enable_translation,
+                add_public_keyword=self.add_public_keyword
             )
             thread_converter.convert(thread_g, resource_type, item_data)
             return thread_g
         except Exception as e:
             logger.exception(f"Failed to convert {item_data.get('id')}: {str(e)}")
             return None
+
+    def _needs_ml_classes(self, g):
+        """ Check whether ModelImplementation class is used in the graph. """
+        return (None, RDF.type, self.MODEL_IMPLEMENTATION) in g
+
+    def _needs_ml_properties(self, g):
+        return any(
+            p in {
+                # self.HAS_IMPLEMENTATION,
+                self.HAS_PROCESSOR,
+                self.PYTHON_MODULE,
+                self.PYTHON_CLASS,
+            }
+            for _, p, _ in g
+        )
 
     def run_parallel(
         self,
@@ -1465,8 +2865,13 @@ class HFToDCATConverter:
         input_path = Path(input_path)
         if not input_path.exists():
             raise FileNotFoundError(f"Input file not found: {input_path}")
+        
+        try:
+            fetched = self._load_hf_metadata(input_path)
+        except ValueError as e:
+            logger.warning(str(e))
+            return []
 
-        fetched = self._load_hf_metadata(input_path)
         timestamp_str = datetime.now().strftime("%Y-%m-%d_%H-%M")
 
         output_dir = Path(output_dir or "output")
@@ -1506,6 +2911,8 @@ class HFToDCATConverter:
         for group_name, items in groups:
             merged_graph = Graph()
             self._bind_namespaces(merged_graph, self.profile)
+            self._init_ml_skos(merged_graph)
+       
             error_found = False
             # Parallel conversion
             with ThreadPoolExecutor(max_workers=max_workers) as executor:
@@ -1548,6 +2955,12 @@ class HFToDCATConverter:
                     continue
                 else:
                     raise RuntimeError(error_msg)
+            
+            if self._needs_ml_classes(merged_graph):
+                self._init_ml_classes(merged_graph)
+
+            if self._needs_ml_properties(merged_graph):
+                self._init_ml_properties(merged_graph)
 
             # Validate and output
             if self.validate_flag:
@@ -1588,10 +3001,25 @@ class HFToDCATConverter:
                 }.get(fmt, f".{fmt.value}")
 
                 full_path = base_path.with_suffix(ext)
-                merged_graph.serialize(destination=str(full_path), format=fmt.value)
+                # merged_graph.serialize(destination=str(full_path), format=fmt.value)
+                if fmt == OutputFormat.JSONLD:
+                    context = build_context()
+
+                    merged_graph.serialize(
+                        destination=str(full_path),
+                        format="json-ld",
+                        context=context,
+                        indent=2,
+                        auto_compact=True
+                    )
+                else:
+                    merged_graph.serialize(
+                        destination=str(full_path),
+                        format=fmt.value
+                    )
                 # logger.info(f"✅ Successfully wrote output to {full_path}")
                 all_output_files.append(full_path)
-
+            
         return all_output_files
 
    
@@ -1846,6 +3274,27 @@ def translate_model_dist_title(dist_type: str, title_en: str) -> str:
         return title_en.replace("File:", "Datei:")
     return title_en
 
+def build_context() -> dict:
+    return {
+        "@context": {
+            "dcat": "http://www.w3.org/ns/dcat#",
+            "dct": "http://purl.org/dc/terms/",
+            "foaf": "http://xmlns.com/foaf/0.1/",
+            "xsd": "http://www.w3.org/2001/XMLSchema#",
+            "schema": "https://schema.org/",
+            "skos": "http://www.w3.org/2004/02/skos/core#",
+            "prov": "http://www.w3.org/ns/prov#",
+            "vcard": "http://www.w3.org/2006/vcard/ns#",
+            "dcatap": "http://data.europa.eu/r5r/",
+            "dcatde": "http://dcat-ap.de/def/dcatde/",
+            "adms": "http://www.w3.org/ns/adms#",
+            "mls": "http://www.w3.org/ns/mls#",
+            "owl": "http://www.w3.org/2002/07/owl#",
+            "it6": "http://data.europa.eu/it6/",
+            "lpwcc": "https://linkedpaperswithcode.com/class/",
+        }
+    }
+
 def run_converter(
         input_path: Path,
         output_dir: Optional[Path] = Path("output"),
@@ -1853,7 +3302,8 @@ def run_converter(
         base_uri: str = "https://piveau.io/set",
         profile: Profile = Profile.DCAT_AP,
         output_format: Optional[List[Union[str, OutputFormat]]] = None,
-        enable_translation: bool = True
+        enable_translation: bool = True,
+        add_public_keyword: bool = False
     ) -> List[Path]:
         """
         Convert Hugging Face datasets/models metadata to DCAT-AP RDF.
@@ -1866,6 +3316,7 @@ def run_converter(
             profile: DCAT application profile (default: Profile.DCAT_AP.) 
             output_format (list of OutputFormat), optional Formats to export to (default: OutputFormat.RDFXML and OutputFormat.TURTLE).
             enable_translation (bool, optional): Whether to enable translation of text fields (default True).
+            add_public_keyword (bool, optional): Whether to inject dcat:keyword "public" into all generated dataset/model records.
 
         Returns:
             A list of paths to all created output files.
@@ -1881,7 +3332,8 @@ def run_converter(
             converter = HFToDCATConverter(
                 base_uri=base_uri,
                 profile=profile,
-                enable_translation=enable_translation
+                enable_translation=enable_translation, 
+                add_public_keyword=add_public_keyword
             )
 
             created_files = converter.run_parallel(

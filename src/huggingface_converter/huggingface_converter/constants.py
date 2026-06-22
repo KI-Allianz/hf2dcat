@@ -11,7 +11,10 @@ ADMS = Namespace("http://www.w3.org/ns/adms#")
 MLS = Namespace("http://www.w3.org/ns/mls#")
 VCARD = Namespace("http://www.w3.org/2006/vcard/ns#")
 IT6 = Namespace("http://data.europa.eu/it6/")
+LPWC = Namespace("https://linkedpaperswithcode.com/property/")
 LPWCC = Namespace("https://linkedpaperswithcode.com/class/")
+MLSO = Namespace("http://w3id.org/mlso/")
+CR = Namespace("http://mlcommons.org/croissant/")
 
 # -------------------------------------------------------------------
 # DCATAP and DCATAP DE controlled vovabularies 
@@ -196,4 +199,222 @@ LANG_LABELS_MULTI = {
     "JPN": {"en": "Japanese", "de": "Japanisch"},
     "RUS": {"en": "Russian", "de": "Russisch"},
     "HIN": {"en": "Hindi", "de": "Hindi"}
+}
+
+# ML_TASK_TYPES_TTL = "https://raw.githubusercontent.com/dtai-kg/MLSO/main/ontology/Taxonomies/mlso_ml_task_types_v2.ttl"
+# ML_ALGORITHMS_TTL = "https://raw.githubusercontent.com/dtai-kg/MLSO/refs/heads/main/ontology/Taxonomies/mlso_ml_algorithms.ttl"
+
+# HF Task from : https://huggingface.co/tasks
+HF_TASKS: dict[str, dict[str, str]] = {
+
+    # =========================
+    # Multimodal
+    # =========================
+    "any-to-any": {
+        "label": "Any-to-Any",
+        "category": "multimodal",
+    },
+    "audio-text-to-text": {
+        "label": "Audio-Text-to-Text",
+        "category": "multimodal",
+    },
+    "document-question-answering": {
+        "label": "Document Question Answering",
+        "category": "multimodal",
+    },
+    "visual-document-retrieval": {
+        "label": "Visual Document Retrieval",
+        "category": "multimodal",
+    },
+    "image-text-to-text": {
+        "label": "Image-Text-to-Text",
+        "category": "multimodal",
+    },
+    "image-text-to-image": {
+        "label": "Image-Text-to-Image",
+        "category": "multimodal",
+    },
+    "image-text-to-video": {
+        "label": "Image-Text-to-Video",
+        "category": "multimodal",
+    },
+    "video-text-to-text": {
+        "label": "Video-Text-to-Text",
+        "category": "multimodal",
+    },
+    "visual-question-answering": {
+        "label": "Visual Question Answering",
+        "category": "multimodal",
+    },
+    # =========================
+    # Natural Language Processing
+    # =========================
+    "feature-extraction": {
+        "label": "Feature Extraction",
+        "category": "natural-language-processing",
+    },
+    "fill-mask": {
+        "label": "Fill-Mask",
+        "category": "natural-language-processing",
+    },
+    "question-answering": {
+        "label": "Question Answering",
+        "category": "natural-language-processing",
+    },
+    "sentence-similarity": {
+        "label": "Sentence Similarity",
+        "category": "natural-language-processing",
+    },
+    "summarization": {
+        "label": "Summarization",
+        "category": "natural-language-processing",
+    },
+    "table-question-answering": {
+        "label": "Table Question Answering",
+        "category": "natural-language-processing",
+    },
+    "text-classification": {
+        "label": "Text Classification",
+        "category": "natural-language-processing",
+    },
+    "text-generation": {
+        "label": "Text Generation",
+        "category": "natural-language-processing",
+    },
+    "text-ranking": {
+        "label": "Text Ranking",
+        "category": "natural-language-processing",
+    },
+    "token-classification": {
+        "label": "Token Classification",
+        "category": "natural-language-processing",
+    },
+    "translation": {
+        "label": "Translation",
+        "category": "natural-language-processing",
+    },
+    "zero-shot-classification": {
+        "label": "Zero-Shot Classification",
+        "category": "natural-language-processing",
+    },
+
+    # =========================
+    # Computer Vision
+    # =========================
+    "depth-estimation": {
+        "label": "Depth Estimation",
+        "category": "computer-vision",
+    },
+    "image-classification": {
+        "label": "Image Classification",
+        "category": "computer-vision",
+    },
+    "image-feature-extraction": {
+        "label": "Image Feature Extraction",
+        "category": "computer-vision",
+    },
+    "image-segmentation": {
+        "label": "Image Segmentation",
+        "category": "computer-vision",
+    },
+    "image-to-image": {
+        "label": "Image-to-Image",
+        "category": "computer-vision",
+    },
+    "image-to-text": {
+        "label": "Image-to-Text",
+        "category": "computer-vision",
+    },
+    "image-to-video": {
+        "label": "Image-to-Video",
+        "category": "computer-vision",
+    },
+    "keypoint-detection": {
+        "label": "Keypoint Detection",
+        "category": "computer-vision",
+    },
+    "mask-generation": {
+        "label": "Mask Generation",
+        "category": "computer-vision",
+    },
+    "object-detection": {
+        "label": "Object Detection",
+        "category": "computer-vision",
+    },
+    "video-classification": {
+        "label": "Video Classification",
+        "category": "computer-vision",
+    },
+    "text-to-image": {
+        "label": "Text-to-Image",
+        "category": "computer-vision",
+    },
+    "text-to-video": {
+        "label": "Text-to-Video",
+        "category": "computer-vision",
+    },
+    "unconditional-image-generation": {
+        "label": "Unconditional Image Generation",
+        "category": "computer-vision",
+    },
+    "video-to-video": {
+        "label": "Video-to-Video",
+        "category": "computer-vision",
+    },
+    "zero-shot-image-classification": {
+        "label": "Zero-Shot Image Classification",
+        "category": "computer-vision",
+    },
+    "zero-shot-object-detection": {
+        "label": "Zero-Shot Object Detection",
+        "category": "computer-vision",
+    },
+    "text-to-3d": {
+        "label": "Text-to-3D",
+        "category": "computer-vision",
+    },
+    "image-to-3d": {
+        "label": "Image-to-3D",
+        "category": "computer-vision",
+    },
+
+    # =========================
+    # Audio
+    # =========================
+    "audio-classification": {
+        "label": "Audio Classification",
+        "category": "audio",
+    },
+    "audio-to-audio": {
+        "label": "Audio-to-Audio",
+        "category": "audio",
+    },
+    "automatic-speech-recognition": {
+        "label": "Automatic Speech Recognition",
+        "category": "audio",
+    },
+    "text-to-speech": {
+        "label": "Text-to-Speech",
+        "category": "audio",
+    },
+
+    # =========================
+    # Tabular
+    # =========================
+    "tabular-classification": {
+        "label": "Tabular Classification",
+        "category": "tabular",
+    },
+    "tabular-regression": {
+        "label": "Tabular Regression",
+        "category": "tabular",
+    },
+
+    # =========================
+    # Reinforcement Learning
+    # =========================
+    "reinforcement-learning": {
+        "label": "Reinforcement Learning",
+        "category": "reinforcement-learning",
+    },
 }

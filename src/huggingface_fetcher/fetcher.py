@@ -22,6 +22,7 @@ from dataclasses import dataclass
 from urllib.parse import quote, urlparse
 
 from dotenv import load_dotenv
+from .filtering_utils import is_valid_candidate, apply_filter, LICENSE_EXCEPTIONS
 
 # env_path = Path(__file__).resolve().parents[2] / ".env"
 # load_dotenv(dotenv_path=env_path)
@@ -34,47 +35,14 @@ logger = logging.getLogger(__name__)
 
 
 T = TypeVar("T")
-NON_OPEN_LICENSES = {
-    "apple-amlr", "apple-ascl", 
-    "bigcode-openrail-m", "bigscience-bloom-rail-1.0", 
-    "bigscience-openrail-m", "c-uda",
-    "cc-by-nc-2.0", "cc-by-nc-3.0", "cc-by-nc-4.0",
-    "cc-by-nc-nd-3.0", "cc-by-nc-nd-4.0",
-    "cc-by-nc-sa-2.0", "cc-by-nc-sa-3.0", "cc-by-nc-sa-4.0",
-    "cc-by-nd-4.0",  "creativeml-openrail-m", "deepfloyd-if-license",
-    "fair-noncommercial-research-license", 
-    "gemma", "h-research", "intel-research", 
-    "llama2", "llama3", "llama3.1", "llama3.2",
-    "llama3.3", "llama4",  "open-mdw", 
-    "openrail", "openrail++", 
-    "other", "unknown"
-}
-OPEN_LICENSES = {
-    "afl-3.0", 'agpl-3.0', "apache-2.0", "artistic-2.0",
-    "bsd", "bsd-2-clause", "bsd-3-clause", "bsd-3-clause-clear",
-    "bsl-1.0", "cc", "cc-by-2.0", "cc-by-2.5", "cc-by-3.0", "cc-by-4.0",
-    "cc-by-sa-3.0", "cc-by-sa-4.0", "cc0-1.0", 
-    "cdla-permissive-1.0", "cdla-permissive-2.0", "cdla-sharing-1.0",
-    "ecl-2.0", "epl-1.0", "epl-2.0", 'etalab-2.0',
-    "eupl-1.1", "eupl-1.2","gfdl", "gpl", "gpl-2.0", "gpl-3.0", 
-    "isc", "lgpl", "lgpl-2.1", "lgpl-3.0", "lgpl-lr", "lppl-1.3c",
-    "mit", "mpl-2.0", "ms-pl", "ncsa", "odbl", "odc-by", 
-    "ofl-1.1", "osl-3.0", "pddl", "postgresql",
-    "unlicense", "wtfpl", "zlib"
-}
-# Repo that has license info in CardData 
-LICENSE_EXCEPTIONS = {
-    "HuggingFaceM4/FineVision": "cc-by-4.0",
-    "tencent/WildSpeech-Bench": "cc-by-4.0"
-}
-EXCLUDED_DATASET_IDS = {
-    "KakologArchives/KakologArchives", # no English description
-    "ACCC1380/private-model", # no English description
-    "jamesqijingsong/chengyu", # no English description
-    "kuroneko5943/jd21", 
-    # "nvidia/Nemotron-Personas-Japan", 
-    "liwu/MNBVC", # unsafe dataset files
-    "Derur/all-portable-apps-and-ai-in-one-url" # unsafe dataset files
+
+KNOWN_COMPOUND_EXTS = {
+    (".tar", ".gz"),
+    (".json", ".gz"),
+    (".csv", ".gz"),
+    (".txt", ".gz"),
+    (".xml", ".gz"),
+    (".jsonl", ".gz")
 }
 
 @dataclass
@@ -506,71 +474,7 @@ class HuggingfaceFetcher:
             return [str(n).strip() for n in name_input if str(n).strip()]
         else:
             raise TypeError("Expected a string or list of strings")
-    
-    def _normalize_license(self, license_field):
-        """Normalize HF license field into a list of lowercase strings."""
-        if not license_field:
-            return []
-        if isinstance(license_field, str):
-            return [license_field.lower()]
-        if isinstance(license_field, list):
-            return [str(l).lower() for l in license_field if l]
-        return []
-    
-    def _is_restricted(self, item: Dict) -> Tuple[bool, Optional[List[str]]]:
-        """
-        Check whether a dataset/model is restricted
-
-        Args: 
-            item: metadata dict of a dataset/model
-
-        Return (is_restricted, reasons) where:
-            - is_restricted = True if dataset/model is disabled, private, gated, has a closed license or 
-                    has no license at all (unless in LICENSE_EXCEPTIONS)
-            - reasons = list of strings explaining why
-        """
-
-        if not item:
-            return False, None
-
-        reasons = []
-
-        if item.get("disabled"):
-            reasons.append("disabled=True")
-        if item.get("private"):
-            reasons.append("private=True")
-        if item.get("gated"):
-            reasons.append("gated=True")
-
-        item_id = item.get("id")
-
-        if item_id in LICENSE_EXCEPTIONS:
-            return False, None
-
-        licenses = self._normalize_license(item.get("license"))
-        if not licenses:
-            reasons.append("no license info")
-        else: 
-            closed_licenses = [l for l in licenses if l in NON_OPEN_LICENSES]
-            if closed_licenses:
-                reasons.append(f"closed license(s): {', '.join(closed_licenses)}")
-
-        return (bool(reasons), reasons if reasons else None)
-
-    def _apply_filter(self, items, kind: str):
-        """Filter out restricted datasets or models"""
-        kept, removed = [], []
-        for itm in items:
-            restricted, reasons = self._is_restricted(itm)
-            if restricted:
-                removed.append({"id": itm.get("id", "<unknown>"), "reasons": reasons, "metadata": itm})
-            else:
-                kept.append(itm)
-        if removed:
-            for r in removed:
-                logger.info(f"Filtered out {kind} {r['id']} due to: {', '.join(r['reasons'])}")
-        return kept, removed
-    
+       
     def _fetch_items(self, names: List[str], fetch_func, kind: str):
         """Fetch a list of datasets or models by name, separating successes and failures."""
         successes, failures = [], []
@@ -648,6 +552,8 @@ class HuggingfaceFetcher:
         # Initialize tracking variables
         start_time = time.time()
         datasets, models = [], []
+        pre_filtered_datasets = []
+        pre_filtered_models = []
         failed_datasets, failed_models = [], []
         failed_metadata = {}
 
@@ -704,7 +610,7 @@ class HuggingfaceFetcher:
                 if fetch_type in ["both", "dataset"]:
                     logger.info(f"Fetching datasets with params: {used_params}")
                     include_datasets = True
-                    fetched_list = self._fetch_datasets(filter_restricted=filter_restricted, params=used_params) or []
+                    fetched_list, pre_filtered_datasets = self._fetch_datasets(filter_restricted=filter_restricted, params=used_params)
                     for d in fetched_list:
                         if isinstance(d, dict) and "error" in d:
                             failed_datasets.append(d)
@@ -714,7 +620,7 @@ class HuggingfaceFetcher:
                 if fetch_type in ["both", "model"]:
                     logger.info(f"Fetching models with params: {used_params}")
                     include_models = True
-                    fetched_list = self._fetch_models(filter_restricted=filter_restricted, params=used_params) or []
+                    fetched_list, pre_filtered_models = self._fetch_models(filter_restricted=filter_restricted, params=used_params)
                     for m in fetched_list:
                         if isinstance(m, dict) and "error" in m:
                             failed_models.append(m)
@@ -736,8 +642,21 @@ class HuggingfaceFetcher:
         counts = {}
         fetched = {}
         total = 0
-        filtered_out_total = 0
-        filtered_out = {}
+        kept_total = 0
+
+        pre_filtered_out = {}
+        if pre_filtered_datasets:
+            pre_filtered_out["datasets"] = pre_filtered_datasets
+        if pre_filtered_models:
+            pre_filtered_out["models"] = pre_filtered_models
+
+        pre_filtered_out_total = (
+            len(pre_filtered_datasets)
+            + len(pre_filtered_models)
+        )
+
+        post_filtered_out_total = 0
+        post_filtered_out = {}
 
         if filter_restricted:
             for label, items, included in (
@@ -745,14 +664,15 @@ class HuggingfaceFetcher:
                 ("models", models, include_models)
             ):
                 if included:
-                    kept, removed = self._apply_filter(items, label)
+                    kept, removed = apply_filter(items, label)
                     if kept:
                         fetched[label] = kept
                         counts[label] = len(kept)
+                        kept_total += len(kept)
                     if removed:
-                        filtered_out[label] = removed
-                        filtered_out_total += len(removed)
-                    total += len(kept) + len(removed)
+                        post_filtered_out[label] = removed
+                        post_filtered_out_total += len(removed)
+               
         else:
             for label, items, included in (
                 ("datasets", datasets, include_datasets),
@@ -761,60 +681,92 @@ class HuggingfaceFetcher:
                 if included:
                     fetched[label] = items
                     counts[label] = len(items)
-                    total += len(items)
+                    kept_total += len(items)
 
-        if filter_restricted and filtered_out_total:
-            counts["filtered_out"] = filtered_out_total
-        
+        filtered_out_total = (
+            pre_filtered_out_total +
+            post_filtered_out_total
+        )
+
+        if filter_restricted:
+            if pre_filtered_out_total:
+                counts["pre_filtered_out"] = pre_filtered_out_total
+
+            if post_filtered_out_total:
+                counts["post_filtered_out"] = post_filtered_out_total
+
+            if filtered_out_total:
+                counts["filtered_out"] = filtered_out_total
+
         if failed_total:
             counts["failed"] = failed_total
 
-        if total == 0:
+
+        status = "success" if success else "failed"
+        message = None
+
+        if kept_total == 0:
+            status = "empty"
             if filter_restricted and filtered_out_total:
-                msg = "❌ No datasets or models passed the filtering rules. All fetched items were filtered out as restricted."
+                message = "No datasets or models were kept. All available candidates were filtered out."   
+            elif failed_total:
+                message = "No datasets or models were kept. All metadata fetch attempts failed."
+                   
             else:
-                msg = "❌ No datasets or models were fetched and processed. Check inputs and filters, or review the logs for possible internal errors."
-            logger.error(msg)
-            raise RuntimeError(msg)
-        else:        
-            counts["total"] = total
+                message = "No datasets or models were fetched and processed. Check inputs, filters, or logs."
+             
+        counts["kept_total"] = kept_total
+
+        counts["processed_total"] = kept_total + filtered_out_total + failed_total
         
-            # Prepare results structure
-            results = {
-                "metadata": {
-                    "fetcher": "HuggingfaceFetcher",
-                    "timestamp": datetime.now(timezone.utc).isoformat(),
-                    "execution_time_seconds": round(time.time() - start_time, 2),
-                    "status": "success" if success else "failed",
-                    "parameters": {
-                        "mode": "name fetch" if dataset_name or model_name else "batch fetch",
-                        "fetch_type": fetch_type if not (dataset_name or model_name) else None,
-                        "params": used_params,
-                        "dataset_name": dataset_name,
-                        "model_name": model_name,
-                        "sort_by_downloads_applied": sort_by_downloads if not (dataset_name or model_name) and 'limit' in used_params else None
-                    }
-                },
-                "counts": counts, 
-                "fetched_metadata": fetched
-            }
+        # Prepare results structure
+        results = {
+            "metadata": {
+                "fetcher": "HuggingfaceFetcher",
+                "timestamp": datetime.now(timezone.utc).isoformat(),
+                "execution_time_seconds": round(time.time() - start_time, 2),
+                "status": status,
+                "parameters": {
+                    "mode": "name fetch" if dataset_name or model_name else "batch fetch",
+                    "fetch_type": fetch_type if not (dataset_name or model_name) else None,
+                    "params": used_params,
+                    "dataset_name": dataset_name,
+                    "model_name": model_name,
+                    "sort_by_downloads_applied": sort_by_downloads if not (dataset_name or model_name) and 'limit' in used_params else None
+                }
+            },
+            "counts": counts, 
+            "fetched_metadata": fetched
+        }
 
-            if filter_restricted and filtered_out_total:
-                results["filtered_metadata"] = filtered_out
+        if filter_restricted:
+            filtered_metadata = {}
 
-            if failed_metadata:
-                results["failed_metadata"] = failed_metadata
+            if pre_filtered_out:
+                filtered_metadata["pre_fetch"] = pre_filtered_out
 
-            if error:
-                results["metadata"]["error"] = error
+            if post_filtered_out:
+                filtered_metadata["post_fetch"] = post_filtered_out
 
-            if output_dir:
-                saved_path = self._save_to_file(Path(output_dir), results)
-                logger.info(f"Fetch results are saved to the file at: {saved_path}")
-                logger.info(f"Counts: {results.get('counts')}")
-                results["metadata"]["output_file"] = str(saved_path)
+            if filtered_metadata:
+                results["filtered_metadata"] = filtered_metadata
 
-            return (saved_path, results)
+        if failed_metadata:
+            results["failed_metadata"] = failed_metadata
+
+        if error:
+            results["metadata"]["error"] = error
+        
+        if message:
+            results["metadata"]["message"] = message
+
+        if output_dir:
+            saved_path = self._save_to_file(Path(output_dir), results)
+            logger.info(f"Fetch results are saved to the file at: {saved_path}")
+            logger.info(f"Counts: {results.get('counts')}")
+            results["metadata"]["output_file"] = str(saved_path)
+
+        return (saved_path, results)
     
     def _fetch_with_retry(
         self,
@@ -999,7 +951,7 @@ class HuggingfaceFetcher:
             logger.warning(f"Failed to fetch {obj_type.capitalize()}Info for {repo_id}")
             return None
         full_metadata["base_info"] = base_info_obj
-
+    
         # Parquet file list and croissant dataset only)
         if obj_type == "dataset": 
             extra_metadata = self._fetch_dataset_extras(repo_id)
@@ -1030,151 +982,230 @@ class HuggingfaceFetcher:
 
         return processed
 
-    def is_valid_candidate(self, item, obj_type):
+    def _fetch_until_limit_reached(
+        self,
+        fetch_func,
+        params: Dict,
+        obj_type: str,
+        filter_restricted: bool,
+    ) -> Tuple[List[Dict], List[Dict]]:
         """
-        Prefiltering criteria:
-        - Exclude if gated / private / disabled
-        - Exclude if not in LICENSE_EXCEPTIONS AND
-            • has no license
-            • OR has any license in NON_OPEN_LICENSES
-        """
-        if obj_type == "dataset": 
-            if item.id in EXCLUDED_DATASET_IDS:
-                # logger.info(f"Excluded manually: {item.id}")
-                return False
-        if item.private or item.gated or item.disabled:
-            return False
+        Fetch metadata for datasets or models until the requested limit is reached.
 
-        if item.id in LICENSE_EXCEPTIONS:
-            return True
+        The method first retrieves a larger candidate pool using ``overfetch_factor``.
+        If ``filter_restricted`` is enabled, candidates may be pre-filtered before
+        full metadata retrieval based on lightweight Hugging Face listing metadata
+        such as private/gated/disabled status, license tags, content-restriction
+        tags, and manually excluded dataset IDs.
 
-        licenses = self.extract_license(item)
+        Full metadata is then fetched only for the remaining candidates.
 
-        if not licenses:
-            return False
-        
-        if any(lic in NON_OPEN_LICENSES for lic in licenses):
-            return False
-
-        return True
-
-    def extract_license(self, item):
-        licenses = []
-        for tag in (item.tags or []):
-            if tag.startswith("license:"):
-                licenses.append(tag.split("license:")[1].lower().strip())
-        return licenses
-    
-    def _fetch_until_limit_reached(self, fetch_func, params: Dict, obj_type: str, filter_restricted: bool) -> List[Dict]:
-        """
-        Fetches items until the desired limit is reached
-        
         Args:
-            fetch_func: API function to fetch items (list_datasets/list_models)
-            params: Dictionary of API parameters
-            obj_type: Either "dataset" or "model"
-            filter_restricted: If True, filters out restricted items (e.g., gated, private,
-                disabled, or those with non-open licenses) after the initial fetch.
-            
+            fetch_func: Hugging Face listing function, e.g. ``list_datasets`` or
+                ``list_models``.
+            params: Hugging Face Hub API parameters. ``limit`` controls the target
+                number of successfully fetched metadata records.
+            obj_type: Resource type, either ``"dataset"`` or ``"model"``.
+            filter_restricted: If True, apply pre-fetch restriction filtering before
+                full metadata retrieval.
+
         Returns:
-            List of metadata dictionaries up to the specified limit
+            A tuple ``(fetched_metadata, pre_filtered_metadata)`` where:
+
+            - ``fetched_metadata`` is a list of successfully fetched metadata
+            dictionaries, capped at the requested limit.
+            - ``pre_filtered_metadata`` is a list of candidate records excluded
+            before full metadata retrieval. Each item contains at least ``id``,
+            ``reasons``, and ``stage="pre_fetch"``.
         """
+
         desired_limit = params.get("limit", self.default_limit)
         overfetch_limit = max(desired_limit, int(desired_limit * self.overfetch_factor))
-        batch_size = min(self.config.batch_size, 100)  
+        batch_size = min(self.config.batch_size, 100)
 
-        logger.debug(f"Fetching {obj_type}s - Target: {desired_limit}, Overfetch: {overfetch_limit}")
+        logger.debug(
+            f"Fetching {obj_type}s - Target: {desired_limit}, Overfetch: {overfetch_limit}"
+        )
 
-        raw_items = []
+        pre_filtered = []
         try:
             self._rate_limiter()
-            # raw_items = list(fetch_func(**{**params, "limit": overfetch_limit, "full": True}))
             raw_items = list(fetch_func(**{**params, "limit": overfetch_limit}))
+
             if not raw_items:
                 logger.warning("Initial fetch returned empty results")
-                return []
-            if filter_restricted: 
-                # Prefilter restricted items 
-                pre_kept = [
-                    it for it in raw_items if self.is_valid_candidate(it, obj_type)
-                ]
-                # logger.info(f"Prefiltered items: {len(pre_kept)} / {len(raw_items)}")
+                return [], []
+            
+            if filter_restricted:
+                pre_kept = []
+                for item in raw_items:
+                    is_valid, reasons = is_valid_candidate(item, obj_type)
+                    if is_valid:
+                        pre_kept.append(item)
+                    else:
+                        pre_filtered.append({
+                            "id": getattr(item, "id", "<unknown>"),
+                            "reasons": reasons,
+                            "stage": "pre_fetch",
+                        })
                 if pre_kept:
                     raw_items = pre_kept
+                else:
+                    logger.warning(
+                        f"Pre-filtering removed all fetched {obj_type}s."
+                    )
+                    raw_items = []
         except Exception as e:
             logger.error(f"Initial fetch failed: {str(e)}")
-            if hasattr(e, 'response') and e.response.status_code == 429:
-                self._handle_rate_limit_exceeded()
-            return []
 
-        results = []
+            status_code = getattr(getattr(e, "response", None), "status_code", None)
+            if status_code == 429:
+                self._handle_rate_limit_exceeded()
+
+            return [], []
+
+        indexed_results: Dict[int, Dict] = {}
         seen_ids = set()
         lock = threading.Lock()
+
         rate_limit_sleep = max(0.1, self.current_rate_limit * 1.5)
 
         def fetch_metadata(item):
-            """Thread-safe metadata fetcher with duplicate checking"""
-            nonlocal results, seen_ids
+            """Thread-safe metadata fetcher with duplicate checking."""
             item_id = getattr(item, "id", None)
+
             if not item_id:
-                return None
+                return {
+                    "ok": False,
+                    "metadata": None,
+                    "status": None,
+                    "error": "Missing item id",
+                }
 
             with lock:
                 if item_id in seen_ids:
-                    return None
-                seen_ids.add(item_id)  # Mark as seen early to prevent duplicates
+                    return {
+                        "ok": False,
+                        "metadata": None,
+                        "status": None,
+                        "error": f"Duplicate item id: {item_id}",
+                    }
+
+                seen_ids.add(item_id)
 
             try:
                 metadata = self._fetch_full_metadata_with_cache(item_id, obj_type)
-                return metadata if metadata else None
+
+                if not metadata:
+                    return {
+                        "ok": False,
+                        "metadata": None,
+                        "status": None,
+                        "error": f"No metadata returned for {item_id}",
+                    }
+
+                return {
+                    "ok": True,
+                    "metadata": metadata,
+                    "status": None,
+                    "error": None,
+                }
+
             except Exception as e:
-                logger.debug(f"Failed to fetch metadata for {item_id}: {str(e)}")
-                return None
-     
-        # Process in parallel batches with progress tracking
+                status_code = getattr(getattr(e, "response", None), "status_code", None)
+
+                logger.debug(
+                    f"Failed to fetch metadata for {item_id}: {str(e)}"
+                )
+
+                return {
+                    "ok": False,
+                    "metadata": None,
+                    "status": status_code,
+                    "error": str(e),
+                }
+
         with ThreadPoolExecutor(max_workers=self.config.max_workers) as executor:
             batch_num = 0
-            for i in range(0, len(raw_items), batch_size):
-                if len(results) >= desired_limit:
+
+            for start_index in range(0, len(raw_items), batch_size):
+                if len(indexed_results) >= desired_limit:
                     break
 
                 batch_num += 1
-                current_batch = raw_items[i:i + batch_size]
-                logger.debug(f"Processing batch {batch_num} ({len(current_batch)} items)")
+                current_batch = raw_items[start_index:start_index + batch_size]
 
-                futures = {executor.submit(fetch_metadata, item): item for item in current_batch}
+                logger.debug(
+                    f"Processing batch {batch_num} ({len(current_batch)} items)"
+                )
+
+                batch_errors = 0
+                batch_429s = 0
+                batch_successes = 0
+
+                futures = {
+                    executor.submit(fetch_metadata, item): (start_index + offset, item)
+                    for offset, item in enumerate(current_batch)
+                }
 
                 for future in as_completed(futures):
-                    if len(results) >= desired_limit:
-                        # Cancel remaining futures in this batch
-                        for f in futures:
-                            f.cancel()
-                        break
-                    
+                    original_index, item = futures[future]
+
                     try:
                         result = future.result()
-                        if result:
+
+                        if result.get("ok"):
+                            batch_successes += 1
                             with lock:
-                                results.append(result)
+                                indexed_results[original_index] = result["metadata"]
+                        else:
+                            batch_errors += 1
+
+                            if result.get("status") == 429:
+                                batch_429s += 1
+
                     except Exception as e:
+                        batch_errors += 1
                         logger.warning(f"Metadata fetch failed: {str(e)}")
 
-                # Adaptive rate limiting
-                if batch_num % 5 == 0 and len(results) < desired_limit / 2:
-                    logger.debug("Adjusting rate limit due to slow progress")
-                    rate_limit_sleep = min(rate_limit_sleep * 1.5, 5.0)  # Max 5 sec sleep
-                
+                if batch_429s > 0:
+                    logger.debug(
+                        f"Rate limit detected in batch {batch_num}; increasing sleep."
+                    )
+                    rate_limit_sleep = min(rate_limit_sleep * 2, 10.0)
+
+                elif batch_errors > len(current_batch) * 0.2:
+                    logger.debug(
+                        f"High error rate in batch {batch_num}; increasing sleep."
+                    )
+                    rate_limit_sleep = min(rate_limit_sleep * 1.5, 5.0)
+
+                elif batch_successes == len(current_batch):
+                    rate_limit_sleep = max(rate_limit_sleep * 0.8, 0.1)
+
                 time.sleep(rate_limit_sleep)
 
-        # Final result processing
-        success_rate = len(results) / desired_limit * 100
-        if success_rate < 80:
-            logger.warning(f"Low success rate: {success_rate:.1f}% ({len(results)}/{desired_limit})")
-        else:
-            logger.info(f"Fetched {len(results)} {obj_type}s (target: {desired_limit})")
+        ordered_results = [
+            indexed_results[index]
+            for index in sorted(indexed_results)
+        ]
 
-        desired_results = results[:desired_limit]
-        return desired_results
+        desired_results = ordered_results[:desired_limit]
+
+        success_rate = len(desired_results) / desired_limit * 100
+
+        if success_rate < 80:
+            logger.warning(
+                f"Low success rate: {success_rate:.1f}% "
+                f"({len(desired_results)}/{desired_limit})"
+            )
+        else:
+            logger.info(
+                f"Fetched {len(desired_results)} {obj_type}s "
+                f"(target: {desired_limit})"
+            )
+
+        return desired_results, pre_filtered
 
     def _camel_to_snake(self, name): 
         return re.sub(r'(?<!^)(?=[A-Z])', '_', name).lower()
@@ -1376,8 +1407,8 @@ class HuggingfaceFetcher:
         if repo_id in LICENSE_EXCEPTIONS:
             meta["license"] = LICENSE_EXCEPTIONS[repo_id]
         if hasattr(obj, "siblings") and isinstance(obj.siblings, list):
+            meta["file_count"] = len(obj.siblings)
             file_map = {s.rfilename: s for s in obj.siblings if hasattr(s, "rfilename")}
-            meta["file_count"] = len(file_map)
             meta["siblings"] = list(file_map.keys()) 
             
             # Add README.md as readme_url (applies to both models and datasets)
@@ -1516,7 +1547,7 @@ class HuggingfaceFetcher:
                     "size": size,
                     "downloadURL": f"https://huggingface.co/{repo_id}/resolve/main/{quote(fname)}",
                     "accessURL": f"https://huggingface.co/{repo_id}/blob/main/{quote(fname)}",
-                    "fileExtension": Path(fname).suffix.lstrip(".")
+                    "fileExtension": extract_extension(fname)
                 })
                 added_files.add(fname)
         else:
@@ -1534,7 +1565,7 @@ class HuggingfaceFetcher:
                         "size": size,
                         "downloadURL": f"https://huggingface.co/{repo_id}/resolve/main/{quote(fname)}",
                         "accessURL": f"https://huggingface.co/{repo_id}/blob/main/{quote(fname)}",
-                        "fileExtension": Path(fname).suffix.lstrip(".")
+                        "fileExtension": extract_extension(fname)
                     })
                     added_files.add(fname)
                 
@@ -1555,7 +1586,7 @@ class HuggingfaceFetcher:
                             "size": size,
                             "downloadURL": f"https://huggingface.co/{repo_id}/resolve/main/{quote(fname)}",
                             "accessURL": f"https://huggingface.co/{repo_id}/blob/main/{quote(fname)}",
-                            "fileExtension": Path(fname).suffix.lstrip(".")
+                            "fileExtension": extract_extension(fname)
                         })
                         added_files.add(fname)
 
@@ -1581,7 +1612,7 @@ class HuggingfaceFetcher:
                         "size": size,
                         "downloadURL": f"https://huggingface.co/{repo_id}/resolve/main/{quote(fname)}",
                         "accessURL": f"https://huggingface.co/{repo_id}/blob/main/{quote(fname)}",
-                        "fileExtension": Path(fname).suffix.lstrip(".")
+                        "fileExtension": extract_extension(fname)
                     })
                     added_files.add(fname)
                 
@@ -1601,7 +1632,7 @@ class HuggingfaceFetcher:
                         "size": size,
                         "downloadURL": f"https://huggingface.co/{repo_id}/resolve/main/{quote(fname)}",
                         "accessURL": f"https://huggingface.co/{repo_id}/blob/main/{quote(fname)}",
-                        "fileExtension": Path(fname).suffix.lstrip(".")
+                        "fileExtension": extract_extension(fname)
                     })
                     added_files.add(fname)
 
@@ -1712,9 +1743,7 @@ class HuggingfaceFetcher:
 
         if data_file_count <= file_count_limit:
             for fname, sibling in data_files.items():
-                suffixes = Path(fname).suffixes
-                ext = "".join(suffixes).lower() if suffixes else ""
-
+                ext = extract_extension(fname)
                 if parquet_files and ext == ".parquet":
                     continue  
          
@@ -1858,12 +1887,12 @@ class HuggingfaceFetcher:
         # Avoid duplicating tags and datasets (already handled above)
         for key in {"tags", "datasets"}:
             card_dict.pop(key, None)
-        
+                
         # Prefer values from card_data over tags_info for structured fields 
         for key, values in structured_tags.items():
             if key not in card_dict:
                 card_dict[key] = values
-
+     
         meta.update(card_dict)
         if "base_model" in meta and "base_model" in structured_tags:
             meta["base_model"] = structured_tags["base_model"]
@@ -1966,7 +1995,7 @@ class HuggingfaceFetcher:
         # otherwise just grab up to the first period
         m2 = re.match(r"\s*(.+?[\.!?])", text.replace("\n", " "), flags=re.DOTALL)
         return m2.group(1).strip() if m2 else text.strip()
-
+   
     def _process_hf_info(self, raw_metadata: Dict, obj_type: str) -> Dict:
         """
         Normalize a Hugging Face (HF) raw metadata + README card into metadata dict.
@@ -1989,8 +2018,8 @@ class HuggingfaceFetcher:
 
             info_obj = raw_metadata.get("base_info")
             parquet_files = raw_metadata.get("parquet_files", [])
-            croissant = raw_metadata.get("croissant")
-
+            croissant_meta = raw_metadata.get("croissant", {})
+    
             meta = {}
 
             if info_obj:
@@ -2004,11 +2033,11 @@ class HuggingfaceFetcher:
                 merged = self._merge_card_and_tags(obj_type, card_data, tags)
                 if merged:
                     meta.update(merged)
-
+       
                 # If description missing, try to load it from the README card
                 if not meta.get("description"):
-                    if obj_type == "dataset" and croissant:
-                        croi_desp = croissant.get("description")
+                    if obj_type == "dataset" and croissant_meta:
+                        croi_desp = croissant_meta.get("description")
                         if croi_desp:
                             meta["description"] = self._clean_description(croi_desp.strip())
                     
@@ -2056,11 +2085,11 @@ class HuggingfaceFetcher:
             # 2. Add datasets (if present) into tag if present
             # if "datasets" in meta and isinstance(meta["datasets"], list):
             #     meta["tags"] = sorted(set(meta.get("tags", []) + meta["datasets"]))
-            
-            if croissant:
-                creator = croissant.get("creator")
-                if creator: 
-                    meta["croi_creator"] = creator
+
+            # Add croissant metadata
+            if obj_type == "dataset":
+                if croissant_meta:
+                    meta["croissant"] = croissant_meta
 
             # 3. Filter out meaningless values
             return {
@@ -2071,7 +2100,7 @@ class HuggingfaceFetcher:
                 and not (isinstance(v, list) and len(v) == 0)
             }
         except Exception as e:
-            logger.error(f"Processing failed for {obj_type} {getattr(info_obj, 'id', 'unknown')}: {e}")
+            logger.exception(f"Processing failed for {obj_type} {getattr(info_obj, 'id', 'unknown')}: {e}")
             return None
 
     def _fetch_single_dataset(self, dataset_name: str) -> Dict:
@@ -2172,17 +2201,22 @@ class HuggingfaceFetcher:
                 "type": "model"
             }
         
-    def _fetch_datasets(self, filter_restricted: bool, params: Optional[Dict] = None) -> List[Dict]:
+    def _fetch_datasets(self, filter_restricted: bool, params: Optional[Dict] = None) -> Tuple[List[Dict], List[Dict]]:
         """
         Fetch metadata for multiple datasets with Hugging Face API parameters and exact full metadata
         
         Args:
             params: Dictionary of Hugging Face Hub API parameters. 
-            filter_restricted: If True, filters out datasets that are restricted,
-                such as those that are gated, private, disabled, or have non-open licenses.
+            filter_restricted: If True, pre-filter restricted candidates before full
+                metadata retrieval. Restrictions include private, gated, disabled,
+                unsupported/non-open license, content-restriction tags, and configured
+                dataset exclusions.
+            params: Hugging Face Hub API parameters.
 
         Returns:
-            List of metadata dicts for datasets.
+            A tuple ``(datasets, pre_filtered_datasets)`` where ``datasets`` contains
+            successfully fetched dataset metadata dictionaries and
+            ``pre_filtered_datasets`` contains candidates excluded before full metadata retrieval.
         """
         params = params or {}
         try:
@@ -2194,19 +2228,22 @@ class HuggingfaceFetcher:
             )
         except Exception as e:
             logger.exception(f"Failed to fetch datasets: {e}")
-            return []
+            return [], []
 
     def _fetch_models(self, filter_restricted: bool, params: Optional[Dict] = None) -> List[Dict]:
         """
         Fetch metadata for multiple models with Hugging Face API parameters
 
         Args:
+            filter_restricted: If True, pre-filter restricted candidates before full
+                metadata retrieval. Restrictions include private, gated, disabled,
+                unsupported/non-open license, and content-restriction tags.
             params: Hugging Face Hub API parameters. 
-            filter_restricted: If True, filters out datasets that are restricted,
-                such as those that are gated, private, disabled, or have non-open licenses.
         
         Returns:
-            List of metadata dicts for models.
+            A tuple ``(models, pre_filtered_models)`` where ``models`` contains
+            successfully fetched model metadata dictionaries and
+            ``pre_filtered_models`` contains candidates excluded before full metadata retrieval.
         """
         params = params or {}
         try:
@@ -2218,7 +2255,7 @@ class HuggingfaceFetcher:
             )
         except Exception as e:
             logger.exception(f"Failed to fetch models: {e}")
-            return []
+            return [], []
 
     def _ensure_list(self, data):
         """Normalize to list and filter for strings only"""
@@ -2311,6 +2348,22 @@ def format_file_size(size_bytes: Optional[int]) -> Tuple[str, Optional[float]]:
     else:
         return f"{size_bytes} bytes", round(size_bytes / 1e6, 2)
 
+def extract_extension(fname: str) -> str:
+    suffixes = Path(fname).suffixes
+    if not suffixes:
+        return ""
+
+    suffixes = [s.lower() for s in suffixes]
+
+    # Check for known compound extensions
+    if len(suffixes) >= 2:
+        last_two = tuple(suffixes[-2:])
+        if last_two in KNOWN_COMPOUND_EXTS:
+            return "".join(last_two)
+
+    # Fallback to last suffix 
+    return suffixes[-1]
+
 def run_fetcher(
     fetch_type: str,
     limit: Optional[int] = 10,
@@ -2391,7 +2444,26 @@ def run_fetcher(
                 filter_restricted=filter_restricted, 
                 sort_by_downloads=True      
             )
-            logger.info("✅ Fetch complete")
+            
+            status = result.get("metadata", {}).get("status")
+
+            if status == "empty":
+                logger.warning(
+                    result.get("metadata", {}).get(
+                        "message",
+                        "No datasets or models available."
+                    )
+                )
+            elif status == "failed":
+                logger.error(
+                    result.get("metadata", {}).get(
+                        "error",
+                        "Fetch operation failed."
+                    )
+                )
+            else:
+                logger.info("✅ Fetch complete")
+
             return (saved_path, result)
         except Exception as e:
             logger.exception(f"Critical fetch failure: {e}")

@@ -106,7 +106,21 @@ def prepare_fetch_input(
         chosen_mode = "batch fetch"
         if not fetch_type:
             raise click.ClickException("❌ Error: --fetch-type is required in batch fetch mode.")
-        params_dict = json.loads(params) if params else None
+
+        if params:
+            try:
+                params_dict = json.loads(params)
+                if not isinstance(params_dict, dict):
+                    raise ValueError("Params must be a JSON object (dictionary).")
+            except json.JSONDecodeError as e:
+                raise click.ClickException(
+                    f"❌ Invalid JSON for --params: {e.msg}\n"
+                    f"Example: --params '{{\"search\": \"text\"}}'"
+                )
+            except ValueError as e:
+                raise click.ClickException(f"❌ {e}")
+        else:
+            params_dict = None
 
     return (chosen_mode, dataset_name, model_name, fetch_type, limit, params_dict, output_dir, filter_restricted)
 

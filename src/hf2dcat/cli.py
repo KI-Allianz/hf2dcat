@@ -86,7 +86,7 @@ def fetch(
         ),     
     ] = None,
     filter_restricted: Annotated[
-        Optional[bool],
+        bool,
         typer.Option(
             "--filter-restricted/--no-filter-restricted",
             "-r/-R",
@@ -191,13 +191,21 @@ def convert(
         )
     ] = DEFAULT_OUTPUT_FORMATS,
     enable_translation: Annotated[
-        Optional[bool],
+        bool,
         typer.Option(
             "--enable-translation/--no-translation",
             "-e/-E",
-            help="Enable or disable translation (default: enabled). Disable with --no-translation or -E.",
+            help="Enable or disable translation (default: enabled). Disable with --no-translation or -E."
         )
     ] = True,
+    add_public_keyword: Annotated[
+        bool,
+        typer.Option(
+            "--add-public-keyword/--no-public-keyword",
+            "-k/-K", 
+            help="Inject dcat:keyword 'public' into all generated dataset and model records."
+        )
+    ] = False
 ):
     """
     Convert Hugging Face metadata to DCAT-AP RDF.
@@ -210,7 +218,8 @@ def convert(
         output_base=output_base_name,
         base_uri=base_uri,
         enable_translation=enable_translation,
-        output_format=fmt_list
+        output_format=fmt_list, 
+        add_public_keyword=add_public_keyword
     )
 
     if created_files:
@@ -285,7 +294,7 @@ def run_all(
         )
     ] = None,
     filter_restricted: Annotated[
-        Optional[bool],
+        bool,
         typer.Option(
             "--filter-restricted/--no-filter-restricted",
             "-r/-R",
@@ -333,13 +342,21 @@ def run_all(
         )
     ] = DEFAULT_OUTPUT_FORMATS,
     enable_translation: Annotated[
-        Optional[bool],
+        bool,
         typer.Option(
             "--enable-translation/--no-translation", "-e/-E",
             help="Enable or disable translation (default: enabled). Disable with --no-translation or -E.",
             rich_help_panel="Converter options"
         )
     ] = True,
+    add_public_keyword: Annotated[
+        bool,
+        typer.Option(
+            "--add-public-keyword/--no-public-keyword", "-k/-K", 
+            help="Inject dcat:keyword 'public' into all generated dataset and model records.",
+            rich_help_panel="Converter options"
+        )
+    ] = False,
 ):
     """
     Run the complete pipeline: fetch metadata from Hugging Face and convert it to DCAT-AP RDF.
@@ -383,7 +400,8 @@ def run_all(
         output_base=output_base_name,
         base_uri=base_uri,
         enable_translation=enable_translation,
-        output_format=fmt_list
+        output_format=fmt_list,
+        add_public_keyword=add_public_keyword
     )
 
     if created_files:

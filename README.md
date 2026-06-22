@@ -20,7 +20,7 @@ flowchart TB
 ```
 
 ### **hf2dcat operates through a robust, two-stage pipeline:**
-### Stage 1 — Harvesting & Preprocessing
+### Stage 1 – Harvesting & Preprocessing
 
 **Collects and prepares metadata from Hugging Face**
 
@@ -30,6 +30,10 @@ flowchart TB
 
 - Builds distribution profiles (filenames, formats, sizes, URLs)
 
+- Optionally filters restricted repositories (e.g., private, gated, disabled, non-open-license, or content-restricted resources)
+
+- In batch mode, may retrieve additional candidates to ensure the requested number of valid datasets or models can be returned after filtering
+
 - Output: A clean structured metadata JSON 
 
 ### Stage 2 — Semantic Conversion & Validation
@@ -38,11 +42,15 @@ flowchart TB
 
 - Applies semantic mappings to generate DCAT-AP 3.0.0 classes and properties
 
-- Provenance tracking: Adds PROV-O metadata describing generation context
+- Normalizes licenses, file formats, media types, languages, and selected controlled vocabularies
+
+- Enriches metadata with derived properties such as access rights, themes, accrual periodicity, provenance, and DCAT-AP conformance information.
 
 - SHACL validation: Ensures full conformance with DCAT-AP SHACL shapes
 
 - Output: Publication-ready RDF (Turtle, RDF/XML, JSON-LD, N-Triples)
+
+See [mapping.md](mapping.md) for the complete metadata mapping and semantic modeling specification.
 
 ## Commands
 
@@ -51,7 +59,8 @@ flowchart TB
 ### 1. **`fetch` — Harvest and preprocess Hugging Face dataset/model metadata as JSON**
 - Retrieves metadata for Hugging Face datasets or models and performs preprocessing before saving the results as JSON.  
 
-- By default, **filters out** restricted resources(e.g. private, disabled, gated or license-limited datasets or models).  
+- By default, **filters out** restricted resources(e.g. private, disabled, gated, non-open-license, or content-restricted resources)  
+- Filtering statistics and exclusion reasons are recorded in the generated metadata JSON.
 
 #### - **Name fetch mode** — Fetch metadata for explicitly specified datasets/models
   - Provide dataset or model names directly using `--dataset-name/-d`  or `--model-name/-m` 
@@ -62,6 +71,7 @@ flowchart TB
   - Optionally set `--limit/-l` and provide extra filters with `--params/-p`
   - Supports sorting by **downloads**, **trending** or **likes**
   - Defaults to fetching the top-`limit` datasets or models ranked by **downloads**
+  - May retrieve additional candidates during ranked retrieval to compensate for resources excluded by filtering
     
 ### 2. **`convert` — Convert Hugging Face metadata JSON to DCAT-AP RDF**
   - Supports multiple RDF formats (RDFXML, TURTLE, JSONLD, NTRIPLES)
@@ -172,7 +182,7 @@ hf2dcat convert --input-path input/hf_metadata.json
 ```
 **Convert Hugging Face metadata and specify custom output formats:**
 ```bash
-hf2dcat convert --input-path input/hf_metadata.json --output-format jsonld ntriples
+hf2dcat convert --input-path input/hf_metadata.json --output-format jsonld --output-format ntriples
 ```
 **Convert Hugging Face metadata and specify output dir and base filename**
 ```bash
