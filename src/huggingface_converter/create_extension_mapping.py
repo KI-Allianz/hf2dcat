@@ -23,6 +23,61 @@ FORBIDDEN_SUBSTRINGS = [
     "rdfxml", "gzip", "bzip", "zipx"
 ]
 
+# Valid IANA media types that contain application/x-
+REGISTERED_X_MEDIA_TYPES = {
+    "application/x-pki-message",
+    "application/x-www-form-urlencoded",
+    "application/x-x509-ca-cert",
+    "application/x-x509-ca-ra-cert",
+    "application/x-x509-next-ca-cert"
+}
+
+# Common application/x-* media types that are not registered by IANA.
+# These occur in the EU file type vocabulary ((IANA-MT)) but do not have official
+# IANA media type registrations. These should not be converted into IANA URIs.
+KNOWN_UNREGISTERED_X_MEDIA_TYPES = {
+    "application/x-7z-compressed",
+    "application/x-apple-diskimage",
+    "application/x-arj",
+    "application/x-ascii-grid",
+    "application/x-authorware-bin",
+    "application/x-bzip2",
+    "application/x-compress",
+    "application/x-compressed",
+    "application/x-dbase",
+    "application/x-director",
+    "application/x-e00",
+    "application/x-ecw",
+    "application/x-filegdb",
+    "application/x-gmz",
+    "application/x-hdf",
+    "application/x-indesign",
+    "application/x-iso9660-image",
+    "application/x-las",
+    "application/x-laz",
+    "application/x-lzh-compressed",
+    "application/x-lzip",
+    "application/x-lzma",
+    "application/x-lzop",
+    "application/x-mobipocket-ebook",
+    "application/x-ms-wim",
+    "application/x-mxd",
+    "application/x-netcdf",
+    "application/x-ole-storage",
+    "application/x-oracledump",
+    "application/x-photoshop",
+    "application/x-rpm",
+    "application/x-sb3",
+    "application/x-shapefile",
+    "application/x-tar",
+    "application/x-worldfile",
+    "application/x-xz"
+}
+
+# Any newly encountered application/x-* media types that are not
+# classified above will be collected here 
+UNKNOWN_X_MEDIA_TYPES: set[str] = set()
+
 def valid_prefix(ext_n: str, label_n: str) -> bool:
     if not label_n.startswith(ext_n):
         return False
@@ -39,6 +94,21 @@ def score_candidate(ext: str, label: str) -> Tuple:
         (not has_digits(ext_n) and has_digits(label_n)),
         len(label_n)                                # shorter = more generic
     )
+
+def is_safe_iana_media_type_uri(media_type: str) -> bool:
+    media_type = media_type.lower().strip()
+
+    if media_type in REGISTERED_X_MEDIA_TYPES:
+        return True
+
+    if media_type in KNOWN_UNREGISTERED_X_MEDIA_TYPES:
+        return False
+
+    if media_type.startswith("application/x-"):
+        UNKNOWN_X_MEDIA_TYPES.add(media_type)
+        return False
+
+    return True
 
 def eliminate_unsafe_candidates(ext: str, candidates: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     ext_n = normalize(ext)
@@ -298,6 +368,24 @@ def create_extension_mapping(data_dir: Union[Path, str] = Path("./extension_mapp
             "file_type_uri": "https://piveau.io/def/file-type/GGML", # self defined uri
             "file_type_label": "GGML", 
             "see_also": "https://huggingface.co/blog/introduction-to-ggml"
+        },
+        ".py": {
+            "file_type": "Python",
+            "file_type_uri": "https://piveau.io/def/file-type/PYTHON", # self defined uri 
+            "file_type_label": "Python",
+            "see_also": "https://docs.python.org/3/"
+        },
+        ".jinja": {
+            "file_type": "Jinja",
+            "file_type_uri": "https://piveau.io/def/file-type/JINJA", # self defined uri 
+            "file_type_label": "Jinja",
+            "see_also": "https://jinja.palletsprojects.com/"
+        },
+        ".7z": {
+            "file_type": "7Z",
+            "file_type_uri": "https://piveau.io/def/file-type/7Z",
+            "file_type_label": "7-Zip",
+            "see_also": "https://www.7-zip.org/7z.html"
         }
     }
 
@@ -321,8 +409,12 @@ def create_extension_mapping(data_dir: Union[Path, str] = Path("./extension_mapp
 
             media_types = eu_info.get("media_types")
             if media_types:
-                entry["media_type"] = media_types[0]
-                entry["media_type_uri"] = f"http://www.iana.org/assignments/media-types/{media_types[0]}"
+                media_type = media_types[0]
+                if media_type and is_safe_iana_media_type_uri(media_type):
+                    entry["media_type"] = media_type
+                    entry["media_type_uri"] = (
+                        f"http://www.iana.org/assignments/media-types/{media_type}"
+                    )
 
         # Step 2: If media_type missing, try MIME-db
         if "media_type" not in entry:
@@ -354,6 +446,11 @@ def create_extension_mapping(data_dir: Union[Path, str] = Path("./extension_mapp
             continue  
 
         final_mapping[ext] = entry
+    
+    if UNKNOWN_X_MEDIA_TYPES:
+        logger.warning("Skipped non-registered application/x-* media types:")
+        for mt in sorted(UNKNOWN_X_MEDIA_TYPES):
+            logger.warning("  %s", mt)
 
     return (final_mapping, unmapped_extensions)
 

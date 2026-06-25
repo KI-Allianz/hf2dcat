@@ -40,14 +40,12 @@
   ".7z": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/7Z",
     "file_type_label": "7z",
-    "media_type": "application/x-7z-compressed",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-7z-compressed"
+    "file_type": "7Z",
+    "see_also": "https://www.7-zip.org/7z.html"
   },
   ".aab": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/AAB",
-    "file_type_label": "AAB",
-    "media_type": "application/x-authorware-bin",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-authorware-bin"
+    "file_type_label": "AAB"
   },
   ".aac": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/AAC",
@@ -163,9 +161,7 @@
   },
   ".arj": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ARJ",
-    "file_type_label": "ARJ",
-    "media_type": "application/x-arj",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-arj"
+    "file_type_label": "ARJ"
   },
   ".arrow": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ARROW_FILE",
@@ -182,8 +178,8 @@
   ".asc": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/GRID_ASCII",
     "file_type_label": "Esri ASCII grid",
-    "media_type": "application/x-ascii-grid",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-ascii-grid"
+    "media_type": "application/pgp-keys",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/pgp-keys"
   },
   ".aso": {
     "media_type": "application/vnd.accpac.simply.aso",
@@ -342,9 +338,7 @@
   },
   ".bz2": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/BZIP2",
-    "file_type_label": "bzip2",
-    "media_type": "application/x-bzip2",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-bzip2"
+    "file_type_label": "bzip2"
   },
   ".c11amc": {
     "media_type": "application/vnd.cluetrust.cartomobile-config",
@@ -392,9 +386,7 @@
   },
   ".cdf": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/NETCDF",
-    "file_type_label": "NetCDF",
-    "media_type": "application/x-netcdf",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-netcdf"
+    "file_type_label": "NetCDF"
   },
   ".cdfx": {
     "media_type": "application/cdfx+xml",
@@ -571,8 +563,8 @@
   ".dbf": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/DBF",
     "file_type_label": "DBF",
-    "media_type": "application/x-dbase",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-dbase"
+    "media_type": "application/vnd.dbf",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.dbf"
   },
   ".dcm": {
     "media_type": "application/dicom",
@@ -584,9 +576,7 @@
   },
   ".dcr": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/DCR",
-    "file_type_label": "DCR File",
-    "media_type": "application/x-director",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-director"
+    "file_type_label": "DCR File"
   },
   ".dd2": {
     "media_type": "application/vnd.oma.dd2+xml",
@@ -665,14 +655,14 @@
   ".dmg": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/DMG",
     "file_type_label": "DMG",
-    "media_type": "application/x-apple-diskimage",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-apple-diskimage"
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
   },
   ".dmp": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/DMP",
     "file_type_label": "Oracle Dump",
-    "media_type": "application/x-oracledump",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-oracledump"
+    "media_type": "application/vnd.tcpdump.pcap",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.tcpdump.pcap"
   },
   ".dms": {
     "media_type": "application/octet-stream",
@@ -792,9 +782,7 @@
   },
   ".e00": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/E00",
-    "file_type_label": "E00",
-    "media_type": "application/x-e00",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-e00"
+    "file_type_label": "E00"
   },
   ".ear": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/EAR",
@@ -816,9 +804,7 @@
   },
   ".ecw": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ECW",
-    "file_type_label": "ECW",
-    "media_type": "application/x-ecw",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-ecw"
+    "file_type_label": "ECW"
   },
   ".edi": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SDMX",
@@ -1058,9 +1044,7 @@
   },
   ".gdb": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/GDB",
-    "file_type_label": "Esri File Geodatabase",
-    "media_type": "application/x-filegdb",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-filegdb"
+    "file_type_label": "Esri File Geodatabase"
   },
   ".gdl": {
     "media_type": "model/vnd.gdl",
@@ -1146,9 +1130,7 @@
   },
   ".gmz": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/GMZ",
-    "file_type_label": "Zipped GML",
-    "media_type": "application/x-gmz",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-gmz"
+    "file_type_label": "Zipped GML"
   },
   ".gph": {
     "media_type": "application/vnd.flographit",
@@ -1226,16 +1208,14 @@
   },
   ".h4": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/HDF",
-    "file_type_label": "HDF",
-    "media_type": "application/x-hdf",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-hdf"
+    "file_type_label": "HDF"
   },
   ".h5": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/HDF",
     "file_type_label": "HDF",
+    "file_type": "HDF",
     "media_type": "application/x-hdf",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-hdf",
-    "file_type": "HDF"
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-hdf"
   },
   ".hal": {
     "media_type": "application/vnd.hal+xml",
@@ -1247,21 +1227,15 @@
   },
   ".hdf": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/HDF",
-    "file_type_label": "HDF",
-    "media_type": "application/x-hdf",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-hdf"
+    "file_type_label": "HDF"
   },
   ".hdf4": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/HDF",
-    "file_type_label": "HDF",
-    "media_type": "application/x-hdf",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-hdf"
+    "file_type_label": "HDF"
   },
   ".hdf5": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/HDF",
-    "file_type_label": "HDF",
-    "media_type": "application/x-hdf",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-hdf"
+    "file_type_label": "HDF"
   },
   ".hdt": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/HDT",
@@ -1271,15 +1245,11 @@
   },
   ".he2": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/HDF",
-    "file_type_label": "HDF",
-    "media_type": "application/x-hdf",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-hdf"
+    "file_type_label": "HDF"
   },
   ".he5": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/HDF",
-    "file_type_label": "HDF",
-    "media_type": "application/x-hdf",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-hdf"
+    "file_type_label": "HDF"
   },
   ".heic": {
     "media_type": "image/heic",
@@ -1424,8 +1394,8 @@
   ".img": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ISO",
     "file_type_label": "ISO image",
-    "media_type": "application/x-iso9660-image",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-iso9660-image"
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
   },
   ".imp": {
     "media_type": "application/vnd.accpac.simply.imp",
@@ -1441,9 +1411,7 @@
   },
   ".indd": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/INDD",
-    "file_type_label": "INDD",
-    "media_type": "application/x-indesign",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-indesign"
+    "file_type_label": "INDD"
   },
   ".ini": {
     "media_type": "text/plain",
@@ -1486,8 +1454,8 @@
   ".iso": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/ISO",
     "file_type_label": "ISO image",
-    "media_type": "application/x-iso9660-image",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-iso9660-image"
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
   },
   ".itp": {
     "media_type": "application/vnd.shana.informed.formtemplate",
@@ -1529,13 +1497,17 @@
   },
   ".jgw": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/WORLD",
-    "file_type_label": "World file",
-    "media_type": "application/x-worldfile",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-worldfile"
+    "file_type_label": "World file"
   },
   ".jhc": {
     "media_type": "image/jphc",
     "media_type_uri": "http://www.iana.org/assignments/media-types/image/jphc"
+  },
+  ".jinja": {
+    "file_type_uri": "https://piveau.io/def/file-type/JINJA",
+    "file_type_label": "Jinja",
+    "file_type": "Jinja",
+    "see_also": "https://jinja.palletsprojects.com/"
   },
   ".jisp": {
     "media_type": "application/vnd.jisp",
@@ -1751,9 +1723,7 @@
   },
   ".las": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/LAS",
-    "file_type_label": "LASer file",
-    "media_type": "application/x-las",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-las"
+    "file_type_label": "LASer file"
   },
   ".lasxml": {
     "media_type": "application/vnd.las.las+xml",
@@ -1761,9 +1731,7 @@
   },
   ".laz": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/LAZ",
-    "file_type_label": "Compressed LAS file",
-    "media_type": "application/x-laz",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-laz"
+    "file_type_label": "Compressed LAS file"
   },
   ".lbd": {
     "media_type": "application/vnd.llamagraphics.life-balance.desktop",
@@ -1789,9 +1757,7 @@
   },
   ".lha": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/LHA",
-    "file_type_label": "LHA",
-    "media_type": "application/x-lzh-compressed",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-lzh-compressed"
+    "file_type_label": "LHA"
   },
   ".link66": {
     "media_type": "application/vnd.route66.link66+xml",
@@ -1839,27 +1805,19 @@
   },
   ".lz": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/LZIP",
-    "file_type_label": "lzip",
-    "media_type": "application/x-lzip",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-lzip"
+    "file_type_label": "lzip"
   },
   ".lzh": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/LHA",
-    "file_type_label": "LHA",
-    "media_type": "application/x-lzh-compressed",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-lzh-compressed"
+    "file_type_label": "LHA"
   },
   ".lzma": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/LZMA",
-    "file_type_label": "lzma",
-    "media_type": "application/x-lzma",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-lzma"
+    "file_type_label": "lzma"
   },
   ".lzo": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/LZO",
-    "file_type_label": "lzo",
-    "media_type": "application/x-lzop",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-lzop"
+    "file_type_label": "lzo"
   },
   ".m1v": {
     "media_type": "video/mpeg",
@@ -2105,9 +2063,7 @@
   },
   ".mobi": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MOBI",
-    "file_type_label": "Mobipocket eBook",
-    "media_type": "application/x-mobipocket-ebook",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-mobipocket-ebook"
+    "file_type_label": "Mobipocket eBook"
   },
   ".mods": {
     "media_type": "application/mods+xml",
@@ -2264,8 +2220,8 @@
   ".msi": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MSI",
     "file_type_label": "MSI",
-    "media_type": "application/x-ole-storage",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-ole-storage"
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
   },
   ".msl": {
     "media_type": "application/vnd.mobius.msl",
@@ -2278,8 +2234,8 @@
   ".msp": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MSI",
     "file_type_label": "MSI",
-    "media_type": "application/x-ole-storage",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-ole-storage"
+    "media_type": "application/octet-stream",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/application/octet-stream"
   },
   ".msty": {
     "media_type": "application/vnd.muvee.style",
@@ -2315,9 +2271,7 @@
   },
   ".mxd": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MXD",
-    "file_type_label": "MXD",
-    "media_type": "application/x-mxd",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-mxd"
+    "file_type_label": "MXD"
   },
   ".mxf": {
     "media_type": "application/mxf",
@@ -2359,9 +2313,7 @@
   },
   ".nc": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/NETCDF",
-    "file_type_label": "NetCDF",
-    "media_type": "application/x-netcdf",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-netcdf"
+    "file_type_label": "NetCDF"
   },
   ".ngdat": {
     "media_type": "application/vnd.nokia.n-gage.data",
@@ -2814,8 +2766,8 @@
   ".prc": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MOBI",
     "file_type_label": "Mobipocket eBook",
-    "media_type": "application/x-mobipocket-ebook",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-mobipocket-ebook"
+    "media_type": "model/prc",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/model/prc"
   },
   ".pre": {
     "media_type": "application/vnd.lotus-freelance",
@@ -2838,8 +2790,8 @@
   ".psd": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/PSD",
     "file_type_label": "PSD",
-    "media_type": "application/x-photoshop",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-photoshop"
+    "media_type": "image/vnd.adobe.photoshop",
+    "media_type_uri": "http://www.iana.org/assignments/media-types/image/vnd.adobe.photoshop"
   },
   ".pskcxml": {
     "media_type": "application/pskc+xml",
@@ -2876,6 +2828,12 @@
   ".pwn": {
     "media_type": "application/vnd.3m.post-it-notes",
     "media_type_uri": "http://www.iana.org/assignments/media-types/application/vnd.3m.post-it-notes"
+  },
+  ".py": {
+    "file_type_uri": "https://piveau.io/def/file-type/PYTHON",
+    "file_type_label": "Python",
+    "file_type": "Python",
+    "see_also": "https://docs.python.org/3/"
   },
   ".pya": {
     "media_type": "audio/vnd.ms-playready.media.pya",
@@ -3057,9 +3015,7 @@
   },
   ".rpm": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/RPM",
-    "file_type_label": "RPM",
-    "media_type": "application/x-rpm",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-rpm"
+    "file_type_label": "RPM"
   },
   ".rpss": {
     "media_type": "application/vnd.nokia.radio-presets",
@@ -3139,9 +3095,7 @@
   },
   ".sb3": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SB3",
-    "file_type_label": "sb3",
-    "media_type": "application/x-sb3",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-sb3"
+    "file_type_label": "sb3"
   },
   ".sbml": {
     "media_type": "application/sbml+xml",
@@ -3253,9 +3207,7 @@
   },
   ".shp": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SHP",
-    "file_type_label": "Esri Shape",
-    "media_type": "application/x-shapefile",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-shapefile"
+    "file_type_label": "Esri Shape"
   },
   ".shtml": {
     "media_type": "text/html",
@@ -3263,9 +3215,7 @@
   },
   ".shx": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SHP",
-    "file_type_label": "Esri Shape",
-    "media_type": "application/x-shapefile",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-shapefile"
+    "file_type_label": "Esri Shape"
   },
   ".sid": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/MRSID",
@@ -3379,9 +3329,7 @@
   },
   ".sprite3": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SB3",
-    "file_type_label": "sb3",
-    "media_type": "application/x-sb3",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-sb3"
+    "file_type_label": "sb3"
   },
   ".spx": {
     "media_type": "audio/ogg",
@@ -3503,9 +3451,7 @@
   },
   ".swm": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/SWM",
-    "file_type_label": "SWM",
-    "media_type": "application/x-ms-wim",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-ms-wim"
+    "file_type_label": "SWM"
   },
   ".t": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/PL",
@@ -3537,9 +3483,7 @@
   },
   ".tar": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/TAR",
-    "file_type_label": "TAR",
-    "media_type": "application/x-tar",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-tar"
+    "file_type_label": "TAR"
   },
   ".tar.gz": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/TAR_GZ",
@@ -3549,9 +3493,7 @@
   },
   ".tar.xz": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/TAR_XZ",
-    "file_type_label": "TAR XZ",
-    "media_type": "application/x-compressed",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-compressed"
+    "file_type_label": "TAR XZ"
   },
   ".tcap": {
     "media_type": "application/vnd.3gpp2.tcap",
@@ -3583,9 +3525,7 @@
   },
   ".tfw": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/WORLD",
-    "file_type_label": "World file",
-    "media_type": "application/x-worldfile",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-worldfile"
+    "file_type_label": "World file"
   },
   ".tfx": {
     "media_type": "image/tiff-fx",
@@ -4375,9 +4315,7 @@
   },
   ".xz": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/XZ",
-    "file_type_label": "xz",
-    "media_type": "application/x-xz",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-xz"
+    "file_type_label": "xz"
   },
   ".yaml": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/YAML",
@@ -4401,9 +4339,7 @@
   },
   ".z": {
     "file_type_uri": "http://publications.europa.eu/resource/authority/file-type/Z",
-    "file_type_label": "Z",
-    "media_type": "application/x-compress",
-    "media_type_uri": "http://www.iana.org/assignments/media-types/application/x-compress"
+    "file_type_label": "Z"
   },
   ".zaz": {
     "media_type": "application/vnd.zzazz.deck+xml",
