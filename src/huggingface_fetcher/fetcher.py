@@ -24,8 +24,8 @@ from urllib.parse import quote, urlparse
 from dotenv import load_dotenv
 from .filtering_utils import is_valid_candidate, apply_filter, LICENSE_EXCEPTIONS
 
-# env_path = Path(__file__).resolve().parents[2] / ".env"
-# load_dotenv(dotenv_path=env_path)
+env_path = Path(__file__).resolve().parents[2] / ".env"
+load_dotenv(dotenv_path=env_path)
 
 logging.basicConfig(
     level=logging.INFO,
