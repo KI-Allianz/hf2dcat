@@ -75,9 +75,9 @@ class HFToDCATConverter:
         self.MODEL_IMPLEMENTATION = URIRef(f"{self.base_uri}def/ModelImplementation")
 
         # self.HAS_IMPLEMENTATION = URIRef(f"{self.base_uri}def/hasImplementation")
-        self.HAS_PROCESSOR = URIRef(f"{self.base_uri}def/hasProcessor")
-        self.HAS_MODEL_TYPE = URIRef(f"{self.base_uri}def/hasModelType")
-        self.HAS_EXECUTION_TASK = URIRef(f"{self.base_uri}def/hasExecutionTask")
+        # self.HAS_PROCESSOR = URIRef(f"{self.base_uri}def/hasProcessor")
+        # self.HAS_MODEL_TYPE = URIRef(f"{self.base_uri}def/hasModelType")
+        # self.HAS_EXECUTION_TASK = URIRef(f"{self.base_uri}def/hasExecutionTask")
       
         self.PYTHON_MODULE = URIRef(f"{self.base_uri}def/pythonModule")
         self.PYTHON_CLASS = URIRef(f"{self.base_uri}def/pythonClass")
@@ -2832,9 +2832,9 @@ class HFToDCATConverter:
         return any(
             p in {
                 # self.HAS_IMPLEMENTATION,
-                self.HAS_PROCESSOR,
+                # self.HAS_PROCESSOR,
                 self.PYTHON_MODULE,
-                self.PYTHON_CLASS,
+                self.PYTHON_CLASS
             }
             for _, p, _ in g
         )
@@ -2956,11 +2956,13 @@ class HFToDCATConverter:
                 else:
                     raise RuntimeError(error_msg)
             
-            if self._needs_ml_classes(merged_graph):
-                self._init_ml_classes(merged_graph)
+            
+            # Remove the code that adds standalone vocabulary definitions to catalog RDF.
+            # if self._needs_ml_classes(merged_graph):
+            #     self._init_ml_classes(merged_graph)
 
-            if self._needs_ml_properties(merged_graph):
-                self._init_ml_properties(merged_graph)
+            # if self._needs_ml_properties(merged_graph):
+            #     self._init_ml_properties(merged_graph)
 
             # Validate and output
             if self.validate_flag:

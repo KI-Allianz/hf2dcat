@@ -66,6 +66,8 @@ class FetcherConfig:
     cache_dir: str = ".hf_cache"
     cache_version: str = "v1"
     cache_ttl: int = 604800 # 7 days 
+    cache_max_entries: int = 2000
+    cache_max_size_bytes: int = 500 * 1024 * 1024
     
 
 class HuggingfaceFetcher:
@@ -118,6 +120,7 @@ class HuggingfaceFetcher:
 
         self._cache_index = {}
         self._load_index()
+        self._prune_cache()
 
     def _init_custom_session(self):
         """Initialize and configure the custom requests session."""
@@ -248,7 +251,11 @@ class HuggingfaceFetcher:
         with self._cache_lock:
             try:
                 entry = self._cache_index.get(key)
-                if not entry or not self._validate_cache_entry(entry, repo_id, obj_type):
+                if not entry:
+                    return None
+                
+                if not self._validate_cache_entry(entry, repo_id, obj_type):
+                    self._remove_cache_entry(key)
                     return None
 
                 payload_path = self.cache_dir / entry["payload_path"]
@@ -305,7 +312,7 @@ class HuggingfaceFetcher:
                         else metadata.get("last_modified"), 
                     "payload_path": str(final_path.relative_to(self.cache_dir)),
                     "obj_type": obj_type,
-                    # "expires_at": time.time() + self.cache_ttl,
+                    # "expires_at": time.time() + self.cache_ttl
                 }
                 
                 with open(temp_index, "w", encoding='utf-8') as f:
@@ -445,7 +452,76 @@ class HuggingfaceFetcher:
         except Exception as e:
             logger.debug(f"Failed to get last_modified for {repo_id}: {e}")
             return None
+    
+    def _prune_cache(self) -> None:
+        """Remove expired entries and enforce cache entry and size limits."""
+        with self._cache_lock:
+            # now = time.time()
+            valid_entries = []
 
+            for key, entry in list(self._cache_index.items()):
+                payload_path = self.cache_dir / entry.get("payload_path", "")
+                timestamp = entry.get("timestamp", 0)
+
+                expired = self._is_cache_expired(entry)
+                # expired = now - timestamp > self.cache_ttl
+                missing = not payload_path.exists()
+
+                if expired or missing:
+                    if payload_path.exists():
+                        try:
+                            payload_path.unlink()
+                        except OSError as exc:
+                            logger.warning(
+                                "Could not remove cache payload %s: %s",
+                                payload_path,
+                                exc,
+                            )
+
+                    self._cache_index.pop(key, None)
+                    continue
+
+                try:
+                    size = payload_path.stat().st_size
+                except OSError:
+                    size = 0
+
+                valid_entries.append(
+                    {
+                        "key": key,
+                        "timestamp": timestamp,
+                        "path": payload_path,
+                        "size": size,
+                    }
+                )
+
+            # Oldest entries first
+            valid_entries.sort(key=lambda item: item["timestamp"])
+
+            max_entries = self.config.cache_max_entries
+            max_size = self.config.cache_max_size_bytes
+            total_size = sum(item["size"] for item in valid_entries)
+
+            while (
+                len(valid_entries) > max_entries
+                or total_size > max_size
+            ):
+                oldest = valid_entries.pop(0)
+
+                try:
+                    oldest["path"].unlink(missing_ok=True)
+                except OSError as exc:
+                    logger.warning(
+                        "Could not remove cache payload %s: %s",
+                        oldest["path"],
+                        exc,
+                    )
+
+                self._cache_index.pop(oldest["key"], None)
+                total_size -= oldest["size"]
+
+            self._save_index()
+        
     def _clear_cache(self):
         """
         Remove everything under self.cache_dir (index.json + payloads)
@@ -457,6 +533,7 @@ class HuggingfaceFetcher:
             self.cache_dir.mkdir(parents=True, exist_ok=True)
             self.payloads_dir.mkdir(parents=True, exist_ok=True)
             self._cache_index = {}
+            self._save_index()
 
     def _normalize_name_input(self, name_input: Union[str, List[str]]) -> List[str]:
         """
