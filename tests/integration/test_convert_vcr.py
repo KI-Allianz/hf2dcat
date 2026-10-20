@@ -16,7 +16,7 @@ def test_run_fetcher_then_converter_vcr(tmp_path: Path):
         filter_restricted=True,
     )
     assert Path(saved_path).exists()
-    assert results["counts"]["total"] >= 1
+    assert results["counts"]["kept_total"] >= 1
 
     # Step 2: Convert with translation enabled
     created_files = run_converter(
@@ -41,7 +41,7 @@ def test_converter_no_translation_vcr(tmp_path: Path):
         filter_restricted=True,
     )
     assert Path(saved_path).exists()
-    assert results["counts"]["total"] >= 1
+    assert results["counts"]["kept_total"] >= 1
 
     # Step 2: Convert with no translation
     created_files = run_converter(

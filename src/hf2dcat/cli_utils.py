@@ -5,7 +5,7 @@ from typing import Optional, List, Union, Dict, Tuple
 import click 
 
 # Maximum allowed names from a file
-MAX_NAME_LIMIT = 20  
+MAX_NAME_LIMIT = 100 
 
 def normalize_formats(formats: List[str]) -> List[str]:
     """Normalize user input to uppercase."""
@@ -29,14 +29,14 @@ def load_names_from_file(file_path: Path) -> List[str]:
     names = []
 
     if ext in {".txt"}:
-        names = [line.strip() for line in file_path.read_text(encoding="utf-8").splitlines() if line.strip()]
+        names = [line.strip() for line in file_path.read_text(encoding="utf-8-sig").splitlines() if line.strip()]
     elif ext == ".json":
-        data = json.loads(file_path.read_text(encoding="utf-8"))
+        data = json.loads(file_path.read_text(encoding="utf-8-sig"))
         if not isinstance(data, list):
             raise ValueError("JSON file must contain a list of names.")
         names = [str(item).strip() for item in data if str(item).strip()]
     elif ext == ".csv":
-        with file_path.open("r", encoding="utf-8") as f:
+        with file_path.open("r", encoding="utf-8-sig", newline="") as f:
             reader = csv.reader(f)
             names = [row[0].strip() for row in reader if row and row[0].strip()]
     else:

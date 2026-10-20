@@ -11,9 +11,10 @@ import types
 import os
 import shutil
 import yaml
+import importlib
 from typing import List, Dict, Optional, Union, Callable, TypeVar, Set, Any, Tuple
-from huggingface_hub import HfApi, DatasetCard, ModelCard, DatasetInfo, ModelInfo
-from huggingface_hub.utils import HfHubHTTPError, EntryNotFoundError
+from huggingface_hub import HfApi, DatasetCard, ModelCard, DatasetInfo, ModelInfo, hf_hub_download
+from huggingface_hub.errors import LocalEntryNotFoundError, HfHubHTTPError, EntryNotFoundError
 from datasets import get_dataset_infos
 from datetime import datetime, timezone
 from pathlib import Path
@@ -33,6 +34,18 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+
+
+_TRANSIENT_ERRORS = [requests.Timeout, requests.ConnectionError]
+
+for _name in ("httpx", "httpx2"):
+    try:
+        _module = importlib.import_module(_name)
+        _TRANSIENT_ERRORS.append(_module.TransportError)
+    except (ImportError, AttributeError):
+        pass
+
+TRANSIENT_ERRORS = tuple(_TRANSIENT_ERRORS)
 
 T = TypeVar("T")
 
@@ -62,6 +75,9 @@ class FetcherConfig:
     jitter_factor: float = 0.2 
     max_parquet: int = 2
     enable_progress: bool = True
+    # True: always load the README and store it in meta["card_content"].
+    # False: load the README only when a description is missing (one request fewer per item).
+    include_card_content: bool = False
 
     cache_dir: str = ".hf_cache"
     cache_version: str = "v1"
@@ -210,7 +226,9 @@ class HuggingfaceFetcher:
     def _get_cache_key(self, repo_id: str, obj_type: str) -> str:
         """Generate consistent cache key"""
         repo_id = re.sub(r'^https?://[^/]+/', '', repo_id)
-        return f"{self.cache_version}:{obj_type}:{repo_id}"
+        # Entries with and without card_content must not be mixed up in the cache.
+        variant = ":card" if self.config.include_card_content else ""
+        return f"{self.cache_version}{variant}:{obj_type}:{repo_id}"
 
     def _slugify(self, key: str) -> str:
         """Convert repo_id to filesystem-safe name"""
@@ -253,7 +271,7 @@ class HuggingfaceFetcher:
                 entry = self._cache_index.get(key)
                 if not entry:
                     return None
-                
+
                 if not self._validate_cache_entry(entry, repo_id, obj_type):
                     self._remove_cache_entry(key)
                     return None
@@ -312,7 +330,7 @@ class HuggingfaceFetcher:
                         else metadata.get("last_modified"), 
                     "payload_path": str(final_path.relative_to(self.cache_dir)),
                     "obj_type": obj_type,
-                    # "expires_at": time.time() + self.cache_ttl
+                    # "expires_at": time.time() + self.cache_ttl,
                 }
                 
                 with open(temp_index, "w", encoding='utf-8') as f:
@@ -872,89 +890,166 @@ class HuggingfaceFetcher:
         Returns:
             The return value of `func`, or `None` if the resource was not found
         """
-        max_retries = max_retries or self.max_retries
+    
+        max_retries = self.max_retries if max_retries is None else max_retries
+
+        if max_retries < 1:
+            raise ValueError("max_retries must be at least 1")
+
         # retryable_codes = set(range(500, 600)) | {429} 
         retryable_codes = {408, 429, 500, 502, 503, 504} 
 
         for attempt in range(1, max_retries + 1):
             try:
-                self._rate_limiter()         
+                self._rate_limiter()
 
                 if (
                     isinstance(func, types.MethodType)
-                    and getattr(func, '__self__', None) is self.custom_session
+                    and getattr(func, "__self__", None) is self.custom_session
                 ):
                     method = func.__name__.upper()
                     logger.debug(f"Using session.request for HTTP method: {method}")
                     result = self.custom_session.request(method, *args, **kwargs)
                 else:
                     result = func(*args, **kwargs)
-                
-                # Handle HTTP responses
-                if hasattr(result, 'status_code'):
+
+                # Handle HTTP response objects.
+                if hasattr(result, "status_code"):
                     if result.status_code == 429:
+                        self._handle_rate_limit_exceeded()
+
+                        if attempt == max_retries:
+                            logger.warning(
+                                f"Rate limited on final attempt "
+                                f"{attempt}/{max_retries}; giving up."
+                            )
+                            return None
+
                         retry_after = self._get_retry_after(result, base_delay)
-                        logger.warning(f"Rate limited (attempt {attempt}/{max_retries}). Waiting {retry_after:.1f}s...")
+                        logger.warning(
+                            f"Rate limited (attempt {attempt}/{max_retries}). "
+                            f"Waiting {retry_after:.1f}s..."
+                        )
                         time.sleep(retry_after)
                         continue
+
                     result.raise_for_status()
-                
+
                 self._reset_rate_limit()
                 return result
 
-            except requests.HTTPError as e:
-                if not hasattr(e, 'response') or e.response is None:
-                    logger.warning(f"HTTPError without response: {e}")
-                    if attempt == max_retries:
-                        return None
-                    continue
-                
-                if e.response.status_code == 429:
-                    retry_after = self._get_retry_after(e.response, base_delay)
-                    logger.warning(f"Rate limited (HTTP 429, attempt {attempt}/{max_retries}). Waiting {retry_after:.1f}s...")
-                    time.sleep(retry_after)
-                    self._handle_rate_limit_exceeded()
-                    continue
-                    
-                if e.response.status_code == 404:
-                    logger.info(f"Resource not found (404): {args}")
-                    return None
-
-                if e.response.status_code in retryable_codes:
-                    logger.warning(f"Retryable error {e.response.status_code} (attempt {attempt}/{max_retries})")
-                else:
-                    logger.error(f"Non-retryable error {e.response.status_code}: {e}")
-                    return None
-
-            except HfHubHTTPError as e:
-                if getattr(e, 'status_code', None) == 429:
-                    retry_after = self._get_retry_after(e, base_delay)
-                    logger.warning(f"Hub rate limited (attempt {attempt}/{max_retries}). Waiting {retry_after:.1f}s...")
-                    time.sleep(retry_after)
-                    self._handle_rate_limit_exceeded()
-                    continue
-                logger.warning(f"HuggingFace Hub error: {str(e)}")
-                if attempt == max_retries:
-                    return None
-            
+            except LocalEntryNotFoundError as e:
+                logger.warning(
+                    f"Hub unavailable or file not cached "
+                    f"(attempt {attempt}/{max_retries}): {e}"
+                )
 
             except EntryNotFoundError:
                 logger.info(f"Resource not found (EntryNotFoundError): {args}")
                 return None
-            
-            except Exception as e:
-                logger.warning(f"Unexpected error on attempt {attempt}/{max_retries}: {str(e)}")
-                if attempt == max_retries:
+
+            except yaml.YAMLError:
+                raise
+
+            except HfHubHTTPError as e:
+                status_code = getattr(getattr(e, "response", None), "status_code", None)
+
+                if status_code == 404:
+                    logger.info(f"Resource not found (404): {args}")
                     return None
-            
-            # Exponential backoff with jitter
+
+                if status_code == 429:
+                    self._handle_rate_limit_exceeded()
+
+                    if attempt == max_retries:
+                        logger.warning(
+                            f"Hub rate limited on final attempt "
+                            f"{attempt}/{max_retries}; giving up."
+                        )
+                        return None
+
+                    retry_after = self._get_retry_after(e.response, base_delay)
+                    logger.warning(
+                        f"Hub rate limited (attempt {attempt}/{max_retries}). "
+                        f"Waiting {retry_after:.1f}s..."
+                    )
+                    time.sleep(retry_after)
+                    continue
+
+                if status_code not in retryable_codes:
+                    logger.error(
+                        f"Non-retryable Hugging Face Hub error "
+                        f"(status={status_code}): {e}"
+                    )
+                    return None
+
+                logger.warning(
+                    f"Retryable Hugging Face Hub error {status_code} "
+                    f"(attempt {attempt}/{max_retries})"
+                )
+
+            except requests.HTTPError as e:
+                response = getattr(e, "response", None)
+                status_code = getattr(response, "status_code", None)
+
+                if status_code == 404:
+                    logger.info(f"Resource not found (404): {args}")
+                    return None
+
+                if status_code == 429:
+                    self._handle_rate_limit_exceeded()
+
+                    if attempt == max_retries:
+                        logger.warning(
+                            f"HTTP 429 on final attempt "
+                            f"{attempt}/{max_retries}; giving up."
+                        )
+                        return None
+
+                    retry_after = self._get_retry_after(response, base_delay)
+                    logger.warning(
+                        f"Rate limited (HTTP 429, attempt {attempt}/{max_retries}). "
+                        f"Waiting {retry_after:.1f}s..."
+                    )
+                    time.sleep(retry_after)
+                    continue
+
+                if status_code not in retryable_codes:
+                    logger.error(
+                        f"Non-retryable HTTP error "
+                        f"(status={status_code}): {e}"
+                    )
+                    return None
+
+                logger.warning(
+                    f"Retryable HTTP error {status_code} "
+                    f"(attempt {attempt}/{max_retries})"
+                )
+
+            except TRANSIENT_ERRORS as e:
+                # Transient network failures can be retried.
+                logger.warning(
+                    f"Network error on attempt {attempt}/{max_retries}: {e}"
+                )
+
+            except Exception as e:
+                # Unexpected programming or parsing errors should not be retried.
+                logger.exception(
+                    f"Unexpected error on attempt {attempt}/{max_retries}: {e}"
+                )
+                return None
+
+            # Exponential backoff for retryable errors.
             if attempt < max_retries:
-                delay = base_delay * (backoff_factor ** (attempt - 1)) * random.uniform(0.8, 1.2)
-                logger.debug(f"Waiting {delay:.1f}s before retry...")
+                delay = (base_delay * (backoff_factor ** (attempt - 1)) * random.uniform(0.8, 1.2))
+                logger.info(
+                    f"Retrying in {delay:.1f}s "
+                    f"(attempt {attempt + 1}/{max_retries})"
+                )
                 time.sleep(delay)
-        
-        logger.error(f"Failed after {max_retries} attempts")
+
         return None
+
 
     def _get_retry_after(self, response_or_error, default: float = 2.0) -> float:
         """Extract Retry-After header with jitter and sanity checks."""
@@ -1106,8 +1201,14 @@ class HuggingfaceFetcher:
 
         pre_filtered = []
         try:
-            self._rate_limiter()
-            raw_items = list(fetch_func(**{**params, "limit": overfetch_limit}))
+            # raw_items = list(fetch_func(**{**params, "limit": overfetch_limit}))
+            raw_items = self._fetch_with_retry(
+                lambda: list(fetch_func(**{**params, "limit": overfetch_limit}))
+            )
+
+            if raw_items is None:
+                logger.warning(f"Initial {obj_type} listing failed after retries.")
+                return [], []
 
             if not raw_items:
                 logger.warning("Initial fetch returned empty results")
@@ -1133,12 +1234,7 @@ class HuggingfaceFetcher:
                     )
                     raw_items = []
         except Exception as e:
-            logger.error(f"Initial fetch failed: {str(e)}")
-
-            status_code = getattr(getattr(e, "response", None), "status_code", None)
-            if status_code == 429:
-                self._handle_rate_limit_exceeded()
-
+            logger.exception(f"Initial {obj_type} fetch failed: {e}")
             return [], []
 
         indexed_results: Dict[int, Dict] = {}
@@ -1975,6 +2071,40 @@ class HuggingfaceFetcher:
             meta["base_model"] = structured_tags["base_model"]
         return meta
     
+    def _load_card_content(self, repo_id: str, obj_type: str) -> str:
+        """
+        Return the complete README (including YAML front matter) of a model or
+        dataset, or "" if the repository has none.
+
+        Falls back to the raw README.md when the card's YAML front matter cannot
+        be parsed, so a broken metadata header does not cost the whole card.
+        """
+        CardClass = DatasetCard if obj_type == "dataset" else ModelCard
+        try:
+            card = self._fetch_with_retry(CardClass.load, repo_id, token=self.hf_token)
+            return self._extract_card_content(card) if card else ""
+        except yaml.YAMLError as e:
+            logger.warning(
+                f"YAML parse error in {CardClass.__name__} for {repo_id}: {e}. "
+                "Storing the raw README instead."
+            )
+        except Exception:
+            logger.exception(f"Unexpected error loading {CardClass.__name__} for {repo_id}")
+            return ""
+
+        try:
+            path = self._fetch_with_retry(
+                hf_hub_download,
+                repo_id=repo_id,
+                filename="README.md",
+                repo_type=obj_type,
+                token=self.hf_token,
+            )
+            return Path(path).read_text(encoding="utf-8") if path else ""
+        except Exception:
+            logger.exception(f"Could not read raw README.md for {repo_id}")
+            return ""
+
     def _extract_card_content(self, card, section: Optional[List[str]] = None, name: str = "") -> str:
         """
         Retrieve the full Markdown/text of a DatasetCard or ModelCard—and
@@ -2111,43 +2241,31 @@ class HuggingfaceFetcher:
                 if merged:
                     meta.update(merged)
        
-                # If description missing, try to load it from the README card
-                if not meta.get("description"):
-                    if obj_type == "dataset" and croissant_meta:
-                        croi_desp = croissant_meta.get("description")
-                        if croi_desp:
-                            meta["description"] = self._clean_description(croi_desp.strip())
-                    
-                    if not meta.get("description"): 
-                        # Pick the right Card loader + section titles for description
-                        CardClass = DatasetCard if obj_type == "dataset" else ModelCard
-                        section_titles = (
-                            ["Dataset description", "Dataset summary", "Description", "Introduction"]
-                            if obj_type == "dataset"
-                            else ["Model description", "Model summary", "Description", "Introduction"]
-                        )
+                # If description is missing, try Croissant metadata first (datasets only).
+                if not meta.get("description") and obj_type == "dataset" and croissant_meta:
+                    croi_desp = croissant_meta.get("description")
+                    if croi_desp:
+                        meta["description"] = self._clean_description(croi_desp.strip())
 
-                        # Load DatasetCard (repo README.md) (if any)
-                        try:
-                            self._rate_limiter()
-                            card = self._fetch_with_retry(CardClass.load, info_obj.id)
-                            if card:
-                                md = card.content or card.text or ""
-                                description = self._extract_markdown_section(md, section_titles)
-                                if description:
-                                    meta["description"] = self._clean_description(description)
-                        
-                                # meta["card_content"] = self._extract_card_content(card)    
-                        except yaml.YAMLError as e:
-                            logger.warning(f"YAML parse error in card for {info_obj.id}: {e}. Skipping YAML front-matter.")  
-                        except HfHubHTTPError as e:
-                            if e.status_code == 404:
-                                logger.warning(f"No {CardClass.__name__} for {info_obj.id}")
-                            else:
-                                logger.exception(f"Error loading {CardClass.__name__} for {info_obj.id}")
-                        except Exception:
-                            logger.exception(f"Unexpected error loading {CardClass.__name__} for {info_obj.id}")
-                
+                # Load the README if the full card is wanted, or as a description fallback.
+                needs_description = not meta.get("description")
+                if self.config.include_card_content or needs_description:
+                    card_content = self._load_card_content(info_obj.id, obj_type)
+                    if card_content.strip():
+                        if self.config.include_card_content:
+                            # The complete original README, including YAML front matter.
+                            meta["card_content"] = card_content
+
+                        if needs_description:
+                            section_titles = (
+                                ["Dataset description", "Dataset summary", "Description", "Introduction"]
+                                if obj_type == "dataset"
+                                else ["Model description", "Model summary", "Description", "Introduction"]
+                            )
+                            description = self._extract_markdown_section(card_content, section_titles)
+                            if description:
+                                meta["description"] = self._clean_description(description)
+
             # Extra processing of metada results:
             # 1. Remove language codes from tag if present in language list
             if "language" in meta and isinstance(meta["language"], list) and "tags" in meta:
@@ -2201,7 +2319,6 @@ class HuggingfaceFetcher:
 
             full_metadata = {}
             # Fetch DatasetInfo
-            self._rate_limiter()
             ds_info = self._fetch_with_retry(self.api.dataset_info, repo_id=dataset_name, files_metadata=True,timeout=self.timeout)  
             if not isinstance(ds_info, DatasetInfo):
                 msg = f"Failed to fetch dataset {dataset_name}: received no valid DatasetInfo (got {type(ds_info)})"
@@ -2250,7 +2367,6 @@ class HuggingfaceFetcher:
         """
         try:
             # Fetch ModelInfo
-            self._rate_limiter()
             model_info = self._fetch_with_retry(self.api.model_info, repo_id=model_name, files_metadata=True, timeout=self.timeout)
             if not isinstance(model_info, ModelInfo):
                 msg = f"Failed to fetch model {model_name}: received no valid ModelInfo (got {type(model_info)})"

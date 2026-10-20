@@ -96,6 +96,21 @@ poetry install
 ```bash
 eval $(poetry env activate)
 ```
+### Install the Argos translation model
+
+Argos Translate is the default provider for English-to-German metadata translation. The Python package is installed through Poetry, but the
+translation model must be installed separately:
+
+```bash
+poetry run python scripts/install_argos_model.py
+```
+
+The script skips installation if the model is already installed and verifies newly installed models with a short test translation. Use `--from` and `--to` to install a different language pair (default: `en` → `de`). The hf2dcat pipeline currently supports English-to-German translation only.
+
+An internet connection is required for the initial model download. Once installed, Argos Translate runs locally without an internet connection.
+
+This step is required when translation is enabled (the default). Without the model, the pipeline stops at startup with
+`No installed Argos translation model for en->de`.
 
 # Usage
 ## General help

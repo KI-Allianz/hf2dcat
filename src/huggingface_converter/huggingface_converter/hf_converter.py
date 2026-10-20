@@ -46,13 +46,23 @@ class HFToDCATConverter:
         default_format: OutputFormat = OutputFormat.TURTLE,
         enable_translation: bool = True,
         validate_flag: bool = True, 
-        add_public_keyword: bool = False
+        add_public_keyword: bool = False,
+        translation_cache_path: Optional[Union[str, Path]] = None
     ):
         self.base_uri = base_uri.rstrip("/") + "/"
         self.profile = profile
         self.vocab_manager = VocabularyManager(profile)
         self.enable_translation = enable_translation
-        self.translator = TranslationManager(self.enable_translation) 
+        # self.translator = TranslationManager(
+        #     self.enable_translation,
+        #     requests_per_second=0.5, 
+        #     cache_path=translation_cache_path,
+        # )
+        self.translator = TranslationManager(
+            self.enable_translation,
+            provider="argos",
+            cache_path=translation_cache_path
+        )
         self.default_format = default_format
   
         self.iso639_3_name_index = self._load_iso639_3_name_index(BASE_DIR.parent / "language_code_table" /"iso-639-3_Name_Index.tab")
@@ -76,8 +86,8 @@ class HFToDCATConverter:
 
         # self.HAS_IMPLEMENTATION = URIRef(f"{self.base_uri}def/hasImplementation")
         # self.HAS_PROCESSOR = URIRef(f"{self.base_uri}def/hasProcessor")
-        # self.HAS_MODEL_TYPE = URIRef(f"{self.base_uri}def/hasModelType")
-        # self.HAS_EXECUTION_TASK = URIRef(f"{self.base_uri}def/hasExecutionTask")
+        self.HAS_MODEL_TYPE = URIRef(f"{self.base_uri}def/hasModelType")
+        self.HAS_EXECUTION_TASK = URIRef(f"{self.base_uri}def/hasExecutionTask")
       
         self.PYTHON_MODULE = URIRef(f"{self.base_uri}def/pythonModule")
         self.PYTHON_CLASS = URIRef(f"{self.base_uri}def/pythonClass")
@@ -414,7 +424,7 @@ class HFToDCATConverter:
         )
 
         add_property(
-            self.PYTHON_CLASS,
+            self.PYTHON_CLASS, 
             "python class",
             "Specifies the Python class used to load or execute a model implementation (e.g., AutoModel or custom classes) derived from Hugging Face metadata.",
             "Python-Klasse",
@@ -1422,16 +1432,11 @@ class HFToDCATConverter:
                     labels_dict = {"en": label_en}
 
                     if self.translator.enabled:
-                        try:
-                            label_de = self.translator.translate_text(label_en)
-                            if label_de:
-                                labels_dict["de"] = label_de
-                            else:
-                                # Fallback to English
-                                labels_dict["de"] = label_en
-                        except TranslationError:
+                        label_de = self.translator.translate_or_none(label_en)
+                        if label_de and label_de.strip().lower() != label_en.strip().lower():
+                            labels_dict["de"] = label_de
+                        else:
                             logger.info(f"No German translation for '{label_en}'. Using English only.")
-                            labels_dict["de"] = label_en
 
                 # Add labels in multiple languages
                 for label_lang, label_text in labels_dict.items():
@@ -2956,7 +2961,6 @@ class HFToDCATConverter:
                 else:
                     raise RuntimeError(error_msg)
             
-            
             # Remove the code that adds standalone vocabulary definitions to catalog RDF.
             # if self._needs_ml_classes(merged_graph):
             #     self._init_ml_classes(merged_graph)
@@ -3330,7 +3334,7 @@ def run_converter(
                     fmt_list.append(fmt if isinstance(fmt, OutputFormat) else OutputFormat[fmt])
             else:
                 fmt_list = [OutputFormat.RDFXML, OutputFormat.TURTLE]
-
+            
             converter = HFToDCATConverter(
                 base_uri=base_uri,
                 profile=profile,
