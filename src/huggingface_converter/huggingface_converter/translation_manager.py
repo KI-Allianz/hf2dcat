@@ -25,18 +25,27 @@ from deep_translator.exceptions import (
 
 logging.basicConfig(
     level=logging.INFO,
-    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
 )
 logger = logging.getLogger(__name__)
+
+class _DropStanzaMwtNotice(logging.Filter):
+    """Stanza notes that it added the mwt processor Argos did not request; harmless."""
+
+    def filter(self, record: logging.LogRecord) -> bool:
+        return "expects mwt, which has been added" not in record.getMessage()
+
+
+logging.getLogger("stanza").addFilter(_DropStanzaMwtNotice())
 
 
 # Google's web endpoint rejects payloads of 5,000 characters or more.
 GOOGLE_MAX_CHARS = 5000
 DEFAULT_CHUNK_CHARS = 4500
 
-# Product and organization names that should remain unchanged 
+# Product and organization names that should remain unchanged
 DEFAULT_PROTECTED_TERMS = (
-    "Hugging Face", 
+    "Hugging Face",
     "GitHub"
 )
 

@@ -102,7 +102,7 @@ Argos Translate is the default provider for English-to-German metadata translati
 translation model must be installed separately:
 
 ```bash
-poetry run python scripts/install_argos_model.py
+python scripts/install_argos_model.py
 ```
 
 The script skips installation if the model is already installed and verifies newly installed models with a short test translation. Use `--from` and `--to` to install a different language pair (default: `en` → `de`). The hf2dcat pipeline currently supports English-to-German translation only.
