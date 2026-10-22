@@ -813,54 +813,91 @@ class HFToDCATConverter:
         #     if de_title:
         #         g.add((subject, DCTERMS.title, Literal(de_title, lang="de")))
 
-        # Add 'description' if available; if not, and 'readme_url' exists, point to the repository's README as the description.
-        if not metadata.get("description"):
+        # Models: prefer the complete model card (README), even if the HF API
+        # already provides a description. Datasets retain API-first behavior.
+        raw_description = metadata.get("description")
+        description = ""
+        if isinstance(raw_description, str) and raw_description.strip():
+            description = target_clean_description(
+                remove_invalid_xml_chars(raw_description), resource_id
+            )
+
+        generic_prefix = "See repository README for detailed guidance:"
+        needs_fallback = (
+            not description
+            or description.strip().lower() in {
+                "more information needed", "no description available."
+            }
+            or description.startswith(generic_prefix)
+        )
+        is_full_card = False
+        if resource_type == "model" or needs_fallback:
+            card_content = metadata.get("card_content")
+            if isinstance(card_content, str) and card_content.strip():
+                # Strip YAML metadata front matter, retain the entire Markdown
+                # body (headings, tables, links, lists, etc.).
+                card_body = re.sub(
+                    r"\A\ufeff?---[ \t]*\r?\n.*?\r?\n(?:---|\.\.\.)[ \t]*(?:\r?\n|\Z)",
+                    "", card_content, count=1, flags=re.DOTALL
+                ).strip()
+                if card_body:
+                    description = remove_invalid_xml_chars(card_body)
+                    is_full_card = True
+
+        # Missing model cards fall back to the HF API description. If neither
+        # source is usable, use the existing README URL / placeholder fallback.
+        if not is_full_card and needs_fallback:
             readme_url = metadata.get("readme_url")
-            if readme_url:
-                metadata["description"] = (
-                    f"See repository README for detailed guidance: {readme_url}"
+            description = (
+                f"{generic_prefix} {readme_url}"
+                if readme_url else "No description available."
+            )
+
+        g.add((subject, DCTERMS.description, Literal(description, lang="en")))
+
+        if self.translator.enabled:
+            if description.startswith(generic_prefix):
+                readme_url = description[len(generic_prefix):].strip()
+                de_description = f"Siehe Repository-README für ausführliche Hinweise: {readme_url}"
+            elif description == "No description available.":
+                de_description = "Keine Beschreibung verfügbar."
+            elif is_full_card:
+                # Full cards can be large. Never publish a partial translation
+                # as if it were a complete German description.
+                translate_md = getattr(self.translator, "translate_markdown", None)
+                de_description = (
+                    translate_md(description) if callable(translate_md) else None
                 )
             else:
-                metadata["description"] = "No description available."
+                de_description = self.translator.translate_text(description)
 
-        description = remove_invalid_xml_chars(metadata.get("description"))
-        if isinstance(description, str):
-            description = target_clean_description(description, resource_id)
-            if description == "More information needed":
-                if readme_url:= metadata.get("readme_url"):
-                    description =  f"See repository README for detailed guidance: {readme_url}"
-                else:
-                    description = f"No description available."
-            g.add((subject, DCTERMS.description, Literal(description, lang="en")))
-            if self.translator.enabled:
-                if description.startswith("See repository README for detailed guidance:"):
-                    readme_url = description.split(":", 1)[-1].strip()
-                    de_description = f"Siehe Repository-README für ausführliche Hinweise: {readme_url}"
-                else:
-                    de_description = self.translator.translate_text(description)
-
-                if isinstance(de_description, str):
-                    de_desc_stripped = de_description.strip()
-                    desc_stripped = description.strip()
-                    if (
-                        de_desc_stripped
-                        and de_desc_stripped.lower() != desc_stripped.lower()
-                    ):
-                        if de_desc_stripped.startswith((
-                            "Eine detaillierte Anleitung finden Sie auf Repository Readme:",
-                            "Siehe Repository-README für ausführliche Hinweise:"
-                        )):
-                            de_description_final = de_desc_stripped
-                        elif desc_stripped == "No description available.":
-                            de_description_final = "Keine Beschreibung verfügbar."
+            if isinstance(de_description, str):
+                de_desc_stripped = de_description.strip()
+                if (
+                    de_desc_stripped
+                    and de_desc_stripped.lower() != description.strip().lower()
+                ):
+                    if description.startswith(generic_prefix) or description == "No description available.":
+                        de_description_final = de_desc_stripped
+                    else:
+                        if is_full_card:
+                            source = (
+                                "der englischen Datensatzkarte (README)"
+                                if resource_type == "dataset"
+                                else "der englischen Modellkarte (README)"
+                            )
                         else:
-                            TRANSLATION_NOTE = (
-                                f"[Hinweis: Diese deutsche Beschreibung wurde maschinell aus der "
-                                f"englischen Originalbeschreibung des "
-                                f"{'Datensatzes' if resource_type == 'dataset' else 'Modells'} "
-                                f"auf Hugging Face übersetzt.]")
-                            de_description_final = f"{TRANSLATION_NOTE}\n\n{de_desc_stripped}"
-                        g.add((subject, DCTERMS.description, Literal(de_description_final, lang="de")))
+                            source = (
+                                "der englischen Originalbeschreibung des Datensatzes"
+                                if resource_type == "dataset"
+                                else "der englischen Originalbeschreibung des Modells"
+                            )
+                        translation_note = (
+                            "[Hinweis: Diese deutsche Beschreibung wurde maschinell "
+                            f"aus {source} auf Hugging Face übersetzt.]"
+                        )
+                        de_description_final = f"{translation_note}\n\n{de_desc_stripped}"
+                    g.add((subject, DCTERMS.description, Literal(de_description_final, lang="de")))
 
         # Add tags as keyword
         tags = set(as_array(metadata.get("tags", [])))

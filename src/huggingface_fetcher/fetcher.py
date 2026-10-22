@@ -77,7 +77,7 @@ class FetcherConfig:
     enable_progress: bool = True
     # True: always load the README and store it in meta["card_content"].
     # False: load the README only when a description is missing (one request fewer per item).
-    include_card_content: bool = False
+    include_card_content: bool = True
 
     cache_dir: str = ".hf_cache"
     cache_version: str = "v1"
@@ -2251,6 +2251,9 @@ class HuggingfaceFetcher:
                 needs_description = not meta.get("description")
                 if self.config.include_card_content or needs_description:
                     card_content = self._load_card_content(info_obj.id, obj_type)
+                    if not card_content.strip():
+                        logger.warning(f"No README content available for {info_obj.id} ({obj_type})")
+
                     if card_content.strip():
                         if self.config.include_card_content:
                             # The complete original README, including YAML front matter.
