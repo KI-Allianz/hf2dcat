@@ -36,6 +36,37 @@ ML_TASK_TYPES_TTL = BASE_DIR.parent / "mlso_ttl" / "mlso_ml_task_types_v2.ttl"
 ML_ALGORITHMS_TTL = BASE_DIR.parent / "mlso_ttl" / "mlso_ml_algorithms.ttl"
 ML_FIELD_TTL = BASE_DIR.parent / "mlso_ttl" / "mlso_ml_fields.ttl"
 
+# Valid Hugging Face repository ID: namespace/repository
+HF_REPO_ID_RE = re.compile(
+    r"[A-Za-z0-9][A-Za-z0-9_.-]*/[A-Za-z0-9][A-Za-z0-9_.-]*"
+)
+
+# Recognize Hugging Face repository URLs
+HF_REPO_URL_RE = re.compile(
+    r"^(?:https?://)?(?:www\.)?(?:huggingface\.co|hf\.co)/([^?#]+)",
+    flags=re.IGNORECASE
+)
+
+# Detect URLs embedded in tagged identifiers
+HF_URL_IN_TAG_RE = re.compile(
+    r"https?://",
+    flags=re.IGNORECASE
+)
+
+# Hugging Face website paths that are not model repositories
+HF_NON_MODEL_SEGMENTS = {
+    "datasets",
+    "spaces",
+    "models",
+    "docs",
+    "collections",
+    "papers"
+}
+
+HF_DATASET_URL_RE = re.compile(
+    r"^(?:https?://)?(?:www\.)?(?:huggingface\.co|hf\.co)/datasets/([^?#]+)",
+    flags=re.IGNORECASE,
+)
 
 class HFToDCATConverter:
 
@@ -2470,12 +2501,7 @@ class HFToDCATConverter:
 
         for dist in metadata.get("distributions", []):
              self._add_model_distribution(g, subject, dist, resource_id, metadata, hf_format_uri, license_uri)
-        
-        # # Link used datasets
-        # used_datasets = as_array(metadata.get("datasets"))
-        # if used_datasets:
-        #     self._link_used_datasets(g, subject, resource_id, used_datasets)
-        
+                
         # Link base model
         base_models = as_array(metadata.get("base_model"))
         if base_models:
@@ -2706,128 +2732,123 @@ class HFToDCATConverter:
         except (ValueError, TypeError):
             logger.warning(f"Invalid byte size: {size}")
 
-    def _link_used_datasets(self, g: Graph, subject: URIRef, resource_id: str, dataset_ids: List[str]) -> None:
-        """Link model to datasets it uses via it6:trainedOn
-        """
-        dataset_uris: list[URIRef] = []
+    def _link_used_datasets(self, g: Graph, subject: URIRef, resource_id: str, dataset_ids: List[str]) -> List[URIRef]:
+        """ Link a model to its training datasets using it6:trainedOn. """
 
+        # Accept a single dataset ID as well as a list.
         if isinstance(dataset_ids, str):
-            logger.exception("dataset_ids is a str rather than a list")
+            dataset_ids = [dataset_ids]
+
+        dataset_uris: List[URIRef] = []
+
         for dataset_id in dataset_ids:
             if not isinstance(dataset_id, str):
                 continue
 
             dataset_id = dataset_id.strip()
-            safe_id = quote(dataset_id, safe="/-_.~")
-
-            # Check if dataset_id includes user/repo structure
-            if '/' not in dataset_id:
-                # Fallback: use Hugging Face search URL
-                hf_url = f"https://huggingface.co/datasets?search={quote(dataset_id)}"
-                hash_suffix = hashlib.sha1(dataset_id.encode("utf-8")).hexdigest()[:8]
-                dataset_uri = URIRef(f"{self.base_uri}data/hf_dataset/{safe_id}--{hash_suffix.lower()}")
-                incomplete_id = True
-            else:
-                hf_url = f"https://huggingface.co/datasets/{safe_id}"
-                dataset_uri = URIRef(f"{self.base_uri}data/hf_dataset/{safe_id}")
-                incomplete_id = False
-
-            # Add datasets as training datasets
-            # g.add((subject, PROV.used, dataset_uri))  
-            dataset_uris.append(dataset_uri)
-
-            g.add((subject, IT6.trainedOn, dataset_uri))
-            # g.add((dataset_uri, RDF.type, MLS.Dataset))
-            # g.add((dataset_uri, RDF.type, DCAT.Dataset))
-              
-            g.add((dataset_uri, DCTERMS.title, Literal(dataset_id, lang="en")))
-            if self.enable_translation: 
-                g.add((dataset_uri, DCTERMS.title, Literal(dataset_id, lang="de")))
-  
-            # Description with fallback warning if necessary
-            if incomplete_id:
-                desc_en = (
-                    f"The dataset '{dataset_id}' was used in training the model '{resource_id}."                   
-                    f"The identifier '{dataset_id}' may be incomplete."
-                )
-                desc_de = (
-                    f"Der Datensatz '{dataset_id}' wurde beim Training des Modells '{resource_id}' verwendet."
-                    f"Die ID '{dataset_id}' ist möglicherweise unvollständig. "
-           
-                )
-            else:
-                desc_en = f"The '{dataset_id}' dataset was used in training the model '{resource_id}'."
-                desc_de = f"Der Datensatz '{dataset_id}' wurde beim Training des Modells '{resource_id}' verwendet."
-                
-                g.add((dataset_uri, SKOS.exactMatch, URIRef(hf_url)))    
-
-            g.add((dataset_uri, DCTERMS.description, Literal(desc_en, lang="en")))
-            if self.enable_translation: 
-                g.add((dataset_uri, DCTERMS.description, Literal(desc_de, lang="de")))
-        
-        return dataset_uris
-    
-    def _link_base_models(self, g: Graph, subject: URIRef, resource_id: str, base_models: List[Dict[str, Any]]) -> None:
-        """
-        Link a model to its base models using prov:wasDerivedFrom and dct:references.
-        """
-        for model in base_models:
-            if not isinstance(model, Dict):
+            if not dataset_id:
                 continue
+
+            # Handle tagged identifiers.
+            # e.g. dataset:rajpurkar/squad dataset:https://huggingface.co/datasets/rajpurkar/squad
+            if ":" in dataset_id:
+                url_match = HF_URL_IN_TAG_RE.search(dataset_id)
+
+                if url_match:
+                    dataset_id = dataset_id[url_match.start():]
+                else:
+                    dataset_id = dataset_id.split(":")[-1].strip()
+
+            # Extract repository ID from a Hugging Face dataset URL.
+            m = HF_DATASET_URL_RE.match(dataset_id)
+
+            if m:
+                segments = m.group(1).strip("/").split("/")
+
+                # Keep only namespace/repository.
+                dataset_id = "/".join(segments[:2])
+
+            # Normalize repository ID.
+            dataset_id = dataset_id.strip("/")
+
+            # Validate repository ID.
+            if not HF_REPO_ID_RE.fullmatch(dataset_id):
+                logger.debug(
+                    f"Skipping training dataset '{dataset_id}' "
+                    f"for model '{resource_id}': "
+                    "not a complete HF dataset repository ID"
+                )
+                continue
+
+            # Construct the Hugging Face dataset URL.
+            dataset_uri = URIRef(
+                f"https://huggingface.co/datasets/"
+                f"{quote(dataset_id, safe='/-_.~')}"
+            )
+
+            # Add the training dataset relationship.
+            g.add((subject, IT6.trainedOn, dataset_uri))
+
+            if dataset_uri not in dataset_uris:
+                dataset_uris.append(dataset_uri)
+
+        return dataset_uris
+  
+    def _link_base_models(self, g: Graph, subject: URIRef, resource_id: str, base_models: List[Dict[str, Any]]) -> None:
+        """ Link a model to its base models using prov:wasDerivedFrom. """
+        for model in base_models:
+            if not isinstance(model, dict):
+                continue
+
             model_id = (model.get("name") or "").strip()
-            model_type = (model.get("type") or "").strip()
+
             if not model_id:
-                continue 
+                continue
+
+            # Handle tagged identifiers 
+            # e.g. base_model:quantized:Qwen/Qwen3.8-27B base_model:quantized:https://huggingface.co/Qwen/Qwen3.8-27B
             if ":" in model_id:
-                model_id = split(":")[-1]
+                url_match = HF_URL_IN_TAG_RE.search(model_id)
 
-            safe_id = quote(model_id, safe="/-_.~")
+                if url_match:
+                    model_id = model_id[url_match.start():]
+                else:
+                    model_id = model_id.split(":")[-1].strip()
 
-            # Construct URL for the base model
-            if '/' not in model_id:
-                hf_url = f"https://huggingface.co/models?search={quote(model_id)}"      
-                hash_suffix = hashlib.sha1(model_id.encode("utf-8")).hexdigest()[:8]
-                model_uri = URIRef(f"{self.base_uri}data/hf_model/{safe_id}--{hash_suffix.lower()}")
-                incomplete_id = True
-            else:
-                hf_url = f"https://huggingface.co/{model_id}"
-                model_uri =  URIRef(f"{self.base_uri}data/hf_model/{safe_id}")
-                incomplete_id = False
-            
-            # Add base model provenance 
+            # Extract repository ID from a Hugging Face URL
+            m = HF_REPO_URL_RE.match(model_id)
+
+            if m:
+                segments = m.group(1).strip("/").split("/")
+
+                # Reject dataset, Space, and other non-model URLs
+                if segments[0].lower() in HF_NON_MODEL_SEGMENTS:
+                    logger.info(
+                        f"Skipping base model '{model_id}' for '{resource_id}': "
+                        "not a model URL"
+                    )
+                    continue
+
+                # Keep only namespace/repository
+                model_id = "/".join(segments[:2])
+
+            # Normalize repository ID
+            model_id = model_id.strip("/")
+
+            # Validate repository ID
+            if not HF_REPO_ID_RE.fullmatch(model_id):
+                logger.debug(
+                    f"Skipping base model '{model_id}' for '{resource_id}': "
+                    "not a complete HF repository ID"
+                )
+                continue
+
+            # Construct canonical Hugging Face URL
+            model_uri = URIRef(f"https://huggingface.co/{quote(model_id, safe='/-_.~')}")
+
+            # Add provenance relationship only
             g.add((subject, PROV.wasDerivedFrom, model_uri))
-
-            g.add((model_uri, DCTERMS.title, Literal(model_id, lang="en")))
-            if self.enable_translation:
-                g.add((model_uri, DCTERMS.title, Literal(model_id, lang="de")))
-
-            # Description
-            if incomplete_id:
-                desc_en = (
-                    f"This model '{model_id}' served as the base for developing the model '{resource_id}'"
-                    f"{f' ({model_type})' if model_type and model_type.lower() != 'base' else ''}."
-                    f"The identifier '{model_id}' may be incomplete."
-                )
-
-                desc_de = (
-                    f"Dieses Modell '{model_id}' diente als Basismodell für die Entwicklung des Modells '{resource_id}'"
-                    f"{f' ({model_type})' if model_type and model_type.lower() != 'base' else ''}. "
-                    f"Die ID '{model_id}' ist möglicherweise unvollständig."
-                )
-            else:
-                desc_en = (
-                    f"This model '{model_id}' served as the base for developing the model '{resource_id}'"
-                    f"{f' ({model_type})' if model_type and model_type.lower() != 'base' else ''}."
-                )
-                desc_de = (
-                    f"Dieses Modell '{model_id}' diente als Basismodell für die Entwicklung des Modells '{resource_id}'"
-                    f"{f' ({model_type})' if model_type and model_type.lower() != 'base' else ''}. "
-                )
-
-            g.add((model_uri, DCTERMS.description, Literal(desc_en, lang="en")))
-            if self.enable_translation:
-                g.add((model_uri, DCTERMS.description, Literal(desc_de, lang="de")))
-
+    
     def _validate_graph(self, g: Graph)-> bool:
         validator = SHACLValidator()
         profile_map = {
